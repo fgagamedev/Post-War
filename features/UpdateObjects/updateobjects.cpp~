@@ -1,7 +1,7 @@
 #include <iostream>
 
 
-void render_World(){
+int main(){
 
 
 }
