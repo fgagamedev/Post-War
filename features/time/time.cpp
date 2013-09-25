@@ -1,1 +1,5 @@
-sdaçlksda
+#include <iostream>
+
+void Time(){
+
+}
