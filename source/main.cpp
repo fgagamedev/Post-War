@@ -1,3 +1,4 @@
+#include <SDL/SDL.h>
 #include<iostream>
 
 using namespace std;
@@ -15,11 +16,5 @@ int main(){
         render_World();
         misc_Tasks();
     }
-
-
-
-
-
-
-
+    return 0;
 }
