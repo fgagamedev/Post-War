@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o main.o
 COLL=features/Collision/collision.cpp
 INP=features/Input/input.cpp
 MISC=features/MiscTasks/misktasks.cpp

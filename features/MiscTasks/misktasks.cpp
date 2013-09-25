@@ -1,6 +1,6 @@
 #include <iostream>
 
 
-void miks_Tasks(){
+void misc_Tasks(){
 
 }
