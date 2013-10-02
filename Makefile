@@ -8,10 +8,11 @@ SIMU=features/SimulatedWorld/simulated.cpp
 UPOBJ=features/UpdateObjects/updateobjects.cpp
 UPTIME=features/UpdateTime/update_time.cpp
 MAIN=source/main.cpp
-CFLAGS=-W -Wall -pedantic -ansi -lm -I -lSDL.
+CFLAGS= -lSDL -Wall -W -pedantic -ansi -lm -I.
+
 all: prog
 prog: $(OBJ)
-	g++ -o prog $(OBJ) -lSDL
+	g++ -o prog $(OBJ) $(CFLAGS)
 collision.o: $(COLL)
 	g++ -c $(COLL)
 input.o: $(INP)
@@ -27,9 +28,9 @@ updateobjects.o: $(UPOBJ)
 update_time.o: $(UPTIME)
 	g++ -c $(UPTIME)
 renderworld.o: $(RENDER)
-	g++ -c $(RENDER) -lSDL
+	g++ -c $(RENDER)
 main.o: $(MAIN)
-	g++ -c $(MAIN) -lSDL
+	g++ -c $(MAIN)
 clean:
-	rm -rf *.o
+	rm -rf *.o *~ prog
 
