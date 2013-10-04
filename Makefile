@@ -1,12 +1,12 @@
 OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o main.o
-COLL=features/Collision/collision.cpp
-INP=features/Input/input.cpp
-MISC=features/MiscTasks/misktasks.cpp
-NET=features/Network/network.cpp
-RENDER=features/RenderWorld/renderworld.cpp
-SIMU=features/SimulatedWorld/simulated.cpp
-UPOBJ=features/UpdateObjects/updateobjects.cpp
-UPTIME=features/UpdateTime/update_time.cpp
+COLL=source/features/Collision/collision.cpp
+INP=source/features/Input/input.cpp
+MISC=source/features/MiscTasks/misktasks.cpp
+NET=source/features/Network/network.cpp
+RENDER=source/features/RenderWorld/renderworld.cpp
+SIMU=source/features/SimulatedWorld/simulated.cpp
+UPOBJ=source/features/UpdateObjects/updateobjects.cpp
+UPTIME=source/features/UpdateTime/update_time.cpp
 MAIN=source/main.cpp
 CFLAGS= -lSDL -Wall -W -pedantic -ansi -lm -I.
 
