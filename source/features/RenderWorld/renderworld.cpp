@@ -1,13 +1,24 @@
-#include <SDL/SDL.h>
+// Autor: Edson Alves
+// Data: 26/12/2012
+// e-mail: edsonalves@unb.br
 #include <iostream>
+#include <SDL/SDL.h>
+
+#include "draw.h"
+#include "video.h"
+
+using namespace std;
 
 void render_World(){
-    SDL_Surface *tela;
-    SDL_Init(SDL_INIT_VIDEO|SDL_INIT_TIMER);
 
-    tela = SDL_SetVideoMode(640, 480, 16, SDL_DOUBLEBUF);
+	init_sdl();
+	setup_window();
+	SDL_Surface *screen = setup_video();
+	draw(screen);
 
-    SDL_Delay(3000);
+	SDL_Delay(3000);
+
 }
+
 
 
