@@ -69,7 +69,7 @@ void putPixel(SDL_Surface *surface, int x, int y, Uint32 pixel)
     }
 }
 
-void draw(SDL_Surface *screen)
+void drawYouLose(SDL_Surface *screen)
 {
 	drawBackground(screen);
 	//drawBoard(screen);
@@ -81,6 +81,19 @@ void draw(SDL_Surface *screen)
 	drawS(screen);
 	drawE(screen);
 
+	SDL_UpdateRect(screen, 0, 0, 0, 0);
+}
+
+void drawYouWin(SDL_Surface *screen)
+{
+	drawBackground(screen);
+	//drawBoard(screen);
+	drawY(screen);
+	drawO(screen);
+	drawU(screen);
+    drawW(screen);
+    drawI(screen);
+    drawN(screen);
 	SDL_UpdateRect(screen, 0, 0, 0, 0);
 }
 
@@ -235,9 +248,44 @@ void drawE(SDL_Surface *screen){
 
     }
 
+}
+
+void drawW(SDL_Surface *screen)
+{
+    SDL_Color red;
+	red.g = red.b = 0;
+	red.r = 255;
+    for(int i = 0; i < 35; i++){
+        drawLine(screen, 550 + i, 17, 550 + i, 197, red);
+        drawLine(screen, 685 + i, 17, 685 + i, 197, red);
+        drawLine(screen, 620 + i, 107, 675 + i, 197, red);
+        drawLine(screen, 550 + i, 197, 620 + i, 107, red);
+
+    }
 
 }
 
+void drawI(SDL_Surface *screen)
+{
+	SDL_Color red;
+	red.b = red.g = 0;
+	red.r = 255;
+    for(int i = 0; i < 35; i++){
+        drawLine(screen, 725 + i, 17, 725 + i, 197, red);
+	}
+}
+
+void drawN(SDL_Surface *screen)
+{
+    SDL_Color red;
+	red.b = red.g = 0;
+	red.r = 255;
+    for(int i = 0; i < 35; i++){
+        drawLine(screen, 765 + i, 17, 765 + i, 197, red);
+        drawLine(screen, 855 + i, 17, 855 + i, 197, red);
+        drawLine(screen, 765 + i, 17, 855 + i, 197, red);
+	}
+}
 
 void fillPoints(SDL_Surface *screen, int cx, int cy, int x, int y, Uint32 color)
 {

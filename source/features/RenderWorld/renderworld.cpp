@@ -14,8 +14,9 @@ void render_World(){
 	init_sdl();
 	setup_window();
 	SDL_Surface *screen = setup_video();
-	draw(screen);
-
+	drawYouWin(screen);
+	SDL_Delay(3000);
+	drawYouLose(screen);
 	SDL_Delay(3000);
 
 }

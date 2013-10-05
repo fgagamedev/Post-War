@@ -14,7 +14,8 @@ extern void drawCircle(SDL_Surface *screen, int radius, int x, int y,
 extern void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1,
 	SDL_Color color);
 
-extern void draw(SDL_Surface *screen);
+extern void drawYouLose(SDL_Surface *screen);
+extern void drawYouWin(SDL_Surface *screen);
 extern void drawBackground(SDL_Surface *screen);
 extern void drawBoard(SDL_Surface *screen);
 extern void drawY(SDL_Surface *screen);
@@ -24,4 +25,7 @@ extern void drawL(SDL_Surface *screen);
 extern void drawO2(SDL_Surface *screen);
 extern void drawS(SDL_Surface *screen);
 extern void drawE(SDL_Surface *screen);
+extern void drawW(SDL_Surface *screen);
+extern void drawI(SDL_Surface *screen);
+extern void drawN(SDL_Surface *screen);
 #endif
