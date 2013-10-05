@@ -76,6 +76,10 @@ void draw(SDL_Surface *screen)
 	drawY(screen);
 	drawO(screen);
 	drawU(screen);
+	drawL(screen);
+	drawO2(screen);
+	drawS(screen);
+	drawE(screen);
 
 	SDL_UpdateRect(screen, 0, 0, 0, 0);
 }
@@ -171,12 +175,53 @@ void drawU(SDL_Surface *screen){
     for(int i=0 ;i<30; i++){
         drawLine(screen,421+i,120,421+i,40,blue);
     }
-
-
-
-
 }
 
+void drawL(SDL_Surface *screen){
+
+    SDL_Color blue;
+    blue.r = blue.g = 0;
+    blue.b = 255;
+
+    for(int i=0; i<30; i++){
+
+        drawLine(screen,510+i,40,510+i,180,blue);
+        drawLine(screen,540,150+i,610,150+i,blue);
+
+    }
+}
+
+void drawO2(SDL_Surface *screen){
+
+	SDL_Color blue;
+	blue.g = blue.r = 0;
+	blue.b = 255;
+	SDL_Color white;
+	white.r = white.g = white.b = 255;
+
+	drawCircle(screen, 70, 680, 110, blue);
+	drawCircle(screen, 50, 680, 110, white);
+}
+
+void drawS(SDL_Surface *screen){
+
+    SDL_Color blue;
+	blue.g = blue.r = 0;
+
+	for(int i=0; i<30; i++){
+
+        drawLine(screen,780,40+i,900,40+i,blue);
+        drawLine(screen,780+i,40,780+i,100,blue);
+        drawLine(screen,780,100+i,900,100+i,blue);
+        drawLine(screen,870+i,130,870+i,180,blue);
+        drawLine(screen,870+i,130,870+i,180,blue);
+        drawLine(screen,780,150+i,900,150+i,blue);
+
+    }
+}
+
+void drawE(SDL_Surface *screen){
+}
 
 
 void fillPoints(SDL_Surface *screen, int cx, int cy, int x, int y, Uint32 color)

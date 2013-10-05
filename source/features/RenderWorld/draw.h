@@ -20,6 +20,8 @@ extern void drawBoard(SDL_Surface *screen);
 extern void drawY(SDL_Surface *screen);
 extern void drawO(SDL_Surface *screen);
 extern void drawU(SDL_Surface *screen);
-
+extern void drawL(SDL_Surface *screen);
+extern void drawO2(SDL_Surface *screen);
+extern void drawS(SDL_Surface *screen);
+extern void drawE(SDL_Surface *screen);
 #endif
-
