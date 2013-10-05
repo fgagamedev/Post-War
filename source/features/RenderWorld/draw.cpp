@@ -128,8 +128,8 @@ void drawBoard(SDL_Surface *screen)
 void drawY(SDL_Surface *screen)
 {
 	SDL_Color blue;
-	blue.r = blue.g = 0;
-	blue.b = 255;
+	blue.b = blue.g = 0;
+	blue.r = 255;
 
 	for (int i = 0; i < 30; i++)
 	{
@@ -143,8 +143,8 @@ void drawY(SDL_Surface *screen)
 void drawO(SDL_Surface *screen)
 {
 	SDL_Color blue;
-	blue.g = blue.r = 0;
-	blue.b = 255;
+	blue.g = blue.g = 0;
+	blue.r = 255;
 	SDL_Color white;
 	white.r = white.g = white.b = 255;
 
@@ -155,8 +155,8 @@ void drawO(SDL_Surface *screen)
 void drawU(SDL_Surface *screen){
 
     SDL_Color blue;
-    blue.r = blue.g = 0;
-    blue.b = 255;
+    blue.g = blue.g = 0;
+    blue.r = 255;
 	SDL_Color white;
 	white.r = white.g = white.b = 255;
 
@@ -180,8 +180,8 @@ void drawU(SDL_Surface *screen){
 void drawL(SDL_Surface *screen){
 
     SDL_Color blue;
-    blue.r = blue.g = 0;
-    blue.b = 255;
+    blue.b = blue.g = 0;
+    blue.r = 255;
 
     for(int i=0; i<30; i++){
 
@@ -194,8 +194,8 @@ void drawL(SDL_Surface *screen){
 void drawO2(SDL_Surface *screen){
 
 	SDL_Color blue;
-	blue.g = blue.r = 0;
-	blue.b = 255;
+	blue.g = blue.b = 0;
+	blue.r = 255;
 	SDL_Color white;
 	white.r = white.g = white.b = 255;
 
@@ -206,7 +206,8 @@ void drawO2(SDL_Surface *screen){
 void drawS(SDL_Surface *screen){
 
     SDL_Color blue;
-	blue.g = blue.r = 0;
+	blue.g = blue.b = 0;
+	blue.r = 255;
 
 	for(int i=0; i<30; i++){
 
@@ -221,6 +222,20 @@ void drawS(SDL_Surface *screen){
 }
 
 void drawE(SDL_Surface *screen){
+
+    SDL_Color blue;
+	blue.g = blue.b = 0;
+	blue.r = 255;
+
+    for(int i=0; i<30; i++){
+        drawLine(screen,930,40+i,1050,40+i,blue);
+        drawLine(screen,930+i,40,930+i,180,blue);
+        drawLine(screen,930,100+i,1000,100+i,blue);
+        drawLine(screen,930,150+i,1050,150+i,blue);
+
+    }
+
+
 }
 
 
