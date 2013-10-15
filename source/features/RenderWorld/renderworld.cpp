@@ -9,7 +9,7 @@
 
 using namespace std;
 
-void render_World(){
+void render_World(int op){
 
 
 
@@ -17,10 +17,19 @@ void render_World(){
 	setup_window();
 	SDL_Surface *screen = setup_video();
 
-    load_Image("source/features/RenderWorld/images/bryjstudios_tela_final_01.png",screen);
-	SDL_Delay(3000);
-    load_Image("source/features/RenderWorld/images/bryjstudios_tela_final_02.png",screen);
-	SDL_Delay(3000);
+
+    switch(op){
+        case 1:
+            load_Image("source/features/RenderWorld/images/bryjstudios_tela_final_01.png",screen);
+        break;
+
+        case 2:
+            load_Image("source/features/RenderWorld/images/bryjstudios_tela_final_02.png",screen);
+        break;
+
+
+    }
+
 
 }
 
