@@ -24,7 +24,7 @@ void init_sdl()
 void setup_window()
 {
 	const string appName = "Post War";
-	const string resourcesDirectory = "images/";
+	const string resourcesDirectory = "source/features/RenderWorld/images/";
 
 	string icon = "bryjstudios_unidades.bmp";
 	string iconPath = resourcesDirectory + icon;
