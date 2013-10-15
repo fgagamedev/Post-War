@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o main.o draw.o video.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o main.o draw.o video.o load_image.o
 
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
@@ -11,7 +11,8 @@ SIMU=source/features/SimulatedWorld/simulated.cpp
 UPOBJ=source/features/UpdateObjects/updateobjects.cpp
 UPTIME=source/features/UpdateTime/update_time.cpp
 MAIN=source/main.cpp
-CFLAGS= -lSDL -Wall -W -pedantic -ansi -lm -I.
+LOAD_I=source/features/RenderWorld/load_image.cpp
+CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image
 
 all: prog
 prog: $(OBJ) $(LIB)
@@ -20,6 +21,8 @@ collision.o: $(COLL)
 	g++ -c $(COLL)
 input.o: $(INP)
 	g++ -c $(INP)
+load_image.o: $(LOAD_I)
+	g++ -c $(LOAD_I)
 misktasks.o: $(MISC)
 	g++ -c $(MISC)
 network.o: $(NET)

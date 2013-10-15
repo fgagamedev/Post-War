@@ -11,12 +11,15 @@ using namespace std;
 
 void render_World(){
 
+
+
 	init_sdl();
 	setup_window();
 	SDL_Surface *screen = setup_video();
-	drawYouWin(screen);
+
+    load_Image("source/features/RenderWorld/images/bryjstudios_tela_final_01.png",screen);
 	SDL_Delay(3000);
-	drawYouLose(screen);
+    load_Image("source/features/RenderWorld/images/bryjstudios_tela_final_02.png",screen);
 	SDL_Delay(3000);
 
 }
