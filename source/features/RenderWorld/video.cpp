@@ -22,16 +22,16 @@ void init_sdl()
 }
 
 void setup_window()
-{   /*
-	const string appName = "TicTacToe";
-	const string resourcesDirectory = "/opt/tictactoe/resources/";
+{
+	const string appName = "Post War";
+	const string resourcesDirectory = "images/";
 
-	string icon = "tictactoe32.bmp";
+	string icon = "bryjstudios_unidades.bmp";
 	string iconPath = resourcesDirectory + icon;
 
 	SDL_WM_SetCaption(appName.c_str(), appName.c_str());
 	SDL_WM_SetIcon(SDL_LoadBMP(iconPath.c_str()), NULL);
-	*/
+
 }
 
 SDL_Surface * setup_video()
