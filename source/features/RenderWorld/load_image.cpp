@@ -28,7 +28,11 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
 }
 
 void free_image(SDL_Surface *image){
+    SDL_UnlockSurface(image);
     SDL_FreeSurface(image);
+    //image = NULL;
+    //delete image;
+    cout << "cheguei"<< endl;
 }
 
 
