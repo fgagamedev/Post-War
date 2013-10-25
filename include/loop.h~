@@ -2,6 +2,7 @@
 #define GAMEFEATURES_H
 
 #include <SDL/SDL.h>
+#include<SDL/SDL_image.h>
 typedef struct _vetormouse{
 	int x;
 	int y;

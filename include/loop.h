@@ -12,7 +12,6 @@ typedef struct _vetormouse{
 
 extern Vetor_mouse *get_Input();
 extern int compara_selecao(int x_min,int x_max,int x,int y_min,int y_max,int y);
-SDL_Surface *free_image(SDL_Surface *image);
 
 #endif
 

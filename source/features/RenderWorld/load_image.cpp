@@ -4,7 +4,7 @@
 
 using namespace std;
 
-SDL_Surface *load_Image(string path1,SDL_Surface *screen, int x, int y){
+SDL_Surface *load_Image(string path1,SDL_Surface *screen){
 
     SDL_Surface *IMG_Load(const char *file);
     char *IMG_GetError();
@@ -32,8 +32,8 @@ void free_image(SDL_Surface *image){
 }
 
 
-void BlitImage(SDL_Suraface *screen, SDL_Surface *image, int x, int y){
-     SDL_Rect src, dest;
+void BlitImage(SDL_Surface *screen, SDL_Surface *image, int x, int y){
+    SDL_Rect src, dest;
 
     src.x = 0;
     src.y = 0;

@@ -25,6 +25,8 @@ Vetor_mouse *get_Input(){
                     break;
                 case SDL_MOUSEBUTTONDOWN:
                     vetor_mouse->click = event.button.button;
+                    vetor_mouse->x = event.motion.x;
+                    vetor_mouse->y = event.motion.y;//não mexer nisso
                     return vetor_mouse;
                     /*printf("Mouse button pressed. ");
                     printf("Button %i at (%i,%i)\n",
