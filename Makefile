@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o main.o draw.o video.o load_image.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o
 
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
@@ -10,13 +10,13 @@ VIDEO=source/features/RenderWorld/video.cpp
 SIMU=source/features/SimulatedWorld/simulated.cpp
 UPOBJ=source/features/UpdateObjects/updateobjects.cpp
 UPTIME=source/features/UpdateTime/update_time.cpp
-MAIN=source/main.cpp
+POSTWAR=source/PostWar.cpp
 LOAD_I=source/features/RenderWorld/load_image.cpp
 CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image
 
-all: prog
-prog: $(OBJ) $(LIB)
-	g++ -o prog $(OBJ) $(CFLAGS)
+all: PostWar
+PostWar: $(OBJ) $(LIB)
+	g++ -o PostWar $(OBJ) $(CFLAGS)
 collision.o: $(COLL)
 	g++ -c $(COLL)
 input.o: $(INP)
@@ -39,8 +39,8 @@ draw.o: $(DRAW)
 	g++ -c $(DRAW)
 video.o: $(VIDEO)
 	g++ -c $(VIDEO)
-main.o: $(MAIN)
-	g++ -c $(MAIN)
+PostWar.o: $(POSTWAR)
+	g++ -c $(POSTWAR)
 clean:
-	rm -rf *.o *~ prog
+	rm -rf *.o *~ PostWar
 

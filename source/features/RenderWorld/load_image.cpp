@@ -1,10 +1,15 @@
-#include<SDL/SDL_image.h>
-#include<iostream>
+#include <SDL/SDL_image.h>
+#include <iostream>
+#include <string>
 
-void load_Image(char path[],SDL_Surface *screen){
+using namespace std;
+
+void load_Image(string path1,SDL_Surface *screen){
 
     SDL_Surface *IMG_Load(const char *file);
     char *IMG_GetError();
+
+    const char *path = path1.c_str();
 
     SDL_Surface* pic = IMG_Load(path);
     SDL_Surface* pic2 = NULL;
