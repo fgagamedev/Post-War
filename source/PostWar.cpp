@@ -1,4 +1,9 @@
-#include<iostream>
+#include <iostream>
+#include "../include/draw.h"
+#include "../include/video.h"
+#include "gamefeatures.h"
+#include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
 
 using namespace std;
 
@@ -12,7 +17,11 @@ extern void render_World();
 extern void misc_Tasks();
 
 int main(){
-
+    init_sdl();
+    setup_window();
+    SDL_Surface *screen = setup_video();
+    load_menu(screen);
+    /*
     while (1) {
         update_time();
         get_Input();
@@ -22,13 +31,8 @@ int main(){
         update_Objects();
         render_World();
         misc_Tasks();
+        menu(screen);
         return 0;
     }
-
-
-
-
-
-
-
+    */
 }

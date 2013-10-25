@@ -4,27 +4,46 @@
 
 using namespace std;
 
-void load_Image(string path1,SDL_Surface *screen){
+SDL_Surface *load_Image(string path1,SDL_Surface *screen, int x, int y){
 
     SDL_Surface *IMG_Load(const char *file);
     char *IMG_GetError();
-
     const char *path = path1.c_str();
 
     SDL_Surface* pic = IMG_Load(path);
     SDL_Surface* pic2 = NULL;
-    if(pic == NULL)
-    {
-    printf("Erro ao carregar a imagem: %s\n", IMG_GetError());
-    exit(0);
+
+    if(pic == NULL){
+        printf("Erro ao carregar a imagem: %s\n", IMG_GetError());
+        exit(0);
     }
 
     else{
         pic2 = SDL_DisplayFormat(pic);
-        SDL_BlitSurface(pic2,0,screen,0);
-        SDL_Flip(screen); /// Mudar essa função para UpdateObjets
-        SDL_FreeSurface(pic);
 
+        SDL_SetColorKey(pic2, SDL_SRCCOLORKEY, SDL_MapRGB(pic2->format, 0, 0, 0));
+        SDL_FreeSurface(pic);
+        return pic2;
     }
 }
 
+void free_image(SDL_Surface *image){
+    SDL_FreeSurface(image);
+}
+
+
+void BlitImage(SDL_Suraface *screen, SDL_Surface *image, int x, int y){
+     SDL_Rect src, dest;
+
+    src.x = 0;
+    src.y = 0;
+    src.w = image->w;
+    src.h = image->h;
+
+    dest.x = x;
+    dest.y = y;
+    dest.w = image->w;
+    dest.h = image->h;
+
+    SDL_BlitSurface(image,&src,screen,&dest);
+}

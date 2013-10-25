@@ -26,7 +26,7 @@ void setup_window()
 	const string appName = "Post War";
 	const string resourcesDirectory = "source/features/RenderWorld/images/";
 
-	string icon = "bryjstudios_unidades.bmp";
+	string icon = "icon.bmp";
 	string iconPath = resourcesDirectory + icon;
 
 	SDL_WM_SetCaption(appName.c_str(), appName.c_str());
