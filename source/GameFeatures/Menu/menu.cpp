@@ -21,7 +21,7 @@ void load_menu(SDL_Surface *screen){
     SDL_Surface *opcoes = load_Image(path, screen);// ,w: 78
     path = "source/GameFeatures/Menu/Images/sair.png";
     SDL_Surface *sair = load_Image(path, screen);
-    path = "source/GameFeatures/Menu/Images/creditos.png";
+    path = "source/GameFeatures/Menu/Images/trofeus.png";
     SDL_Surface *creditos = load_Image(path, screen);
     BlitImage(screen, menu, 0, 0);
     BlitImage(screen, jogar, 476.5, 251);
@@ -47,7 +47,6 @@ void load_menu(SDL_Surface *screen){
                 //jogar();
             }
         }
-        free_image(borda);
 
     }
 

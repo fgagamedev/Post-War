@@ -37,7 +37,7 @@ void setup_window()
 SDL_Surface * setup_video()
 {
 	SDL_Surface *screen = NULL;
-	int width = 1208, height = 680, bitsPerPixel = 16;
+	int width = 1208, height = 680, bitsPerPixel = 32;
 	Uint32 videoOptions = SDL_HWSURFACE | SDL_DOUBLEBUF;
 
 	screen = SDL_SetVideoMode(width, height, bitsPerPixel, videoOptions);
