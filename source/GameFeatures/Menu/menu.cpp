@@ -23,6 +23,14 @@ void load_menu(SDL_Surface *screen){
     SDL_Surface *sair = load_Image(path, screen);
     path = "source/GameFeatures/Menu/Images/trofeus.png";
     SDL_Surface *creditos = load_Image(path, screen);
+    path = "source/GameFeatures/Menu/Images/jogar_selecionado.png";
+    SDL_Surface *jogar_s = load_Image(path, screen); //h: 255, w: 78
+    path = "source/GameFeatures/Menu/Images/opcoes_selecionado.png";
+    SDL_Surface *opcoes_s = load_Image(path, screen);// ,w: 78
+    path = "source/GameFeatures/Menu/Images/sair_selecionado.png";
+    SDL_Surface *sair_s = load_Image(path, screen);
+    path = "source/GameFeatures/Menu/Images/trofeus_selecionado.png";
+    SDL_Surface *creditos_s = load_Image(path, screen);
     BlitImage(screen, menu, 0, 0);
     BlitImage(screen, jogar, 476.5, 251);
     BlitImage(screen, opcoes, 453.4, 351);
@@ -39,7 +47,7 @@ void load_menu(SDL_Surface *screen){
         //cout<<"Click: "<<vetor->click<<endl;
 
         if(compara_selecao(476.5,731.5,vetor->x,251,329,vetor->y)){
-            BlitImage(screen, borda, 357, 251);
+            BlitImage(screen, jogar_s, 476.5, 251);
             SDL_Flip(screen);
             //cout<<"Entrei aqui"<<endl;
             if(vetor->click == 1){
@@ -47,7 +55,6 @@ void load_menu(SDL_Surface *screen){
                 //jogar();
             }
         }
-
     }
 
     SDL_Delay(10000);
