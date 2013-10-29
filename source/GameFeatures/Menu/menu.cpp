@@ -23,11 +23,14 @@ void load_menu(SDL_Surface *screen){
     SDL_Surface *sair = load_Image(path, screen);
     path = "source/GameFeatures/Menu/Images/estatisticas.png";
     SDL_Surface *estatisticas = load_Image(path, screen);
+    path = "source/GameFeatures/Menu/Images/creditos.png";
+    SDL_Surface *creditos = load_Image(path, screen);
     BlitImage(screen, menu, 0, 0);
-    BlitImage(screen, jogar, 476.5, 251);
-    BlitImage(screen, opcoes, 453.4, 351);
-    BlitImage(screen, estatisticas, 357, 451);
-    BlitImage(screen, sair, 360.5, 551);
+    BlitImage(screen, jogar, 476.5, 201);
+    BlitImage(screen, opcoes, 453.4, 301);
+    BlitImage(screen, estatisticas, 357, 401);
+    BlitImage(screen, creditos, 425.5, 501);
+    BlitImage(screen, sair, 360.5, 601);
     SDL_Flip(screen);
 
     Vetor_mouse *vetor = new Vetor_mouse;
@@ -47,6 +50,7 @@ void load_menu(SDL_Surface *screen){
                 //jogar();
             }
         }
+
     }
 
     SDL_Delay(10000);
