@@ -39,7 +39,7 @@ Vetor_mouse *get_Input(){
                     need to, but that tends to make
                     users rather impatient. */
                 case SDL_QUIT:
-                    printf("Quit event. Bye.\n");
+                    printf("Adeus.\n");
                 exit(0);
             }
         }

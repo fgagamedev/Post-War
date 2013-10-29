@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../include/draw.h"
 #include "../include/video.h"
-#include "gamefeatures.h"
+#include "../include/gamefeatures.h"
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 

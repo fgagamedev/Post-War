@@ -3,9 +3,7 @@
 
 #include <SDL/SDL.h>
 
-using namespace std;
-
-extern void load_menu(SDL_Surface *screen);
+sextern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
 
 #endif

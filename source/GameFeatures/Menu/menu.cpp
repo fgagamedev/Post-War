@@ -4,7 +4,7 @@
 #include "../../../include/draw.h"
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
-
+#include "../../../include/gamefeatures.h"
 
 
 void load_menu(SDL_Surface *screen){
@@ -15,26 +15,14 @@ void load_menu(SDL_Surface *screen){
     borda = load_Image(path,screen);
     path = "source/GameFeatures/Menu/Images/menu.png";
     SDL_Surface *menu = load_Image(path, screen);
-    path = "source/GameFeatures/Menu/Images/jogar.png";
-    SDL_Surface *jogar = load_Image(path, screen); //h: 255, w: 78
-    path = "source/GameFeatures/Menu/Images/opcoes.png";
-    SDL_Surface *opcoes = load_Image(path, screen);// ,w: 78
-    path = "source/GameFeatures/Menu/Images/sair.png";
-    SDL_Surface *sair = load_Image(path, screen);
-    path = "source/GameFeatures/Menu/Images/estatisticas.png";
-    SDL_Surface *estatisticas = load_Image(path, screen);
-    path = "source/GameFeatures/Menu/Images/creditos.png";
-    SDL_Surface *creditos = load_Image(path, screen);
-    BlitImage(screen, menu, 0, 0);
-    BlitImage(screen, jogar, 476.5, 201);
-    BlitImage(screen, opcoes, 453.4, 301);
-    BlitImage(screen, estatisticas, 357, 401);
-    BlitImage(screen, creditos, 425.5, 501);
-    BlitImage(screen, sair, 360.5, 601);
-    SDL_Flip(screen);
 
+
+    SDL_Flip(screen);
+    int cont=0;
     Vetor_mouse *vetor = new Vetor_mouse;
     while(1){
+
+
 
         vetor = get_Input();
 
@@ -47,9 +35,13 @@ void load_menu(SDL_Surface *screen){
             //cout<<"Entrei aqui"<<endl;
             if(vetor->click == 1){
                 //cout<<"Clicou em jogar"<<endl;
-                //jogar();
+                inicio(screen);
             }
-        }
+
+        }   else{
+                 BlitImage(screen, menu, 0, 0);
+                SDL_Flip(screen);
+            }
 
     }
 

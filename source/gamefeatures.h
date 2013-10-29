@@ -4,7 +4,7 @@
 #include <SDL/SDL.h>
 
 extern void load_menu(SDL_Surface *screen);
-
+extern void inicio(SDL_Surface *screen);
 
 #endif
 

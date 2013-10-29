@@ -49,5 +49,5 @@ void BlitImage(SDL_Surface *screen, SDL_Surface *image, int x, int y){
     dest.w = image->w;
     dest.h = image->h;
 
-    SDL_BlitSurface(image,&src,screen,&dest);
+    SDL_BlitSurface(image,NULL,screen,&dest);
 }
