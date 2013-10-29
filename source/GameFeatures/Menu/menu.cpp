@@ -26,7 +26,7 @@ void load_menu(SDL_Surface *screen){
     BlitImage(screen, menu, 0, 0);
     BlitImage(screen, jogar, 476.5, 251);
     BlitImage(screen, opcoes, 453.4, 351);
-    BlitImage(screen, estatisticas, 425.5, 451);
+    BlitImage(screen, estatisticas, 357, 451);
     BlitImage(screen, sair, 360.5, 551);
     SDL_Flip(screen);
 
