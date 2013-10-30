@@ -15,7 +15,7 @@ extern void drawCircle(SDL_Surface *screen, int radius, int x, int y,
 	SDL_Color color);
 extern void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1,
 	SDL_Color color);
-
+extern void inicio(SDL_Surface *screen);
 extern SDL_Surface *load_Image(string path,SDL_Surface *screen);
 extern void BlitImage(SDL_Surface *screen, SDL_Surface *image, int x, int y);
 extern void free_image(SDL_Surface *image);
