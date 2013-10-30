@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -13,6 +13,7 @@ POSTWAR=source/PostWar.cpp
 LOAD_I=source/features/RenderWorld/load_image.cpp
 MENU=source/GameFeatures/Menu/menu.cpp
 JOGAR=source/GameFeatures/Jogar/jogar.cpp
+CRED=source/GameFeatures/Creditos/creditos.cpp
 CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image
 
 all: PostWar
@@ -44,6 +45,8 @@ menu.o: $(MENU)
 	g++ -c $(MENU)
 jogar.o: $(JOGAR)
 	g++ -c $(JOGAR)
+creditos.o: $(CRED)
+	g++ -c $(CRED)
 PostWar.o: $(POSTWAR)
 	g++ -c $(POSTWAR)
 clean:
