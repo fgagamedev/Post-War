@@ -9,6 +9,14 @@
 
 using namespace std;
 
+void RunImage(SDL_Surface *screen1, SDL_Surface *screen2, SDL_Surface *screen3){
+        for(int j = -680; j <= 680; j+=2){
+        BlitImage(screen1, screen3, 0, 0);
+        BlitImage(screen1, screen2, 0, j);
+        SDL_Flip(screen1);
+    }
+
+}
 
 void creditos(SDL_Surface *screen){
 
@@ -30,32 +38,10 @@ void creditos(SDL_Surface *screen){
 
     SDL_Flip(screen);
 
-
-    for(int j = -680; j <= 680; j+=2){
-        BlitImage(coisa, telapreta, 0, 0);
-        BlitImage(coisa, creditos, 0, j);
-        SDL_Flip(coisa);
-    }
-
-    for(int i = -680; i <= 680; i+=2){
-		BlitImage(coisa, telapreta, 0, 0);
-		BlitImage(coisa, bryj, 0, i);
-		SDL_Flip(coisa);
-    }
-
-
-    for(int i = -680; i <= 680; i+=2){
-		BlitImage(coisa, telapreta, 0, 0);
-		BlitImage(coisa, sdl, 0, i);
-		SDL_Flip(coisa);
-    }
-
-    for(int j = -680; j <= 680; j+=2){
-        BlitImage(coisa, telapreta, 0, 0);
-        BlitImage(coisa, ubuntu, 0, j);
-        SDL_Flip(coisa);
-    }
-
+    RunImage(coisa, creditos, telapreta);
+    RunImage(coisa, bryj, telapreta);
+    RunImage(coisa, sdl, telapreta);
+    RunImage(coisa, ubuntu, telapreta);
 
 }
 
