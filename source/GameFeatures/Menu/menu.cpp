@@ -11,7 +11,7 @@ void load_menu(SDL_Surface *screen){
 
     SDL_Surface *borda;
     //carregando imagens
-    string path = "source/GameFeatures/Menu/Images/borda.png";
+    string path = "source/GameFeatures/Menu/Images/jogar_selecionado.png";
     borda = load_Image(path,screen);
     path = "source/GameFeatures/Menu/Images/menu.png";
     SDL_Surface *menu = load_Image(path, screen);
@@ -29,8 +29,8 @@ void load_menu(SDL_Surface *screen){
         //cout <<"Posicao do mouse ("<<vetor->x<<","<<vetor->y<<")"<<endl;
         //cout<<"Click: "<<vetor->click<<endl;
 
-        if(compara_selecao(476.5,731.5,vetor->x,251,329,vetor->y)){
-            BlitImage(screen, borda, 476.5, 251);
+        if(compara_selecao(478.5,731.5,vetor->x,211,275,vetor->y)){
+            BlitImage(screen, borda, 478.5, 211);
             SDL_Flip(screen);
             //cout<<"Entrei aqui"<<endl;
             if(vetor->click == 1){
