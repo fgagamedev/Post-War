@@ -29,6 +29,8 @@ void load_menu(SDL_Surface *screen){
 
         vetor = get_Input();
 
+
+
         //cout <<"Posicao do mouse ("<<vetor->x<<","<<vetor->y<<")"<<endl;
         //cout<<"Click: "<<vetor->click<<endl;
 
@@ -40,27 +42,25 @@ void load_menu(SDL_Surface *screen){
                 //cout<<"Clicou em jogar"<<endl;
                 inicio(screen);
             }
+            cont=0;
+        }
 
-        }   else{
-                 BlitImage(screen, menu, 0, 0);
-                 SDL_Flip(screen);
+            else if(compara_selecao(425,798,vetor->x,511,575,vetor->y)){
+                BlitImage(screen, creditos_selecionado, 425.5, 511);
+                SDL_Flip(screen);
+                //cout<<"Entrei aqui"<<endl;
+                if(vetor->click == 1){
+                    //cout<<"Clicou em jogar"<<endl;
+                    creditos(screen);
+                }
+                cont=0;
+
             }
-
-         if(compara_selecao(425,798,vetor->x,511,575,vetor->y)){
-            BlitImage(screen, creditos_selecionado, 425.5, 511);
-            SDL_Flip(screen);
-            //cout<<"Entrei aqui"<<endl;
-            if(vetor->click == 1){
-                //cout<<"Clicou em jogar"<<endl;
-                creditos(screen);
+                else if (cont==0){
+                    BlitImage(screen, menu, 0, 0);
+                    SDL_Flip(screen);
+                    cont=1;
             }
-
-        }   else{
-                 BlitImage(screen, menu, 0, 0);
-                 SDL_Flip(screen);
-            }
-
-
     }
 
     SDL_Delay(10000);
