@@ -14,7 +14,15 @@ int conectar(char* ip_text){
 
     cout<<"Conectando..."<<endl;
 	TCPsocket Cserver = SDLNet_TCP_Open(&ip);
-
+    /* Open a connection with the IP provided (listen on the host's port) */
+	if (!(Cserver = SDLNet_TCP_Open(&ip)))
+	{
+        cout<<"DEU PAU"<<endl;
+        exit(EXIT_FAILURE);
+	}
+        else{
+            cout<<"Deu!!"<<endl;
+        }
 
 
 }
