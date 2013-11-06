@@ -19,7 +19,7 @@ SDL_Surface *render_World(){
 	init_sdl();
 	setup_window();
 	SDL_Surface *screen = setup_video();
-
+/*
     string tela = "source/features/RenderWorld/images/tela_preta.png";
     SDL_Surface *preta = load_Image(tela, screen);
 
@@ -51,7 +51,7 @@ SDL_Surface *render_World(){
     BlitImage(screen, end4, 0, 0);
     SDL_Flip(screen);
     SDL_Delay(3000);
-
+    */
 
     return screen;
 }
