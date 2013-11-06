@@ -25,14 +25,29 @@ void inicio(SDL_Surface *screen){
     SDL_Flip(escolha);
 
 
-    if(compara_selecao(560, 720, vetor->x, 111, 211, vetor->y)){
+    if(compara_selecao(560, 740, vetor->x, 111, 181, vetor->y)){
 
         if(vetor->click == 1){
-            cout << "cliquei aqui" << endl;
+
+            cout << "cliquei em criar" << endl;
+        }
+    }
+
+        else if(compara_selecao(565, 710, vetor->x, 211, 281, vetor->y)){
+
+            if(vetor->click == 1){
+                cout << "cliquei em conectar" << endl;
+            }
+
         }
 
+            else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
 
-    }
+                if(vetor->click == 1){
+                        break;
+                }
+
+            }
     }
 
 
