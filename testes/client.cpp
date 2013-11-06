@@ -10,13 +10,19 @@ int main(int argc,char** argv){
 	SDLNet_Init();
 
 	IPaddress ip;
-	SDLNet_ResolveHost(&ip,"192.168.1.10",1234);
+	SDLNet_ResolveHost(&ip,"localhost",1234);
 
 	TCPsocket client = SDLNet_TCP_Open(&ip);
+	
+
 	char text[100];
-	cin>>text;
-	SDLNet_TCP_Recv(client,text,100);
-	cout<<text<<endl;
+	
+		while(1){
+			SDLNet_TCP_Recv(client,text,100);
+			cout<<"O servidor diz: "<<text<<endl;
+			if(strcmp(text, "sair") == 0)
+				break;
+		}
 
 
 	SDLNet_TCP_Close(client); // precisa fechar porque senão,
