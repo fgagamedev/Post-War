@@ -14,13 +14,16 @@ int main(int argc,char** argv){
 
 	TCPsocket client = SDLNet_TCP_Open(&ip);
 	
-
+	
 	char text[100];
 	
 		while(1){
-			cin>>text;
+			cout<<"O servidor vai digitar..."<<endl;
 			SDLNet_TCP_Recv(client,text,100);
 			cout<<"O servidor diz: "<<text<<endl;
+			cout<<"Digite AGORA"<<endl;
+			while(cin>>text)
+			SDLNet_TCP_Send(client,&text,100);
 			if(strcmp(text, "sair") == 0)
 				break;
 		}

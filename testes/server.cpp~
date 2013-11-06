@@ -20,12 +20,16 @@ int main(int argc,char** argv){
 	while(1){
 		client = SDLNet_TCP_Accept(server);
 		if(client){
-			cout<<"Digite a zuera"<<endl;
+			
 			while(1){
 				//aqui você pode comunicar com o cliente
 				//SDLNet_TCP_Send (client,text,strlen(text)+1);
-				cin>>text;
-				SDLNet_TCP_Send(client,&text,strlen(text));
+				cout<<"Sua vez de digitar"<<endl;
+				while(cin>>text);
+				SDLNet_TCP_Send(client,&text,100);
+				cout<<"O cliente vai digitar..."<<endl;
+				SDLNet_TCP_Recv(client,text,100);
+				cout<<"O cliente diz: "<<text<<endl;
 					if(strcmp(text,"sair") ==0){
 						SDLNet_TCP_Close(client);
 						SDLNet_TCP_Close(server); 
