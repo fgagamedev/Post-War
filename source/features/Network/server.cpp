@@ -1,12 +1,12 @@
-#include<iostream> 
+#include<iostream>
 #include<SDL/SDL.h>
 #include<SDL/SDL_net.h>
 #include<cstring>
+#include "../../../include/loop.h"
 
 using namespace std;
 
-int main(int argc,char** argv){
-	SDL_Init(SDL_INIT_EVERYTHING);
+int criar_servidor(){
 	SDLNet_Init();
 
 	IPaddress ip;
@@ -14,14 +14,25 @@ int main(int argc,char** argv){
 
 	TCPsocket server = SDLNet_TCP_Open(&ip);
 
-	TCPsocket client;
-	
+
+    while(1){
+	TCPsocket Sclient = SDLNet_TCP_Accept(server);
+
+        if(Sclient){
+            cout<<"Conectou!!"<<endl;
+            return 1;
+        }
+    }
+
+}
+
+    /*
 	char text[100];
 
 	while(1){
 		client = SDLNet_TCP_Accept(server);
 		if(client){
-			
+
 			while(1){
 				//aqui você pode comunicar com o cliente
 				//SDLNet_TCP_Send (client,text,strlen(text)+1);
@@ -33,12 +44,12 @@ int main(int argc,char** argv){
 				cout<<"O cliente diz: "<<text<<endl;
 					if(strcmp(text,"sair") ==0){
 						SDLNet_TCP_Close(client);
-						SDLNet_TCP_Close(server); 
+						SDLNet_TCP_Close(server);
 						SDLNet_Quit();
 						SDL_Quit();
 						return 0;
-					}			
-			
+					}
+
 			}
 		}
 	}
@@ -47,4 +58,4 @@ int main(int argc,char** argv){
 
 	SDLNet_Quit();
 	SDL_Quit();
-}
+}*/
