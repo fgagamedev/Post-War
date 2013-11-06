@@ -53,9 +53,9 @@ void load_menu(SDL_Surface *screen){
         if(compara_selecao(478.5,731.5,vetor->x,211,275,vetor->y)){
             BlitImage(screen, jogar_selecionado, 478.5, 211);
             SDL_Flip(screen);
-            //cout<<"Entrei aqui"<<endl;
+
             if(vetor->click == 1){
-                //cout<<"Clicou em jogar"<<endl;
+
                 inicio(screen);
             }
             cont=0;
@@ -65,16 +65,16 @@ void load_menu(SDL_Surface *screen){
                 BlitImage(screen, opcoes_selecionado, 450.0, 311);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
-                                //cout<<"Clicou em jogar"<<endl;
+
                 }
                 cont=0;
                 }
                     else if(compara_selecao(355,798,vetor->x,417,475,vetor->y)){
                             BlitImage(screen, estatisticas_selecionado, 355.0, 411);
                             SDL_Flip(screen);
-                            //cout<<"Entrei aqui"<<endl;
+
                             if(vetor->click == 1){
-                                //cout<<"Clicou em jogar"<<endl;
+
                             }
                             cont=0;
                         }
@@ -82,9 +82,9 @@ void load_menu(SDL_Surface *screen){
                         else if(compara_selecao(425,798,vetor->x,511,575,vetor->y)){
                             BlitImage(screen, creditos_selecionado, 425.0, 511);
                             SDL_Flip(screen);
-                            //cout<<"Entrei aqui"<<endl;
+
                             if(vetor->click == 1){
-                                //cout<<"Clicou em jogar"<<endl;
+
                                 creditos(screen);
                             }
                             cont=0;
@@ -93,9 +93,9 @@ void load_menu(SDL_Surface *screen){
                                 else if(compara_selecao(350,798,vetor->x,611,675,vetor->y)){
                                     BlitImage(screen, sair_selecionado, 350.0, 611);
                                     SDL_Flip(screen);
-                                    //cout<<"Entrei aqui"<<endl;
+
                                     if(vetor->click == 1){
-                                        //cout<<"Clicou em jogar"<<endl;
+
                                         SDL_Quit();
                                         exit(0);
                                     }

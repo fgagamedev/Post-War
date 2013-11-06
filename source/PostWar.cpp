@@ -13,13 +13,11 @@ extern void get_Network_Messages();
 extern void simulated_World();
 extern void collision_Step();
 extern void update_Objects();
-extern void render_World();
+extern SDL_Surface *render_World();
 extern void misc_Tasks();
 
 int main(){
-    init_sdl();
-    setup_window();
-    SDL_Surface *screen = setup_video();
+    SDL_Surface *screen = render_World();
     load_menu(screen);
     /*
     while (1) {
