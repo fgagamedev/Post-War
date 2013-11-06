@@ -28,7 +28,7 @@ void inicio(SDL_Surface *screen){
     if(compara_selecao(560, 740, vetor->x, 111, 181, vetor->y)){
 
         if(vetor->click == 1){
-
+            criar_servidor();
             cout << "cliquei em criar" << endl;
         }
     }
@@ -36,6 +36,7 @@ void inicio(SDL_Surface *screen){
         else if(compara_selecao(565, 710, vetor->x, 211, 281, vetor->y)){
 
             if(vetor->click == 1){
+                conectar("192.168.1.10");
                 cout << "cliquei em conectar" << endl;
             }
 
