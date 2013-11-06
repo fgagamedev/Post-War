@@ -29,6 +29,7 @@ void inicio(SDL_Surface *screen){
 
         if(vetor->click == 1){
             criar_servidor();
+            fase1();
             cout << "cliquei em criar" << endl;
         }
     }
