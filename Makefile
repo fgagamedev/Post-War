@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -17,8 +17,9 @@ MENU=source/GameFeatures/Menu/menu.cpp
 JOGAR=source/GameFeatures/Jogar/jogar.cpp
 CRED=source/GameFeatures/Creditos/creditos.cpp
 FASE1=source/GameFeatures/Jogar/Fase1/fase1.cpp
+FONTES=source/features/MiscTasks/fontes.cpp
 CARREGA_FASE1=source/GameFeatures/Jogar/Fase1/carregar_fase1.cpp
-CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net
+CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf
 
 all: PostWar
 PostWar: $(OBJ) 
@@ -59,6 +60,8 @@ fase1.o: $(FASE1)
 	g++ -c $(FASE1)
 jogar.o: $(JOGAR)
 	g++ -c $(JOGAR)
+fontes.o: $(FONTES)
+	g++ -c $(FONTES)
 PostWar.o: $(POSTWAR)
 	g++ -c $(POSTWAR)
 clean:

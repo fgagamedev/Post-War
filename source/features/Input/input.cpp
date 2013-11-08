@@ -3,10 +3,13 @@
 #include <SDL/SDL.h>
 #include "../../../include/loop.h"
 
+using namespace std;
+
 Vetor_mouse *get_Input(){
     SDL_Event event;
     Vetor_mouse *vetor_mouse = new Vetor_mouse;
     vetor_mouse->click = 0;
+
 
     while (SDL_WaitEvent(&event) != 0) {
 
@@ -40,7 +43,13 @@ Vetor_mouse *get_Input(){
                     users rather impatient. */
                 case SDL_QUIT:
                     printf("Adeus.\n");
-                exit(0);
+                    exit(0);
+                 case SDL_KEYDOWN:
+                    if(event.key.keysym.sym == SDLK_1){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 1;
+                        return vetor_mouse;
+                    }
             }
         }
 

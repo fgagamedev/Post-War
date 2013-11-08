@@ -19,6 +19,7 @@ SDL_Surface *render_World(){
 	init_sdl();
 	setup_window();
 	SDL_Surface *screen = setup_video();
+    //Vetor_mouse *vetor = new Vetor_mouse();
 /*
     string tela = "source/features/RenderWorld/images/tela_preta.png";
     SDL_Surface *preta = load_Image(tela, screen);
