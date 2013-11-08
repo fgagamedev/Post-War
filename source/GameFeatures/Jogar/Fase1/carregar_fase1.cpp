@@ -6,15 +6,41 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
-void carregar_fase1(SDL_Surface *screen){
+using namespace std;
+
+void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
     Unidade *unit;
 
-    string mapa = "source/GameFeatures/Jogar/Fase1/bryjstudios_mapa_final_v2.png";
-    SDL_Surface *mapa1 = load_Image(mapa, screen);
-    //unit = new Unidade();
+    string caminho = "source/GameFeatures/Jogar/Fase1/images/Loading.png";
+    SDL_Surface *loading = load_Image(caminho, screen);
+    BlitImage(screen, loading, 0, 0);
+    SDL_Flip(screen);
 
 
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mapa_final_v2.png";
+    SDL_Surface *mapa1 = load_Image(caminho, screen);
+    BlitImage(screen, mapa1, 0, 0);
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
+    cout<<"caminho:" << caminho<<endl;
+    SDL_Surface *hud = load_Image(caminho, screen);
+    BlitImage(screen, hud, 0, 0);
+
+
+    if(strcmp("china","china") == 0){
+        string escolha = "servidor";
+        carrega_china(screen,escolha);
+    }
+
+    if(strcmp("eua","eua")==0){
+        string escolha = "cliente";
+        carrega_eua(screen,escolha);
+    }
+
+
+/*
     string soldadoazul_direita1 = "unidade_azul_direita1.png";
     SDL_Surface *soldado1 = load_Image(soldadoazul_direita1, screen);
 
@@ -55,6 +81,6 @@ void carregar_fase1(SDL_Surface *screen){
     SDL_Surface *metralhadora = load_Image(metralhador,screen);
 
 
-
+    */
 
 }

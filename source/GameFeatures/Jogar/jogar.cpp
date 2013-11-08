@@ -30,7 +30,7 @@ void inicio(SDL_Surface *screen){
     if(compara_selecao(560, 740, vetor->x, 111, 181, vetor->y)){
 
         if(vetor->click == 1){
-            criar_servidor();
+            //criar_servidor();
             fase1(screen);
             cout << "cliquei em criar" << endl;
         }

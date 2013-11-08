@@ -3,6 +3,7 @@
 
 #include <SDL/SDL.h>
 #include <map>
+#include <vector>
 
 using namespace std;
 
@@ -12,17 +13,23 @@ typedef struct _Unidade{
 	int atk;
 	int def;
 	int alcance;
+	int ouro;
+	int comida;
+	int minerio;
 	char *cor;
 	char *tipo;
 } Unidade;
 
-extern map<double,Unidade> unidades;
+
+
 
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
 extern void fase1(SDL_Surface *screen);
-extern void carregar_fase1(SDL_Surface *screen);
+extern void carregar_fase1(SDL_Surface *screen,string pais_serv, string pais_client);
+extern void carrega_china(SDL_Surface *screen,string lado);
+extern void carrega_eua(SDL_Surface *screen,string lado);
 
 
 #endif
