@@ -6,14 +6,14 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
-void carregar_fase1(SDL_Surface *screen,){
+void carregar_fase1(SDL_Surface *screen){
 
     Unidade *unit;
 
     string mapa = "source/GameFeatures/Jogar/Fase1/bryjstudios_mapa_final_v2.png";
     SDL_Surface *mapa1 = load_Image(mapa, screen);
-    unit = new Unidade();
-    unit
+    //unit = new Unidade();
+
 
     string soldadoazul_direita1 = "unidade_azul_direita1.png";
     SDL_Surface *soldado1 = load_Image(soldadoazul_direita1, screen);
