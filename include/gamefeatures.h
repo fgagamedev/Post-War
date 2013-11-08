@@ -16,7 +16,7 @@ typedef struct _Unidade{
 	char *tipo;
 } Unidade;
 
-extern map<double,Unidade> Unidades;
+extern map<double,Unidade> unidades;
 
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
