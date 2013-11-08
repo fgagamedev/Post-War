@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -16,10 +16,12 @@ LOAD_I=source/features/RenderWorld/load_image.cpp
 MENU=source/GameFeatures/Menu/menu.cpp
 JOGAR=source/GameFeatures/Jogar/jogar.cpp
 CRED=source/GameFeatures/Creditos/creditos.cpp
+FASE1=source/GameFeatures/Jogar/Fase1/fase1.cpp
+CARREGA_FASE1=source/GameFeatures/Jogar/Fase1/carregar_fase1.cpp
 CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net
 
 all: PostWar
-PostWar: $(OBJ) $(LIB)
+PostWar: $(OBJ) 
 	g++ -o PostWar $(OBJ) $(CFLAGS)
 collision.o: $(COLL)
 	g++ -c $(COLL)
@@ -45,14 +47,18 @@ video.o: $(VIDEO)
 	g++ -c $(VIDEO)
 menu.o: $(MENU)
 	g++ -c $(MENU)
-jogar.o: $(JOGAR)
-	g++ -c $(JOGAR)
 creditos.o: $(CRED)
 	g++ -c $(CRED)
 client.o: $(CLIENT)
 	g++ -c $(CLIENT)
 server.o: $(SERVER)
 	g++ -c $(SERVER)
+carregar_fase1.o: $(CARREGA_FASE1)
+	g++ -c $(CARREGA_FASE1)
+fase1.o: $(FASE1)
+	g++ -c $(FASE1)
+jogar.o: $(JOGAR)
+	g++ -c $(JOGAR)
 PostWar.o: $(POSTWAR)
 	g++ -c $(POSTWAR)
 clean:

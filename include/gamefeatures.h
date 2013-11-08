@@ -1,13 +1,29 @@
-#ifndef GAMEFEATURES_H
-#define GAMEFEATURES_H
+#ifndef _GAMEFEATURES_H_
+#define _GAMEFEATURES_H_
 
 #include <SDL/SDL.h>
+#include <map>
 
 using namespace std;
+
+typedef struct _Unidade{
+	SDL_Surface *nome;
+	double hp;
+	int atk;
+	int def;
+	int alcance;
+	char *cor;
+	char *tipo;
+} Unidade;
+
+extern map<double,Unidade> Unidades;
 
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
+extern void fase1(SDL_Surface *screen);
+extern void carregar_fase1(SDL_Surface *screen);
+
 
 #endif
 

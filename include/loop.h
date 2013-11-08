@@ -1,5 +1,5 @@
-#ifndef GAMEFEATURES_H
-#define GAMEFEATURES_H
+#ifndef _LOOP_H
+#define _LOOP_H
 
 #include <SDL/SDL.h>
 #include<SDL/SDL_image.h>

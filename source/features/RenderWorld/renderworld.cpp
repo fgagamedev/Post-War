@@ -6,7 +6,7 @@
 #include "../../../include/draw.h"
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
-#include "../../../include/gamefeatures.h"
+//#include "../../../include/gamefeatures.h"
 #include "draw.h"
 #include "video.h"
 
