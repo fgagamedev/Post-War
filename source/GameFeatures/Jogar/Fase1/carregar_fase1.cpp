@@ -33,7 +33,10 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     BlitImage(screen, sold2, 700, 350);
     BlitImage(screen, sold2, 700, 250);
 
-
+    caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_vermelha_esquerda1.png";
+    SDL_Surface *helicoptero2 = load_Image(caminho, screen);
+    BlitImage(screen, helicoptero2, 800, 400);
+    BlitImage(screen, helicoptero2, 800, 300);
 
     SDL_Flip(screen);
 
