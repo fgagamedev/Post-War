@@ -23,6 +23,7 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     SDL_Surface *mapa1 = load_Image(caminho, screen);
     BlitImage(screen, mapa1, 0, 0);
 
+    /*
     caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
     SDL_Surface *sold = load_Image(caminho, screen);
     BlitImage(screen, sold, 600, 500);
