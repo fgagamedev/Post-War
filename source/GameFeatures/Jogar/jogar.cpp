@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include <SDL/SDL_ttf.h>
 #include "../../../include/draw.h"
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
@@ -30,7 +31,6 @@ void inicio(SDL_Surface *screen){
         if(vetor->click == 1){
             //criar_servidor();
             fase1(screen);
-            cout << "cliquei em criar" << endl;
         }
     }
 

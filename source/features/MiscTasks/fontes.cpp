@@ -13,5 +13,6 @@ void desenha_texto(char *texto, SDL_Surface* screen, int x, int y, char *tipo_fo
 	SDL_Surface* escrita = TTF_RenderText_Solid(font, texto, cor);
 	SDL_Rect pos = {x, y};
 	SDL_BlitSurface(escrita, NULL, screen, &pos);
-    //SDL_Flip(dst);
+    SDL_Flip(screen);
+    cout << "digitei o ip 1" << endl;
 }
