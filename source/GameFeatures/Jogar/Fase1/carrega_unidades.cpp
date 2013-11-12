@@ -26,6 +26,24 @@ void setar_helicoptero(Unidade *helicoptero, char cor[], char tipo[]){
     helicoptero->cor = cor;
 }
 
+void setar_metralhadora(Unidade *metralhadora, char cor[], char tipo[]){
+    helicoptero->hp = 100;
+    helicoptero->atk = 200;
+    helicoptero->def = 300;
+    helicoptero->alcance = 3;
+    helicoptero->ouro = 200;
+    helicoptero->cor = cor;
+}
+
+void setar_tanque(Unidade *tanque, char cor[], char tipo[]){
+    helicoptero->hp = 400;
+    helicoptero->atk = 300;
+    helicoptero->def = 400;
+    helicoptero->alcance = 2;
+    helicoptero->ouro = 300;
+    helicoptero->cor = cor;
+}
+
 void carrega_china(SDL_Surface *screen,string lado){
 
     string lado1("servidor");
