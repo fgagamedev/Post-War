@@ -8,13 +8,16 @@
 
 using namespace std;
 
-void setar_soldado(Unidade *soldado, char cor[],char tipo[]){
+vector <Unidade *> unidades_azul;
+
+void setar_soldado(Unidade *soldado, char cor[],char tipo[],SDL_Surface *nome){
     soldado->hp = 200;
     soldado->atk = 100;
     soldado->def = 100;
     soldado->alcance = 1;
     soldado->ouro = 100;
     soldado->cor = cor;
+    soldado->nome = nome;
 }
 
 void setar_helicoptero(Unidade *helicoptero, char cor[], char tipo[]){
@@ -48,20 +51,21 @@ void carrega_china(SDL_Surface *screen,string lado){
 
     string lado1("servidor");
 
-    if(lado.compare(lado1)==0){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/Loading.png";
-        SDL_Surface *loading = load_Image(caminho, screen);
-        BlitImage(screen, loading, 0, 0);
-    }
-
-    for(int i=0;i<10;i++){
+    for(int i=0, j=1;i<10;i++,j+=30){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
         SDL_Surface *soldado1 = load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
         char cor[100] = "azul";
         char unidade[100] = "soldado";
-        setar_soldado(soldado,cor,unidade);
+        setar_soldado(soldado,cor,unidade,soldado1);
+        unidades_azul.push_back(soldado);
     }
+
+    for(int i=0, j =1;i<10;i++,j+=30){
+            BlitImage(screen,unidades_azul[i]->nome,i+200,j+150   );
+
+        }
+
 
 }
 
@@ -69,11 +73,6 @@ void carrega_eua(SDL_Surface *screen,string lado){
 
     string lado2("cliente");
 
-    if(lado.compare(lado2)==0){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/Loading.png";
-        SDL_Surface *loading = load_Image(caminho, screen);
-        BlitImage(screen, loading, 0, 0);
-    }
 
     for(int i=0;i<3;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_vermelha_esquerda1.png";
@@ -81,7 +80,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
         Unidade *soldado = new Unidade();
         char cor[100] = "vermelha";
         char unidade[100] = "soldado";
-        setar_soldado(soldado,cor,unidade);
+        setar_soldado(soldado,cor,unidade,soldado1);
     }
     for (int i=0;i<2;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_vermelha_esquerda1.png";

@@ -47,9 +47,6 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     SDL_Surface *tanque2 = load_Image(caminho, screen);
     BlitImage(screen, tanque2, 800, 200);
 
-    SDL_Flip(screen);
-
-    SDL_Delay(10000);
 /*
     caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
     cout<<"caminho:" << caminho<<endl;
@@ -68,6 +65,9 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
         carrega_eua(screen,escolha);
     }
 
+    SDL_Flip(screen);
+
+    SDL_Delay(10000);
 
 /*
     string soldadoazul_direita1 = "unidade_azul_direita1.png";
