@@ -40,6 +40,7 @@ void carrega_china(SDL_Surface *screen,string lado){
 }
 
 void carrega_eua(SDL_Surface *screen,string lado){
+
     string lado2("cliente");
 
     if(lado.compare(lado2)==0){

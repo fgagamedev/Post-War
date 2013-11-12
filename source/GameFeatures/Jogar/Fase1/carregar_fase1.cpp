@@ -19,7 +19,7 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
 
 
-    caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mapa_final_v2.png";
+    caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mapa_final_sv2.png";
     SDL_Surface *mapa1 = load_Image(caminho, screen);
     BlitImage(screen, mapa1, 0, 0);
 
@@ -29,7 +29,9 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
     caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_vermelha_esquerda1.png";
     SDL_Surface *sold2 = load_Image(caminho, screen);
-    BlitImage(screen, sold2, 600, 700);
+    BlitImage(screen, sold2, 700, 450);
+    BlitImage(screen, sold2, 700, 350);
+    BlitImage(screen, sold2, 700, 250);
 
     SDL_Flip(screen);
 
