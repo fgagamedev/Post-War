@@ -8,7 +8,11 @@
 
 
 void mover_soldado(SDL_Surface *screen, int i, int x, int y){
-    SDL_Rect pos = {x, y};
+    cout << "funcao mover" << endl;
+    for(int h = unidades_vermelhas[i]->x;h>x; h = h-25){
+    cout << "entrei for com h = " << h << endl;
+    SDL_Rect pos = {h, y};
     SDL_BlitSurface(unidades_vermelhas[i]->nome, NULL, screen, &pos);
     SDL_Flip(screen);
+    }
 }

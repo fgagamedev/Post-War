@@ -44,8 +44,8 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
         vetor = get_Input();
 
         if(vetor->click == 1){
-            cout << "cliquei" << endl;
-            mover_soldado(screen, 1, 150, 150);
+            cout << "clicked"<< endl;
+            mover_soldado(screen, 1, 750, 150);
         }
 
     }

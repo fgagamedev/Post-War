@@ -123,6 +123,8 @@ void carrega_eua(SDL_Surface *screen,string lado){
 
     for(int i=0, j=1;i<5;i++,j+=30){
             BlitImage(screen,unidades_vermelhas[i]->nome,i+800,j+150);
+            unidades_vermelhas[i]->x = i+800;
+            unidades_vermelhas[i]->y = j+150;
 
     }
 

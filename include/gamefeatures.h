@@ -18,6 +18,8 @@ typedef struct _Unidade{
 	int minerio;
 	char *cor;
 	char *tipo;
+	int x;
+	int y;
 } Unidade;
 
 
