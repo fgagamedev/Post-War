@@ -102,7 +102,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
     }
 
      for (int i=0;i<=0;i++){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_esquerda1.png";
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_vermelha_esquerda1.png";
         SDL_Surface *tanque1 = load_Image(caminho, screen);
         Unidade *tanque = new Unidade();
         char cor[100] = "vermelha";
