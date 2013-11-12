@@ -55,7 +55,6 @@ void load_menu(SDL_Surface *screen){
             SDL_Flip(screen);
 
             if(vetor->click == 1){
-
                 inicio(screen);
             }
             cont=0;

@@ -40,4 +40,25 @@ void carrega_china(SDL_Surface *screen,string lado){
 }
 
 void carrega_eua(SDL_Surface *screen,string lado){
+    string lado2("cliente");
+
+    if(lado.compare(lado2)==0){
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/Loading.png";
+        SDL_Surface *loading = load_Image(caminho, screen);
+        BlitImage(screen, loading, 0, 0);
+    }
+
+        for(int i=0;i<3;i++){
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_vermelha_esquerda1.png";
+        SDL_Surface *soldado1 = load_Image(caminho, screen);
+        Unidade *soldado = new Unidade();
+        char cor[100] = "vermelha";
+        char unidade[100] = "soldado";
+        setar_soldado(soldado,cor,unidade);
+    }
+
+
+
+
+
 }
