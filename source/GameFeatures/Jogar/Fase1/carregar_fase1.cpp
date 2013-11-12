@@ -44,8 +44,16 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
         vetor = get_Input();
 
         if(vetor->click == 1){
-            cout << "clicked"<< endl;
-            mover_soldado(screen, 1, 750, 150);
+            if(compara_selecao(801, 833, vetor->x, 151, 183, vetor->y)){
+                vetor->click == 0;
+                cout << "cliquei no boneco certo" << endl;
+                if(vetor->click == 1){
+                    cout << "entrei para mover" << endl;
+                    cout << "x:" << vetor->x << endl;
+                    cout << "y:" << vetor->y << endl;
+                    mover_soldado(screen, 1, vetor->x, vetor->y);
+                }
+            }
         }
 
     }
