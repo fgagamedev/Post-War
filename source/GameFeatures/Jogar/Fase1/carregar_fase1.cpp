@@ -10,6 +10,8 @@ using namespace std;
 
 void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
+
+    Vetor_mouse *vetor = new Vetor_mouse;
     Unidade *unit;
 
     string caminho = "source/GameFeatures/Jogar/Fase1/images/Loading.png";
@@ -22,38 +24,6 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mapa_final_sv2.png";
     SDL_Surface *mapa1 = load_Image(caminho, screen);
     BlitImage(screen, mapa1, 0, 0);
-
-    /*
-    caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
-    SDL_Surface *sold = load_Image(caminho, screen);
-    BlitImage(screen, sold, 600, 500);
-
-    caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_vermelha_esquerda1.png";
-    SDL_Surface *sold2 = load_Image(caminho, screen);
-    BlitImage(screen, sold2, 700, 450);
-    BlitImage(screen, sold2, 700, 350);
-    BlitImage(screen, sold2, 700, 250);
-
-    caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_vermelha_esquerda1.png";
-    SDL_Surface *helicoptero2 = load_Image(caminho, screen);
-    BlitImage(screen, helicoptero2, 800, 400);
-    BlitImage(screen, helicoptero2, 800, 300);
-
-    caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_esquerda1.png";
-    SDL_Surface *metralhadora2 = load_Image(caminho, screen);
-    BlitImage(screen, metralhadora2, 850, 400);
-    BlitImage(screen, metralhadora2, 850, 300);
-
-    caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_vermelha_esquerda1.png";
-    SDL_Surface *tanque2 = load_Image(caminho, screen);
-    BlitImage(screen, tanque2, 800, 200);
-
-/*
-    caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
-    cout<<"caminho:" << caminho<<endl;
-    SDL_Surface *hud = load_Image(caminho, screen);
-    BlitImage(screen, hud, 0, 0);
-    */
 
 
     if(strcmp("china","china") == 0){
@@ -68,7 +38,17 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
     SDL_Flip(screen);
 
-    SDL_Delay(10000);
+    //SDL_Delay(10000);
+
+    while(1){
+        vetor = get_Input();
+
+        if(vetor->click == 1){
+            cout << "cliquei" << endl;
+            mover_soldado(screen, 1, 150, 150);
+        }
+
+    }
 
 /*
     string soldadoazul_direita1 = "unidade_azul_direita1.png";

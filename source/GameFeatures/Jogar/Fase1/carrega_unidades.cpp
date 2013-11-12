@@ -130,7 +130,4 @@ void carrega_eua(SDL_Surface *screen,string lado){
             BlitImage(screen,unidades_vermelhas[i]->nome,i+900,j+200);
 
     }
-
-
-
 }

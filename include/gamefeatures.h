@@ -22,6 +22,7 @@ typedef struct _Unidade{
 
 
 extern vector<Unidade *> unidades_azul;
+extern vector<Unidade *> unidades_vermelhas;
 extern void desenha_texto(char *texto, SDL_Surface* dst, int x, int y, char *tipo_fonte, int size);
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);

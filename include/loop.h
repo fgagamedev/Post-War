@@ -16,7 +16,7 @@ typedef struct _vetormouse{
 extern void desenha_texto(char *texto, SDL_Surface* dst, int x, int y, char *tipo_fonte, int size);
 extern Vetor_mouse *get_Input();
 extern int compara_selecao(int x_min,int x_max,int x,int y_min,int y_max,int y);
-
+extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
 extern int criar_servidor();
 
 extern int conectar(char* ip_text); 
