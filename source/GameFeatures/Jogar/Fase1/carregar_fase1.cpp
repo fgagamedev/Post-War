@@ -33,6 +33,8 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     BlitImage(screen, sold2, 700, 350);
     BlitImage(screen, sold2, 700, 250);
 
+
+
     SDL_Flip(screen);
 
     SDL_Delay(10000);

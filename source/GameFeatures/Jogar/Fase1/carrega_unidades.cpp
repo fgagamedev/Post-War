@@ -17,6 +17,15 @@ void setar_soldado(Unidade *soldado, char cor[],char tipo[]){
     soldado->cor = cor;
 }
 
+void setar_helicoptero(Unidade *helicoptero, char cor[], char tipo[]){
+    helicoptero->hp = 300;
+    helicoptero->atk = 400;
+    helicoptero->def = 200;
+    helicoptero->alcance = 4;
+    helicoptero->ouro = 400;
+    helicoptero->cor = cor;
+}
+
 void carrega_china(SDL_Surface *screen,string lado){
 
     string lado1("servidor");
@@ -36,7 +45,6 @@ void carrega_china(SDL_Surface *screen,string lado){
         setar_soldado(soldado,cor,unidade);
     }
 
-
 }
 
 void carrega_eua(SDL_Surface *screen,string lado){
@@ -49,7 +57,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
         BlitImage(screen, loading, 0, 0);
     }
 
-        for(int i=0;i<3;i++){
+    for(int i=0;i<3;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_vermelha_esquerda1.png";
         SDL_Surface *soldado1 = load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
@@ -57,8 +65,14 @@ void carrega_eua(SDL_Surface *screen,string lado){
         char unidade[100] = "soldado";
         setar_soldado(soldado,cor,unidade);
     }
-
-
+    for (int i=0;i<2;i++){
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_vermelha_esquerda1.png";
+        SDL_Surface *helicoptero1 = load_Image(caminho, screen);
+        Unidade *helicoptero = new Unidade();
+        char cor[100] = "vermelha";
+        char unidade[100] = "helicoptero";
+        setar_helicoptero(helicoptero, cor, unidade);
+    }
 
 
 
