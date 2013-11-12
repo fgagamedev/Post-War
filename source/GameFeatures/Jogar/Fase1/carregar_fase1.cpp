@@ -38,6 +38,15 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     BlitImage(screen, helicoptero2, 800, 400);
     BlitImage(screen, helicoptero2, 800, 300);
 
+    caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_esquerda1.png";
+    SDL_Surface *metralhadora2 = load_Image(caminho, screen);
+    BlitImage(screen, metralhadora2, 850, 400);
+    BlitImage(screen, metralhadora2, 850, 300);
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_vermelha_esquerda1.png";
+    SDL_Surface *tanque2 = load_Image(caminho, screen);
+    BlitImage(screen, tanque2, 800, 200);
+
     SDL_Flip(screen);
 
     SDL_Delay(10000);
