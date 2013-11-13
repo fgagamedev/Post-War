@@ -13,6 +13,6 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y){
     //cout << "entrei com w = " << w << endl;
     SDL_Rect pos = {x, y};
     SDL_BlitSurface(unidades_vermelhas[i]->nome, NULL, screen, &pos);
-    SDL_Flip(screen);
+    //SDL_Flip(screen);
     //}
 }
