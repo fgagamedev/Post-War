@@ -20,7 +20,7 @@ FASE1=source/GameFeatures/Jogar/Fase1/fase1.cpp
 FONTES=source/features/MiscTasks/fontes.cpp
 CARREGA_FASE1=source/GameFeatures/Jogar/Fase1/carregar_fase1.cpp
 CARREGA_UNIDADE=source/GameFeatures/Jogar/Fase1/carrega_unidades.cpp
-MOVER_UNIDADE=source/GameFeatures/Jogar/Fase1/mover_unidade.cpp
+MOVER_UNIDADE=source/features/UpdateObjects/mover_unidade.cpp
 CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf
 
 all: PostWar
