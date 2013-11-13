@@ -41,6 +41,7 @@ void inicio(SDL_Surface *screen){
                 cin>>ip;
                 //digitarip(vetor, screen);
                 conectar(ip);
+                fase1(screen);
             }
 
         }
@@ -49,7 +50,7 @@ void inicio(SDL_Surface *screen){
                 if(vetor->click == 1){
                         break;
                 }
-
+                fase1(screen);
             }
     }
 }
