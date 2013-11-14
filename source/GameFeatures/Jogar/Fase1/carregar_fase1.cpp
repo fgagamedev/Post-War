@@ -8,6 +8,8 @@
 
 using namespace std;
 
+SDL_Surface *mapa1;
+
 void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
 
@@ -22,7 +24,7 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
 
     caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mapa_final_sv2.png";
-    SDL_Surface *mapa1 = load_Image(caminho, screen);
+    mapa1 = load_Image(caminho, screen);
     BlitImage(screen, mapa1, 0, 0);
 
 

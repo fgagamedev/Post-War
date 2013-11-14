@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -21,6 +21,7 @@ FONTES=source/features/MiscTasks/fontes.cpp
 CARREGA_FASE1=source/GameFeatures/Jogar/Fase1/carregar_fase1.cpp
 CARREGA_UNIDADE=source/GameFeatures/Jogar/Fase1/carrega_unidades.cpp
 MOVER_UNIDADE=source/features/UpdateObjects/mover_unidade.cpp
+BLIT_TELA=source/GameFeatures/blit_tela.cpp
 CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf
 
 all: PostWar
@@ -68,6 +69,8 @@ carrega_unidades.o: $(CARREGA_UNIDADE)
 	g++ -c $(CARREGA_UNIDADE)
 mover_unidade.o: $(MOVER_UNIDADE)
 	g++ -c $(MOVER_UNIDADE)
+blit_tela.o: $(BLIT_TELA)
+	g++ -c $(BLIT_TELA)
 PostWar.o: $(POSTWAR)
 	g++ -c $(POSTWAR)
 clean:
