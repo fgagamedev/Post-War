@@ -25,7 +25,6 @@ void inicio(SDL_Surface *screen){
     BlitImage(screen, escolher, 0, 0);
     SDL_Flip(screen);
 
-
     if(compara_selecao(560, 740, vetor->x, 111, 181, vetor->y)){
 
         if(vetor->click == 1){
@@ -53,18 +52,77 @@ void inicio(SDL_Surface *screen){
 }
 
 void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
+    int xinicial = 20;
+    int yinicial = 20;
 
     while(1){
         vetor = get_Input();
-        if(vetor->number == 1){
-            cout << "entrei em digitar ip " << vetor->number << endl;
-            char texto[] = "1";
-            char font[] = "KGFeeling22.ttf";
-            desenha_texto(texto, screen, 10, 10, font, 60);
-            SDL_Flip(screen);
-
+        char *texto;
+            switch(vetor->number){
+                case 1:
+                    //cout << "entrei em digitar ip " << vetor->number << endl;
+                    texto = "1";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 2:
+                    texto = "2";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 3:
+                    texto = "3";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 4:
+                    texto = "4";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 5:
+                    texto = "5";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 6:
+                    texto = "6";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 7:
+                    texto = "7";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 8:
+                    texto = "8";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 9:
+                    texto = "9";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                case 10:
+                    texto = ".";
+                    desenha_texto(texto, screen, xinicial, yinicial, 60);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
+                default:
+                    break;
         }
     }
-
-
 }
+

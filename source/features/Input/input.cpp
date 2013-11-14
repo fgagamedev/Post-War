@@ -50,6 +50,52 @@ Vetor_mouse *get_Input(){
                         vetor_mouse->number = 1;
                         return vetor_mouse;
                     }
+                    if(event.key.keysym.sym == SDLK_2){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 2;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_3){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 3;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_4){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 4;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_5){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 5;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_6){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 6;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_7){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 7;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_8){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 8;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_9){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 9;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_PERIOD){
+                        cout << "entrei sdl key down" << endl;
+                        vetor_mouse->number = 10;
+                        return vetor_mouse;
+                    }
+
             }
         }
 

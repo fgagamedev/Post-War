@@ -3,13 +3,22 @@
 // e-mail: edsonalves@unb.br
 #include <iostream>
 #include <cstdlib>
-
+#include <SDL/SDL_ttf.h>
 #include "video.h"
 
 using namespace std;
 
 void init_sdl()
 {
+
+    int rf = TTF_Init();
+
+    if (rf != 0) {
+		fprintf(stderr, "Erro na inicializacao da SDL_ttf: %s\n",
+			TTF_GetError());
+			exit(0);
+    }
+
 	int rc = SDL_Init(SDL_INIT_VIDEO);
 
 	if (rc == -1)
