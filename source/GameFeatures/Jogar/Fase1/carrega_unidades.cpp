@@ -65,7 +65,6 @@ void carrega_china(SDL_Surface *screen,string lado){
         unidades_azul.push_back(soldado);
     }
 
-
     string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
     SDL_Surface *metralhadora1 = load_Image(caminho, screen);
     Unidade *metralhadora = new Unidade();
@@ -73,6 +72,86 @@ void carrega_china(SDL_Surface *screen,string lado){
     setar_metralhadora(metralhadora, cor, tipo, metralhadora1);
     unidades_azul.push_back(metralhadora);
 
+    int ia=0;
+    int ja=114;
+    while(ja<800){
+        for(ia=22;ia<1208;ia+=32){
+            BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+        }
+        ja+=28;
+        for(ia=5;ia<1208;ia+=32){
+            BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+        }
+        ja+=28;
+    }
+
+
+
+/*
+    for(int i=22;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,114);
+    }
+
+    for(int i=5;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,141);
+    }
+
+    for(int i=22;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,171);
+    }
+
+    for(int i=5;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,198);
+    }
+
+    for(int i=22;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,226);
+    }
+
+    for(int i=5;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,255);
+    }
+
+    for(int i=22;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,282);
+    }
+
+    for(int i=5;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,310);
+    }
+
+    for(int i=22;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,337);
+    }
+
+    for(int i=5;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,365);
+    }
+
+    for(int i=22;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,393);
+    }
+
+    for(int i=5;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,421);
+    }
+
+    for(int i=22;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,449);
+    }
+
+    for(int i=5;i<1208;i+=32){
+        BlitImage(screen,unidades_azul[0]->nome,i,476);
+    }
+
+    for(int i=22;i<1208;i+=32){
+            BlitImage(screen,unidades_azul[0]->nome,i,504);
+        }
+
+        for(int i=5;i<1208;i+=32){
+            BlitImage(screen,unidades_azul[0]->nome,i,255);
+        }
+*/
 
     for(int i=0, j =1;i<11;i++,j+=30){
             BlitImage(screen,unidades_azul[i]->nome,i+200,j+150);
@@ -124,16 +203,19 @@ void carrega_eua(SDL_Surface *screen,string lado){
 
 
     for(int i=0, j=1;i<5;i++,j+=30){
-            BlitImage(screen,unidades_vermelhas[i]->nome,i+800,j+150);
-            unidades_vermelhas[i]->x = i+800;
-            unidades_vermelhas[i]->y = j+150;
-
+        BlitImage(screen,unidades_vermelhas[i]->nome,i+800,j+150);
+        unidades_vermelhas[i]->x = i+800;
+        unidades_vermelhas[i]->y = j+150;
     }
 
-      for(int i=5, j=1;i<8;i++,j+=60){
-            BlitImage(screen,unidades_vermelhas[i]->nome,i+900,j+200);
-            unidades_vermelhas[i]->x = i+900;
-            unidades_vermelhas[i]->y = j+200;
-
+    for(int i=5, j=1;i<8;i++,j+=60){
+        BlitImage(screen,unidades_vermelhas[i]->nome,i+900,j+200);
+        unidades_vermelhas[i]->x = i+900;
+        unidades_vermelhas[i]->y = j+200;
     }
 }
+
+
+
+
+

@@ -18,8 +18,8 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y){
     unidades_vermelhas[i]->x = j;
     //SDL_BlitSurface(unidades_vermelhas[i]->nome, NULL, screen, &pos);
     blit_tela(screen);
-    SDL_Flip(screen);
     //}
     }
+    SDL_Flip(screen);
 
 }

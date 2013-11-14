@@ -21,12 +21,13 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     BlitImage(screen, loading, 0, 0);
     SDL_Flip(screen);
 
-
-
     caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mapa_final_sv2.png";
     mapa1 = load_Image(caminho, screen);
     BlitImage(screen, mapa1, 0, 0);
 
+    caminho = "source/GameFeatures/Jogar/Fase1/images/malha.png";
+    SDL_Surface *malha = load_Image(caminho, screen);
+    BlitImage(screen,malha,0,0);
 
     if(strcmp("china","china") == 0){
         string escolha = "servidor";
