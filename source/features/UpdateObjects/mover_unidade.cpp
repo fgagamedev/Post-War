@@ -11,8 +11,15 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y){
     //for(int h = unidades_vermelhas[i]->x, w = unidades_vermelhas[i]->y;h>x; h = h-25){
     //cout << "entrei for com h = " << h << endl;
     //cout << "entrei com w = " << w << endl;
-    SDL_Rect pos = {x, y};
-    SDL_BlitSurface(unidades_vermelhas[i]->nome, NULL, screen, &pos);
+    int posi = unidades_vermelhas[i]->x;
+
+    for(int j = posi;j>x;j--){
+    SDL_Rect pos = {j, y};
+    unidades_vermelhas[i]->x = j;
+    //SDL_BlitSurface(unidades_vermelhas[i]->nome, NULL, screen, &pos);
+    blit_tela(screen);
     SDL_Flip(screen);
     //}
+    }
+
 }

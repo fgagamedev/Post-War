@@ -22,7 +22,7 @@ void fase1(SDL_Surface *screen){
         vetor = get_Input();
 
         if(vetor->click == 1){
-            if(compara_selecao(801, 833, vetor->x, 151, 183, vetor->y)){
+            if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
                 cout << "cliquei no boneco certo e vetor click ="<< vetor->click << endl;
                 while(1){
                 vetor = get_Input();
@@ -30,7 +30,7 @@ void fase1(SDL_Surface *screen){
                     cout << "entrei para mover" << endl;
                     cout << "x:" << vetor->x << endl;
                     cout << "y:" << vetor->y << endl;
-                    mover_soldado(screen, 1, vetor->x, vetor->y);
+                    mover_soldado(screen, 0, vetor->x, vetor->y);
                     break;
                     }
                 }
