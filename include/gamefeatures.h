@@ -22,7 +22,16 @@ typedef struct _Unidade{
 	int y;
 } Unidade;
 
+typedef struct _Hexagonos{
 
+	int x;
+	int y;
+	int indice;
+	int contem_unidade;
+	Unidade *unidade;
+} Hexagono;
+
+extern vector< vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;
 extern vector<Unidade *> unidades_vermelhas;
 extern void desenha_texto(char *texto, SDL_Surface* dst, int x, int y, int size);

@@ -10,6 +10,8 @@ using namespace std;
 
 vector <Unidade *> unidades_azul;
 vector <Unidade *> unidades_vermelhas;
+vector< vector <Hexagono*> > hexagonos;
+
 
 void setar_soldado(Unidade *soldado, char cor[],char tipo[],SDL_Surface *nome){
     soldado->hp = 200;
@@ -74,14 +76,33 @@ void carrega_china(SDL_Surface *screen,string lado){
 
     int ia=0;
     int ja=114;
-    while(ja<800){
+    int contador=0;
+    while(ja<600){
+    vector <Hexagono *> hex_temp;
         for(ia=22;ia<1208;ia+=32){
+
             BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+            Hexagono *hexagon = new Hexagono;
+            hexagon->x = ia;
+            hexagon->y = ja;
+            hexagon->indice = contador;
+            hex_temp.push_back(hexagon);
+            contador++;
         }
+        hexagonos.push_back(hex_temp);
         ja+=28;
+        vector <Hexagono *> hex_temp2;
         for(ia=5;ia<1208;ia+=32){
+
             BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+            Hexagono *hexagon = new Hexagono;
+            hexagon->x = ia;
+            hexagon->y = ja;
+            hexagon->indice = contador;
+            hex_temp2.push_back(hexagon);
+            contador++;
         }
+        hexagonos.push_back(hex_temp);
         ja+=28;
     }
 
