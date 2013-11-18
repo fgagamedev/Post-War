@@ -127,6 +127,8 @@ void carrega_eua(SDL_Surface *screen,string lado){
 
     BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[2][12]->x,hexagonos[2][12]->y);
     hexagonos[2][12]->unidade = unidades_vermelhas[0];
+    unidades_vermelhas[0]->x = hexagonos[2][12]->x;
+    unidades_vermelhas[0]->y = hexagonos[2][12]->y;
     BlitImage(screen,unidades_vermelhas[1]->nome,hexagonos[4][12]->x,hexagonos[4][12]->y);
     hexagonos[4][12]->unidade = unidades_vermelhas[1];
     BlitImage(screen,unidades_vermelhas[2]->nome,hexagonos[6][12]->x,hexagonos[6][12]->y);
