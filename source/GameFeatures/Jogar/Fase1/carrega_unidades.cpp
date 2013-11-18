@@ -63,7 +63,9 @@ void carrega_china(SDL_Surface *screen,string lado){
 
     string lado1("servidor");
     char cor[100] = "azul";
+    int k;
     for(int i=0, j=1;i<10;i++,j+=30){
+        k=i;
         string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
         SDL_Surface *soldado1 = load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
@@ -71,6 +73,14 @@ void carrega_china(SDL_Surface *screen,string lado){
         string unidadea1 = "soldado";
         setar_soldado(soldado, cor, unidadea1, soldado1);
         unidades_azul.push_back(soldado);
+        //if(i+2<=hexagonos.size()){
+        BlitImage(screen,unidades_azul[i]->nome,hexagonos[i*2][3]->x,hexagonos[i*2][3]->y);
+        hexagonos[i][3]->unidade = unidades_azul[i];
+
+        caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_azul.png";
+        SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
+        BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
+
     }
 
     string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
@@ -79,6 +89,17 @@ void carrega_china(SDL_Surface *screen,string lado){
     string unidadea2 = "metralhadora";
     setar_metralhadora(metralhadora, cor, unidadea2, metralhadora1);
     unidades_azul.push_back(metralhadora);
+
+    BlitImage(screen,unidades_azul[10]->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
+
+    SDL_Color blue;
+	blue.g = blue.b = 0;
+	blue.r = 255;
+	SDL_Color white;
+	white.r = white.g = white.b = 255;
+
+	drawCircle(screen, 20, 44, 137, blue);
+	drawCircle(screen, 20, 78, 157, blue);
 
 
 

@@ -12,16 +12,26 @@ using namespace std;
 SDL_Surface *mapa1;
 
 
-void mapeia_hexagono(){
+void mapeia_hexagono(SDL_Surface *screen){
+
+ SDL_Color blue;
+	blue.g = blue.b = 0;
+	blue.r = 255;
+	SDL_Color white;
+	white.r = white.g = white.b = 255;
 
     int ia=0;
     int ja=124;
+    int ie=44;
+    int je=136;
     int contador=0;
     while(ja<500){
         vector <Hexagono *> hex_temp;
-        for(ia=35;ia<1050;ia+=68){
+        for(ia=35, ie=44;ia<1050;ia+=68,ie+=68 ){
 
+            //drawCircle(screen, 20, ie, je, blue);
             //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+            drawCircle(screen, 20, ie, je, blue);
             Hexagono *hexagon = new Hexagono;
             hexagon->x = ia;
             hexagon->y = ja;
@@ -31,10 +41,12 @@ void mapeia_hexagono(){
         }
         hexagonos.push_back(hex_temp);
         ja+=19;
+        je+=20;
         vector <Hexagono *> hex_temp2;
-        for(ia=65;ia<1050;ia+=68){
+        for(ia=65,ie=78;ia<1050;ia+=68,ie+=68){
 
             //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+            drawCircle(screen, 20, ie, je, blue);
             Hexagono *hexagon = new Hexagono;
             hexagon->x = ia;
             hexagon->y = ja;
@@ -44,6 +56,7 @@ void mapeia_hexagono(){
         }
         hexagonos.push_back(hex_temp2);
         ja+=20;
+        je+=20;
     }
 
 }
@@ -68,7 +81,7 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     mapa1 = load_Image(caminho, screen);
     BlitImage(screen, mapa1, 0, 0);
 
-    mapeia_hexagono();
+    mapeia_hexagono(screen);
 
     if(strcmp("china","china") == 0){
         string escolha = "servidor";
