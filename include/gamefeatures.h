@@ -17,13 +17,12 @@ typedef struct _Unidade{
 	int comida;
 	int minerio;
 	char *cor;
-	char *tipo;
+	string tipo;
 	int x;
 	int y;
 } Unidade;
 
 typedef struct _Hexagonos{
-
 	int x;
 	int y;
 	int indice;

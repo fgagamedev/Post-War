@@ -17,7 +17,7 @@ typedef struct _Unidade{
 	int comida;
 	int minerio;
 	char *cor;
-	char *tipo;
+	string tipo;
 	int x;
 	int y;
 } Unidade;
@@ -31,7 +31,7 @@ typedef struct _Hexagonos{
 	Unidade *unidade;
 } Hexagono;
 
-extern vector< vector <Hexagonos*> > hexagonos;
+extern vector< vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;
 extern vector<Unidade *> unidades_vermelhas;
 extern void desenha_texto(char *texto, SDL_Surface* dst, int x, int y, int size);

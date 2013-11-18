@@ -6,9 +6,48 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
+
 using namespace std;
 
 SDL_Surface *mapa1;
+
+
+void mapeia_hexagono(){
+
+    int ia=0;
+    int ja=124;
+    int contador=0;
+    while(ja<500){
+        vector <Hexagono *> hex_temp;
+        for(ia=35;ia<1050;ia+=68){
+
+            //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+            Hexagono *hexagon = new Hexagono;
+            hexagon->x = ia;
+            hexagon->y = ja;
+            hexagon->indice = contador;
+            hex_temp.push_back(hexagon);
+            contador++;
+        }
+        hexagonos.push_back(hex_temp);
+        ja+=19;
+        vector <Hexagono *> hex_temp2;
+        for(ia=65;ia<1050;ia+=68){
+
+            //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
+            Hexagono *hexagon = new Hexagono;
+            hexagon->x = ia;
+            hexagon->y = ja;
+            hexagon->indice = contador;
+            hex_temp2.push_back(hexagon);
+            contador++;
+        }
+        hexagonos.push_back(hex_temp2);
+        ja+=20;
+    }
+
+}
+
 
 void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
@@ -21,13 +60,15 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     BlitImage(screen, loading, 0, 0);
     SDL_Flip(screen);
 
-    caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mapa_final_sv2.png";
-    mapa1 = load_Image(caminho, screen);
-    BlitImage(screen, mapa1, 0, 0);
-
     caminho = "source/GameFeatures/Jogar/Fase1/images/malha.png";
     SDL_Surface *malha = load_Image(caminho, screen);
     BlitImage(screen,malha,0,0);
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
+    mapa1 = load_Image(caminho, screen);
+    BlitImage(screen, mapa1, 0, 0);
+
+    mapeia_hexagono();
 
     if(strcmp("china","china") == 0){
         string escolha = "servidor";
@@ -38,52 +79,18 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
         string escolha = "cliente";
         carrega_eua(screen,escolha);
     }
+/*
+    for(int i=0; i<hexagonos.size();i++){
+        for(int j=0; j<hexagonos[i].size();j++){
+        BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
+        cout<<hexagonos[i][j]->indice<<" ";
+        }
+        cout<<endl;
+    }*/
+
+
+
 
     SDL_Flip(screen);
-
-    //SDL_Delay(10000);
-
-/*
-    string soldadoazul_direita1 = "unidade_azul_direita1.png";
-    SDL_Surface *soldado1 = load_Image(soldadoazul_direita1, screen);
-
-
-    string soldadoinimigo = "";
-    SDL_Surface *soldado2 = load_Image(soldadoinimigo, screen);
-
-
-    string helicopteroamigo = "";
-    SDL_Surface *helicoptero1 = load_Image(helicopteroamigo, screen);
-
-
-    string helicopteroinimigo = "";
-    SDL_Surface *helicoptero2 = load_Image(helicopteroinimigo, screen);
-
-
-    string tanqueamigo = "";
-    SDL_Surface *tanque1 = load_Image(tanqueamigo, screen);
-
-
-    string tanqueinimigo = "";
-    SDL_Surface *tanque2 = load_Image(tanqueinimigo, screen);
-
-
-    string quartelamigo = "";
-    SDL_Surface *quartel1 = load_Image(quartelamigo, screen);
-
-
-    string quartelinimigo = "";
-    SDL_Surface *quartel2 = load_Image(quartelinimigo, screen);
-
-
-    string  grid1 = "";
-    SDL_Surface *grid = load_Image(grid1,screen);
-
-
-    string metralhador= "";
-    SDL_Surface *metralhadora = load_Image(metralhador,screen);
-
-
-    */
-
 }
+
