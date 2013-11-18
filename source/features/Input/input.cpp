@@ -2,6 +2,7 @@
 #include <vector>
 #include <SDL/SDL.h>
 #include "../../../include/loop.h"
+#include <string>
 
 using namespace std;
 
@@ -93,6 +94,158 @@ Vetor_mouse *get_Input(){
                     if(event.key.keysym.sym == SDLK_PERIOD){
                         cout << "entrei sdl key down" << endl;
                         vetor_mouse->number = 10;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_a){
+                        cout << "setei A na letra" << endl;
+                        //char* letter;
+                        //letter = "a";
+                        vetor_mouse->number = 11;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_b){
+                        cout << "setei A na letra" << endl;
+                        //char* letter;
+                        //letter = "a";
+                        vetor_mouse->number = 12;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_c){
+                        cout << "setei A na letra" << endl;
+                        //char* letter;
+                        //letter = "a";
+                        vetor_mouse->number = 13;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_d){
+                        cout << "setei A na letra" << endl;
+                        //char* letter;
+                        //letter = "a";
+                        vetor_mouse->number = 14;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_e){
+                        cout << "setei A na letra" << endl;
+                        //char* letter;
+                        //letter = "a";
+                        vetor_mouse->number = 15;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_f){
+                        cout << "setei A na letra" << endl;
+                        //char* letter;
+                        //letter = "a";
+                        vetor_mouse->number = 16;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_g){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 17;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_h){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 18;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_i){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 19;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_j){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 20;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_k){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 21;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_l){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 22;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_m){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 23;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_n){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 24;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_o){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 25;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_p){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 26;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_q){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 27;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_r){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 28;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_s){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 29;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_t){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 30;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_u){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 31;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_v){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 32;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_x){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 33;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_w){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 34;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_y){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 35;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_z){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 36;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_SPACE){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 37;
+                        return vetor_mouse;
+                    }
+                    if(event.key.keysym.sym == SDLK_BACKSPACE){
+                        cout << "setei A na letra" << endl;
+                        vetor_mouse->number = 38;
                         return vetor_mouse;
                     }
 

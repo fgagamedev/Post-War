@@ -2,15 +2,16 @@
 #define _LOOP_H
 
 #include <SDL/SDL.h>
-#include<SDL/SDL_image.h>
-#include<SDL/SDL_net.h>
+#include <SDL/SDL_image.h>
+#include <SDL/SDL_net.h>
+#include <string>
 
 typedef struct _vetormouse{
 	int x;
 	int y;
 	int click;
 	int number;
-	char* ponto;
+	char* letra;
 }Vetor_mouse;
 
 extern void desenha_texto(char *texto, SDL_Surface* dst, int x, int y, int size);

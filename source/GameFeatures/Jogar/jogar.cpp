@@ -11,6 +11,7 @@
 using namespace std;
 
 void digitarip(Vetor_mouse *vetor, SDL_Surface *screen);
+void digitarnome(Vetor_mouse *vetor, SDL_Surface *screen);
 
 
 void inicio(SDL_Surface *screen){
@@ -36,6 +37,7 @@ void inicio(SDL_Surface *screen){
         else if(compara_selecao(565, 710, vetor->x, 211, 281, vetor->y)){
             if(vetor->click == 1){
                 cout << "cliquei em conectar" << endl;
+                digitarnome(vetor, screen);
                 digitarip(vetor, screen);
                 //conectar("192.168.1.10");
             }
@@ -48,6 +50,7 @@ void inicio(SDL_Surface *screen){
                 }
 
             }
+            SDL_Flip(screen);
     }
 }
 
@@ -126,3 +129,190 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
     }
 }
 
+void digitarnome(Vetor_mouse *vetor, SDL_Surface *screen){
+    int xinicial = 40;
+    int yinicial = 60;
+    //cout << "Entrei funcao digitarnome" << endl;
+
+    while(1){
+        vetor = get_Input();
+        char *texto;
+        //cout << "to no while" << endl;
+        switch(vetor->number){
+            case 11:
+                cout << "achei o A" << endl;
+                texto = "a";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 12:
+                texto = "b";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 13:
+                texto = "c";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 14:
+                texto = "d";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 15:
+                texto = "e";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 16:
+                texto = "f";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 17:
+                texto = "g";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 18:
+                texto = "h";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 19:
+                texto = "i";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 20:
+                texto = "j";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 21:
+                texto = "k";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 22:
+                texto = "l";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 23:
+                texto = "m";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 24:
+                texto = "n";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 25:
+                texto = "o";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 26:
+                texto = "p";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 27:
+                texto = "q";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 28:
+                texto = "r";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 29:
+                texto = "s";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 30:
+                texto = "t";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 31:
+                texto = "u";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 32:
+                texto = "v";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 33:
+                texto = "x";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 34:
+                texto = "w";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 35:
+                texto = "y";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 36:
+                texto = "z";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 37:
+                texto = " ";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                xinicial = xinicial + 30;
+                SDL_Flip(screen);
+                break;
+            case 38:
+                xinicial = xinicial - 30;
+                texto = " ";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                SDL_Flip(screen);
+                break;
+            default:
+                break;
+        }
+
+
+
+    }
+}
