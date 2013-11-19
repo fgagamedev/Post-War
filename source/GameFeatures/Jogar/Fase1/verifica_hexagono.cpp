@@ -21,17 +21,24 @@ int verifica_hexagono(int x, int y){
     for(int i=0;i<hexagonos.size();i++){
         for(int j=0;j<hexagonos[i].size();j++){
         //cout<<"indice="<<hexagonos[i][j]->indice<<endl;
-            if(hexagonos[i][j]->contem_unidade==1){
-                cout<<"calculando..., indice="<<hexagonos[i][j]->indice<<endl;
+            //if(hexagonos[i][j]->contem_unidade==1){
+                //cout<<"calculando..., indice="<<hexagonos[i][j]->indice<<endl;
                 vx = abs(x_f - hexagonos[i][j]->centro_x);
                 vy = abs(y_f - hexagonos[i][j]->centro_y);
                 re = (vx*vx)+(vy*vy);
                 re = sqrt(re);
                     if(re <= 20){
                         cout<<"clicou no hexagono "<<hexagonos[i][j]->indice<<endl;
+                        hex_selecao->i = i;
+                        hex_selecao->j = j;
+                        cout<<"hex_selecao->i"<<hex_selecao->i <<endl;
+                        cout<<"hex_selecao->j"<<hex_selecao->j <<endl;
                         return 1;
                     }
-            }
+           // }
+            /*hex_selecao->i = i;
+            hex_selecao->j = j;*/
+
         }
 
     }

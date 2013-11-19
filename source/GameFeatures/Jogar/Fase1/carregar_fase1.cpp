@@ -9,6 +9,8 @@
 
 using namespace std;
 
+Hex_selecao *hex_selecao;
+
 SDL_Surface *mapa1;
 void mapeia_hexagono(SDL_Surface *screen){
 
@@ -79,6 +81,8 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
 
     Unidade *unit;
+
+    hex_selecao = new Hex_selecao();
 
     string caminho = "source/GameFeatures/Jogar/Fase1/images/Loading.png";
     SDL_Surface *loading = load_Image(caminho, screen);

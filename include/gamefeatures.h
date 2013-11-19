@@ -33,6 +33,15 @@ typedef struct _Hexagonos{
 	int raio;
 } Hexagono;
 
+
+typedef struct _Hexagono_selecao{
+	int i;
+	int j;
+	int i_antes;
+	int j_antes;
+} Hex_selecao;
+
+extern Hex_selecao *hex_selecao;
 extern vector< vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;
 extern vector<Unidade *> unidades_vermelhas;

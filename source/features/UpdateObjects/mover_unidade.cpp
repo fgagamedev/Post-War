@@ -19,12 +19,18 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
     //SDL_BlitSurface(unidades_vermelhas[i]->nome, NULL, screen, &pos);
     blit_tela(screen);
     }*/
-    SDL_Rect cutBox = {32,0,32,32};
-    int w = unidades_vermelhas[i]->x;
 
+
+    SDL_Rect cutBox = {32,0,32,32};
+    int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;
+    int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
+
+    cout << "w:" << w << endl;
+    cout << "x:" << x << endl;
     while(w > x){
-        //cout << "x da unidade " << i << "=" << w;
+
         blit_tela(screen);
+
         int dt = SDL_GetTicks() - lastdt;
         lastdt = SDL_GetTicks();
         //cout << "w:" << w << endl;
@@ -32,9 +38,11 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
         //cout << "dt:" << dt << endl;
         //cout << "lastdt:" << lastdt << endl;
         //cout << "delay:" << delay << endl;
+        //cout << "w:" << w << endl;
         if(w>x){
         w = w - 2;
-        cout << "w:" << w << endl;
+        s = s - 2;
+        //cout << "w:" << w << endl;
         totalElapsedTime += dt;
         //cout << "totalElapsedTime:" << totalElapsedTime << endl;
         if(totalElapsedTime >= delay) {
@@ -51,9 +59,13 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
 
 
 
-        SDL_Rect dest = {(Sint16)w, (Sint16)y, 0, 0};
-        SDL_BlitSurface(unidades_vermelhas[i]->nome, &cutBox, screen, &dest);
-        cout << "unidade atualizada:" << i << endl;
+        SDL_Rect dest = {(Sint16)w, (Sint16)s, 0, 0};
+        cout<<"hex_selecaoantes_i= "<<hex_selecao->i_antes<<endl;
+        cout<<"hex_selecaoantes_j= "<<hex_selecao->j_antes<<endl;
+        cout<<"hex_selecao_i= "<<hex_selecao->i<<endl;
+        cout<<"hex_selecao_j= "<<hex_selecao->j<<endl;
+        //hexagonos[hex_selecao->i][hex_selecao->j]->unidade->nome
+        SDL_BlitSurface(unidades_vermelhas[0]->nome, &cutBox, screen, &dest);
         SDL_Delay(200);
         SDL_Flip(screen);
         unidades_vermelhas[i]->x = x;

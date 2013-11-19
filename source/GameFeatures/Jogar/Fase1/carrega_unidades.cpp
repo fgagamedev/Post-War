@@ -14,6 +14,7 @@ vector <Unidade *> unidades_vermelhas;
 vector< vector <Hexagono*> > hexagonos;
 SDL_Rect cutBox = { 32, 0, 32, 32};
 
+
 void setar_soldado(Unidade *soldado, char cor[],string tipo,SDL_Surface *nome){
     soldado->hp = 200;
     soldado->atk = 100;
