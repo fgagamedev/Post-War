@@ -45,7 +45,7 @@ void fase1(SDL_Surface *screen){
                 while(1){
                     vetor = get_Input();
                     if(vetor->click == 1){
-                        mover_soldado(screen, 1, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
+                        mover_soldado(screen, 1, hexagonos[hex_selecao->i][hex_selecao->j]->x, hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                         break;
                     }
                 }
@@ -55,7 +55,7 @@ void fase1(SDL_Surface *screen){
                 while(1){
                     vetor = get_Input();
                     if(vetor->click == 1){
-                        mover_soldado(screen, 2, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
+                        mover_soldado(screen, 2, hexagonos[hex_selecao->i][hex_selecao->j]->x, hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                         break;
                     }
                 }
