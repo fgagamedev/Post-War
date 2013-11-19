@@ -28,6 +28,9 @@ typedef struct _Hexagonos{
 	int indice;
 	int contem_unidade;
 	Unidade *unidade;
+	int centro_x;
+	int centro_y;
+	int raio;
 } Hexagono;
 
 extern vector< vector <Hexagono *> > hexagonos;

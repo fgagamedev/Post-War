@@ -31,8 +31,11 @@ void mapeia_hexagono(SDL_Surface *screen){
 
             //drawCircle(screen, 20, ie, je, blue);
             //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
-            drawCircle(screen, 20, ie, je, blue);
+            //drawCircle(screen, 20, ie, je, blue);
             Hexagono *hexagon = new Hexagono;
+            hexagon->centro_x = ie;
+            hexagon->centro_y = je;
+            hexagon->raio = 20;
             hexagon->x = ia;
             hexagon->y = ja;
             hexagon->indice = contador;
@@ -46,7 +49,7 @@ void mapeia_hexagono(SDL_Surface *screen){
         for(ia=65,ie=78;ia<1050;ia+=68,ie+=68){
 
             //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
-            drawCircle(screen, 20, ie, je, blue);
+            //drawCircle(screen, 20, ie, je, blue);
             Hexagono *hexagon = new Hexagono;
             hexagon->x = ia;
             hexagon->y = ja;

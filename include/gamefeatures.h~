@@ -23,7 +23,6 @@ typedef struct _Unidade{
 } Unidade;
 
 typedef struct _Hexagonos{
-
 	int x;
 	int y;
 	int indice;

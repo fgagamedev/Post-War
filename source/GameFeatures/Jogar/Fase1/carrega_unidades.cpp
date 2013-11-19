@@ -100,10 +100,6 @@ void carrega_china(SDL_Surface *screen,string lado){
 
 	drawCircle(screen, 20, 44, 137, blue);
 	drawCircle(screen, 20, 78, 157, blue);
-
-
-
-
 }
 
 void carrega_eua(SDL_Surface *screen,string lado){
