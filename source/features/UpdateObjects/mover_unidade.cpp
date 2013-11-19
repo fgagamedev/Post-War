@@ -41,7 +41,9 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
         //cout << "w:" << w << endl;
         if(w>x){
         w = w - 2;
-        s = s - 2;
+
+        if(s>y)
+            s = s - 2;
         //cout << "w:" << w << endl;
         totalElapsedTime += dt;
         //cout << "totalElapsedTime:" << totalElapsedTime << endl;
