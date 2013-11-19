@@ -27,7 +27,7 @@ void fase1(SDL_Surface *screen){
         if(vetor->click == 1){
             verifica_hexagono(vetor->x,vetor->y);
             if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-                cout << "cliquei unidade 0" << endl;
+                //cout << "cliquei unidade 0" << endl;
                     //cout << "cliquei no boneco certo e vetor click ="<< vetor->click << endl;
                     while(1){
                         vetor = get_Input();
@@ -38,17 +38,26 @@ void fase1(SDL_Surface *screen){
                     }
                 }
             if(compara_selecao(unidades_vermelhas[1]->x, unidades_vermelhas[1]->x+32, vetor->x, unidades_vermelhas[1]->y, unidades_vermelhas[1]->y+32, vetor->y)){
-                cout << "cliquei unidade 1" << endl;
+                //cout << "cliquei unidade 1" << endl;
                 while(1){
-                        vetor = get_Input();
-                        if(vetor->click == 1){
-                            mover_soldado(screen, 1, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
-                            break;
-                        }
+                    vetor = get_Input();
+                    if(vetor->click == 1){
+                        mover_soldado(screen, 1, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
+                        break;
                     }
-
+                }
             }
+            if(compara_selecao(unidades_vermelhas[2]->x, unidades_vermelhas[2]->x+32, vetor->x, unidades_vermelhas[2]->y, unidades_vermelhas[2]->y+32, vetor->y)){
+                //cout << "cliquei unidade 2" << endl;
+                while(1){
+                    vetor = get_Input();
+                    if(vetor->click == 1){
+                        mover_soldado(screen, 2, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
+                        break;
+                    }
+                }
             }
         }
+    }
 }
 
