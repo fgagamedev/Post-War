@@ -123,6 +123,12 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                     xinicial = xinicial + 30;
                     SDL_Flip(screen);
                     break;
+                case 38:
+                xinicial = xinicial - 30;
+                texto = " ";
+                desenha_texto(texto, screen, xinicial, yinicial, 60);
+                SDL_Flip(screen);
+                break;
                 default:
                     break;
         }
@@ -140,7 +146,6 @@ void digitarnome(Vetor_mouse *vetor, SDL_Surface *screen){
         //cout << "to no while" << endl;
         switch(vetor->number){
             case 11:
-                cout << "achei o A" << endl;
                 texto = "a";
                 desenha_texto(texto, screen, xinicial, yinicial, 60);
                 xinicial = xinicial + 30;

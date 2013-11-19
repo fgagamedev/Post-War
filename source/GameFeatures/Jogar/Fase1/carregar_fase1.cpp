@@ -10,8 +10,6 @@
 using namespace std;
 
 SDL_Surface *mapa1;
-
-
 void mapeia_hexagono(SDL_Surface *screen){
 
  SDL_Color blue;
@@ -29,13 +27,23 @@ void mapeia_hexagono(SDL_Surface *screen){
         vector <Hexagono *> hex_temp;
         for(ia=35, ie=44;ia<1050;ia+=68,ie+=68 ){
 
-            //drawCircle(screen, 20, ie, je, blue);
             //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
-            drawCircle(screen, 20, ie, je, blue);
+
+            drawCircle(screen, 2, ie, je, blue);
             Hexagono *hexagon = new Hexagono;
+            hexagon->centro_x = ie;
+            hexagon->centro_y = je;
+            hexagon->raio = 20;
             hexagon->x = ia;
             hexagon->y = ja;
             hexagon->indice = contador;
+            hexagon->contem_unidade=0;
+            if(contador==132){
+                string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
+                SDL_Surface *soldado1 = load_Image(caminho, screen);
+                BlitImage(screen,soldado1,ie,je);
+             }
+
             hex_temp.push_back(hexagon);
             contador++;
         }
@@ -46,11 +54,15 @@ void mapeia_hexagono(SDL_Surface *screen){
         for(ia=65,ie=78;ia<1050;ia+=68,ie+=68){
 
             //BlitImage(screen,unidades_azul[0]->nome,ia,ja);
-            drawCircle(screen, 20, ie, je, blue);
+            drawCircle(screen, 2, ie, je, blue);
             Hexagono *hexagon = new Hexagono;
             hexagon->x = ia;
             hexagon->y = ja;
+            hexagon->centro_x = ie;
+            hexagon->centro_y = je;
             hexagon->indice = contador;
+            hexagon->raio = 20;
+            hexagon->contem_unidade=0;
             hex_temp2.push_back(hexagon);
             contador++;
         }
@@ -61,6 +73,8 @@ void mapeia_hexagono(SDL_Surface *screen){
 
 }
 
+SDL_Surface *malha;
+SDL_Surface *hud;
 
 void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
@@ -74,12 +88,12 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     SDL_Flip(screen);
 
     caminho = "source/GameFeatures/Jogar/Fase1/images/malha.png";
-    SDL_Surface *malha = load_Image(caminho, screen);
+    malha = load_Image(caminho, screen);
     BlitImage(screen,malha,0,0);
 
     caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
-    mapa1 = load_Image(caminho, screen);
-    BlitImage(screen, mapa1, 0, 0);
+    hud = load_Image(caminho, screen);
+    BlitImage(screen, hud, 0, 0);
 
     mapeia_hexagono(screen);
 

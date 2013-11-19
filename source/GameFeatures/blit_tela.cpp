@@ -6,22 +6,22 @@
 #include "../../include/loop.h"
 #include "../../include/gamefeatures.h"
 
-extern SDL_Surface *mapa1;
+
 
 using namespace std;
 void blit_tela(SDL_Surface *screen){
 
-    BlitImage(screen, mapa1, 0, 0);
+    BlitImage(screen, malha, 0, 0);
+    BlitImage(screen, hud, 0, 0);
+    cout<<"cheguei até aqui"<<endl;
 
-     for(int i=0;i<unidades_azul.size();i++){
-            BlitImage(screen,unidades_azul[i]->nome,unidades_azul[i]->x,unidades_azul[i]->y);
-
+    for(int i=0;i<hexagonos.size();i++){
+        for(int j=0;j<hexagonos[i].size();j++){
+            if(hexagonos[i][j]->contem_unidade==1){
+                cout<<"foi, i: "<<i<<"j: "<<j<<endl;
+                BlitImage(screen,hexagonos[i][j]->unidade->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
+            }
+        }
     }
 
-    for(int i=0;i<unidades_vermelhas.size();i++){
-            BlitImage(screen,unidades_vermelhas[i]->nome,unidades_vermelhas[i]->x,unidades_vermelhas[i]->y);
-
-    }
-
-cout<<"ioa"<<endl;
 }

@@ -11,7 +11,9 @@ void fase1(SDL_Surface *screen){
     string pais_serv ("china");
     string pais_client ("eua");
     carregar_fase1(screen,pais_serv,pais_client);
-
+    int lastdt = SDL_GetTicks();
+    int totalElapsedTime = 0;
+    int delay = 200;
     //BlitImage(screen, mapa1, 0, 0);
 
     Vetor_mouse *vetor = new Vetor_mouse;
@@ -20,23 +22,25 @@ void fase1(SDL_Surface *screen){
 
       while(1){
         vetor = get_Input();
-        cout << "x unidade vermelha 0:" << unidades_vermelhas[0]->x << endl;
+
+        //cout << "x unidade vermelha 0:" << unidades_vermelhas[0]->x << endl;
         if(vetor->click == 1){
+            verifica_hexagono(vetor->x,vetor->y);
             if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-                cout << "cliquei no boneco certo e vetor click ="<< vetor->click << endl;
-                while(1){
-                vetor = get_Input();
-                if(vetor->click == 1){
-                    //cout << "entrei para mover" << endl;
-                    //cout << "x:" << vetor->x << endl;
-                    //cout << "y:" << vetor->y << endl;
-                    mover_soldado(screen, 0, vetor->x, vetor->y);
-                    break;
+                    cout << "cliquei no boneco certo e vetor click ="<< vetor->click << endl;
+                    while(1){
+                        vetor = get_Input();
+                        if(vetor->click == 1){
+                            cout << "vetorclick:" << vetor->click << endl;
+                            //cout << "entrei para mover" << endl;
+                            //cout << "x:" << vetor->x << endl;
+                            //cout << "y:" << vetor->y << endl;
+                            mover_soldado(screen, 0, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
+
+                        }
                     }
                 }
             }
-
         }
-    }
-
 }
+

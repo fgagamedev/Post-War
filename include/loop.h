@@ -19,6 +19,7 @@ extern Vetor_mouse *get_Input();
 extern int compara_selecao(int x_min,int x_max,int x,int y_min,int y_max,int y);
 extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
 extern int criar_servidor();
+extern void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTime, int delay, int lastdt);
 
 extern int conectar(char* ip_text); 
 

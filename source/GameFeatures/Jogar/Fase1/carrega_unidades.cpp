@@ -12,7 +12,7 @@ using namespace std;
 vector <Unidade *> unidades_azul;
 vector <Unidade *> unidades_vermelhas;
 vector< vector <Hexagono*> > hexagonos;
-
+SDL_Rect cutBox = { 32, 0, 32, 32};
 
 void setar_soldado(Unidade *soldado, char cor[],string tipo,SDL_Surface *nome){
     soldado->hp = 200;
@@ -75,7 +75,8 @@ void carrega_china(SDL_Surface *screen,string lado){
         unidades_azul.push_back(soldado);
         //if(i+2<=hexagonos.size()){
         BlitImage(screen,unidades_azul[i]->nome,hexagonos[i*2][3]->x,hexagonos[i*2][3]->y);
-        hexagonos[i][3]->unidade = unidades_azul[i];
+        hexagonos[i*2][3]->unidade = unidades_azul[i];
+        hexagonos[i*2][3]->contem_unidade = 1;
 
         caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_azul.png";
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
@@ -91,6 +92,8 @@ void carrega_china(SDL_Surface *screen,string lado){
     unidades_azul.push_back(metralhadora);
 
     BlitImage(screen,unidades_azul[10]->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
+    hexagonos[6][4]->contem_unidade=1;
+    hexagonos[6][4]->unidade = metralhadora;
 
     SDL_Color blue;
 	blue.g = blue.b = 0;
@@ -100,10 +103,6 @@ void carrega_china(SDL_Surface *screen,string lado){
 
 	drawCircle(screen, 20, 44, 137, blue);
 	drawCircle(screen, 20, 78, 157, blue);
-
-
-
-
 }
 
 void carrega_eua(SDL_Surface *screen,string lado){
@@ -112,7 +111,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
     char cor[100] = "vermelha";
 
     for(int i=0;i<3;i++){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_vermelha_esquerda1.png";
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/soldado_andando_esquerda.png";
         SDL_Surface *soldado1 = load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
         string unidade = "soldado";
@@ -145,23 +144,42 @@ void carrega_eua(SDL_Surface *screen,string lado){
     setar_tanque(tanque, cor, unidade3, tanque1);
     unidades_vermelhas.push_back(tanque);
 
-
-    BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[2][12]->x,hexagonos[2][12]->y);
+    SDL_Rect dst = {hexagonos[2][12]->x, hexagonos[2][12]->y, 0, 0};
+    SDL_BlitSurface(unidades_vermelhas[0]->nome, &cutBox,  screen, &dst);
+    //BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[2][12]->x,hexagonos[2][12]->y);
     hexagonos[2][12]->unidade = unidades_vermelhas[0];
+    hexagonos[2][12]->contem_unidade = 1;
     unidades_vermelhas[0]->x = hexagonos[2][12]->x;
     unidades_vermelhas[0]->y = hexagonos[2][12]->y;
-    BlitImage(screen,unidades_vermelhas[1]->nome,hexagonos[4][12]->x,hexagonos[4][12]->y);
+
+    dst = {hexagonos[4][12]->x, hexagonos[4][12]->y, 0, 0};
+    SDL_BlitSurface(unidades_vermelhas[1]->nome, &cutBox,  screen, &dst);
+    //BlitImage(screen,unidades_vermelhas[1]->nome,hexagonos[4][12]->x,hexagonos[4][12]->y);
     hexagonos[4][12]->unidade = unidades_vermelhas[1];
-    BlitImage(screen,unidades_vermelhas[2]->nome,hexagonos[6][12]->x,hexagonos[6][12]->y);
+    hexagonos[4][12]->contem_unidade = 1;
+    unidades_vermelhas[1]->x = hexagonos[4][12]->x;
+    unidades_vermelhas[1]->y = hexagonos[4][12]->y;
+
+    dst = {hexagonos[6][12]->x, hexagonos[6][12]->y, 0, 0};
+    SDL_BlitSurface(unidades_vermelhas[2]->nome, &cutBox,  screen, &dst);
+    //BlitImage(screen,unidades_vermelhas[2]->nome,hexagonos[6][12]->x,hexagonos[6][12]->y);
     hexagonos[6][12]->unidade = unidades_vermelhas[2];
+    hexagonos[6][12]->contem_unidade = 1;
+    unidades_vermelhas[2]->x = hexagonos[6][12]->x;
+    unidades_vermelhas[2]->y = hexagonos[6][12]->y;
+
     BlitImage(screen,unidades_vermelhas[3]->nome,hexagonos[8][12]->x,hexagonos[8][12]->y);
     hexagonos[8][12]->unidade = unidades_vermelhas[3];
+    hexagonos[8][12]->contem_unidade = 1;
     BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
     hexagonos[10][12]->unidade = unidades_vermelhas[4];
+    hexagonos[10][12]->contem_unidade = 1;
     BlitImage(screen,unidades_vermelhas[6]->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
     hexagonos[14][12]->unidade = unidades_vermelhas[5];
+    hexagonos[14][12]->contem_unidade = 1;
     BlitImage(screen,unidades_vermelhas[7]->nome,hexagonos[6][14]->x,hexagonos[6][14]->y);
     hexagonos[6][14]->unidade = unidades_vermelhas[6];
+    hexagonos[14][12]->contem_unidade = 1;
            // cout<<"i: "<<i<<unidades_vermelhas[i]->tipo<<endl;
 
         /*unidades_vermelhas[i]->x = hexagonos[i][j]->x;
