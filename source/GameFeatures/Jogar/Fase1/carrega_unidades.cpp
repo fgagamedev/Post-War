@@ -152,16 +152,16 @@ void carrega_eua(SDL_Surface *screen,string lado){
     unidades_vermelhas[0]->x = hexagonos[2][12]->x;
     unidades_vermelhas[0]->y = hexagonos[2][12]->y;
 
-    dst = {hexagonos[4][12]->x, hexagonos[4][12]->y, 0, 0};
-    SDL_BlitSurface(unidades_vermelhas[1]->nome, &cutBox,  screen, &dst);
+    SDL_Rect d = {hexagonos[4][12]->x, hexagonos[4][12]->y, 0, 0};
+    SDL_BlitSurface(unidades_vermelhas[1]->nome, &cutBox,  screen, &d);
     //BlitImage(screen,unidades_vermelhas[1]->nome,hexagonos[4][12]->x,hexagonos[4][12]->y);
     hexagonos[4][12]->unidade = unidades_vermelhas[1];
     hexagonos[4][12]->contem_unidade = 1;
     unidades_vermelhas[1]->x = hexagonos[4][12]->x;
     unidades_vermelhas[1]->y = hexagonos[4][12]->y;
 
-    dst = {hexagonos[6][12]->x, hexagonos[6][12]->y, 0, 0};
-    SDL_BlitSurface(unidades_vermelhas[2]->nome, &cutBox,  screen, &dst);
+    SDL_Rect ds = {hexagonos[6][12]->x, hexagonos[6][12]->y, 0, 0};
+    SDL_BlitSurface(unidades_vermelhas[2]->nome, &cutBox,  screen, &ds);
     //BlitImage(screen,unidades_vermelhas[2]->nome,hexagonos[6][12]->x,hexagonos[6][12]->y);
     hexagonos[6][12]->unidade = unidades_vermelhas[2];
     hexagonos[6][12]->contem_unidade = 1;

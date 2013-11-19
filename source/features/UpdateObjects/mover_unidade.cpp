@@ -21,25 +21,27 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
     }*/
     SDL_Rect cutBox = {32,0,32,32};
     int w = unidades_vermelhas[i]->x;
+
     while(w > x){
+        //cout << "x da unidade " << i << "=" << w;
         blit_tela(screen);
         int dt = SDL_GetTicks() - lastdt;
         lastdt = SDL_GetTicks();
-        cout << "w:" << w << endl;
-        cout << "x:" << x << endl;
-        cout << "dt:" << dt << endl;
-        cout << "lastdt:" << lastdt << endl;
-        cout << "delay:" << delay << endl;
+        //cout << "w:" << w << endl;
+        //cout << "x:" << x << endl;
+        //cout << "dt:" << dt << endl;
+        //cout << "lastdt:" << lastdt << endl;
+        //cout << "delay:" << delay << endl;
         if(w>x){
         w = w - 2;
         cout << "w:" << w << endl;
         totalElapsedTime += dt;
-        cout << "totalElapsedTime:" << totalElapsedTime << endl;
+        //cout << "totalElapsedTime:" << totalElapsedTime << endl;
         if(totalElapsedTime >= delay) {
             totalElapsedTime -= delay;
-            cout << "cutbotx:  " << cutBox.x << endl;
+            //cout << "cutbotx:  " << cutBox.x << endl;
             if(cutBox.x == 0){
-                cout << "Entrei aqui" << endl;
+                //cout << "Entrei aqui" << endl;
                 cutBox.x = 32;
             }
             else {
@@ -51,6 +53,7 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
 
         SDL_Rect dest = {(Sint16)w, (Sint16)y, 0, 0};
         SDL_BlitSurface(unidades_vermelhas[i]->nome, &cutBox, screen, &dest);
+        cout << "unidade atualizada:" << i << endl;
         SDL_Delay(200);
         SDL_Flip(screen);
         unidades_vermelhas[i]->x = x;

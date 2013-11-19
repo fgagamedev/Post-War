@@ -27,19 +27,27 @@ void fase1(SDL_Surface *screen){
         if(vetor->click == 1){
             verifica_hexagono(vetor->x,vetor->y);
             if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-                    cout << "cliquei no boneco certo e vetor click ="<< vetor->click << endl;
+                cout << "cliquei unidade 0" << endl;
+                    //cout << "cliquei no boneco certo e vetor click ="<< vetor->click << endl;
                     while(1){
                         vetor = get_Input();
                         if(vetor->click == 1){
-                            cout << "vetorclick:" << vetor->click << endl;
-                            //cout << "entrei para mover" << endl;
-                            //cout << "x:" << vetor->x << endl;
-                            //cout << "y:" << vetor->y << endl;
                             mover_soldado(screen, 0, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
-
+                            break;
                         }
                     }
                 }
+            if(compara_selecao(unidades_vermelhas[1]->x, unidades_vermelhas[1]->x+32, vetor->x, unidades_vermelhas[1]->y, unidades_vermelhas[1]->y+32, vetor->y)){
+                cout << "cliquei unidade 1" << endl;
+                while(1){
+                        vetor = get_Input();
+                        if(vetor->click == 1){
+                            mover_soldado(screen, 1, vetor->x, vetor->y, totalElapsedTime, delay, lastdt);
+                            break;
+                        }
+                    }
+
+            }
             }
         }
 }
