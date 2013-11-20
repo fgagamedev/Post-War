@@ -4,6 +4,7 @@
 #include <SDL/SDL.h>
 #include <map>
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -49,7 +50,7 @@ extern SDL_Surface *malha;
 extern SDL_Surface *hud;
 
 
-extern void desenha_texto(char *texto, SDL_Surface* dst, int x, int y, int size);
+extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);

@@ -60,7 +60,7 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
 
     while(1){
         vetor = get_Input();
-        char *texto;
+        string texto;
             switch(vetor->number){
                 case 1:
                     //cout << "entrei em digitar ip " << vetor->number << endl;
@@ -142,7 +142,7 @@ void digitarnome(Vetor_mouse *vetor, SDL_Surface *screen){
 
     while(1){
         vetor = get_Input();
-        char *texto;
+        string texto;
         //cout << "to no while" << endl;
         switch(vetor->number){
             case 11:
@@ -309,7 +309,7 @@ void digitarnome(Vetor_mouse *vetor, SDL_Surface *screen){
                 break;
             case 38:
                 xinicial = xinicial - 30;
-                texto = " ";
+                texto =" ";
                 desenha_texto(texto, screen, xinicial, yinicial, 60);
                 SDL_Flip(screen);
                 break;
