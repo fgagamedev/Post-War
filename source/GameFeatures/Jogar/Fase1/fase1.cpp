@@ -28,17 +28,19 @@ void fase1(SDL_Surface *screen){
             if(verifica_hexagono(vetor->x,vetor->y)){
             cout<<"lets go"<<endl;
             //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-            hex_selecao->i_antes = hex_selecao->i;
-            hex_selecao->j_antes = hex_selecao->j;
-                    while(1){
-                        vetor = get_Input();
-                        if(vetor->click == 1){
-                            verifica_hexagono(vetor->x,vetor->y);
-                            mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                            break;
+            if(hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade == 1){
+                hex_selecao->i_antes = hex_selecao->i;
+                hex_selecao->j_antes = hex_selecao->j;
+                        while(1){
+                            vetor = get_Input();
+                            if(vetor->click == 1){
+                                verifica_hexagono(vetor->x,vetor->y);
+                                mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                break;
+                            }
                         }
-                    }
             }
+        }
                 //}
             /*
             if(compara_selecao(unidades_vermelhas[1]->x, unidades_vermelhas[1]->x+32, vetor->x, unidades_vermelhas[1]->y, unidades_vermelhas[1]->y+32, vetor->y)){

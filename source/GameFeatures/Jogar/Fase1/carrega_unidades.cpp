@@ -60,14 +60,25 @@ void setar_tanque(Unidade *tanque, char cor[], string tipo, SDL_Surface *nome){
     tanque->tipo = tipo;
 }
 
+void setar_quartel(Unidade *tanque, char cor[], string tipo, SDL_Surface *nome){
+    tanque->hp = 1000;
+    tanque->atk = 0;
+    tanque->def = 400;
+    tanque->alcance = 0;
+    tanque->ouro = 0;
+    tanque->cor = cor;
+    tanque->nome = nome;
+    tanque->tipo = tipo;
+}
+
 void carrega_china(SDL_Surface *screen,string lado){
 
     string lado1("servidor");
-    char cor[100] = "azul";
+    char cor[100] = "vermelho";
     int k;
     for(int i=0, j=1;i<10;i++,j+=30){
         k=i;
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/soldado_vermelho.png";
         SDL_Surface *soldado1 = load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
 
@@ -82,11 +93,16 @@ void carrega_china(SDL_Surface *screen,string lado){
 
         caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_azul.png";
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
+        Unidade *quartel_a = new Unidade();
+        string quarte = "quartel";
+        setar_quartel(quartel_a,cor,quarte,quartel_azul_cabana);
         BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
+        hexagonos[6][1]->unidade = quartel_a;
+        hexagonos[6][1]->contem_unidade = 1;
 
     }
 
-    string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
+    string caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_esquerda1.png";
     SDL_Surface *metralhadora1 = load_Image(caminho, screen);
     Unidade *metralhadora = new Unidade();
     string unidadea2 = "metralhadora";
@@ -103,8 +119,8 @@ void carrega_china(SDL_Surface *screen,string lado){
 	SDL_Color white;
 	white.r = white.g = white.b = 255;
 
-	drawCircle(screen, 20, 44, 137, blue);
-	drawCircle(screen, 20, 78, 157, blue);
+	//drawCircle(screen, 20, 44, 137, blue);
+	//drawCircle(screen, 20, 78, 157, blue);
 }
 
 void carrega_eua(SDL_Surface *screen,string lado){
@@ -122,7 +138,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
     }
 
     for (int i=0;i<2;i++){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_vermelha_esquerda1.png";
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_azul_movimentacao_esqueda.png";
         SDL_Surface *helicoptero1 = load_Image(caminho, screen);
         Unidade *helicoptero = new Unidade();
         string unidade1 = "helicoptero";
@@ -131,7 +147,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
     }
 
     for (int i=0;i<2;i++){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_esquerda1.png";
+        string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
         SDL_Surface *metrapalhadora1 = load_Image(caminho, screen);
         Unidade *metralhadora = new Unidade();
         string unidade2 = "metralhadora";
@@ -139,7 +155,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
         unidades_vermelhas.push_back(metralhadora);
     }
 
-    string caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_vermelha_esquerda1.png";
+    string caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_azul_esquerda1.png";
     SDL_Surface *tanque1 = load_Image(caminho, screen);
     Unidade *tanque = new Unidade();
     string unidade3 = "tanque";
@@ -170,29 +186,37 @@ void carrega_eua(SDL_Surface *screen,string lado){
     unidades_vermelhas[2]->x = hexagonos[6][12]->x;
     unidades_vermelhas[2]->y = hexagonos[6][12]->y;
 
-    BlitImage(screen,unidades_vermelhas[3]->nome,hexagonos[8][12]->x,hexagonos[8][12]->y);
+    SDL_Rect ds1 = {hexagonos[8][12]->x, hexagonos[8][12]->y, 0, 0};
+    SDL_BlitSurface(unidades_vermelhas[3]->nome, &cutBox,  screen, &ds1);
     hexagonos[8][12]->unidade = unidades_vermelhas[3];
     hexagonos[8][12]->contem_unidade = 1;
     unidades_vermelhas[3]->x = hexagonos[8][12]->x;
     unidades_vermelhas[3]->y = hexagonos[8][12]->y;
 
-    BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
+    SDL_Rect ds2 = {hexagonos[10][12]->x, hexagonos[10][12]->y, 0, 0};
+    SDL_BlitSurface(unidades_vermelhas[4]->nome, &cutBox,  screen, &ds2);
     hexagonos[10][12]->unidade = unidades_vermelhas[4];
     hexagonos[10][12]->contem_unidade = 1;
     unidades_vermelhas[4]->x = hexagonos[10][12]->x;
     unidades_vermelhas[4]->y = hexagonos[10][12]->y;
 
-    BlitImage(screen,unidades_vermelhas[6]->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
+    BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
     hexagonos[14][12]->unidade = unidades_vermelhas[5];
     hexagonos[14][12]->contem_unidade = 1;
     unidades_vermelhas[5]->x = hexagonos[14][12]->x;
     unidades_vermelhas[5]->y = hexagonos[14][12]->y;
 
-    BlitImage(screen,unidades_vermelhas[7]->nome,hexagonos[6][14]->x,hexagonos[6][14]->y);
+    BlitImage(screen,unidades_vermelhas[6]->nome,hexagonos[6][14]->x,hexagonos[6][14]->y);
     hexagonos[6][14]->unidade = unidades_vermelhas[6];
-    hexagonos[14][12]->contem_unidade = 1;
+    hexagonos[6][14]->contem_unidade = 1;
     unidades_vermelhas[6]->x = hexagonos[6][14]->x;
     unidades_vermelhas[6]->y = hexagonos[14][12]->y;
+
+    BlitImage(screen,unidades_vermelhas[7]->nome,hexagonos[7][10]->x,hexagonos[7][10]->y);
+    hexagonos[7][10]->unidade = unidades_vermelhas[7];
+    hexagonos[7][10]->contem_unidade = 1;
+    unidades_vermelhas[7]->x = hexagonos[7][10]->x;
+    unidades_vermelhas[7]->y = hexagonos[7][10]->y;
 
            // cout<<"i: "<<i<<unidades_vermelhas[i]->tipo<<endl;
 

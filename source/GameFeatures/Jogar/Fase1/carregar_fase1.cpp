@@ -39,9 +39,9 @@ void mapeia_hexagono(SDL_Surface *screen){
             hexagon->indice = contador;
             hexagon->contem_unidade=0;
             if(contador==132){
-                string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
-                SDL_Surface *soldado1 = load_Image(caminho, screen);
-                BlitImage(screen,soldado1,ie,je);
+                //string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
+                //SDL_Surface *soldado1 = load_Image(caminho, screen);
+               // BlitImage(screen,soldado1,ie,je);
              }
 
             hex_temp.push_back(hexagon);

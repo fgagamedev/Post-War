@@ -26,7 +26,7 @@ typedef struct _Hexagonos{
 	int x;
 	int y;
 	int indice;
-	int contem_unidade;
+	bool contem_unidade : 1;
 	Unidade *unidade;
 	int centro_x;
 	int centro_y;
