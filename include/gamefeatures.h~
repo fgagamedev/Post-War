@@ -37,6 +37,8 @@ typedef struct _Hexagonos{
 typedef struct _Hexagono_selecao{
 	int i;
 	int j;
+	int i_antes;
+	int j_antes;
 } Hex_selecao;
 
 extern Hex_selecao *hex_selecao;

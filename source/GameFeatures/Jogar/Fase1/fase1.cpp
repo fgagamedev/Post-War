@@ -40,6 +40,7 @@ void fase1(SDL_Surface *screen){
                     }
             }
                 //}
+            /*
             if(compara_selecao(unidades_vermelhas[1]->x, unidades_vermelhas[1]->x+32, vetor->x, unidades_vermelhas[1]->y, unidades_vermelhas[1]->y+32, vetor->y)){
                 //cout << "cliquei unidade 1" << endl;
                 while(1){
@@ -59,7 +60,7 @@ void fase1(SDL_Surface *screen){
                         break;
                     }
                 }
-            }
+            }*/
         }
     }
 }

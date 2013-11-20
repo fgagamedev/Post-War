@@ -20,7 +20,8 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
     //SDL_BlitSurface(unidades_vermelhas[i]->nome, NULL, screen, &pos);
     blit_tela(screen);
     }*/
-
+    Unidade *temp;
+    temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
     hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade= NULL;
     hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade= 0;
     SDL_Rect cutBox = {32,0,32,32};
@@ -67,16 +68,18 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
                 }
 
                 SDL_Rect dest = {(Sint16)w, (Sint16)s, 0, 0};
-                cout<<"hex_selecaoantes_i= "<<hex_selecao->i_antes<<endl;
+               /* cout<<"hex_selecaoantes_i= "<<hex_selecao->i_antes<<endl;
                 cout<<"hex_selecaoantes_j= "<<hex_selecao->j_antes<<endl;
                 cout<<"hex_selecao_i= "<<hex_selecao->i<<endl;
-                cout<<"hex_selecao_j= "<<hex_selecao->j<<endl;
+                cout<<"hex_selecao_j= "<<hex_selecao->j<<endl;*/
                 //hexagonos[hex_selecao->i][hex_selecao->j]->unidade->nome
-                SDL_BlitSurface(unidades_vermelhas[0]->nome, &cutBox, screen, &dest);
+                if(hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade){
+                    cout<<"WOLOLOLO"<<endl;
+                }
+                SDL_BlitSurface(temp->nome, &cutBox, screen, &dest);
                 SDL_Delay(200);
                 SDL_Flip(screen);
-                unidades_vermelhas[i]->x = x;
-                unidades_vermelhas[i]->y = y;
+
 
 
 
@@ -84,6 +87,9 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
         }
     }
 
-
+    unidades_vermelhas[i]->x = x;
+    unidades_vermelhas[i]->y = y;
+    hexagonos[hex_selecao->i][hex_selecao->j]->unidade = temp;
+    hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 1;
 
 }

@@ -19,7 +19,7 @@ void blit_tela(SDL_Surface *screen){
         for(int j=0;j<hexagonos[i].size();j++){
             if(hexagonos[i][j]->contem_unidade==1){
                 //cout<<"foi, i: "<<i<<"j: "<<j<<endl;
-                if((i == 2 || i == 4 || i == 6) && (j == 12)){
+                if(hexagonos[i][j]->unidade->tipo == "soldado"){
                     SDL_Rect cutBox = {32,0,32,32};
                     SDL_Rect dst = {hexagonos[i][j]->x, hexagonos[i][j]->y, 0, 0};
                     //cout << "fiz isso i " << i << endl;
