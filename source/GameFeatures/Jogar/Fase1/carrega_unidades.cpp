@@ -75,7 +75,8 @@ void carrega_china(SDL_Surface *screen,string lado){
         setar_soldado(soldado, cor, unidadea1, soldado1);
         unidades_azul.push_back(soldado);
         //if(i+2<=hexagonos.size()){
-        BlitImage(screen,unidades_azul[i]->nome,hexagonos[i*2][3]->x,hexagonos[i*2][3]->y);
+        SDL_Rect dst = {hexagonos[i*2][3]->x, hexagonos[i*2][3]->y, 0, 0};
+        SDL_BlitSurface(unidades_azul[i]->nome, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
 

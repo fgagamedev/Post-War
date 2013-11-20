@@ -43,7 +43,6 @@ void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int 
         //cout << "lastdt:" << lastdt << endl;
         //cout << "delay:" << delay << endl;
         //cout << "w:" << w << endl;
-        if(w < x){
 
             w = w + 2;
 
@@ -82,7 +81,6 @@ void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int 
                 SDL_Delay(200);
                 SDL_Flip(screen);
             }
-        }
     }
 
     while(w > x){
