@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTime, int delay, int lastdt){
+void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt){
     /*for(int h = unidades_vermelhas[i]->x, w = unidades_vermelhas[i]->y;h>x; h = h-25){
     cout << "entrei for com h = " << h << endl;
     cout << "entrei com w = " << w << endl;
@@ -87,8 +87,8 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
         }
     }
 
-    unidades_vermelhas[i]->x = x;
-    unidades_vermelhas[i]->y = y;
+    //unidades_vermelhas[i]->x = x;
+    //unidades_vermelhas[i]->y = y;
     hexagonos[hex_selecao->i][hex_selecao->j]->unidade = temp;
     hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 1;
 

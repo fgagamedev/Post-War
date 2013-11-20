@@ -34,7 +34,7 @@ void fase1(SDL_Surface *screen){
                         vetor = get_Input();
                         if(vetor->click == 1){
                             verifica_hexagono(vetor->x,vetor->y);
-                            mover_soldado(screen, 0, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                            mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                             break;
                         }
                     }
