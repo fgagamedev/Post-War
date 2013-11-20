@@ -6,6 +6,7 @@
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
 
+using namespace std;
 
 void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTime, int delay, int lastdt){
     /*for(int h = unidades_vermelhas[i]->x, w = unidades_vermelhas[i]->y;h>x; h = h-25){
@@ -20,7 +21,8 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
     blit_tela(screen);
     }*/
 
-
+    hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade= NULL;
+    hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade= 0;
     SDL_Rect cutBox = {32,0,32,32};
     int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;
     int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
@@ -44,38 +46,12 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
 
             if(s>y){
                 s = s - 2;
-                //cout << "w:" << w << endl;
-                totalElapsedTime += dt;
-                //cout << "totalElapsedTime:" << totalElapsedTime << endl;
-                if(totalElapsedTime >= delay) {
-                    totalElapsedTime -= delay;
-                    //cout << "cutbotx:  " << cutBox.x << endl;
-                    if(cutBox.x == 0){
-                        //cout << "Entrei aqui" << endl;
-                        cutBox.x = 32;
-                    }
-                    else {
-                        cutBox.x -= 32;
-                    }
-                }
-
-                SDL_Rect dest = {(Sint16)w, (Sint16)s, 0, 0};
-                cout<<"hex_selecaoantes_i= "<<hex_selecao->i_antes<<endl;
-                cout<<"hex_selecaoantes_j= "<<hex_selecao->j_antes<<endl;
-                cout<<"hex_selecao_i= "<<hex_selecao->i<<endl;
-                cout<<"hex_selecao_j= "<<hex_selecao->j<<endl;
-                //hexagonos[hex_selecao->i][hex_selecao->j]->unidade->nome
-                SDL_BlitSurface(unidades_vermelhas[0]->nome, &cutBox, screen, &dest);
-                SDL_Delay(200);
-                SDL_Flip(screen);
-                unidades_vermelhas[i]->x = x;
-                unidades_vermelhas[i]->y = y;
             }
-
-
             if(s<y){
                 s = s + 2;
                 //cout << "w:" << w << endl;
+            }
+                //cout << "w:" << w << endl;
                 totalElapsedTime += dt;
                 //cout << "totalElapsedTime:" << totalElapsedTime << endl;
                 if(totalElapsedTime >= delay) {
@@ -101,7 +77,10 @@ void mover_soldado(SDL_Surface *screen, int i, int x, int y, int totalElapsedTim
                 SDL_Flip(screen);
                 unidades_vermelhas[i]->x = x;
                 unidades_vermelhas[i]->y = y;
-            }
+
+
+
+
         }
     }
 
