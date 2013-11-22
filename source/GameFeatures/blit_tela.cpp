@@ -9,10 +9,29 @@
 
 
 using namespace std;
-void blit_tela(SDL_Surface *screen){
+void blit_tela(SDL_Surface *screen,int tela){
 
-    BlitImage(screen, malha, 0, 0);
+    if( tela == 0)
+        BlitImage(screen, sem_malha, 0, 0);
+        else
+            BlitImage(screen, com_malha, 0, 0);
+
     BlitImage(screen, hud, 0, 0);
+
+    /*
+    string bora;
+    string bora1;
+    for(int i=0; i<hexagonos.size();i++){
+        for(int j=0; j<hexagonos[i].size();j++){
+            bora[0]+=i;
+            bora1[0] += j;
+            cout<<"bora: "<<bora1<<endl;
+            desenha_texto(bora,screen,hexagonos[i][j]->x,hexagonos[i][j]->y,20);
+            desenha_texto(bora1,screen,hexagonos[i][j]->x+10,hexagonos[i][j]->y,20);
+            bora="0";
+            bora1="0";
+        }
+    }*/
 
 
     for(int i=0;i<hexagonos.size();i++){

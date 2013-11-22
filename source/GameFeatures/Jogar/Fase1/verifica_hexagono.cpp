@@ -44,3 +44,44 @@ int verifica_hexagono(int x, int y){
     }
 
 }
+
+
+int possui_unidade(){
+
+    if(hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
+
+
+int alcance_movimento_soldado(){
+
+    if((abs(hex_selecao->j_antes - hex_selecao->j) <= 1) && (abs(hex_selecao->i_antes - hex_selecao->i)  >0) && (abs(hex_selecao->i_antes - hex_selecao->i)  <3) ){
+        if ((abs(hex_selecao->i_antes - hex_selecao->i) == 2  && (abs(hex_selecao->j_antes - hex_selecao->j) == 1 ))){
+            return 0;
+        }
+
+        if(hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade){
+            return 0;
+        }
+
+        return 1;
+    }
+    else{
+        return 0;
+    }
+
+
+}
+
+
+
+
+
+
+
+
+

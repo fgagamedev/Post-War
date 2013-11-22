@@ -36,7 +36,7 @@ void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int 
 
 
     while(w!=x || y != s) {
-        blit_tela(screen);
+        blit_tela(screen,1);
         int dt = SDL_GetTicks() - lastdt;
         lastdt = SDL_GetTicks();
         cout << "w:" << w << endl;

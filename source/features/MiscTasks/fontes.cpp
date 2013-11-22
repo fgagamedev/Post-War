@@ -20,6 +20,6 @@ void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size){
 	SDL_BlitSurface(escrita, NULL, screen, &pos);
     //SDL_Flip(screen);
     //cout << "digitei o ip 1" << endl;
-    SDL_FreeSurface(escrita);
+    //SDL_FreeSurface(escrita);
     TTF_CloseFont(font);
 }

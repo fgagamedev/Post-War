@@ -70,10 +70,26 @@ void mapeia_hexagono(SDL_Surface *screen){
         ja+=20;
         je+=20;
     }
+    string bora="0";
+    string bora1="0";
+    for(int i=0; i<hexagonos.size();i++){
+        for(int j=0; j<hexagonos[i].size();j++){
+            bora[0]+=i;
+            bora1[0] += j;
+            cout<<"bora: "<<bora1<<endl;
+            desenha_texto(bora,screen,hexagonos[i][j]->x,hexagonos[i][j]->y,20);
+            desenha_texto(bora1,screen,hexagonos[i][j]->x+10,hexagonos[i][j]->y,20);
+            bora="0";
+            bora1="0";
+        }
+    }
+
+
 
 }
 
-SDL_Surface *malha;
+SDL_Surface *sem_malha;
+SDL_Surface *com_malha;
 SDL_Surface *hud;
 
 void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
@@ -89,9 +105,12 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     BlitImage(screen, loading, 0, 0);
     SDL_Flip(screen);
 
+    caminho = "source/GameFeatures/Jogar/Fase1/images/malha1.png";
+    sem_malha = load_Image(caminho, screen);
+    BlitImage(screen,sem_malha,0,0);
+
     caminho = "source/GameFeatures/Jogar/Fase1/images/malha.png";
-    malha = load_Image(caminho, screen);
-    BlitImage(screen,malha,0,0);
+    com_malha = load_Image(caminho, screen);
 
     caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
     hud = load_Image(caminho, screen);

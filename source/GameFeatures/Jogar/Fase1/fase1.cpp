@@ -20,50 +20,48 @@ void fase1(SDL_Surface *screen){
 
     SDL_Flip(screen);
 
+    string opcao = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mouse.png";
+    SDL_Surface *mouse = load_Image(opcao, screen);
+
       while(1){
         vetor = get_Input();
 
         if(vetor->click == 1){
 
             if(verifica_hexagono(vetor->x,vetor->y)){
-            cout<<"lets go"<<endl;
+
             //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-            if(hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade == 1){
                 hex_selecao->i_antes = hex_selecao->i;
                 hex_selecao->j_antes = hex_selecao->j;
-                        while(1){
-                            vetor = get_Input();
-                            if(vetor->click == 1){
-                                verifica_hexagono(vetor->x,vetor->y);
-                                mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                break;
+                if(possui_unidade()){
+                    blit_tela(screen,1);
+                    SDL_Flip(screen);
+                            while(1){
+                                vetor = get_Input();
+                                if(vetor->click == 1){
+                                    verifica_hexagono(vetor->x,vetor->y);
+                                    if(!possui_unidade()){
+                                        break;
+                                    }
+                                    if(alcance_movimento_soldado()){
+                                        mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                        break;
+                                    }
+                                        else{
+                                                blit_tela(screen,0);
+                                                break;
+                                        }
+                                }
                             }
-                        }
-            }
-        }
-                //}
-            /*
-            if(compara_selecao(unidades_vermelhas[1]->x, unidades_vermelhas[1]->x+32, vetor->x, unidades_vermelhas[1]->y, unidades_vermelhas[1]->y+32, vetor->y)){
-                //cout << "cliquei unidade 1" << endl;
-                while(1){
-                    vetor = get_Input();
-                    if(vetor->click == 1){
-                        mover_soldado(screen, 1, hexagonos[hex_selecao->i][hex_selecao->j]->x, hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                        break;
-                    }
                 }
+                blit_tela(screen,0);
+
             }
-            if(compara_selecao(unidades_vermelhas[2]->x, unidades_vermelhas[2]->x+32, vetor->x, unidades_vermelhas[2]->y, unidades_vermelhas[2]->y+32, vetor->y)){
-                //cout << "cliquei unidade 2" << endl;
-                while(1){
-                    vetor = get_Input();
-                    if(vetor->click == 1){
-                        mover_soldado(screen, 2, hexagonos[hex_selecao->i][hex_selecao->j]->x, hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                        break;
-                    }
-                }
-            }*/
+
         }
+        //blit_tela(screen);
+        //BlitImage(screen,mouse,vetor->x-13,vetor->y-13 );
+            SDL_Flip(screen);
     }
 }
 
