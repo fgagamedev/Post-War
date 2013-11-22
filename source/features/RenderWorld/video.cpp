@@ -4,12 +4,20 @@
 #include <iostream>
 #include <cstdlib>
 #include <SDL/SDL_ttf.h>
+#include <SDL/SDL_mixer.h>
 #include "video.h"
 
 using namespace std;
 
 void init_sdl()
 {
+
+    int ar = SDL_Init(SDL_INIT_AUDIO);
+
+    if (ar != 0){
+        cerr << "Erro na inicialização do audio:" << SDL_GetError() << endl;
+        exit(-1);
+        }
 
     int rf = TTF_Init();
 

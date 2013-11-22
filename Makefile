@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o verifica_hexagono.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o verifica_hexagono.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -11,6 +11,7 @@ VIDEO=source/features/RenderWorld/video.cpp
 SIMU=source/features/SimulatedWorld/simulated.cpp
 UPOBJ=source/features/UpdateObjects/updateobjects.cpp
 UPTIME=source/features/UpdateTime/update_time.cpp
+AUDIO=source/features/MiscTasks/audio.cpp
 POSTWAR=source/PostWar.cpp
 LOAD_I=source/features/RenderWorld/load_image.cpp
 MENU=source/GameFeatures/Menu/menu.cpp
@@ -23,7 +24,7 @@ CARREGA_UNIDADE=source/GameFeatures/Jogar/Fase1/carrega_unidades.cpp
 VERIFICA_HEXAGONO=source/GameFeatures/Jogar/Fase1/verifica_hexagono.cpp
 MOVER_UNIDADE=source/features/UpdateObjects/mover_unidade.cpp
 BLIT_TELA=source/GameFeatures/blit_tela.cpp
-CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf
+CFLAGS= `sdl-config --cflags --libs` -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf -lSDL_mixer
 
 all: PostWar
 PostWar: $(OBJ) 
@@ -74,6 +75,8 @@ blit_tela.o: $(BLIT_TELA)
 	g++ -c $(BLIT_TELA)
 verifica_hexagono.o: $(VERIFICA_HEXAGONO)
 	g++ -c $(VERIFICA_HEXAGONO)
+audio.o: $(AUDIO)
+	g++ -c $(AUDIO)
 PostWar.o: $(POSTWAR)
 	g++ -c $(POSTWAR)
 clean:

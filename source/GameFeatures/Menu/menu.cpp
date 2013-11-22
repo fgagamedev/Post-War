@@ -39,7 +39,7 @@ void load_menu(SDL_Surface *screen){
     SDL_Flip(screen);
     int cont=0;
     Vetor_mouse *vetor = new Vetor_mouse;
-
+    testeaudio();
 
     while(1){
 
