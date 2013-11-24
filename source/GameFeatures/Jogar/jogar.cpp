@@ -2,6 +2,8 @@
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include <SDL/SDL_ttf.h>
+#include <SDL/SDL_thread.h>
+#include <SDL/SDL_mixer.h>
 #include "../../../include/draw.h"
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
@@ -48,9 +50,9 @@ void inicio(SDL_Surface *screen){
 
         }
             else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
-
                 if(vetor->click == 1){
-                        break;
+                    Mix_CloseAudio();
+                    load_menu(screen);
                 }
 
             }
@@ -320,8 +322,5 @@ void digitarnome(Vetor_mouse *vetor, SDL_Surface *screen){
             default:
                 break;
         }
-
-
-
     }
 }
