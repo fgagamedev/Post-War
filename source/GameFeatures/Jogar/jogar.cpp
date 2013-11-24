@@ -19,6 +19,10 @@ void inicio(SDL_Surface *screen){
     string opcao = "source/GameFeatures/Jogar/images/conexao.png";
     SDL_Surface *escolher = load_Image(opcao, screen);
 
+    const char* musica = "tela_de_abertura.wav";
+
+    SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica);
+
     Vetor_mouse *vetor = new Vetor_mouse;
 
     while(1){

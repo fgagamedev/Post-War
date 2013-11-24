@@ -55,8 +55,11 @@ void load_menu(SDL_Surface *screen){
             SDL_Flip(screen);
 
             if(vetor->click == 1){
-                SDL_KillThread(audio);
-                cout << "matei a thread" << endl;
+                Mix_CloseAudio();
+                /*SDL_KillThread(audio);
+                if(audio == NULL){
+                    cout << "realmente matei a thread" << endl;
+                }*/
                 inicio(screen);
 
             }
