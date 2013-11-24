@@ -198,6 +198,10 @@ Vetor_mouse *get_Input(){
                         vetor_mouse->number = 38;
                         return vetor_mouse;
                     }
+                    if(event.key.keysym.sym == SDLK_ESCAPE){
+                        vetor_mouse->number = 39;
+                        return vetor_mouse;
+                    }
 
             }
         }

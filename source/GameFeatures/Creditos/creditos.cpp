@@ -44,5 +44,6 @@ void creditos(SDL_Surface *screen){
     RunImage(coisa, ubuntu, telapreta);
     RunImage(coisa, jogo_nome, telapreta);
 
+
 }
 

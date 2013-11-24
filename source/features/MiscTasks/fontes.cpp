@@ -5,8 +5,6 @@
 #include "../../../include/draw.h"
 
 
-
-
 void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size){
     char fonte[] = "KGFeeling22.ttf";
 	TTF_Font *font = TTF_OpenFont(fonte, size);

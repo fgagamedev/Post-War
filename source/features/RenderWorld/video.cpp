@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <SDL/SDL_ttf.h>
 #include <SDL/SDL_mixer.h>
+#include <SDL/SDL_thread.h>
 #include "video.h"
 
 using namespace std;

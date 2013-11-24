@@ -3,9 +3,12 @@
 #include <SDL/SDL_ttf.h>
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL.h>
+#include <string>
+#include "../../../include/draw.h"
 
+int testeaudio(void *data){
 
-void testeaudio(){
+    const char* music = (const char*)data;
     Mix_Chunk *sound = NULL;		//Pointer to our sound, in memory
 	int channel;				//Channel on which our sound is played
 
@@ -21,8 +24,9 @@ void testeaudio(){
 		exit(1);
 	}
 
+    //const char* txt = musica.c_str();
 	//Load our WAV file from disk
-	sound = Mix_LoadWAV("tela_de_abertura.wav");
+	sound = Mix_LoadWAV(music);
 	if(sound == NULL) {
 		printf("Unable to load WAV file: %s\n", Mix_GetError());
 	}
@@ -39,8 +43,5 @@ void testeaudio(){
 
 	//Release the memory allocated to our sound
 	Mix_FreeChunk(sound);
-
-	//Need to make sure that SDL_mixer and SDL have a chance to clean up
-	Mix_CloseAudio();
-	SDL_Quit();
+	return 0;
 }

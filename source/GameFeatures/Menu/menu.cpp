@@ -1,6 +1,9 @@
 #include <iostream>
+#include <string>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include <SDL/SDL_thread.h>
+#include <SDL/SDL_mixer.h>
 #include "../../../include/draw.h"
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
@@ -32,20 +35,17 @@ void load_menu(SDL_Surface *screen){
 
     string path = "source/GameFeatures/Menu/Images/menu.png";
     SDL_Surface *menu = load_Image(path, screen);
+    const char* musica = "tela_de_abertura.wav";
 
-
+    SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica);
 
     BlitImage(screen, menu, 0, 0);
     SDL_Flip(screen);
     int cont=0;
     Vetor_mouse *vetor = new Vetor_mouse;
-    testeaudio();
 
     while(1){
-
         vetor = get_Input();
-
-
 
         //cout <<"Posicao do mouse ("<<vetor->x<<","<<vetor->y<<")"<<endl;
         //cout<<"Click: "<<vetor->click<<endl;
@@ -55,7 +55,10 @@ void load_menu(SDL_Surface *screen){
             SDL_Flip(screen);
 
             if(vetor->click == 1){
+                SDL_KillThread(audio);
+                cout << "matei a thread" << endl;
                 inicio(screen);
+
             }
             cont=0;
         }
@@ -94,7 +97,7 @@ void load_menu(SDL_Surface *screen){
                                     SDL_Flip(screen);
 
                                     if(vetor->click == 1){
-
+                                        Mix_CloseAudio();
                                         SDL_Quit();
                                         exit(0);
                                     }
