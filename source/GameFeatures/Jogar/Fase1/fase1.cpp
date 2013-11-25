@@ -27,7 +27,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
       cout<<"Sou servidor interessante"<<endl;
       while(1){
         char codigo_s[100];
-        memset (codigo_s,'0',100);
+        //memset (codigo_s,'0',100);
         vetor = get_Input();
 
         if(vetor->click == 1){
@@ -55,7 +55,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
                                         cout<<"Enviando msg..."<<endl;
                                         enviar_msg(Sclient,codigo_s);
-                                        cout<<"Mensagem enviada foi: !!..."<<codigo_s<<endl;
+                                        cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
                                         mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
 
                                         break;
@@ -71,6 +71,13 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
             }
 
+            char code_recv[100];
+            receber_msg(Sclient,code_recv);
+            cout<<"Recebi a msg: "<<code_recv<<endl;
+            amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
+
+
+
         }
         //blit_tela(screen);
         //BlitImage(screen,mouse,vetor->x-13,vetor->y-13 );
@@ -82,12 +89,18 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
 
     else{
+
+        cout<<"Sou cliente zuero"<<endl;
+        vetor = get_Input();
+        char code_recv[100];
+        receber_msg(Cserver,code_recv);
+        cout<<"Recebi a msg: "<<code_recv<<endl;
+        amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
+        char codigo_s[100];
         while(1){
-            cout<<"Sou cliente zuero"<<endl;
+
             vetor = get_Input();
-            char *code_recv;
-            receber_msg(Cserver,code_recv);
-            cout<<"Recebi a msg: "<<code_recv<<endl;
+
 
             if(vetor->click == 1){
 
@@ -108,6 +121,16 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                             break;
                                         }
                                         if(alcance_movimento_soldado()){
+
+                                            strcpy (codigo_s,"00");
+                                            codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
+                                            codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+                                            codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
+                                            codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
+                                            cout<<"Enviando msg..."<<endl;
+                                            enviar_msg(Cserver,codigo_s);
+                                            cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
+
                                             mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
 
                                             break;
@@ -134,4 +157,21 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
 
 }
+
+
+void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt){
+
+            if(code_recv[0] == '0' && code_recv[0] == '0'){
+            hex_selecao->i_antes = code_recv[2] - 48;
+            hex_selecao->j_antes = code_recv[3] - 48;
+            hex_selecao->i = code_recv[4] - 48;
+            hex_selecao->j = code_recv[5] - 48;
+            mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+            blit_tela(screen,0);
+    }
+
+
+}
+
+
 

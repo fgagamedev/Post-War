@@ -23,7 +23,7 @@ void inicio(SDL_Surface *screen){
 
     const char* musica = "tela_de_abertura.wav";
 
-    SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica);
+    //SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica);
 
     Vetor_mouse *vetor = new Vetor_mouse;
 

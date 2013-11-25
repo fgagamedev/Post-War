@@ -9,7 +9,6 @@ using namespace std;
 TCPsocket Sclient;
 
 int criar_servidor(){
-	SDLNet_Init();
 
 	IPaddress ip;
 	SDLNet_ResolveHost(&ip,NULL,1234);
@@ -21,6 +20,11 @@ int criar_servidor(){
 
         if(Sclient){
             cout<<"Conectou!!"<<endl;
+            /*SDL_Delay(1);
+            char muah[100];
+            cin.getline(muah,100);
+            SDLNet_TCP_Send(Sclient,muah,strlen(muah)+1);
+            cout<<"Mandei a msg: "<<muah<<endl;*/
             return 1;
         }
     }

@@ -7,6 +7,7 @@
 #include <SDL/SDL_mixer.h>
 #include <SDL/SDL_thread.h>
 #include "video.h"
+#include <SDL/SDL_net.h>
 
 using namespace std;
 
@@ -35,6 +36,8 @@ void init_sdl()
 		cerr << "Erro na inicializacao da SDL: " << SDL_GetError() << endl;
 		exit(-1);
 	}
+
+	SDLNet_Init();
 
 	atexit(SDL_Quit);
 }

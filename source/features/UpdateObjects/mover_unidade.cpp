@@ -8,8 +8,6 @@
 
 using namespace std;
 
-///REFATORAR ESSE ARQUIVO!!!!!!!!!!!!
-///FAZER ENCADEAMENTO DE IF'S NA MOVIMENTAÇÃO
 
 void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt){
 
@@ -31,16 +29,14 @@ void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int 
     int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;
     int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
 
-    cout << "w:" << w << endl;
-    cout << "x:" << x << endl;
 
-
+    Vetor_mouse *vetor = new Vetor_mouse;
     while(w!=x || y != s) {
+        vetor = get_Input();
         blit_tela(screen,1);
         int dt = SDL_GetTicks() - lastdt;
         lastdt = SDL_GetTicks();
-        cout << "w:" << w << endl;
-        cout << "x:" << x << endl;
+
         //cout << "dt:" << dt << endl;
         //cout << "lastdt:" << lastdt << endl;
         //cout << "delay:" << delay << endl;
