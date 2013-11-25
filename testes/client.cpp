@@ -10,7 +10,7 @@ int main(int argc,char** argv){
 	SDLNet_Init();
 
 	IPaddress ip;
-	SDLNet_ResolveHost(&ip,"192.168.1.10",1234);
+	SDLNet_ResolveHost(&ip,"localhost",1234);
 
 	TCPsocket client = SDLNet_TCP_Open(&ip);
 

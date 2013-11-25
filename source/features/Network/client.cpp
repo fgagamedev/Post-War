@@ -6,14 +6,16 @@
 
 using namespace std;
 
-int conectar(char* ip_text){
+TCPsocket Cserver;
+
+int conectar(char ip_text[]){
 	SDLNet_Init();
 
 	IPaddress ip;
 	SDLNet_ResolveHost(&ip,ip_text,1234);
 
     cout<<"Conectando..."<<endl;
-	TCPsocket Cserver = SDLNet_TCP_Open(&ip);
+	Cserver = SDLNet_TCP_Open(&ip);
     /* Open a connection with the IP provided (listen on the host's port) */
 	if (!(Cserver = SDLNet_TCP_Open(&ip)))
 	{

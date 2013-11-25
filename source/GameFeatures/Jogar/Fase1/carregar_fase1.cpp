@@ -10,7 +10,7 @@
 using namespace std;
 
 Hex_selecao *hex_selecao;
-
+char codigo[100];
 SDL_Surface *mapa1;
 void mapeia_hexagono(SDL_Surface *screen){
 
@@ -70,19 +70,20 @@ void mapeia_hexagono(SDL_Surface *screen){
         ja+=20;
         je+=20;
     }
+    /*
     string bora="0";
     string bora1="0";
     for(int i=0; i<hexagonos.size();i++){
         for(int j=0; j<hexagonos[i].size();j++){
             bora[0]+=i;
             bora1[0] += j;
-            cout<<"bora: "<<bora1<<endl;
+            //cout<<"bora: "<<bora1<<endl;
             desenha_texto(bora,screen,hexagonos[i][j]->x,hexagonos[i][j]->y,20);
             desenha_texto(bora1,screen,hexagonos[i][j]->x+10,hexagonos[i][j]->y,20);
             bora="0";
             bora1="0";
         }
-    }
+    }*/
 
 
 

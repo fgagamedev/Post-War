@@ -6,6 +6,8 @@
 
 using namespace std;
 
+TCPsocket Sclient;
+
 int criar_servidor(){
 	SDLNet_Init();
 
@@ -15,7 +17,7 @@ int criar_servidor(){
 	TCPsocket server = SDLNet_TCP_Open(&ip);
 
     while(1){
-	TCPsocket Sclient = SDLNet_TCP_Accept(server);
+	Sclient = SDLNet_TCP_Accept(server);
 
         if(Sclient){
             cout<<"Conectou!!"<<endl;

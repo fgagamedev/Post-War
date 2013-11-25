@@ -28,37 +28,42 @@ void inicio(SDL_Surface *screen){
     Vetor_mouse *vetor = new Vetor_mouse;
 
     while(1){
-    vetor = get_Input();
-    BlitImage(screen, escolher, 0, 0);
-    SDL_Flip(screen);
+        vetor = get_Input();
+        BlitImage(screen, escolher, 0, 0);
+        SDL_Flip(screen);
 
-    if(compara_selecao(560, 740, vetor->x, 111, 181, vetor->y)){
+        if(compara_selecao(560, 740, vetor->x, 111, 181, vetor->y)){
 
-        if(vetor->click == 1){
-            //criar_servidor();
-            fase1(screen);
-        }
-    }
-
-        else if(compara_selecao(565, 710, vetor->x, 211, 281, vetor->y)){
             if(vetor->click == 1){
-                cout << "cliquei em conectar" << endl;
-                digitarnome(vetor, screen);
-                digitarip(vetor, screen);
-                //conectar("192.168.1.10");
+                cout<<"cliquei em servidor"<<endl;
+                criar_servidor();
+                fase1(screen,"servidor");
             }
-
         }
-            else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
+
+            else if(compara_selecao(565, 710, vetor->x, 211, 281, vetor->y)){
                 if(vetor->click == 1){
-                    Mix_CloseAudio();
-                    load_menu(screen);
+                    cout << "cliquei em conectar" << endl;
+                    //digitarnome(vetor, screen);
+                    //digitarip(vetor, screen);
+                    char local[] = "localhost";
+                    conectar(local);
+                    fase1(screen,"cliente");
                 }
 
             }
-            SDL_Flip(screen);
+                else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
+                    if(vetor->click == 1){
+                        Mix_CloseAudio();
+                        load_menu(screen);
+                    }
+
+                }
+                SDL_Flip(screen);
     }
 }
+
+
 
 void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
     int xinicial = 20;
