@@ -55,6 +55,7 @@ extern SDL_Surface *com_malha;
 extern TCPsocket Sclient;
 extern TCPsocket Cserver;
 extern char texto_global[100];
+extern int qual_vez;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);

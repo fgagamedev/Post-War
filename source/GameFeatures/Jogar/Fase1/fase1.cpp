@@ -14,8 +14,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     int lastdt = SDL_GetTicks();
     int totalElapsedTime = 0;
     int delay = 200;
+    char codigo_s[100];
     //BlitImage(screen, mapa1, 0, 0);
-
+    int minha_vez;
     Vetor_mouse *vetor = new Vetor_mouse;
 
     SDL_Flip(screen);
@@ -24,22 +25,25 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     SDL_Surface *mouse = load_Image(opcao, screen);
 
     if(qual_maquina.compare("cliente")){
-      cout<<"Sou servidor interessante"<<endl;
-      while(1){
-        char codigo_s[100];
-        //memset (codigo_s,'0',100);
-        vetor = get_Input();
+        minha_vez=1;
+        cout<<"Sou servidor interessante"<<endl;
+        while(1){
+            //memset (codigo_s,'0',100);
+            if(minha_vez){
+                vetor = get_Input();
+                string palavra = "Sua vez.";
+                desenha_texto(palavra,screen,200, 200, 60);
 
-        if(vetor->click == 1){
+                if(vetor->click == 1){
 
-            if(verifica_hexagono(vetor->x,vetor->y)){
+                    if(verifica_hexagono(vetor->x,vetor->y)){
 
-            //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-                hex_selecao->i_antes = hex_selecao->i;
-                hex_selecao->j_antes = hex_selecao->j;
-                if(possui_unidade()){
-                    blit_tela(screen,1);
-                    SDL_Flip(screen);
+                    //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
+                        hex_selecao->i_antes = hex_selecao->i;
+                        hex_selecao->j_antes = hex_selecao->j;
+                        if(possui_unidade()){
+                            blit_tela(screen,1);
+                            SDL_Flip(screen);
                             while(1){
                                 vetor = get_Input();
                                 if(vetor->click == 1){
@@ -57,99 +61,111 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         enviar_msg(Sclient,codigo_s);
                                         cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
                                         mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-
+                                        minha_vez=0;
                                         break;
                                     }
                                         else{
-                                                blit_tela(screen,0);
-                                                break;
+                                            blit_tela(screen,0);
+                                            break;
                                         }
                                 }
                             }
-                }
-                blit_tela(screen,0);
+                        }
+                    blit_tela(screen,0);
+                    }
 
+
+                }
+            SDL_Flip(screen);
             }
 
-            char code_recv[100];
-            receber_msg(Sclient,code_recv);
-            cout<<"Recebi a msg: "<<code_recv<<endl;
-            amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
-
+                else{
+                    string palavra = "Vez do outro jogador.";
+                    desenha_texto(palavra,screen,200, 200, 60);
+                    char code_recv[100];
+                    receber_msg(Sclient,code_recv);
+                    cout<<"Recebi a msg: "<<code_recv<<endl;
+                    amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
+                    minha_vez=1;
+                }
 
 
         }
-        //blit_tela(screen);
-        //BlitImage(screen,mouse,vetor->x-13,vetor->y-13 );
-            SDL_Flip(screen);
-        }
-
     }
 
 
-
     else{
+        minha_vez=0;
 
-        cout<<"Sou cliente zuero"<<endl;
-        vetor = get_Input();
-        char code_recv[100];
-        receber_msg(Cserver,code_recv);
-        cout<<"Recebi a msg: "<<code_recv<<endl;
-        amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
-        char codigo_s[100];
         while(1){
 
+        if(minha_vez==0){
+            string palavra = "Vez do outro jogador.";
+            desenha_texto(palavra,screen,200, 200, 60);
+            cout<<"Sou cliente zuero"<<endl;
             vetor = get_Input();
+            char code_recv[100];
+            receber_msg(Cserver,code_recv);
+            cout<<"Recebi a msg: "<<code_recv<<endl;
+            amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
+            minha_vez=1;
+
+        }
+            else{
+
+                vetor = get_Input();
+                string palavra = "Sua vez.";
+                desenha_texto(palavra,screen,200, 200, 60);
+
+                if(vetor->click == 1){
+
+                    if(verifica_hexagono(vetor->x,vetor->y)){
 
 
-            if(vetor->click == 1){
-
-                if(verifica_hexagono(vetor->x,vetor->y)){
-
-
-                //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
-                    hex_selecao->i_antes = hex_selecao->i;
-                    hex_selecao->j_antes = hex_selecao->j;
-                    if(possui_unidade()){
-                        blit_tela(screen,1);
-                        SDL_Flip(screen);
-                                while(1){
-                                    vetor = get_Input();
-                                    if(vetor->click == 1){
-                                        verifica_hexagono(vetor->x,vetor->y);
-                                        if(!possui_unidade()){
-                                            break;
-                                        }
-                                        if(alcance_movimento_soldado()){
-
-                                            strcpy (codigo_s,"00");
-                                            codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
-                                            codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
-                                            codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
-                                            codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
-                                            cout<<"Enviando msg..."<<endl;
-                                            enviar_msg(Cserver,codigo_s);
-                                            cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
-
-                                            mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-
-                                            break;
-                                        }
-                                            else{
-                                                    blit_tela(screen,0);
-                                                    break;
+                    //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
+                        hex_selecao->i_antes = hex_selecao->i;
+                        hex_selecao->j_antes = hex_selecao->j;
+                        if(possui_unidade()){
+                            blit_tela(screen,1);
+                            SDL_Flip(screen);
+                                    while(1){
+                                        vetor = get_Input();
+                                        if(vetor->click == 1){
+                                            verifica_hexagono(vetor->x,vetor->y);
+                                            if(!possui_unidade()){
+                                                break;
                                             }
+                                            if(alcance_movimento_soldado()){
+
+                                                strcpy (codigo_s,"00");
+                                                codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
+                                                codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+                                                codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
+                                                codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
+                                                cout<<"Enviando msg..."<<endl;
+                                                enviar_msg(Cserver,codigo_s);
+                                                cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
+
+                                                mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                                minha_vez=0;
+                                                break;
+                                            }
+                                                else{
+                                                        blit_tela(screen,0);
+                                                        break;
+                                                }
+                                        }
                                     }
-                                }
+                        }
+                        blit_tela(screen,0);
+
                     }
-                    blit_tela(screen,0);
 
                 }
-
+                //blit_tela(screen);
+                //BlitImage(screen,mouse,vetor->x-13,vetor->y-13 );
+                SDL_Flip(screen);
             }
-            //blit_tela(screen);
-            //BlitImage(screen,mouse,vetor->x-13,vetor->y-13 );
-            SDL_Flip(screen);
         }
     }
 
