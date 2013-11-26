@@ -1,4 +1,5 @@
 #include <iostream>
+#include <time.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
 #include "../../../../include/draw.h"
@@ -52,7 +53,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         break;
                                     }
                                     if(alcance_ataque_soldado()){
+                                        dano_ataque();
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+
                                     }
                                     if(alcance_movimento_soldado()){
                                         strcpy (codigo_s,"00");
