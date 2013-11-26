@@ -54,8 +54,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     }
                                     if(alcance_ataque_soldado()){
                                         dano_ataque();
+                                        codifica_ataque(codigo_s);
+                                        enviar_msg(Sclient,codigo_s);
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-
+                                        minha_vez=0;
+                                        if(alcance_ataque_soldado()){
+                                            mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                            break;
+                                        }
+                                        break;
                                     }
                                     if(alcance_movimento_soldado()){
                                         strcpy (codigo_s,"00");
@@ -114,11 +121,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             receber_msg(Cserver,code_recv);
             cout<<"Recebi a msg: "<<code_recv<<endl;
             amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
+
+
+
+
             minha_vez=1;
 
         }
             else{
-
+                 cout<<"eu cliente, fui até aqui"<<endl;
                 vetor = get_Input();
                 string palavra = "Sua vez.";
                 desenha_texto(palavra,screen,200, 200, 60);
@@ -142,8 +153,19 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
+                                                dano_ataque();
+                                                codifica_ataque(codigo_s);
+                                                enviar_msg(Cserver,codigo_s);
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                                minha_vez=0;
+                                                if(alcance_ataque_soldado()){
+                                                    mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                                    break;
+                                                }
+                                                break;
                                             }
+
+
 
                                             if(alcance_movimento_soldado()){
 
@@ -180,21 +202,56 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     }
 
 
+}
 
 
+
+void codifica_ataque(char codigo_s[]){
+
+    strcpy(codigo_s,"01");
+    int hp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->hp;
+    int hp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unidade->hp;
+    codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
+    codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
+    codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
+    codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
+    /*codigo_s[6] = hp1/1000;
+    codigo_s[7] = ((hp1%1000) - (hp1%100))/100;
+    codigo_s[8] = ((hp1%100) - (hp1%10))/10;
+    codigo_s[9] = hp1%10;
+    codigo_s[10] = hp2/1000;
+    codigo_s[11] = ((hp2%1000) - (hp2%100))/100;
+    codigo_s[12] = ((hp2%100) - (hp2%10))/10;
+    codigo_s[13] = hp2%10;*/
 }
 
 
 void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt){
 
-            if(code_recv[0] == '0' && code_recv[0] == '0'){
-            hex_selecao->i_antes = code_recv[2] - 48;
-            hex_selecao->j_antes = code_recv[3] - 48;
-            hex_selecao->i = code_recv[4] - 48;
-            hex_selecao->j = code_recv[5] - 48;
-            mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-            blit_tela(screen,0);
-    }
+            if(code_recv[0] == '0' && code_recv[1] == '0'){
+                hex_selecao->i_antes = code_recv[2] - 48;
+                hex_selecao->j_antes = code_recv[3] - 48;
+                hex_selecao->i = code_recv[4] - 48;
+                hex_selecao->j = code_recv[5] - 48;
+                mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                blit_tela(screen,0);
+            }
+
+            else if(code_recv[0] == '0' && code_recv[1] == '1'){
+                hex_selecao->i_antes = code_recv[2] - 48;
+                hex_selecao->j_antes = code_recv[3] - 48;
+                hex_selecao->i = code_recv[4] - 48;
+                hex_selecao->j = code_recv[5] - 48;
+                dano_ataque();
+                ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+
+                if(alcance_ataque_soldado()){
+                    mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                    blit_tela(screen,0);
+                }
+
+                blit_tela(screen,0);
+            }
 
 
 }

@@ -257,11 +257,11 @@ void carrega_eua(SDL_Surface *screen,string lado){
     unidades_vermelhas[6]->x = hexagonos[6][14]->x;
     unidades_vermelhas[6]->y = hexagonos[14][12]->y;
 
-    BlitImage(screen,unidades_vermelhas[7]->nome,hexagonos[7][10]->x,hexagonos[7][10]->y);
-    hexagonos[7][10]->unidade = unidades_vermelhas[7];
-    hexagonos[7][10]->contem_unidade = 1;
-    unidades_vermelhas[7]->x = hexagonos[7][10]->x;
-    unidades_vermelhas[7]->y = hexagonos[7][10]->y;
+    BlitImage(screen,unidades_vermelhas[1]->nome,hexagonos[1][3]->x,hexagonos[1][3]->y);
+    hexagonos[1][3]->unidade = unidades_vermelhas[1];
+    hexagonos[1][3]->contem_unidade = 1;
+    unidades_vermelhas[1]->x = hexagonos[1][3]->x;
+    unidades_vermelhas[1]->y = hexagonos[1][3]->y;
 
            // cout<<"i: "<<i<<unidades_vermelhas[i]->tipo<<endl;
 

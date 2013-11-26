@@ -80,6 +80,7 @@ extern void dano_ataque();
 extern void enviar_msg (TCPsocket maquina, char text[]);
 extern void receber_msg(TCPsocket maquina,char *texto);
 void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
+void codifica_ataque(char codigo[]);
 
 
 #endif

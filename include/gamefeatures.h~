@@ -5,6 +5,7 @@
 #include<SDL/SDL_net.h>
 #include <map>
 #include <vector>
+#include <time.h>
 #include <string>
 
 using namespace std;
