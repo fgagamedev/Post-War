@@ -10,6 +10,9 @@
 using namespace std;
 
 typedef struct _Unidade{
+	SDL_Surface *ataque;
+	SDL_Surface *ataque_baixo;
+	SDL_Surface *ataque_cima;
 	SDL_Surface *nome;
 	double hp;
 	int atk;
@@ -18,7 +21,7 @@ typedef struct _Unidade{
 	int ouro;
 	int comida;
 	int minerio;
-	char *cor;
+	string cor;
 	string tipo;
 	int x;
 	int y;
@@ -68,8 +71,10 @@ extern void carrega_eua(SDL_Surface *screen,string lado);
 extern void blit_tela(SDL_Surface *screen,int i);
 extern int verifica_hexagono(int x, int y);
 extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
+extern void ataque_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt);
 extern int possui_unidade();
 extern int alcance_movimento_soldado();
+extern int alcance_ataque_soldado();
 extern void enviar_msg (TCPsocket maquina, char text[]);
 extern void receber_msg(TCPsocket maquina,char *texto);
 void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);

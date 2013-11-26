@@ -51,6 +51,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     if(!possui_unidade()){
                                         break;
                                     }
+                                    if(alcance_ataque_soldado()){
+                                        ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                    }
                                     if(alcance_movimento_soldado()){
                                         strcpy (codigo_s,"00");
                                         codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
@@ -135,6 +138,10 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                             if(!possui_unidade()){
                                                 break;
                                             }
+                                            if(alcance_ataque_soldado()){
+                                                ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                            }
+
                                             if(alcance_movimento_soldado()){
 
                                                 strcpy (codigo_s,"00");

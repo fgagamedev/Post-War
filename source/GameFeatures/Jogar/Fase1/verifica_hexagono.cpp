@@ -77,6 +77,27 @@ int alcance_movimento_soldado(){
 
 }
 
+int alcance_ataque_soldado(){
+    if((abs(hex_selecao->j_antes - hex_selecao->j) <= 1) && (abs(hex_selecao->i_antes - hex_selecao->i)  >0) && (abs(hex_selecao->i_antes - hex_selecao->i)  <3) ){
+        if ((abs(hex_selecao->i_antes - hex_selecao->i) == 2  && (abs(hex_selecao->j_antes - hex_selecao->j) == 1 ))){
+            return 0;
+        }
+
+        if(hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade){
+            Unidade *temp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
+            Unidade *temp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unidade;
+            if(temp2->cor != temp1->cor)
+                return 1;
+        }
+
+        return 0;
+    }
+    else{
+        return 0;
+    }
+
+}
+
 
 
 
