@@ -9,8 +9,7 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
     SDL_Surface *IMG_Load(const char *file);
     char *IMG_GetError();
     const char *path = path1.c_str();
-
-    SDL_Surface* pic = IMG_Load(path);
+        SDL_Surface* pic = IMG_Load(path);
     SDL_Surface* pic2 = NULL;
 
     if(pic == NULL){
@@ -25,6 +24,7 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
         SDL_FreeSurface(pic);
         return pic2;
     }
+    SDL_Flip(screen);
 }
 
 void free_image(SDL_Surface *image){
@@ -37,12 +37,12 @@ void free_image(SDL_Surface *image){
 
 
 void BlitImage(SDL_Surface *screen, SDL_Surface *image, int x, int y){
-    SDL_Rect src, dest;
-
+    SDL_Rect dest;
+/*
     src.x = 0;
     src.y = 0;
     src.w = image->w;
-    src.h = image->h;
+    src.h = image->h;*/
 
     dest.x = x;
     dest.y = y;

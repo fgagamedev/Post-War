@@ -11,16 +11,13 @@ void get_Network_Messages(){
 
 void enviar_msg(TCPsocket maquina, char text[]){
 
-    if(SDLNet_TCP_Send(maquina,text,strlen(text)+1) < strlen(text)+1){
-        fprintf(stderr, "SDLNet_TCP_Send: %s\n", SDLNet_GetError());
-        exit(EXIT_FAILURE);
-    }
+    SDLNet_TCP_Send(maquina,text,strlen(text)+1);
+
 
 }
 
 void receber_msg(TCPsocket maquina, char *text){
 
-    char textoo[400];
     cout<<"Esperando servidor..."<<endl;
     SDLNet_TCP_Recv(maquina,text,100);
 

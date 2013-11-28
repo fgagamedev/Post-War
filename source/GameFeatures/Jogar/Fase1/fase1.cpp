@@ -129,7 +129,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
         }
             else{
-                 cout<<"eu cliente, fui até aqui"<<endl;
+                //cout<<"eu cliente, fui até aqui"<<endl;
                 vetor = get_Input();
                 string palavra = "Sua vez.";
                 desenha_texto(palavra,screen,200, 200, 60);

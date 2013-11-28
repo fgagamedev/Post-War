@@ -23,7 +23,7 @@ Vetor_mouse *get_Input(){
                     return vetor_mouse;
                     /*printf("New position is (%i,%i). ",
                     event.motion.x, event.motion.y);
-                    /* We can also get relative motion.
+                     We can also get relative motion.
                     printf("That is a (%i,%i) change.\n",
                     event.motion.xrel, event.motion.yrel);*/
                     break;
@@ -205,6 +205,6 @@ Vetor_mouse *get_Input(){
 
             }
         }
-
+        return vetor_mouse;
 }
 
