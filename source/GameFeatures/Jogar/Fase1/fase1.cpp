@@ -58,10 +58,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         enviar_msg(Sclient,codigo_s);
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                         minha_vez=0;
-                                        if(alcance_ataque_soldado()){
-                                            mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                            break;
-                                        }
                                         break;
                                     }
                                     if(alcance_movimento_soldado()){
@@ -158,10 +154,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 enviar_msg(Cserver,codigo_s);
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 minha_vez=0;
-                                                if(alcance_ataque_soldado()){
-                                                    mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                                    break;
-                                                }
                                                 break;
                                             }
 
