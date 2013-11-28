@@ -35,6 +35,8 @@ void load_menu(SDL_Surface *screen){
 
     string path = "source/GameFeatures/Menu/Images/menu.png";
     SDL_Surface *menu = load_Image(path, screen);
+
+
     const char* musica = "tela_de_abertura.wav";
 
     SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica);

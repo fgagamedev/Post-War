@@ -19,7 +19,7 @@ int testeaudio(void *data){
 
 
 	//Initialize SDL_mixer with our chosen audio settings
-	if(Mix_OpenAudio(audio_rate, audio_format, audio_channels, audio_buffers) != 0) {
+	if(Mix_OpenAudio(audio_rate, audio_format, audio_channels, audio_buffers) != 0){
 		printf("Unable to initialize audio: %s\n", Mix_GetError());
 		exit(1);
 	}
