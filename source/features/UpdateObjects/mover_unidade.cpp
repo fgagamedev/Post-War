@@ -30,9 +30,9 @@ void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int 
     int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
 
 
-    Vetor_mouse *vetor = new Vetor_mouse;
+    //Vetor_mouse *vetor = new Vetor_mouse;
     while(w!=x || y != s) {
-        vetor = get_Input();
+        //vetor = get_Input();
         blit_tela(screen,1);
         int dt = SDL_GetTicks() - lastdt;
         lastdt = SDL_GetTicks();

@@ -60,7 +60,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     }
                                     cout<<"ETA"<<endl;
                                     if(alcance_ataque_soldado()){
-                                        dano_ataque();
+                                        dano_ataque(screen);
                                         codifica_ataque(codigo_s);
                                         cout << "passei codifica" << endl;
                                         enviar_msg(Sclient,codigo_s);
@@ -157,7 +157,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
-                                                dano_ataque();
+                                                dano_ataque(screen);
                                                 codifica_ataque(codigo_s);
                                                 cout << "passei codifica" << endl;
                                                 enviar_msg(Cserver,codigo_s);
@@ -243,7 +243,7 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
                 hex_selecao->j_antes = code_recv[3] - 48;
                 hex_selecao->i = code_recv[4] - 48;
                 hex_selecao->j = code_recv[5] - 48;
-                dano_ataque();
+                dano_ataque(screen);
                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
 
                 blit_tela(screen,0);

@@ -9,14 +9,23 @@
 
 
 void verifica_derrota(SDL_Surface *screen){
+    cout << "Entrei na condicao" << endl;
     Unidade *temp;
+    string tipo = "quartel";
     for(int i=0;i<hexagonos.size();i++){
+        cout << "andando i: " << i << endl;
         for(int j=0;j<hexagonos[i].size();j++){
+            cout << "andando j: " << j << endl;
             if(hexagonos[i][j]->contem_unidade==1){
-                temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
-                if(temp->tipo == "quartel" && temp->hp == 0){
+                cout << "achei uma unidade" << endl;
+                temp = hexagonos[i][j]->unidade;
+                cout << "temp tipo:" << temp->tipo << endl;
+                if(temp->tipo == tipo && temp->hp == 0){
                     string mensagem = "Você perdeu!LOSER!!";
                     desenha_texto(mensagem, screen, 50, 50, 60);
+                }
+                else{
+                    break;
                 }
             }
         }
