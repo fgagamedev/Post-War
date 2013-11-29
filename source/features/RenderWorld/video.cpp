@@ -11,11 +11,14 @@
 
 using namespace std;
 
+int red, green, blue ;
+
 void init_sdl()
 {
 
     int ar = SDL_Init(SDL_INIT_AUDIO);
-
+    red = 255;
+    green = blue = 0;
     if (ar != 0){
         cerr << "Erro na inicialização do audio:" << SDL_GetError() << endl;
         exit(-1);

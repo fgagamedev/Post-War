@@ -3,7 +3,7 @@
 #include <string>
 #include <SDL/SDL.h>
 #include "../../../include/draw.h"
-
+#include "../../../include/gamefeatures.h"
 
 void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size){
     char fonte[] = "KGFeeling22.ttf";
@@ -12,7 +12,7 @@ void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size){
         cout << "Nao carreguei a fonte"<< endl;
         }
     const char* txt = texto.c_str();
-	SDL_Color cor = {255, 0, 0}; //vermelho
+	SDL_Color cor = {red , green, blue}; //vermelho
 	SDL_Surface* escrita = TTF_RenderText_Solid(font, txt, cor);
 	SDL_Rect pos = {x, y};
 	SDL_BlitSurface(escrita, NULL, screen, &pos);

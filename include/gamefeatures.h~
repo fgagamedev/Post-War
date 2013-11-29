@@ -61,8 +61,9 @@ extern TCPsocket Sclient;
 extern TCPsocket Cserver;
 extern char texto_global[100];
 extern int qual_vez;
+extern int red, green, blue;
 
-extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
+extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size, int r, int g, int b);
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
@@ -83,7 +84,8 @@ extern void receber_msg(TCPsocket maquina,char *texto);
 void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
 void codifica_ataque(char codigo[]);
 void verifica_derrota(SDL_Surface *screen);
-void blit_lateral(SDL_Surface *lateral);
+void blit_lateral(SDL_Surface *lateral,SDL_Surface *screen);
+
 
 #endif
 

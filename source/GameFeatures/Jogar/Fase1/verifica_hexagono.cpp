@@ -48,9 +48,7 @@ int verifica_hexagono(int x, int y){
 int possui_unidade(string color){
 
     if(hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade){
-        cout<<"Cor do negócio: "<<hexagonos[hex_selecao->i][hex_selecao->j]->unidade->cor<<endl;
         if(!hexagonos[hex_selecao->i][hex_selecao->j]->unidade->cor.compare(color)){
-            cout<<"entrei noob"<<endl;
             return 1;
         }else{
             return 0;

@@ -33,6 +33,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             if(minha_vez){
                 vetor = get_Input();
                 string palavra = "Sua vez.";
+                red = 0;
+                green = 200;
+                blue = 200;
                 desenha_texto(palavra,screen,200, 200, 60);
 
                 if(vetor->click == 1){

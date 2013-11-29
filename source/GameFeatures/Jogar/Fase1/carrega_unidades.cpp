@@ -60,7 +60,7 @@ void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surfa
     metralhadora->tipo = tipo;
 }
 
-void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima){
+void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *tanque_lateral){
     tanque->hp = 400;
     tanque->atk = 500;
     tanque->def = 400;
@@ -72,6 +72,7 @@ void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, S
     tanque->ataque_baixo = ataque_baixo;
     tanque->ataque_cima = ataque_cima;
     tanque->tipo = tipo;
+    tanque->imagem_lateral = tanque_lateral;
 }
 
 void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque){
@@ -227,9 +228,11 @@ void carrega_eua(SDL_Surface *screen,string lado){
     SDL_Surface *tanque_ataque_baixo = load_Image(caminho, screen);
     caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_azul_ataque_cima.png";
     SDL_Surface *tanque_ataque_cima = load_Image(caminho, screen);
+    caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_lateral_a.png";
+    SDL_Surface *tanque_lateral = load_Image(caminho, screen);
     Unidade *tanque = new Unidade();
     string unidade3 = "tanque";
-    setar_tanque(tanque, cor2, unidade3, tanque1, tanque_ataque, tanque_ataque_baixo, tanque_ataque_cima);
+    setar_tanque(tanque, cor2, unidade3, tanque1, tanque_ataque, tanque_ataque_baixo, tanque_ataque_cima, tanque_lateral);
     unidades_vermelhas.push_back(tanque);
 
     BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
