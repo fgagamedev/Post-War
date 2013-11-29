@@ -32,7 +32,7 @@ void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, S
 
 void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima){
     helicoptero->hp = 300;
-    helicoptero->atk = 400;
+    helicoptero->atk = 600;
     helicoptero->def = 200;
     helicoptero->alcance = 4;
     helicoptero->ouro = 400;
@@ -60,7 +60,7 @@ void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surfa
 
 void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima){
     tanque->hp = 400;
-    tanque->atk = 300;
+    tanque->atk = 500;
     tanque->def = 400;
     tanque->alcance = 2;
     tanque->ouro = 300;

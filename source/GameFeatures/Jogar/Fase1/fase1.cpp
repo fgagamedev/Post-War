@@ -55,11 +55,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     if(alcance_ataque_soldado()){
                                         dano_ataque();
                                         codifica_ataque(codigo_s);
+                                        cout << "passei codifica" << endl;
                                         enviar_msg(Sclient,codigo_s);
+                                        cout << "enviei" << endl;
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                        cout << "animei ataque" << endl;
                                         minha_vez=0;
                                         break;
                                     }
+
                                     if(alcance_movimento_soldado()){
                                         strcpy (codigo_s,"00");
                                         codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
@@ -98,7 +102,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     minha_vez=1;
                 }
 
-
+        //verifica_derrota(screen);
         }
     }
 
@@ -117,10 +121,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             receber_msg(Cserver,code_recv);
             cout<<"Recebi a msg: "<<code_recv<<endl;
             amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
-
-
-
-
             minha_vez=1;
 
         }
@@ -151,8 +151,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                             if(alcance_ataque_soldado()){
                                                 dano_ataque();
                                                 codifica_ataque(codigo_s);
+                                                cout << "passei codifica" << endl;
                                                 enviar_msg(Cserver,codigo_s);
+                                                cout << "enviei" << endl;
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                                cout << "animei ataque" << endl;
                                                 minha_vez=0;
                                                 break;
                                             }
@@ -201,8 +204,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 void codifica_ataque(char codigo_s[]){
 
     strcpy(codigo_s,"01");
-    int hp1 = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->hp;
-    int hp2 = hexagonos[hex_selecao->i][hex_selecao->j]->unidade->hp;
     codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
     codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
     codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
@@ -236,11 +237,6 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
                 hex_selecao->j = code_recv[5] - 48;
                 dano_ataque();
                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-
-                if(alcance_ataque_soldado()){
-                    mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                    blit_tela(screen,0);
-                }
 
                 blit_tela(screen,0);
             }
