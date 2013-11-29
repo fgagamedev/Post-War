@@ -1,7 +1,9 @@
 #include <iostream>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
-#include <string.h>
+#include <stdlib.h>
+#include <cstdio>
+#include<string.h>
 #include "../../../../include/draw.h"
 #include "../../../../include/video.h"
 #include "../../../../include/loop.h"
@@ -262,10 +264,28 @@ void carrega_eua(SDL_Surface *screen,string lado){
         unidades_vermelhas[i]->y =hexagonos[i][j]->y;*/
     }
 
+string convertInt(int number){
+    //char *palavra = itoa(number);
+    //return = string (palavra);
+    char buff[50];
+    sprintf(buff,"%d",number);
+    return string (buff);
+}
 
-void blit_lateral(SDL_Surface *lateral,SDL_Surface *screen){
 
-    BlitImage(screen,lateral,1100,230);
+void blit_lateral(Unidade *unidade,SDL_Surface *screen){
+    string vida, atk, def, alcance;
+
+    vida = convertInt(unidade->hp);
+    atk = convertInt(unidade->atk);
+    def = convertInt(unidade->def);
+    alcance = convertInt(unidade->alcance);
+
+    BlitImage(screen,unidade->imagem_lateral,1100,230);
+    desenha_texto(vida,screen,1100,300,10);
+    desenha_texto(atk,screen,1100,320,10);
+    desenha_texto(def,screen,1100,340,10);
+    desenha_texto(alcance,screen,1100,360,10);
     SDL_Flip(screen);
 
 

@@ -84,7 +84,7 @@ extern void receber_msg(TCPsocket maquina,char *texto);
 void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
 void codifica_ataque(char codigo[]);
 void verifica_derrota(SDL_Surface *screen);
-void blit_lateral(SDL_Surface *lateral,SDL_Surface *screen);
+void blit_lateral(Unidade *lateral,SDL_Surface *screen);
 
 
 #endif

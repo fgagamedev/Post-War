@@ -47,7 +47,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         hex_selecao->j_antes = hex_selecao->j;
                         if(possui_unidade("vermelho")){
                             blit_tela(screen,1);
-                            blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade->imagem_lateral,screen);
+                            blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
                             while(1){
                                 vetor = get_Input();
                                 if(vetor->click == 1){
@@ -148,7 +148,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         hex_selecao->j_antes = hex_selecao->j;
                         if(possui_unidade("azul")){
                             blit_tela(screen,1);
-                            blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade->imagem_lateral,screen);
+                            blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
                                     while(1){
                                         vetor = get_Input();
                                         if(vetor->click == 1){
@@ -251,6 +251,7 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
 
 
 }
+
 
 
 
