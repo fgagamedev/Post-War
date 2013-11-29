@@ -19,6 +19,10 @@ for(int i=0; i<5;i++){
         int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;
         int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
 
+        if(hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade == 0){
+            break;
+        }
+
         temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
         string cor = "vermelho";
         string cor2 = "azul";

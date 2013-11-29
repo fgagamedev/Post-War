@@ -48,7 +48,6 @@ void blit_tela(SDL_Surface *screen,int tela){
                 BlitImage(screen,hexagonos[i][j]->unidade->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
             }
         }
-
     }
 
 }

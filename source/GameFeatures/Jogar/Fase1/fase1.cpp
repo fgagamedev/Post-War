@@ -84,6 +84,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                 }
                             }
                         }
+                    verifica_derrota(screen);
                     blit_tela(screen,0);
                     }
 
@@ -102,8 +103,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
                     minha_vez=1;
                 }
-
-        //verifica_derrota(screen);
         }
     }
 

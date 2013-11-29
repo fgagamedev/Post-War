@@ -14,18 +14,17 @@ void dano_ataque(){
     //inicializa o random
     srand (time(NULL));
 
-    int rand_defensor = rand() % 100 + 50;
-    int rand_atacante = rand() % 100 + 80;
+    int rand_defensor = rand() % 50 + 30;
+    int rand_atacante = rand() % 50 + 40;
     cout << "rand_defensor:" << rand_defensor << endl;
     cout << "rand_atacante:" << rand_atacante << endl;
 
     Unidade *atacante = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
     Unidade *defensor = hexagonos[hex_selecao->i][hex_selecao->j]->unidade;
 
-    int dano_no_atacante = ((((2*100/5+2) * defensor->atk/ atacante->def) / 50) + 2)*(rand_defensor/100)*30;
-    int dano_no_defensor = ((((2*100/5+2) * atacante->atk/ defensor->def) / 50) + 2)*(rand_atacante/100)*30;
-    cout << "dano no atacante:" << dano_no_atacante << endl;;
-    cout << "dano no defensor:" << dano_no_defensor << endl;;
+    int dano_no_atacante = ((defensor->atk/atacante->def)+1)*(rand_defensor/2);
+    int dano_no_defensor = ((atacante->atk/ defensor->def)+1)*(rand_atacante);
+
     atacante->hp -= dano_no_atacante;
     if(atacante->hp <= 0){
         atacante->hp  = 0;
@@ -34,8 +33,7 @@ void dano_ataque(){
     if(defensor->hp < 0){
         defensor->hp  = 0;
     }
-    cout << "atacante hp:" << atacante->hp << endl;
-    cout << "defensor hp:" << defensor->hp << endl;
+
 
     if(atacante->hp <= 0){
         hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade = NULL;
