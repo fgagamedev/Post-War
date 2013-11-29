@@ -262,7 +262,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
 
 void blit_lateral(SDL_Surface *lateral,SDL_Surface *screen){
 
-    BlitImage(screen,lateral,1000,300);
+    BlitImage(screen,lateral,1100,230);
     SDL_Flip(screen);
 
 
