@@ -6,7 +6,7 @@
 #include "../../../include/gamefeatures.h"
 
 void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size){
-    char fonte[] = "KGFeeling22.ttf";
+    char fonte[] = "atfantrg.ttf";
 	TTF_Font *font = TTF_OpenFont(fonte, size);
 	if(font == NULL){
         cout << "Nao carreguei a fonte"<< endl;
