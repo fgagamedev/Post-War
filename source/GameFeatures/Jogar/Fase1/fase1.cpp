@@ -42,9 +42,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 blit_cima(china,screen);
                 vetor = get_Input();
                 string palavra = "Sua vez.";
-                red = 0;
-                green = 200;
-                blue = 200;
+                red = 255;
+                green = 0;
+                blue = 0;
                 desenha_texto(palavra,screen,200, 200, 60);
 
                 if(vetor->click == 1){
@@ -117,6 +117,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     string palavra = "Vez do outro jogador.";
                     blit_tela(screen,0);
                     desenha_texto(palavra,screen,200, 200, 60);
+                    SDL_Flip(screen);
                     char code_recv[100];
                     receber_msg(Sclient,code_recv);
                     cout<<"Recebi a msg: "<<code_recv<<endl;
@@ -130,14 +131,19 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     else{
         blit_cima(eua,screen);
         minha_vez=0;
+        red = 0;
+        green = 200;
+        blue = 200;
 
         while(1){
 
         if(minha_vez==0){
+
             blit_cima(eua,screen);
             string palavra = "Vez do outro jogador.";
             blit_tela(screen,0);
             desenha_texto(palavra,screen,200, 200, 60);
+            SDL_Flip(screen);
             cout<<"Sou cliente zuero"<<endl;
             vetor = get_Input();
             char code_recv[100];

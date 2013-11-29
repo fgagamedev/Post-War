@@ -287,12 +287,12 @@ void blit_lateral(Unidade *unidade,SDL_Surface *screen){
     atk = convertInt(unidade->atk);
     def = convertInt(unidade->def);
     alcance = convertInt(unidade->alcance);
-
+    BlitImage(screen,hud2,977,236); //Painel de status
     BlitImage(screen,unidade->imagem_lateral,1100,230);
-    desenha_texto(vida,screen,1100,300,10);
-    desenha_texto(atk,screen,1100,320,10);
-    desenha_texto(def,screen,1100,340,10);
-    desenha_texto(alcance,screen,1100,360,10);
+    desenha_texto(vida,screen,1130 ,350,20);
+    desenha_texto(atk,screen,1135,380,20);
+    desenha_texto(def,screen,1140,410,20);
+    desenha_texto(alcance,screen,1145,440,20);
     SDL_Flip(screen);
 
 

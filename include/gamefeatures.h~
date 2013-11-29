@@ -93,6 +93,7 @@ void codifica_ataque(char codigo[]);
 void verifica_derrota(SDL_Surface *screen);
 void blit_lateral(Unidade *lateral,SDL_Surface *screen);
 void blit_cima(Pais *pais, SDL_Surface *screen);
+void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
 
 
 #endif

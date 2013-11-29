@@ -92,7 +92,9 @@ void mapeia_hexagono(SDL_Surface *screen){
 SDL_Surface *sem_malha;
 SDL_Surface *com_malha;
 SDL_Surface *hud;
-
+SDL_Surface *hud2;
+int x_painel = 977;
+int y_painel = 236;
 void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
 
 
@@ -116,6 +118,10 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     caminho = "source/GameFeatures/Jogar/Fase1/images/FundoHUD.png";
     hud = load_Image(caminho, screen);
     BlitImage(screen, hud, 0, 0);
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/painel_status.png";
+    hud2 = load_Image(caminho, screen);
+    //BlitImage(screen, hud2, 977, 236);
 
     mapeia_hexagono(screen);
 
