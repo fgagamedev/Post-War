@@ -15,6 +15,7 @@ typedef struct _Unidade{
 	SDL_Surface *ataque_baixo;
 	SDL_Surface *ataque_cima;
 	SDL_Surface *nome;
+	SDL_Surface *imagem_lateral;
 	int hp;
 	int atk;
 	int def;
@@ -73,7 +74,7 @@ extern void blit_tela(SDL_Surface *screen,int i);
 extern int verifica_hexagono(int x, int y);
 extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
 extern void ataque_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt);
-extern int possui_unidade();
+extern int possui_unidade(string cor);
 extern int alcance_movimento_soldado();
 extern int alcance_ataque_soldado();
 extern void dano_ataque();
@@ -82,7 +83,7 @@ extern void receber_msg(TCPsocket maquina,char *texto);
 void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
 void codifica_ataque(char codigo[]);
 void verifica_derrota(SDL_Surface *screen);
-
+void blit_lateral(SDL_Surface *lateral);
 
 #endif
 

@@ -15,7 +15,7 @@ vector< vector <Hexagono*> > hexagonos;
 SDL_Rect cutBox = { 32, 0, 32, 32};
 
 
-void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima){
+void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *soldado_lateral){
     soldado->hp = 200;
     soldado->atk = 100;
     soldado->def = 100;
@@ -27,10 +27,11 @@ void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, S
     soldado->ataque_baixo = ataque_baixo;
     soldado->ataque_cima = ataque_cima;
     soldado->tipo = tipo;
+    soldado->imagem_lateral = soldado_lateral;
 
 }
 
-void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima){
+void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima, SDL_Surface *helicoptero_lateral){
     helicoptero->hp = 300;
     helicoptero->atk = 600;
     helicoptero->def = 200;
@@ -42,6 +43,7 @@ void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surfac
     helicoptero->ataque_baixo = ataque_baixo;
     helicoptero->ataque_cima = ataque_cima;
     helicoptero->tipo = tipo;
+    helicoptero->imagem_lateral = helicoptero_lateral;
 }
 
 void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surface *nome, SDL_Surface *ataque){
@@ -101,10 +103,12 @@ void carrega_china(SDL_Surface *screen,string lado){
         SDL_Surface *ataque_baixo = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/soldado_vermelho_ataque_cima.png";
         SDL_Surface *ataque_cima = load_Image(caminho, screen);
+        caminho = "source/GameFeatures/Jogar/Fase1/images/soldado_lateral_vermelho.png";
+        SDL_Surface *soldado_lateral_a= load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
 
         string unidadea1 = "soldado";
-        setar_soldado(soldado, cor, unidadea1, soldado1, ataque_soldado, ataque_baixo, ataque_cima);
+        setar_soldado(soldado, cor, unidadea1, soldado1, ataque_soldado, ataque_baixo, ataque_cima,soldado_lateral_a);
         unidades_azul.push_back(soldado);
         //if(i+2<=hexagonos.size()){
         SDL_Rect dst = {hexagonos[i*2][3]->x, hexagonos[i*2][3]->y, 0, 0};
@@ -160,9 +164,11 @@ void carrega_eua(SDL_Surface *screen,string lado){
         SDL_Surface *soldado_ataque_baixo = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/soldado_azul_ataque_cima.png";
         SDL_Surface *soldado_ataque_cima = load_Image(caminho, screen);
+        caminho = "source/GameFeatures/Jogar/Fase1/images/soldado_lateral.png";
+        SDL_Surface *soldado_lateral_v = load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
         string unidade = "soldado";
-        setar_soldado(soldado, cor2, unidade, soldado1, soldado_ataque, soldado_ataque_baixo, soldado_ataque_cima);
+        setar_soldado(soldado, cor2, unidade, soldado1, soldado_ataque, soldado_ataque_baixo, soldado_ataque_cima,soldado_lateral_v);
         unidades_vermelhas.push_back(soldado);
 
         SDL_Rect dst = {hexagonos[i*2][12]->x, hexagonos[i*2][12]->y, 0, 0};
@@ -184,11 +190,13 @@ void carrega_eua(SDL_Surface *screen,string lado){
         SDL_Surface *helicoptero_ataque_baixo = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_ataque_azul_cima.png";
         SDL_Surface *helicoptero_ataque_cima = load_Image(caminho, screen);
+        caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_barraLateral.png";
+        SDL_Surface *helicoptero_lateral = load_Image(caminho, screen);
         //caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_azul_ataque_baixo.png";
         //SDL_Surface *helicoptero_ataque_baixo = load_Image(caminho, screen);
         Unidade *helicoptero = new Unidade();
         string unidade1 = "helicoptero";
-        setar_helicoptero(helicoptero, cor2, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima);
+        setar_helicoptero(helicoptero, cor2, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral);
         unidades_vermelhas.push_back(helicoptero);
 
         SDL_Rect dst = {hexagonos[i*2][12]->x, hexagonos[i*2][12]->y, 0, 0};
@@ -239,7 +247,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
 
     SDL_Rect dst = {hexagonos[1][3]->x, hexagonos[1][3]->y, 0, 0};
     SDL_BlitSurface(unidades_vermelhas[7]->nome, &cutBox,  screen, &dst);
-    //BlitImage(screen,unidades_vermelhas[7]->nome,hexagonos[1][3]->x,hexagonos[1][3]->y);
+    //BlitImage(screen,unidades _vermelhas[7]->nome,hexagonos[1][3]->x,hexagonos[1][3]->y);
     hexagonos[1][3]->unidade = unidades_vermelhas[7];
     hexagonos[1][3]->contem_unidade = 1;
     unidades_vermelhas[1]->x = hexagonos[1][3]->x;
@@ -252,7 +260,13 @@ void carrega_eua(SDL_Surface *screen,string lado){
     }
 
 
+void blit_lateral(SDL_Surface *lateral,SDL_Surface *screen){
 
+    BlitImage(screen,lateral,1000,300);
+    SDL_Flip(screen);
+
+
+}
 
 
 

@@ -28,7 +28,6 @@ int verifica_hexagono(int x, int y){
                 re = (vx*vx)+(vy*vy);
                 re = sqrt(re);
                     if(re <= 20){
-                        cout<<"clicou no hexagono "<<hexagonos[i][j]->indice<<endl;
                         hex_selecao->i = i;
                         hex_selecao->j = j;
                         cout<<"hex_selecao->i"<<hex_selecao->i <<endl;
@@ -48,9 +47,9 @@ int verifica_hexagono(int x, int y){
 
 int possui_unidade(string color){
 
-    if(hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade){
-        cout<<"Cor do negócio: "<<hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->cor<<endl;
-        if(!hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->cor.compare(color)){
+    if(hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade){
+        cout<<"Cor do negócio: "<<hexagonos[hex_selecao->i][hex_selecao->j]->unidade->cor<<endl;
+        if(!hexagonos[hex_selecao->i][hex_selecao->j]->unidade->cor.compare(color)){
             cout<<"entrei noob"<<endl;
             return 1;
         }else{
