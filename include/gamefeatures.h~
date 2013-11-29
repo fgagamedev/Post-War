@@ -15,7 +15,7 @@ typedef struct _Unidade{
 	SDL_Surface *ataque_baixo;
 	SDL_Surface *ataque_cima;
 	SDL_Surface *nome;
-	unsigned int hp;
+	int hp;
 	int atk;
 	int def;
 	int alcance;

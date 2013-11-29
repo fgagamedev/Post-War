@@ -42,14 +42,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
                         hex_selecao->i_antes = hex_selecao->i;
                         hex_selecao->j_antes = hex_selecao->j;
-                        if(possui_unidade()){
+                        if(possui_unidade("vermelho")){
                             blit_tela(screen,1);
                             SDL_Flip(screen);
                             while(1){
                                 vetor = get_Input();
                                 if(vetor->click == 1){
                                     verifica_hexagono(vetor->x,vetor->y);
-                                    if(!possui_unidade()){
+                                    if(!possui_unidade("vermelho")){
                                         break;
                                     }
                                     if(alcance_ataque_soldado()){
@@ -94,6 +94,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
                 else{
                     string palavra = "Vez do outro jogador.";
+                    blit_tela(screen,0);
                     desenha_texto(palavra,screen,200, 200, 60);
                     char code_recv[100];
                     receber_msg(Sclient,code_recv);
@@ -114,6 +115,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
         if(minha_vez==0){
             string palavra = "Vez do outro jogador.";
+            blit_tela(screen,0);
             desenha_texto(palavra,screen,200, 200, 60);
             cout<<"Sou cliente zuero"<<endl;
             vetor = get_Input();
@@ -138,14 +140,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
                         hex_selecao->i_antes = hex_selecao->i;
                         hex_selecao->j_antes = hex_selecao->j;
-                        if(possui_unidade()){
+                        if(possui_unidade("azul")){
                             blit_tela(screen,1);
                             SDL_Flip(screen);
                                     while(1){
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
-                                            if(!possui_unidade()){
+                                            if(!possui_unidade("azul")){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){

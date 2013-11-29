@@ -73,7 +73,7 @@ extern void blit_tela(SDL_Surface *screen,int i);
 extern int verifica_hexagono(int x, int y);
 extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
 extern void ataque_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt);
-extern int possui_unidade();
+extern int possui_unidade(string cor);
 extern int alcance_movimento_soldado();
 extern int alcance_ataque_soldado();
 extern void dano_ataque();
