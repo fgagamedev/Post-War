@@ -9,6 +9,13 @@
 
 
 void fase1(SDL_Surface *screen,string qual_maquina){
+    Pais *china = new Pais();
+    string nome = "China";
+    setar_pais(china, 50, 100, 50, nome);
+    Pais *eua = new Pais();
+    nome = "EUA";
+    setar_pais(eua, 100, 50, 50, nome);
+
     string pais_serv ("china");
     string pais_client ("eua");
     carregar_fase1(screen,pais_serv,pais_client);
@@ -29,8 +36,10 @@ void fase1(SDL_Surface *screen,string qual_maquina){
         minha_vez=1;
         cout<<"Sou servidor interessante"<<endl;
         while(1){
+
             //memset (codigo_s,'0',100);
             if(minha_vez){
+                blit_cima(china,screen);
                 vetor = get_Input();
                 string palavra = "Sua vez.";
                 red = 0;
@@ -48,6 +57,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         if(possui_unidade("vermelho")){
                             blit_tela(screen,1);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
+                            blit_cima(china,screen);
                             while(1){
                                 vetor = get_Input();
                                 if(vetor->click == 1){
@@ -86,6 +96,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     }
                                         else{
                                             blit_tela(screen,0);
+                                            blit_cima(china,screen);
                                             break;
                                         }
                                 }
@@ -93,6 +104,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         }
                         //verifica_derrota(screen);
                         blit_tela(screen,0);
+                        blit_cima(china,screen);
                     }
 
 
@@ -101,6 +113,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             }
 
                 else{
+                    blit_cima(china,screen);
                     string palavra = "Vez do outro jogador.";
                     blit_tela(screen,0);
                     desenha_texto(palavra,screen,200, 200, 60);
@@ -115,11 +128,13 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
 
     else{
+        blit_cima(eua,screen);
         minha_vez=0;
 
         while(1){
 
         if(minha_vez==0){
+            blit_cima(eua,screen);
             string palavra = "Vez do outro jogador.";
             blit_tela(screen,0);
             desenha_texto(palavra,screen,200, 200, 60);
@@ -133,6 +148,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
         }
             else{
+                blit_cima(eua,screen);
                 //cout<<"eu cliente, fui até aqui"<<endl;
                 vetor = get_Input();
                 string palavra = "Sua vez.";
@@ -147,9 +163,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         hex_selecao->i_antes = hex_selecao->i;
                         hex_selecao->j_antes = hex_selecao->j;
                         if(possui_unidade("azul")){
+                            blit_cima(eua,screen);
                             blit_tela(screen,1);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
                                     while(1){
+                                        blit_cima(eua,screen);
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
@@ -187,12 +205,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                             }
                                                 else{
                                                         blit_tela(screen,0);
+                                                        blit_cima(eua,screen);
                                                         break;
                                                 }
                                         }
                                     }
                         }
                         blit_tela(screen,0);
+                        blit_cima(eua,screen);
 
                     }
 

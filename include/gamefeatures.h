@@ -48,6 +48,13 @@ typedef struct _Hexagono_selecao{
 	int j_antes;
 } Hex_selecao;
 
+typedef struct _Pais{
+	int ouro;
+	int comida;
+	int minerio;
+	string nome;
+}Pais;
+
 extern Hex_selecao *hex_selecao;
 extern vector< vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;
@@ -85,6 +92,8 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
 void codifica_ataque(char codigo[]);
 void verifica_derrota(SDL_Surface *screen);
 void blit_lateral(Unidade *lateral,SDL_Surface *screen);
+void blit_cima(Pais *pais, SDL_Surface *screen);
+void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
 
 
 #endif

@@ -91,6 +91,13 @@ void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome,
     quartel->tipo = tipo;
 }
 
+void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome){
+    pais->ouro = ouro;
+    pais->comida = comida;
+    pais->minerio = minerio;
+    pais->nome = nome;
+}
+
 void carrega_china(SDL_Surface *screen,string lado){
 
     string lado1("servidor");
@@ -289,6 +296,19 @@ void blit_lateral(Unidade *unidade,SDL_Surface *screen){
     SDL_Flip(screen);
 
 
+}
+
+void blit_cima(Pais *pais, SDL_Surface *screen){
+    string ouro, comida, minerio;
+
+    ouro = convertInt(pais->ouro);
+    comida = convertInt(pais->comida);
+    minerio = convertInt(pais->minerio);
+
+    desenha_texto(ouro,screen, 210, 20, 30);
+    desenha_texto(comida,screen, 310, 20, 30);
+    desenha_texto(minerio,screen, 425, 20, 30);
+    SDL_Flip(screen);
 }
 
 
