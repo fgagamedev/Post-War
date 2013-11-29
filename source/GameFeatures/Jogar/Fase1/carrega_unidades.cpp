@@ -48,7 +48,7 @@ void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surfac
     helicoptero->imagem_lateral = helicoptero_lateral;
 }
 
-void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surface *nome, SDL_Surface *ataque){
+void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral){
     metralhadora->hp = 100;
     metralhadora->atk = 200;
     metralhadora->def = 300;
@@ -60,6 +60,7 @@ void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surfa
     metralhadora->ataque_baixo = ataque;
     metralhadora->ataque_cima = ataque;
     metralhadora->tipo = tipo;
+    metralhadora->imagem_lateral = lateral;
 }
 
 void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *tanque_lateral){
@@ -77,7 +78,7 @@ void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, S
     tanque->imagem_lateral = tanque_lateral;
 }
 
-void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque){
+void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral){
     quartel->hp = 1000;
     quartel->atk = 0;
     quartel->def = 400;
@@ -89,6 +90,7 @@ void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome,
     quartel->ataque_baixo = ataque;
     quartel->ataque_cima = ataque;
     quartel->tipo = tipo;
+    quartel->imagem_lateral = lateral;
 }
 
 void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome){
@@ -130,7 +132,7 @@ void carrega_china(SDL_Surface *screen,string lado){
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
         Unidade *quartel_a = new Unidade();
         string quarte = "quartel";
-        setar_quartel(quartel_a,cor,quarte,quartel_azul_cabana, quartel_azul_cabana);
+        setar_quartel(quartel_a,cor,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana);
         BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
         hexagonos[6][1]->unidade = quartel_a;
         hexagonos[6][1]->contem_unidade = 1;
@@ -141,9 +143,11 @@ void carrega_china(SDL_Surface *screen,string lado){
     SDL_Surface *metralhadora1 = load_Image(caminho, screen);
     caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_ataque.png";
     SDL_Surface *metralhadora_ataque = load_Image(caminho, screen);
+    caminho = "source/GameFeatures/Jogar/Fase1/images/barraLateral_vermelho.png";
+    SDL_Surface *metralhadora_lateral = load_Image(caminho, screen);
     Unidade *metralhadora = new Unidade();
     string unidadea2 = "metralhadora";
-    setar_metralhadora(metralhadora, cor, unidadea2, metralhadora1, metralhadora_ataque);
+    setar_metralhadora(metralhadora, cor, unidadea2, metralhadora1, metralhadora_ataque, metralhadora_lateral);
     unidades_azul.push_back(metralhadora);
 
     BlitImage(screen,unidades_azul[10]->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
@@ -223,9 +227,11 @@ void carrega_eua(SDL_Surface *screen,string lado){
         SDL_Surface *metrapalhadora1 = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_azul_ataque.png";
         SDL_Surface *metrapalhadora_ataque = load_Image(caminho, screen);
+        caminho = "source/GameFeatures/Jogar/Fase1/images/barraLateral_azul.png";
+        SDL_Surface *metrapalhadora_lateral = load_Image(caminho, screen);
         Unidade *metralhadora = new Unidade();
         string unidade2 = "metralhadora";
-        setar_metralhadora(metralhadora, cor2, unidade2, metrapalhadora1, metrapalhadora_ataque);
+        setar_metralhadora(metralhadora, cor2, unidade2, metrapalhadora1, metrapalhadora_ataque, metrapalhadora_lateral);
         unidades_vermelhas.push_back(metralhadora);
     }
 
