@@ -11,11 +11,20 @@ using namespace std;
 
 void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt){
 
+    string tipo1 = "quartel";
+    string tipo2 = "metralhadora";
     Unidade *temp;
 
     temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
+
+    if(temp->tipo == tipo1 || temp->tipo == tipo2){
+        cout << "Nao pode mover" << endl;
+        return;
+    }
+
     hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade= NULL;
     hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade= 0;
+
     SDL_Rect cutBox = {32,0,32,32};
 
     int tempo_delay;
@@ -23,7 +32,7 @@ void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int 
     if(temp->tipo=="helicoptero"){
         tempo_delay = 0;
     }   else{
-            tempo_delay = 100;
+            tempo_delay = 50;
         }
 
     int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;

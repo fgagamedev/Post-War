@@ -35,7 +35,7 @@ void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, S
 
 void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima, SDL_Surface *helicoptero_lateral){
     helicoptero->hp = 300;
-    helicoptero->atk = 600;
+    helicoptero->atk = 500;
     helicoptero->def = 200;
     helicoptero->alcance = 4;
     helicoptero->ouro = 400;
@@ -64,8 +64,8 @@ void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surfa
 }
 
 void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *tanque_lateral){
-    tanque->hp = 400;
-    tanque->atk = 500;
+    tanque->hp = 350;
+    tanque->atk = 400;
     tanque->def = 400;
     tanque->alcance = 2;
     tanque->ouro = 300;
@@ -300,7 +300,6 @@ void blit_lateral(Unidade *unidade,SDL_Surface *screen){
     desenha_texto(def,screen,1140,410,20);
     desenha_texto(alcance,screen,1145,440,20);
     SDL_Flip(screen);
-
 
 }
 

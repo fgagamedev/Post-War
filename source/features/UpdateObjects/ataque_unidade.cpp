@@ -11,6 +11,7 @@ using namespace std;
 void ataque_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt){
 
 for(int i=0; i<5;i++){
+        string tipoquartel = "quartel";
         Unidade *temp;
         SDL_Surface *temp_s;
         int n_sprites = 0;
@@ -24,6 +25,10 @@ for(int i=0; i<5;i++){
         }
 
         temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
+        if(temp->tipo == tipoquartel){
+            cout << "Nao pode atacar" << endl;
+            return;
+        }
         string cor = "vermelho";
         string cor2 = "azul";
         string tipo = "metralhadora";
