@@ -1,5 +1,7 @@
 #include <iostream>
 #include <SDL/SDL.h>
+#include <SDL/SDL_thread.h>
+#include <SDL/SDL_mixer.h>
 #include <SDL/SDL_image.h>
 #include "../../../include/draw.h"
 #include "../../../include/video.h"
@@ -35,6 +37,9 @@ void creditos(SDL_Surface *screen){
     string creditos_path = "source/GameFeatures/Creditos/Images/nome_creditos.png";
     SDL_Surface *creditos= load_Image(creditos_path, coisa);
 
+    const char* musica_creditos = "creditos.ogg";
+
+    SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica_creditos);
 
     SDL_Flip(screen);
 
@@ -45,6 +50,6 @@ void creditos(SDL_Surface *screen){
     RunImage(coisa, jogo_nome, telapreta);
 
     load_menu(screen);
-
+    Mix_CloseAudio();
 }
 

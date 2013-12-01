@@ -37,7 +37,8 @@ void load_menu(SDL_Surface *screen){
     SDL_Surface *menu = load_Image(path, screen);
 
 
-    const char* musica = "tela_de_abertura.wav";
+    const char* musica = "sounds/tela_de_abertura.ogg";
+    const char* clique_sound = "sounds/clique.ogg";
 
     SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica);
 
@@ -57,12 +58,14 @@ void load_menu(SDL_Surface *screen){
             SDL_Flip(screen);
 
             if(vetor->click == 1){
-                Mix_CloseAudio();
+                SDL_Thread *audio_clique = SDL_CreateThread(testeaudio, (void*)clique_sound);
+
                 /*if(audio == NULL){
                     cout << "realmente matei a thread" << endl;
                 }*/
                 inicio(screen);
-
+                SDL_KillThread(audio_clique);
+                Mix_CloseAudio();
             }
             cont=0;
         }
@@ -101,6 +104,7 @@ void load_menu(SDL_Surface *screen){
                                     SDL_Flip(screen);
 
                                     if(vetor->click == 1){
+                                        SDL_KillThread(audio);
                                         Mix_CloseAudio();
                                         SDL_Quit();
                                         exit(0);
@@ -117,6 +121,5 @@ void load_menu(SDL_Surface *screen){
                                     cont=1;
                                 }
     }
-
     SDL_Delay(10000);
 }
