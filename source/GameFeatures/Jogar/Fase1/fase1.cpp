@@ -2,6 +2,10 @@
 #include <time.h>
 #include <SDL/SDL.h>
 #include <SDL/SDL_image.h>
+#include <stdlib.h>
+#include <cstdio>
+#include <string.h>
+#include <iostream>
 #include "../../../../include/draw.h"
 #include "../../../../include/video.h"
 #include "../../../../include/loop.h"
@@ -25,12 +29,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     char codigo_s[100];
     //BlitImage(screen, mapa1, 0, 0);
     int minha_vez;
+    int pontos_jogador1 = 20;
+    int pontos_jogador2 = 20;
     Vetor_mouse *vetor = new Vetor_mouse;
 
     SDL_Flip(screen);
 
-    string opcao = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mouse.png";
-    SDL_Surface *mouse = load_Image(opcao, screen);
+    //string opcao = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mouse.png";
+    //SDL_Surface *mouse = load_Image(opcao, screen);
 
     if(qual_maquina.compare("cliente")){
         minha_vez=1;
@@ -40,6 +46,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             //memset (codigo_s,'0',100);
             if(minha_vez){
                 blit_cima(china,screen);
+                desenha_pontos(pontos_jogador1, screen);
                 vetor = get_Input();
                 string palavra = "Sua vez.";
                 red = 255;
@@ -77,7 +84,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         cout << "enviei" << endl;
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                         cout << "animei ataque" << endl;
-                                        minha_vez=0;
+                                        pontos_jogador1 -= 6;
+                                        if(pontos_jogador1<3){
+                                            minha_vez = 0;
+                                            pontos_jogador1 = 20;
+                                        }
                                         break;
                                     }
 
@@ -91,7 +102,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         enviar_msg(Sclient,codigo_s);
                                         cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
                                         mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                        minha_vez=0;
+                                        pontos_jogador1 -= 3;
+                                        if(pontos_jogador1<3){
+                                            minha_vez = 0;
+                                            pontos_jogador1 = 20;
+                                        }
                                         break;
                                     }
                                         else{
@@ -155,6 +170,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
         }
             else{
                 blit_cima(eua,screen);
+                desenha_pontos(pontos_jogador2, screen);
                 //cout<<"eu cliente, fui até aqui"<<endl;
                 vetor = get_Input();
                 string palavra = "Sua vez.";
@@ -188,7 +204,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 cout << "enviei" << endl;
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 cout << "animei ataque" << endl;
-                                                minha_vez=0;
+                                                pontos_jogador2 -= 6;
+                                                if(pontos_jogador2<3){
+                                                    minha_vez = 0;
+                                                    pontos_jogador2 = 20;
+                                                }
                                                 break;
                                             }
 
@@ -206,7 +226,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
 
                                                 mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                                minha_vez=0;
+                                                pontos_jogador2 -= 3;
+                                                if(pontos_jogador2<3){
+                                                    minha_vez = 0;
+                                                    pontos_jogador2 = 20;
+                                                }
                                                 break;
                                             }
                                                 else{
@@ -274,10 +298,15 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
 
                 blit_tela(screen,0);
             }
-
-
 }
 
+void desenha_pontos(int number, SDL_Surface *screen){
+    string points;
+    points = convertInt(number);
+
+    desenha_texto(points,screen, 1000, 20, 30);
+
+}
 
 
 

@@ -89,13 +89,14 @@ extern int alcance_ataque_soldado();
 extern void dano_ataque(SDL_Surface *screen);
 extern void enviar_msg (TCPsocket maquina, char text[]);
 extern void receber_msg(TCPsocket maquina,char *texto);
-void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
-void codifica_ataque(char codigo[]);
-void verifica_derrota(SDL_Surface *screen);
-void blit_lateral(Unidade *lateral,SDL_Surface *screen);
-void blit_cima(Pais *pais, SDL_Surface *screen);
-void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
-
+extern void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
+extern void codifica_ataque(char codigo[]);
+extern void verifica_derrota(SDL_Surface *screen);
+extern void blit_lateral(Unidade *lateral,SDL_Surface *screen);
+extern void blit_cima(Pais *pais, SDL_Surface *screen);
+extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
+extern string convertInt(int number);
+void desenha_pontos(int number, SDL_Surface *screen);
 
 #endif
 

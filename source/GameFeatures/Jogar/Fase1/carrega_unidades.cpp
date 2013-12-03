@@ -3,7 +3,7 @@
 #include <SDL/SDL_image.h>
 #include <stdlib.h>
 #include <cstdio>
-#include<string.h>
+#include <string.h>
 #include "../../../../include/draw.h"
 #include "../../../../include/video.h"
 #include "../../../../include/loop.h"
