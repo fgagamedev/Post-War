@@ -59,7 +59,6 @@ void blit_tela(SDL_Surface *screen,int tela){
                             i_menor=i;
                             j_menor=j;
                             BlitImage(screen,hexagonos[i][j]->unidade->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
-                            cout<<"olha o i safado: "<<i<<"\nolha o j safadations: "<<j<<endl;
                         }
 
                     }

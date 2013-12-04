@@ -45,7 +45,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     if(qual_maquina.compare("cliente")){
         minha_vez=1;
         cout << "Setei vez 1" << endl;
-        cout<<"Sou servidor interessante"<<endl;
+        cout<<"Sou servidor"<<endl;
         while(1){
 
             //memset (codigo_s,'0',100);
@@ -180,7 +180,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             blit_tela(screen,0);
             desenha_texto(palavra,screen,200, 200, 60);
             SDL_Flip(screen);
-            cout<<"Sou cliente zuero"<<endl;
+            cout<<"Sou cliente"<<endl;
             vetor = get_Input();
             char code_recv[100];
             receber_msg(Cserver,code_recv);

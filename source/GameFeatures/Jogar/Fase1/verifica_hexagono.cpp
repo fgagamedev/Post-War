@@ -30,8 +30,8 @@ int verifica_hexagono(int x, int y){
                     if(re <= 20){
                         hex_selecao->i = i;
                         hex_selecao->j = j;
-                        cout<<"hex_selecao->i"<<hex_selecao->i <<endl;
-                        cout<<"hex_selecao->j"<<hex_selecao->j <<endl;
+                        //cout<<"hex_selecao->i"<<hex_selecao->i <<endl;
+                        //cout<<"hex_selecao->j"<<hex_selecao->j <<endl;
                         return 1;
                     }
            // }
