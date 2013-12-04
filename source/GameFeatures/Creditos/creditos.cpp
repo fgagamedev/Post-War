@@ -12,10 +12,18 @@
 using namespace std;
 
 void RunImage(SDL_Surface *screen1, SDL_Surface *screen2, SDL_Surface *screen3){
+ Vetor_mouse *vetor = new Vetor_mouse;
+    while(1){
         for(int j = 680; j >= -680; j-=2){
-        BlitImage(screen1, screen3, 0, 0);
-        BlitImage(screen1, screen2, 0, j);
-        SDL_Flip(screen1);
+            vetor = get_Input();
+            if(vetor->number == 39){
+                load_menu(screen1);
+            }
+            BlitImage(screen1, screen3, 0, 0);
+            BlitImage(screen1, screen2, 0, j);
+            SDL_Flip(screen1);
+        }
+        break;
     }
 
 }
@@ -37,11 +45,12 @@ void creditos(SDL_Surface *screen){
     string creditos_path = "source/GameFeatures/Creditos/Images/nome_creditos.png";
     SDL_Surface *creditos= load_Image(creditos_path, coisa);
 
-    const char* musica_creditos = "creditos.ogg";
+    //const char* musica_creditos = "creditos.ogg";
 
-    SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica_creditos);
+    //SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica_creditos);
 
     SDL_Flip(screen);
+
 
     RunImage(coisa, creditos, telapreta);
     RunImage(coisa, bryj, telapreta);
@@ -49,7 +58,10 @@ void creditos(SDL_Surface *screen){
     RunImage(coisa, ubuntu, telapreta);
     RunImage(coisa, jogo_nome, telapreta);
 
-    load_menu(screen);
+
+
     Mix_CloseAudio();
+    load_menu(screen);
+
 }
 

@@ -12,7 +12,7 @@ Vetor_mouse *get_Input(){
     vetor_mouse->click = 0;
 
 
-    while (SDL_WaitEvent(&event) != 0) {
+    if(SDL_PollEvent(&event)) {
 
             switch (event.type) {
                 /* The next two event types deal
