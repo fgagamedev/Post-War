@@ -42,14 +42,14 @@ void dano_ataque(SDL_Surface *screen){
     cout << "defensor hp:" << defensor->hp << endl;
 
     if(atacante->tipo == tipoquartel && atacante->hp == 0){
-        cout << "Condiao derrota feita" << endl;
+        cout << "Condicao derrota feita" << endl;
         string mensagem = "Você perdeu!LOSER!!";
         desenha_texto(mensagem, screen, 50, 50, 60);
         SDL_Flip(screen);
     }
     if(defensor->tipo == tipoquartel && defensor->hp == 0){
-        cout << "Condiao derrota feita1" << endl;
-        string mensagem = "Você perdeu!LOSER!!";
+        cout << "Condicao vitória feita" << endl;
+        string mensagem = "Você venceu!! :D";
         desenha_texto(mensagem, screen, 50, 50, 60);
         SDL_Flip(screen);
     }

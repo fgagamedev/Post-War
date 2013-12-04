@@ -8,6 +8,22 @@
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
+#include "../../../include/sound.h"
+
+
+Mix_Music *musica_tela_de_abertura;
+Mix_Music *musica_tela_de_opcoes;
+Mix_Chunk *efeito_click;
+Mix_Chunk *efeito_selecao_cancelar;
+
+
+void init();
+void carregar();
+Mix_Chunk *carregarSom(const char *nome);
+Mix_Music *carregarMus(const char *nome);
+void descarregar();
+void play_music(struct _Mix_Music *nome_da_musica);
+void play_effect(struct Mix_Chunk *nome_do_efeito);
 
 
 void load_menu(SDL_Surface *screen){
@@ -17,6 +33,7 @@ void load_menu(SDL_Surface *screen){
     SDL_Surface *sair_selecionado;
     SDL_Surface *estatisticas_selecionado;
     SDL_Surface *opcoes_selecionado;
+
     //carregando imagens
     string path_jogo = "source/GameFeatures/Menu/Images/jogar_selecionado.png";
     jogar_selecionado = load_Image(path_jogo,screen);
@@ -36,11 +53,11 @@ void load_menu(SDL_Surface *screen){
     string path = "source/GameFeatures/Menu/Images/menu.png";
     SDL_Surface *menu = load_Image(path, screen);
 
-
-    const char* musica = "sounds/tela_de_abertura.ogg";
-    const char* clique_sound = "sounds/clique.ogg";
-
-    SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica);
+	//Tocando a musica
+	init();
+	carregar();
+	play_music(musica_tela_de_abertura);
+	
 
     BlitImage(screen, menu, 0, 0);
     SDL_Flip(screen);
@@ -57,15 +74,11 @@ void load_menu(SDL_Surface *screen){
             BlitImage(screen, jogar_selecionado, 478.5, 211);
             SDL_Flip(screen);
 
-            if(vetor->click == 1){
-                SDL_Thread *audio_clique = SDL_CreateThread(testeaudio, (void*)clique_sound);
-
-                /*if(audio == NULL){
-                    cout << "realmente matei a thread" << endl;
-                }*/
+            if(vetor->click == 1){				
+				play_effect(efeito_click);
+				Mix_HaltMusic();
+                
                 inicio(screen);
-                SDL_KillThread(audio_clique);
-                Mix_CloseAudio();
             }
             cont=0;
         }
@@ -74,7 +87,7 @@ void load_menu(SDL_Surface *screen){
                 BlitImage(screen, opcoes_selecionado, 450.0, 311);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
-
+					play_effect(efeito_click);
                 }
                 cont=0;
                 }
@@ -83,7 +96,7 @@ void load_menu(SDL_Surface *screen){
                             SDL_Flip(screen);
 
                             if(vetor->click == 1){
-
+								play_effect(efeito_click);
                             }
                             cont=0;
                         }
@@ -93,7 +106,7 @@ void load_menu(SDL_Surface *screen){
                             SDL_Flip(screen);
 
                             if(vetor->click == 1){
-                                Mix_CloseAudio();
+                                play_effect(efeito_click);
                                 creditos(screen);
                             }
                             cont=0;
@@ -104,7 +117,8 @@ void load_menu(SDL_Surface *screen){
                                     SDL_Flip(screen);
 
                                     if(vetor->click == 1){
-                                        SDL_KillThread(audio);
+										play_effect(efeito_click);
+										descarregar();
                                         Mix_CloseAudio();
                                         SDL_Quit();
                                         exit(0);
@@ -121,5 +135,77 @@ void load_menu(SDL_Surface *screen){
                                     cont=1;
                                 }
     }
+
     SDL_Delay(10000);
 }
+
+
+//- inicializa a SDL e SDL_Mix
+void init(){
+	Uint16 audio_format = AUDIO_S16SYS; 
+
+	//Initialize SDL_mixer
+	if( Mix_OpenAudio(22050, audio_format, 2, 4096) < 0){
+		printf("Mix_OpenAudio> %s\n", Mix_GetError());
+		exit(1);
+	}
+	atexit(Mix_CloseAudio);
+}
+
+//- carrega todos os arquivos (musicas, sons...)
+void carregar(){
+
+	musica_tela_de_abertura = carregarMus("tela_de_abertura.wav");
+	musica_tela_de_opcoes = carregarMus("tela_de_opcoes.wav");
+	//musica_creditos = carregarMus("creditos.wav");
+	efeito_click = carregarSom("selecao_ok.wav");
+	efeito_selecao_cancelar = carregarSom("selecao_cancelar.wav");
+}
+
+//- carrega efeito sonoro
+Mix_Chunk *carregarSom(const char *nome){
+
+	Mix_Chunk *som = Mix_LoadWAV(nome);
+	if(!som)
+		printf("ERRO> arquivo:'%s'\n",nome);
+	return som;
+}
+
+//- carrega fundo musical
+Mix_Music *carregarMus(const char *nome){
+
+	Mix_Music *mus = Mix_LoadMUS(nome);
+	if(!mus)
+		printf("ERRO> arquivo:'%s'\n",nome);
+	return mus;
+}
+
+void descarregar(){
+
+	Mix_FreeMusic(musica_tela_de_abertura);
+	Mix_FreeMusic(musica_tela_de_opcoes);
+	//Mix_FreeMusic(musica_creditos);
+	Mix_FreeChunk(efeito_click);
+	Mix_FreeChunk(efeito_selecao_cancelar);
+}
+
+//- play/pause fundo musical -//
+void play_music(struct _Mix_Music *nome_da_musica){
+	if( Mix_PlayingMusic() == 0 ){ //- sem música
+		if( Mix_PlayMusic(nome_da_musica, -1) == -1 ) //- play música
+			printf("ERRO> Mix_PlayMusic\n");
+	}else{
+		if( Mix_PausedMusic() == 1 ){ //- música pausada
+			Mix_ResumeMusic(); //- continua tacando
+		}else{
+			Mix_PauseMusic(); //- pausar música
+		}
+	}
+}
+
+//- toca um efeito sonoro -//
+void play_effect(struct Mix_Chunk *nome_do_efeito){
+	if(Mix_PlayChannel(-1, nome_do_efeito, 0) == -1)
+		printf("ERRO> Efeito\n");
+}
+

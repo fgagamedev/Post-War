@@ -18,7 +18,7 @@ void blit_tela(SDL_Surface *screen,int tela){
 
     BlitImage(screen, hud, 0, 0);
 
-    /*
+/*
     string bora;
     string bora1;
     for(int i=0; i<hexagonos.size();i++){
@@ -33,7 +33,10 @@ void blit_tela(SDL_Surface *screen,int tela){
         }
     }*/
 
-
+    int i_menor;
+    int j_menor;
+    Unidade *unit;
+    int aux=0;
     for(int i=0;i<hexagonos.size();i++){
         for(int j=0;j<hexagonos[i].size();j++){
             if(hexagonos[i][j]->contem_unidade==1){
@@ -44,8 +47,22 @@ void blit_tela(SDL_Surface *screen,int tela){
                     //cout << "fiz isso i " << i << endl;
                     SDL_BlitSurface(hexagonos[i][j]->unidade->nome, &cutBox,  screen, &dst);
                 }
-                else
-                BlitImage(screen,hexagonos[i][j]->unidade->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
+                else if(hexagonos[i][j]->unidade->tipo == "quartel")
+                    BlitImage(screen,hexagonos[6][1]->unidade->nome,hexagonos[6][1]->x,hexagonos[6][1]->y);
+
+                    ///Lógica mágica para dar blit na metralhadora (NÃO MECHE NISSO)
+                    else{
+
+                        if(aux==0){
+                            aux=1;
+                            unit = hexagonos[i][j]->unidade;
+                            i_menor=i;
+                            j_menor=j;
+                            BlitImage(screen,hexagonos[i][j]->unidade->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
+                            cout<<"olha o i safado: "<<i<<"\nolha o j safadations: "<<j<<endl;
+                        }
+
+                    }
             }
         }
     }

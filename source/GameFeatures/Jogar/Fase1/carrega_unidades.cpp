@@ -128,14 +128,31 @@ void carrega_china(SDL_Surface *screen,string lado){
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
 
+
         caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_azul.png";
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
         Unidade *quartel_a = new Unidade();
         string quarte = "quartel";
         setar_quartel(quartel_a,cor,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana);
         BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
+        hexagonos[5][1]->unidade = quartel_a;
+        hexagonos[5][1]->contem_unidade = 1;
         hexagonos[6][1]->unidade = quartel_a;
         hexagonos[6][1]->contem_unidade = 1;
+        hexagonos[6][2]->contem_unidade = 1;
+        hexagonos[6][2]->unidade = quartel_a;
+        hexagonos[7][1]->contem_unidade = 1;
+        hexagonos[7][1]->unidade = quartel_a;
+        hexagonos[8][1]->contem_unidade = 1;
+        hexagonos[8][1]->unidade = quartel_a;
+        hexagonos[8][2]->contem_unidade = 1;
+        hexagonos[8][2]->unidade = quartel_a;
+        hexagonos[9][1]->contem_unidade = 1;
+        hexagonos[9][1]->unidade = quartel_a;
+        hexagonos[1][1]->contem_unidade = 1;
+        hexagonos[1][1]->unidade = quartel_a;
+        hexagonos[1][2]->contem_unidade = 1;
+        hexagonos[1][2]->unidade = quartel_a;
 
     }
 
@@ -151,8 +168,14 @@ void carrega_china(SDL_Surface *screen,string lado){
     unidades_azul.push_back(metralhadora);
 
     BlitImage(screen,unidades_azul[10]->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
+
     hexagonos[6][4]->contem_unidade=1;
     hexagonos[6][4]->unidade = metralhadora;
+    hexagonos[7][4]->contem_unidade=1;
+    hexagonos[7][4]->unidade = metralhadora;
+    hexagonos[8][4]->contem_unidade=1;
+    hexagonos[8][4]->unidade = metralhadora;
+
 
     SDL_Color blue;
 	blue.g = blue.b = 0;
