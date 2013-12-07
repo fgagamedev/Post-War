@@ -25,8 +25,10 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     nome = "EUA";
     setar_pais(eua, 100, 50, 50, nome);
 
-    string pais_serv ("china");
-    string pais_client ("eua");
+    char pais_serv[100] = "china";
+    char pais_client[100] = "eua";
+
+
     carregar_fase1(screen,pais_serv,pais_client);
     int lastdt = SDL_GetTicks();
     int totalElapsedTime = 0;

@@ -123,7 +123,11 @@ void carrega_china(SDL_Surface *screen,string lado){
         setar_soldado(soldado, cor, unidadea1, soldado1, ataque_soldado, ataque_baixo, ataque_cima,soldado_lateral_a);
         unidades_azul.push_back(soldado);
         //if(i+2<=hexagonos.size()){
-        SDL_Rect dst = {hexagonos[i*2][3]->x, hexagonos[i*2][3]->y, 0, 0};
+        SDL_Rect dst;
+        dst.x = hexagonos[i*2][3]->x;
+        dst.y = hexagonos[i*2][3]->y;
+        dst.h = 0;
+        dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->nome, &cutBox,  screen, &dst);
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
@@ -208,7 +212,11 @@ void carrega_eua(SDL_Surface *screen,string lado){
         setar_soldado(soldado, cor2, unidade, soldado1, soldado_ataque, soldado_ataque_baixo, soldado_ataque_cima,soldado_lateral_v);
         unidades_vermelhas.push_back(soldado);
 
-        SDL_Rect dst = {hexagonos[i*2][12]->x, hexagonos[i*2][12]->y, 0, 0};
+        SDL_Rect dst;
+        dst.x = hexagonos[i*2][12]->x;
+        dst.y = hexagonos[i*2][12]->y;
+        dst.h = 0;
+        dst.w = 0;
         SDL_BlitSurface(unidades_vermelhas[i]->nome, &cutBox,  screen, &dst);
         //BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[2][12]->x,hexagonos[2][12]->y);
         hexagonos[i*2][12]->unidade = unidades_vermelhas[i];
@@ -236,7 +244,11 @@ void carrega_eua(SDL_Surface *screen,string lado){
         setar_helicoptero(helicoptero, cor2, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral);
         unidades_vermelhas.push_back(helicoptero);
 
-        SDL_Rect dst = {hexagonos[i*2][12]->x, hexagonos[i*2][12]->y, 0, 0};
+        SDL_Rect dst;
+        dst.x = hexagonos[i*2][12]->x;
+        dst.y = hexagonos[i*2][12]->y;
+        dst.h = 0;
+        dst.w = 0;
         SDL_BlitSurface(unidades_vermelhas[i]->nome, &cutBox,  screen, &dst);
         //BlitImage(screen,unidades_vermelhas[0]->nome,hexagonos[2][12]->x,hexagonos[2][12]->y);
         hexagonos[i*2][12]->unidade = unidades_vermelhas[i];
@@ -286,7 +298,11 @@ void carrega_eua(SDL_Surface *screen,string lado){
     unidades_vermelhas[6]->y = hexagonos[14][12]->y;
 
 
-    SDL_Rect dst = {hexagonos[1][3]->x, hexagonos[1][3]->y, 0, 0};
+    SDL_Rect dst;
+    dst.x = hexagonos[1][3]->x;
+    dst.y = hexagonos[1][3]->y;
+    dst.h = 0;
+    dst.w = 0;
     SDL_BlitSurface(unidades_vermelhas[7]->nome, &cutBox,  screen, &dst);
     //BlitImage(screen,unidades _vermelhas[7]->nome,hexagonos[1][3]->x,hexagonos[1][3]->y);
     hexagonos[1][3]->unidade = unidades_vermelhas[7];

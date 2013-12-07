@@ -12,9 +12,9 @@ void verifica_derrota(SDL_Surface *screen){
     cout << "Entrei na condicao" << endl;
     Unidade *temp;
     string tipo = "quartel";
-    for(int i=0;i<hexagonos.size();i++){
+    for(unsigned int i=0;i<hexagonos.size();i++){
         cout << "andando i: " << i << endl;
-        for(int j=0;j<hexagonos[i].size();j++){
+        for(unsigned int j=0;j<hexagonos[i].size();j++){
             cout << "andando j: " << j << endl;
             if(hexagonos[i][j]->contem_unidade==1){
                 cout << "achei uma unidade" << endl;

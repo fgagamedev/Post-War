@@ -14,7 +14,5 @@ int conectar(char ip_text[]){
 	SDLNet_ResolveHost(&ip,"localhost",1234);
 
 	Cserver = SDLNet_TCP_Open(&ip);
-
-
-	char text[100];
+    return 0;
 }

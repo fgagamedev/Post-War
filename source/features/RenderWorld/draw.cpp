@@ -156,7 +156,7 @@ void drawY(SDL_Surface *screen)
 void drawO(SDL_Surface *screen)
 {
 	SDL_Color blue;
-	blue.g = blue.g = 0;
+	blue.g = blue.b = 0;
 	blue.r = 255;
 	SDL_Color white;
 	white.r = white.g = white.b = 255;
@@ -168,7 +168,7 @@ void drawO(SDL_Surface *screen)
 void drawU(SDL_Surface *screen){
 
     SDL_Color blue;
-    blue.g = blue.g = 0;
+    blue.g = blue.b = 0;
     blue.r = 255;
 	SDL_Color white;
 	white.r = white.g = white.b = 255;

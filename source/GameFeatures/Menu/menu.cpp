@@ -57,16 +57,15 @@ void load_menu(SDL_Surface *screen){
 	init();
 	carregar();
 	play_music(musica_tela_de_abertura);
-	
+
 
     BlitImage(screen, menu, 0, 0);
     SDL_Flip(screen);
-    int cont=0;
     Vetor_mouse *vetor = new Vetor_mouse;
 
     while(1){
         vetor = get_Input();
-
+        BlitImage(screen, menu, 0, 0);
         //cout <<"Posicao do mouse ("<<vetor->x<<","<<vetor->y<<")"<<endl;
         //cout<<"Click: "<<vetor->click<<endl;
 
@@ -74,13 +73,12 @@ void load_menu(SDL_Surface *screen){
             BlitImage(screen, jogar_selecionado, 478.5, 211);
             SDL_Flip(screen);
 
-            if(vetor->click == 1){				
+            if(vetor->click == 1){
 				play_effect(efeito_click);
 				Mix_HaltMusic();
-                
                 inicio(screen);
             }
-            cont=0;
+            cout<<"oi"<<endl;
         }
 
             else if(compara_selecao(450,798,vetor->x,311,375,vetor->y)){
@@ -89,8 +87,7 @@ void load_menu(SDL_Surface *screen){
                 if(vetor->click == 1){
 					play_effect(efeito_click);
                 }
-                cont=0;
-                }
+            }
                     else if(compara_selecao(355,798,vetor->x,417,475,vetor->y)){
                             BlitImage(screen, estatisticas_selecionado, 355.0, 411);
                             SDL_Flip(screen);
@@ -98,8 +95,7 @@ void load_menu(SDL_Surface *screen){
                             if(vetor->click == 1){
 								play_effect(efeito_click);
                             }
-                            cont=0;
-                        }
+                    }
 
                         else if(compara_selecao(425,798,vetor->x,511,575,vetor->y)){
                             BlitImage(screen, creditos_selecionado, 425.0, 511);
@@ -109,7 +105,6 @@ void load_menu(SDL_Surface *screen){
                                 play_effect(efeito_click);
                                 creditos(screen);
                             }
-                            cont=0;
                         }
 
                                 else if(compara_selecao(350,798,vetor->x,611,675,vetor->y)){
@@ -123,17 +118,11 @@ void load_menu(SDL_Surface *screen){
                                         SDL_Quit();
                                         exit(0);
                                     }
-                                    cont=0;
                                 }
 
 
 
 
-                                else if (cont==0){
-                                    BlitImage(screen, menu, 0, 0);
-                                    SDL_Flip(screen);
-                                    cont=1;
-                                }
     }
 
     SDL_Delay(10000);
@@ -142,7 +131,7 @@ void load_menu(SDL_Surface *screen){
 
 //- inicializa a SDL e SDL_Mix
 void init(){
-	Uint16 audio_format = AUDIO_S16SYS; 
+	Uint16 audio_format = AUDIO_S16SYS;
 
 	//Initialize SDL_mixer
 	if( Mix_OpenAudio(22050, audio_format, 2, 4096) < 0){

@@ -18,8 +18,8 @@ int verifica_hexagono(int x, int y){
     float x_f = (float) x;
     float y_f = (float) y;
 
-    for(int i=0;i<hexagonos.size();i++){
-        for(int j=0;j<hexagonos[i].size();j++){
+    for(unsigned int i=0;i<hexagonos.size();i++){
+        for(unsigned int j=0;j<hexagonos[i].size();j++){
         //cout<<"indice="<<hexagonos[i][j]->indice<<endl;
             //if(hexagonos[i][j]->contem_unidade==1){
                 //cout<<"calculando..., indice="<<hexagonos[i][j]->indice<<endl;
@@ -41,6 +41,8 @@ int verifica_hexagono(int x, int y){
         }
 
     }
+
+    return 0;
 
 }
 

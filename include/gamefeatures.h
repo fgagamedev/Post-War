@@ -76,7 +76,7 @@ extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
 extern void fase1(SDL_Surface *screen,string qual_maquina);
-extern void carregar_fase1(SDL_Surface *screen,string pais_serv, string pais_client);
+extern void carregar_fase1(SDL_Surface *screen,char pais_serv[], char pais_client[]);
 extern void carrega_china(SDL_Surface *screen,string lado);
 extern void carrega_eua(SDL_Surface *screen,string lado);
 extern void blit_tela(SDL_Surface *screen,int i);

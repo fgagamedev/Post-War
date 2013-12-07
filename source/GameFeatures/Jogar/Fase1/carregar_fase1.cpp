@@ -12,7 +12,7 @@ using namespace std;
 Hex_selecao *hex_selecao;
 char codigo[100];
 SDL_Surface *mapa1;
-void mapeia_hexagono(SDL_Surface *screen){
+void mapeia_hexagono(){
 
  SDL_Color blue;
 	blue.g = blue.b = 0;
@@ -95,11 +95,10 @@ SDL_Surface *hud;
 SDL_Surface *hud2;
 int x_painel = 977;
 int y_painel = 236;
-void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
+void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
 
 
 
-    Unidade *unit;
 
     hex_selecao = new Hex_selecao();
 
@@ -123,14 +122,14 @@ void carregar_fase1(SDL_Surface *screen, string pais_serv,string pais_client){
     hud2 = load_Image(caminho, screen);
     //BlitImage(screen, hud2, 977, 236);
 
-    mapeia_hexagono(screen);
+    mapeia_hexagono();
 
-    if(strcmp("china","china") == 0){
+    if(strcmp("china",pais_serv) == 0){
         string escolha = "servidor";
         carrega_china(screen,escolha);
     }
 
-    if(strcmp("eua","eua")==0){
+    if(strcmp("eua",pais_client)==0){
         string escolha = "cliente";
         carrega_eua(screen,escolha);
     }

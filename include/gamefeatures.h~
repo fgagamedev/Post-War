@@ -96,6 +96,7 @@ extern void blit_lateral(Unidade *lateral,SDL_Surface *screen);
 extern void blit_cima(Pais *pais, SDL_Surface *screen);
 extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
 extern string convertInt(int number);
+void desenha_pontos(int number, SDL_Surface *screen);
 
 #endif
 

@@ -44,17 +44,28 @@ for(int i=0; i<5;i++){
             n_sprites = 4;
             if(s<y && w==x){
                 temp_s = temp->ataque_baixo;
-                cutBox = {0,0,32,32};
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
+
                 tamanho_sprites = 32;
             }
             else if(s>y && w==x){
                 temp_s = temp->ataque_cima;
-                cutBox = {0,32,32,32};
+                cutBox.x = 0;
+                cutBox.y = 32;
+                cutBox.w = 32;
+                cutBox.h = 32;
+
                 tamanho_sprites = 32;
             }
             else{
                 temp_s = temp->ataque;
-                cutBox = {32,0,32,32};
+                cutBox.x = 32;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 64;
             }
         }
@@ -63,17 +74,26 @@ for(int i=0; i<5;i++){
             n_sprites = 4;
             if(s<y && w==x){
                 temp_s = temp->ataque_baixo;
-                cutBox = {0,0,32,32};
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
             }
             else if(s>y && w==x){
                 temp_s = temp->ataque_cima;
-                cutBox = {0,32,32,32};
+                cutBox.x = 0;
+                cutBox.y = 32;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
             }
             else{
                 temp_s = temp->ataque;
-                cutBox = {32,0,32,32};
+                cutBox.x = 32;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 64;
             }
         }
@@ -86,19 +106,28 @@ for(int i=0; i<5;i++){
             cout << "Achei helicoptero azul" << endl;
             if(s<y && w==x){
                 temp_s = temp->ataque_baixo;
-                cutBox = {0,0,32,32};
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
                 n_sprites = 4;
             }
             else if(s>y && w==x){
                 temp_s = temp->ataque_cima;
-                cutBox = {0,32,32,32};
+                cutBox.x = 0;
+                cutBox.y = 32;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
                 n_sprites = 4;
             }
             else{
                 temp_s = temp->ataque;
-                cutBox = {32,0,32,32};
+                cutBox.x = 32;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 64;
                 n_sprites = 9;
             }
@@ -108,7 +137,10 @@ for(int i=0; i<5;i++){
         if(temp->tipo == tipo && temp->cor == cor2){
             temp_s = temp->ataque;
             cout << "Achei metralhadora" << endl;;
-            cutBox = {64,0,64,64};
+                cutBox.x = 64;
+                cutBox.y = 0;
+                cutBox.w = 64;
+                cutBox.h = 64;
             tamanho_sprites = 64;
             n_sprites = 5;
         }
@@ -116,7 +148,10 @@ for(int i=0; i<5;i++){
         if(temp->tipo == tipo && temp->cor == cor){
             cout << "Achei metralhadora" << endl;
             temp_s = temp->ataque;
-            cutBox = {0,0,64,64};
+            cutBox.x = 0;
+            cutBox.y = 0;
+            cutBox.w = 64;
+            cutBox.h = 64;
             tamanho_sprites = 64;
             n_sprites = 5;
         }
@@ -126,17 +161,26 @@ for(int i=0; i<5;i++){
             n_sprites = 5;
             if(s<y && w==x){
                 temp_s = temp->ataque_baixo;
-                cutBox = {0,0,32,32};
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
             }
             else if(s>y && w==x){
                 temp_s = temp->ataque_cima;
-                cutBox = {0,32,32,32};
+                cutBox.x = 0;
+                cutBox.y = 32;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
             }
             else{
                 temp_s = temp->ataque;
-                cutBox = {0,0,32,32};
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 64;
             }
         }
@@ -146,17 +190,26 @@ for(int i=0; i<5;i++){
             n_sprites = 5;
             if(s<y && w==x){
                 temp_s = temp->ataque_baixo;
-                cutBox = {0,0,32,32};
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
             }
             else if(s>y && w==x){
                 temp_s = temp->ataque_cima;
-                cutBox = {0,32,32,32};
+                cutBox.x = 0;
+                cutBox.y = 32;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 32;
             }
             else{
                 temp_s = temp->ataque;
-                cutBox = {32,0,32,32};
+                cutBox.x = 32;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
                 tamanho_sprites = 64;
             }
         }

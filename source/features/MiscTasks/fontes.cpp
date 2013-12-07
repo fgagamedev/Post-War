@@ -12,9 +12,15 @@ void desenha_texto(string texto, SDL_Surface* screen, int x, int y, int size){
         cout << "Nao carreguei a fonte"<< endl;
         }
     const char* txt = texto.c_str();
-	SDL_Color cor = {red , green, blue}; //vermelho
+	SDL_Color cor;
+	cor.r = red;
+	cor.g = green;
+	cor.b = blue;
+
 	SDL_Surface* escrita = TTF_RenderText_Solid(font, txt, cor);
-	SDL_Rect pos = {x, y};
+	SDL_Rect pos;
+	pos.x = x;
+	pos.y = y;
 	SDL_BlitSurface(escrita, NULL, screen, &pos);
     //SDL_Flip(screen);
     //cout << "digitei o ip 1" << endl;
