@@ -73,6 +73,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         hex_selecao->j_antes = hex_selecao->j;
                         if(possui_unidade("vermelho")){
                             blit_tela(screen,1);
+                            blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
                             blit_cima(china,screen);
                             while(1){
@@ -249,6 +250,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         if(possui_unidade("azul")){
                             blit_cima(eua,screen);
                             blit_tela(screen,1);
+                            blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
                                     while(1){
                                         blit_cima(eua,screen);
@@ -378,6 +380,18 @@ void desenha_pontos(int number, SDL_Surface *screen){
 
     desenha_texto(points,screen, 1000, 20, 30);
 }
+
+void blit_selecao(SDL_Surface *screen){
+
+    string caminho = "source/GameFeatures/Jogar/Fase1/images/alcance_fundoVerde.png";
+    SDL_Surface *selecao = load_Image(caminho, screen);
+    if(hex_selecao->i%2==1)
+        BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-45,hexagonos[hex_selecao->i][hex_selecao->j]->y-47);
+        else
+            BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-49,hexagonos[hex_selecao->i][hex_selecao->j]->y-49);
+}
+
+
 
 
 
