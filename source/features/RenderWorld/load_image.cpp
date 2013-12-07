@@ -8,6 +8,7 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
 
     SDL_Surface *IMG_Load(const char *file);
     char *IMG_GetError();
+    screen = SDL_CreateRGBSurface(SDL_HWSURFACE, img->w,img->h, 32,0x000000FF,0x0000FF00,0x00FF0000,0xFF000000);
     const char *path = path1.c_str();
         SDL_Surface* pic = IMG_Load(path);
     SDL_Surface* pic2 = NULL;
@@ -19,6 +20,8 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
 
     else{
         pic2 = SDL_DisplayFormat(pic);
+
+        0x000000FF,0x0000FF00,0x00FF0000,0xFF000000
 
         SDL_SetColorKey(pic2, SDL_SRCCOLORKEY, SDL_MapRGB(pic2->format, 0, 255, 0));
         SDL_FreeSurface(pic);

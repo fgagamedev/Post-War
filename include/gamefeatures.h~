@@ -100,6 +100,7 @@ extern string convertInt(int number);
 void desenha_pontos(int number, SDL_Surface *screen);
 extern void perdeu_jogo(SDL_Surface *screen);
 extern void venceu_jogo(SDL_Surface *screen);
+extern void blit_selecao(SDL_Surface *screen);
 
 #endif
 

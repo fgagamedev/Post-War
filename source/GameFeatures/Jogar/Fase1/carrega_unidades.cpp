@@ -153,10 +153,6 @@ void carrega_china(SDL_Surface *screen,string lado){
         hexagonos[8][2]->unidade = quartel_a;
         hexagonos[9][1]->contem_unidade = 1;
         hexagonos[9][1]->unidade = quartel_a;
-        hexagonos[1][1]->contem_unidade = 1;
-        hexagonos[1][1]->unidade = quartel_a;
-        hexagonos[1][2]->contem_unidade = 1;
-        hexagonos[1][2]->unidade = quartel_a;
 
     }
 

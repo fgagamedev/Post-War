@@ -9,7 +9,7 @@
 #include "../../../include/gamefeatures.h"
 
 string derrotado = "branca";
-void dano_ataque(SDL_Surface *screen){
+void dano_ataque(){
     string tipoquartel = "quartel";
     //inicializa o random
     srand (time(NULL));
@@ -61,8 +61,26 @@ void dano_ataque(SDL_Surface *screen){
     }
     //cout << "passei do primeiro else" << endl;
     if(defensor->hp <= 0){
+        if(defensor->tipo.compare("quartel") != 0){
         hexagonos[hex_selecao->i][hex_selecao->j]->unidade = NULL;
         hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
+        }
+            else{
+                hexagonos[5][1]->unidade = NULL;
+                hexagonos[5][1]->contem_unidade = 0;
+                hexagonos[6][1]->unidade = NULL;
+                hexagonos[6][1]->contem_unidade = 0;
+                hexagonos[6][2]->contem_unidade = 0;
+                hexagonos[6][2]->unidade = NULL;
+                hexagonos[7][1]->contem_unidade = 0;
+                hexagonos[7][1]->unidade = NULL;
+                hexagonos[8][1]->contem_unidade = 0;
+                hexagonos[8][1]->unidade = NULL;
+                hexagonos[8][2]->contem_unidade = 0;
+                hexagonos[8][2]->unidade = NULL;
+                hexagonos[9][1]->contem_unidade = 0;
+                hexagonos[9][1]->unidade = NULL;
+            }
         //free(hexagonos[hex_selecao->i][hex_selecao->j]->unidade);
     }
     else{
