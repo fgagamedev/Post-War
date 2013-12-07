@@ -18,6 +18,8 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
     }
 
     else{
+        //pic2 = SDL_DisplayFormatAlpha(pic);
+
         pic2 = SDL_DisplayFormat(pic);
 
         SDL_SetColorKey(pic2, SDL_SRCCOLORKEY, SDL_MapRGB(pic2->format, 0, 255, 0));
