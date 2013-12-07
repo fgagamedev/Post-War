@@ -15,9 +15,10 @@ int pontos_jogador1 = 20;
 int pontos_jogador2 = 20;
 int vermelhoperde = 0;
 int azulperde = 0;
+int vermelhoganha = 0;
+int azulganha = 0;
 string cor2 = "azul";
 string cor1 = "vermelho";
-
 
 
 void fase1(SDL_Surface *screen,string qual_maquina){
@@ -55,6 +56,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
             //memset (codigo_s,'0',100);
             if(minha_vez){
+                cout << "veremelho perde:" << vermelhoperde << endl;
+                cout << "azul perde:" << azulperde << endl;
+                if(vermelhoperde == 1){
+                    perdeu_jogo(screen);
+                }
+                if(azulganha == 1){
+                    venceu_jogo(screen);
+                }
+
                 blit_cima(china,screen);
                 desenha_pontos(pontos_jogador1, screen);
                 vetor = get_Input();
@@ -98,10 +108,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         if(derrotado.compare(cor1) == 0){
                                             cout << "Vermelho perdeu" << endl;
                                             vermelhoperde = 1;
-                                            perdeu_jogo(screen);
+                                            azulganha = 1;
                                         }
                                         if(azulperde == 1){
                                             cout << "Vermelho venceu" << endl;
+                                            vermelhoganha = 1;
                                         }
                                         pontos_jogador1 -= 6;
                                         cout << "Substrai do pontos jogador 1:" << pontos_jogador1 << endl;
@@ -151,6 +162,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             }
 
                 else{
+                    cout << "veremelho perde:" << vermelhoperde << endl;
+                    cout << "azul perde:" << azulperde << endl;
+                    if(vermelhoperde == 1){
+                        perdeu_jogo(screen);
+                    }
+                    if(azulganha == 1){
+                        venceu_jogo(screen);
+                    }
+
                     blit_cima(china,screen);
                     string palavra = "Vez do outro jogador.";
                     blit_tela(screen,0);
@@ -166,12 +186,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     if(code_recv[0] == '0' && code_recv[1] == '1'){
                         pontos_jogador2 -=6;
                         cout << "Derrotado:" << derrotado << endl;
-                        if(derrotado.compare(cor2) == 0){
-                            cout << "Azul perdeu" << endl;
-                            azulperde = 1;
+                        if(derrotado.compare(cor1) == 0){
+                            cout << "Vermelho perdeu" << endl;
+                            vermelhoperde = 1;
+                            azulganha = 1;
                         }
-                        if(vermelhoperde == 1){
-                            cout << "Azul venceu" << endl;
+                        if(azulperde == 1){
+                            cout << "Vermelho venceu" << endl;
+                            vermelhoganha = 1;
                         }
                     }
                     cout << "Pontos jogador 2:" << pontos_jogador2 << endl;
@@ -196,6 +218,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
         while(1){
 
         if(minha_vez == 0){
+            cout << "veremelho perde:" << vermelhoperde << endl;
+            cout << "azul perde:" << azulperde << endl;
+            if(azulganha == 1){
+                perdeu_jogo(screen);
+            }
+            if(vermelhoperde == 1){
+                venceu_jogo(screen);
+            }
 
             blit_cima(eua,screen);
             string palavra = "Vez do outro jogador.";
@@ -217,9 +247,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 if(derrotado.compare(cor1) == 0){
                     cout << "Vermelho perdeu" << endl;
                     vermelhoperde = 1;
+                    azulganha = 1;
                 }
                 if(azulperde == 1){
                     cout << "Vermelho venceu" << endl;
+                    vermelhoganha = 1;
                 }
             }
             cout << "Pontos jogador 1:" << pontos_jogador1 << endl;
@@ -231,6 +263,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
         }
             else{
+                cout << "veremelho perde:" << vermelhoperde << endl;
+                cout << "azul perde:" << azulperde << endl;
+                if(azulganha == 1){
+                    venceu_jogo(screen);
+                }
+                if(vermelhoperde == 1){
+                    perdeu_jogo(screen);
+                }
+
                 blit_cima(eua,screen);
                 desenha_pontos(pontos_jogador2, screen);
                 //cout<<"eu cliente, fui até aqui"<<endl;
@@ -268,12 +309,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 //cout << "animei ataque" << endl;
                                                 cout << "Derrotado:" << derrotado << endl;
-                                                if(derrotado.compare(cor2) == 0){
-                                                    cout << "Azul perdeu" << endl;
-                                                    azulperde = 1;
+                                                if(derrotado.compare(cor1) == 0){
+                                                    cout << "Vermelho perdeu" << endl;
+                                                    vermelhoperde = 1;
+                                                    azulganha = 1;
                                                 }
-                                                if(vermelhoperde == 1){
-                                                    cout << "Azul venceu" << endl;
+                                                if(azulperde == 1){
+                                                    cout << "Vermelho venceu" << endl;
+                                                    vermelhoganha = 1;
                                                 }
                                                 pontos_jogador2 -= 6;
                                                 if(pontos_jogador2<3){

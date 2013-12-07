@@ -71,6 +71,10 @@ extern int qual_vez;
 extern int red, green, blue;
 extern SDL_Surface *hud2;
 extern string derrotado;
+extern int vermelhoperde;
+extern int azulperde;
+extern int vermelhoganha;
+extern int azulganha;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);

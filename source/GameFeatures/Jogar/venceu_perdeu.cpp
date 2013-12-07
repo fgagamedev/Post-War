@@ -37,6 +37,6 @@ void venceu_jogo(SDL_Surface *screen){
         SDL_Delay(50);
         SDL_Flip(screen);
     }
-
+    load_menu(screen);
 
 }
