@@ -79,7 +79,7 @@ void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, S
 }
 
 void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral){
-    quartel->hp = 1000;
+    quartel->hp = 1;
     quartel->atk = 0;
     quartel->def = 400;
     quartel->alcance = 0;
@@ -133,7 +133,7 @@ void carrega_china(SDL_Surface *screen,string lado){
         hexagonos[i*2][3]->contem_unidade = 1;
 
 
-        caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_azul.png";
+        caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_vermelha.png";
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
         Unidade *quartel_a = new Unidade();
         string quarte = "quartel";
