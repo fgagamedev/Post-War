@@ -70,6 +70,7 @@ extern char texto_global[100];
 extern int qual_vez;
 extern int red, green, blue;
 extern SDL_Surface *hud2;
+extern string derrotado;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
@@ -97,6 +98,8 @@ extern void blit_cima(Pais *pais, SDL_Surface *screen);
 extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
 extern string convertInt(int number);
 void desenha_pontos(int number, SDL_Surface *screen);
+extern void perdeu_jogo(SDL_Surface *screen);
+extern void venceu_jogo(SDL_Surface *screen);
 
 #endif
 

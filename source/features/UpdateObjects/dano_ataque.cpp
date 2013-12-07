@@ -8,11 +8,14 @@
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
 
-
+string derrotado = "branca";
 void dano_ataque(SDL_Surface *screen){
     string tipoquartel = "quartel";
     //inicializa o random
     srand (time(NULL));
+
+    string cor1 = "azul";
+    string cor2 = "vermelho";
 
     int rand_defensor = rand() % 50 + 30;
     int rand_atacante = rand() % 50 + 40;
@@ -38,21 +41,15 @@ void dano_ataque(SDL_Surface *screen){
     if(defensor->hp < 0){
         defensor->hp  = 0;
     }
+
+    if(defensor->tipo == tipoquartel && defensor->hp == 0){
+        cout << "defensor:" << defensor->cor << endl;
+        derrotado = defensor->cor;
+        cout << "derrotado:" << derrotado << endl;
+    }
     cout << "atacante hp:" << atacante->hp << endl;
     cout << "defensor hp:" << defensor->hp << endl;
 
-    if(atacante->tipo == tipoquartel && atacante->hp == 0){
-        cout << "Condicao derrota feita" << endl;
-        string mensagem = "Você perdeu!LOSER!!";
-        desenha_texto(mensagem, screen, 50, 50, 60);
-        SDL_Flip(screen);
-    }
-    if(defensor->tipo == tipoquartel && defensor->hp == 0){
-        cout << "Condicao vitória feita" << endl;
-        string mensagem = "Você venceu!! :D";
-        desenha_texto(mensagem, screen, 50, 50, 60);
-        SDL_Flip(screen);
-    }
 
     if(atacante->hp <= 0){
         hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade = NULL;

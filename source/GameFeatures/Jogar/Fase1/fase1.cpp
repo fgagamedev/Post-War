@@ -11,9 +11,12 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
-    int pontos_jogador1 = 20;
-    int pontos_jogador2 = 20;
-
+int pontos_jogador1 = 20;
+int pontos_jogador2 = 20;
+int vermelhoperde = 0;
+int azulperde = 0;
+string cor2 = "azul";
+string cor1 = "vermelho";
 
 
 
@@ -91,6 +94,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         //cout << "enviei" << endl;
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                         //cout << "animei ataque" << endl;
+                                        cout << "derrotado:" << derrotado << endl;
+                                        if(derrotado.compare(cor1) == 0){
+                                            cout << "Vermelho perdeu" << endl;
+                                            vermelhoperde = 1;
+                                            perdeu_jogo(screen);
+                                        }
+                                        if(azulperde == 1){
+                                            cout << "Vermelho venceu" << endl;
+                                        }
                                         pontos_jogador1 -= 6;
                                         cout << "Substrai do pontos jogador 1:" << pontos_jogador1 << endl;
                                         if(pontos_jogador1<3){
@@ -153,6 +165,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     }
                     if(code_recv[0] == '0' && code_recv[1] == '1'){
                         pontos_jogador2 -=6;
+                        cout << "Derrotado:" << derrotado << endl;
+                        if(derrotado.compare(cor2) == 0){
+                            cout << "Azul perdeu" << endl;
+                            azulperde = 1;
+                        }
+                        if(vermelhoperde == 1){
+                            cout << "Azul venceu" << endl;
+                        }
                     }
                     cout << "Pontos jogador 2:" << pontos_jogador2 << endl;
                     if(pontos_jogador2<3){
@@ -193,6 +213,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             }
             if(code_recv[0] == '0' && code_recv[1] == '1'){
                 pontos_jogador1 -=6;
+                cout << "Derrotado:" << derrotado << endl;
+                if(derrotado.compare(cor1) == 0){
+                    cout << "Vermelho perdeu" << endl;
+                    vermelhoperde = 1;
+                }
+                if(azulperde == 1){
+                    cout << "Vermelho venceu" << endl;
+                }
             }
             cout << "Pontos jogador 1:" << pontos_jogador1 << endl;
             if(pontos_jogador1<3){
@@ -238,6 +266,14 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 cout << "enviei" << endl;
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 //cout << "animei ataque" << endl;
+                                                cout << "Derrotado:" << derrotado << endl;
+                                                if(derrotado.compare(cor2) == 0){
+                                                    cout << "Azul perdeu" << endl;
+                                                    azulperde = 1;
+                                                }
+                                                if(vermelhoperde == 1){
+                                                    cout << "Azul venceu" << endl;
+                                                }
                                                 pontos_jogador2 -= 6;
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;

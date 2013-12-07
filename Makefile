@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -26,6 +26,7 @@ MOVER_UNIDADE=source/features/UpdateObjects/mover_unidade.cpp
 ATAQUE_UNIDADE=source/features/UpdateObjects/ataque_unidade.cpp
 DANO_ATAQUE=source/features/UpdateObjects/dano_ataque.cpp
 VERIFICA_DERROTA=source/features/UpdateObjects/condicao_fim_do_jogo.cpp
+VENCEU_PERDEU=source/GameFeatures/Jogar/venceu_perdeu.cpp
 BLIT_TELA=source/GameFeatures/blit_tela.cpp
 CFLAGS= -lSDL -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf -lSDL_mixer
 
@@ -86,6 +87,8 @@ verifica_hexagono.o: $(VERIFICA_HEXAGONO)
 	g++ -c $(VERIFICA_HEXAGONO) $(CFLAGS)
 audio.o: $(AUDIO)
 	g++ -c $(AUDIO) $(CFLAGS)
+venceu_perdeu.o: $(VENCEU_PERDEU)
+	g++ -c $(VENCEU_PERDEU) $(CFLAGS)
 PostWar.o: $(POSTWAR)
 	g++ -c $(POSTWAR) $(CFLAGS)
 clean:
