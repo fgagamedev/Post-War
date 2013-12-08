@@ -281,6 +281,27 @@ void carrega_eua(SDL_Surface *screen,string lado){
     setar_tanque(tanque, cor2, unidade3, tanque1, tanque_ataque, tanque_ataque_baixo, tanque_ataque_cima, tanque_lateral);
     unidades_vermelhas.push_back(tanque);
 
+    ///Carregar os sprites do quartel azul
+    caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_azul1.png";
+    SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
+    Unidade *quartel_a = new Unidade();
+    string quarte = "quartel";
+    setar_quartel(quartel_a,cor2,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana);
+    BlitImage(screen,quartel_azul_cabana,hexagonos[7][13]->x,hexagonos[7][13]->y);
+    hexagonos[7][13]->unidade = quartel_a;
+    hexagonos[7][13]->contem_unidade= 1;
+    hexagonos[7][14]->unidade = quartel_a;
+    hexagonos[7][14]->contem_unidade= 1;
+    hexagonos[8][14]->unidade = quartel_a;
+    hexagonos[8][14]->contem_unidade= 1;
+    hexagonos[9][13]->unidade = quartel_a;
+    hexagonos[9][13]->contem_unidade= 1;
+    hexagonos[9][14]->unidade = quartel_a;
+    hexagonos[9][14]->contem_unidade= 1;
+    hexagonos[10][14]->unidade = quartel_a;
+    hexagonos[10][14]->contem_unidade= 1;
+    unidades_vermelhas.push_back(quartel_a);
+
     BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
     hexagonos[14][12]->unidade = unidades_vermelhas[5];
     hexagonos[14][12]->contem_unidade = 1;
