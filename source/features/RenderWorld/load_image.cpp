@@ -9,7 +9,7 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
     SDL_Surface *IMG_Load(const char *file);
     char *IMG_GetError();
     const char *path = path1.c_str();
-        SDL_Surface* pic = IMG_Load(path);
+    SDL_Surface* pic = IMG_Load(path);
     SDL_Surface* pic2 = NULL;
 
     if(pic == NULL){
@@ -18,9 +18,9 @@ SDL_Surface *load_Image(string path1,SDL_Surface *screen){
     }
 
     else{
-        //pic2 = SDL_DisplayFormatAlpha(pic);
+        pic2 = SDL_DisplayFormatAlpha(pic);
 
-        pic2 = SDL_DisplayFormat(pic);
+        //pic2 = SDL_DisplayFormat(pic);
 
         SDL_SetColorKey(pic2, SDL_SRCCOLORKEY, SDL_MapRGB(pic2->format, 0, 255, 0));
         SDL_FreeSurface(pic);
