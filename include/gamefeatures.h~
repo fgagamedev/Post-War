@@ -103,13 +103,14 @@ extern void codifica_ataque(char codigo[]);
 extern void verifica_derrota(SDL_Surface *screen);
 extern void blit_lateral(Unidade *lateral,SDL_Surface *screen);
 extern void blit_cima(Pais *pais, SDL_Surface *screen);
-extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
+extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, string cor);
 extern string convertInt(int number);
 void desenha_pontos(int number, SDL_Surface *screen);
 extern void perdeu_jogo(SDL_Surface *screen);
 extern void venceu_jogo(SDL_Surface *screen);
 extern void blit_selecao(SDL_Surface *screen);
 extern void evolucao_soldado(Pais *pais);
+void evolucao_quartel(Pais *pais);
 
 #endif
 

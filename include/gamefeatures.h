@@ -110,6 +110,7 @@ extern void perdeu_jogo(SDL_Surface *screen);
 extern void venceu_jogo(SDL_Surface *screen);
 extern void blit_selecao(SDL_Surface *screen);
 extern void evolucao_soldado(Pais *pais);
+void evolucao_quartel(Pais *pais);
 
 #endif
 

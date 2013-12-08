@@ -27,3 +27,21 @@ void evolucao_soldado(Pais *pais){
         }
     }
 }
+
+void evolucao_quartel(Pais *pais){
+    for(unsigned int i=0;i<hexagonos.size();i++){
+        for(unsigned int j=0;j<hexagonos[i].size();j++){
+            if(hexagonos[i][j]->contem_unidade==1){
+                if(hexagonos[i][j]->unidade->cor == pais->cor){
+                    if(hexagonos[i][j]->unidade->tipo == "quartel"){
+                        hexagonos[i][j]->unidade->hp = 1250;
+                        hexagonos[i][j]->unidade->atk =0;
+                        hexagonos[i][j]->unidade->def = 500;
+                    }
+                }
+            }
+        }
+    }
+
+
+}

@@ -59,6 +59,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             //memset (codigo_s,'0',100);
             if(minha_vez){
                 evolucao_soldado(china);
+                evolucao_quartel(china);
                 //cout << "veremelho perde:" << vermelhoperde << endl;
                 //cout << "azul perde:" << azulperde << endl;
                 if(vermelhoperde == 1){
