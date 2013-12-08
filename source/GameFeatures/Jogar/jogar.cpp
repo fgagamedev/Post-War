@@ -23,7 +23,10 @@ void inicio(SDL_Surface *screen){
 
     Vetor_mouse *vetor = new Vetor_mouse;
 
+    start = 0;
+
     while(1){
+        start = SDL_GetTicks();
         vetor = get_Input();
         BlitImage(screen, escolher, 0, 0);
         SDL_Flip(screen);
@@ -56,6 +59,11 @@ void inicio(SDL_Surface *screen){
 
                 }
                 SDL_Flip(screen);
+
+        if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
+            SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
+        }
+
     }
 }
 

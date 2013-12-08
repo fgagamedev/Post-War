@@ -3,6 +3,7 @@
 #include<SDL/SDL_net.h>
 #include<cstring>
 #include "../../../include/loop.h"
+#include "../../../include/gamefeatures.h"
 
 using namespace std;
 
@@ -16,6 +17,7 @@ int criar_servidor(){
 	TCPsocket server = SDLNet_TCP_Open(&ip);
 
     while(1){
+    start = SDL_GetTicks();
 	Sclient = SDLNet_TCP_Accept(server);
 
         if(Sclient){
@@ -26,6 +28,9 @@ int criar_servidor(){
             SDLNet_TCP_Send(Sclient,muah,strlen(muah)+1);
             cout<<"Mandei a msg: "<<muah<<endl;*/
             return 1;
+        }
+        if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
+            SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
         }
     }
 

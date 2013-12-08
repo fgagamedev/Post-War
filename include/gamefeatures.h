@@ -75,6 +75,8 @@ extern int vermelhoperde;
 extern int azulperde;
 extern int vermelhoganha;
 extern int azulganha;
+extern int start;
+extern const int FPS;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);

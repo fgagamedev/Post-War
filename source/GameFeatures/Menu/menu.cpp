@@ -25,6 +25,8 @@ void descarregar();
 void play_music(struct _Mix_Music *nome_da_musica);
 void play_effect(struct Mix_Chunk *nome_do_efeito);
 
+int start;
+const int FPS=100;
 
 void load_menu(SDL_Surface *screen){
 
@@ -62,8 +64,11 @@ void load_menu(SDL_Surface *screen){
     BlitImage(screen, menu, 0, 0);
     SDL_Flip(screen);
     Vetor_mouse *vetor = new Vetor_mouse;
-
+    int cont=0;
+    start = 0;
     while(1){
+        start = SDL_GetTicks();
+        cont++;
         vetor = get_Input();
         BlitImage(screen, menu, 0, 0);
         //cout <<"Posicao do mouse ("<<vetor->x<<","<<vetor->y<<")"<<endl;
@@ -78,7 +83,6 @@ void load_menu(SDL_Surface *screen){
 				Mix_HaltMusic();
                 inicio(screen);
             }
-            cout<<"oi"<<endl;
         }
 
             else if(compara_selecao(450,798,vetor->x,311,375,vetor->y)){
@@ -122,10 +126,13 @@ void load_menu(SDL_Surface *screen){
 
 
 
-
+        //SDL_Delay(10);
+        if((SDL_GetTicks() - start) < (1000/FPS)){
+            SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
+        }
     }
 
-    SDL_Delay(10000);
+
 }
 
 
