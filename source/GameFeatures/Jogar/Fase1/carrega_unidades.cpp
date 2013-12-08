@@ -254,7 +254,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
         unidades_vermelhas[0]->y = hexagonos[i*2][12]->y;
     }
 
-    for (int i=0;i<1;i++){
+    for (int i=0;i<2;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
         SDL_Surface *metrapalhadora1 = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_azul_ataque.png";
