@@ -422,13 +422,15 @@ void desenha_pontos(int number, SDL_Surface *screen){
 
 void blit_selecao(SDL_Surface *screen){
 
-    if(hexagonos[hex_selecao->i][hex_selecao->j]->unidade->tipo.compare("quartel")!=0){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/alcance_fundoVerde.png";
-        SDL_Surface *selecao = load_Image(caminho, screen);
-        if(hex_selecao->i%2==1)
-            BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-45,hexagonos[hex_selecao->i][hex_selecao->j]->y-47);
-            else
-                BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-49,hexagonos[hex_selecao->i][hex_selecao->j]->y-49);
+    if(hexagonos[hex_selecao->i][hex_selecao->j]->unidade->tipo.compare("quartel")!=0 ){
+        if(hexagonos[hex_selecao->i][hex_selecao->j]->unidade->tipo.compare("metralhadora")!=0 ){
+            string caminho = "source/GameFeatures/Jogar/Fase1/images/alcance_fundoVerde.png";
+            SDL_Surface *selecao = load_Image(caminho, screen);
+            if(hex_selecao->i%2==1)
+                BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-45,hexagonos[hex_selecao->i][hex_selecao->j]->y-47);
+                else
+                    BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-49,hexagonos[hex_selecao->i][hex_selecao->j]->y-49);
+        }
     }
 }
 

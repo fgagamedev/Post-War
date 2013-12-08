@@ -56,6 +56,11 @@ void blit_tela(SDL_Surface *screen,int tela){
                         else if (hexagonos[i][j]->unidade->tipo == "quartel" && hexagonos[i][j]->unidade->cor == "azul"){
                           BlitImage(screen,hexagonos[7][13]->unidade->nome,hexagonos[7][13]->x,hexagonos[7][13]->y);
                           }
+                             else {
+                                BlitImage(screen,hexagonos[6][4]->unidade->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
+                                //BlitImage(screen,hexagonos[14][12]->unidade->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
+                                BlitImage(screen,hexagonos[10][12]->unidade->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
+                            }
                     /*
                     ///Lógica mágica para dar blit na metralhadora (NÃO MECHE NISSO)
                     else{

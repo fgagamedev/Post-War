@@ -254,7 +254,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
         unidades_vermelhas[0]->y = hexagonos[i*2][12]->y;
     }
 
-    for (int i=0;i<2;i++){
+    for (int i=0;i<1;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
         SDL_Surface *metrapalhadora1 = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_azul_ataque.png";
@@ -303,17 +303,27 @@ void carrega_eua(SDL_Surface *screen,string lado){
     hexagonos[10][14]->contem_unidade= 1;
     unidades_vermelhas.push_back(quartel_a);
 
-    BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
+    /*BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
     hexagonos[14][12]->unidade = unidades_vermelhas[5];
     hexagonos[14][12]->contem_unidade = 1;
     unidades_vermelhas[5]->x = hexagonos[14][12]->x;
-    unidades_vermelhas[5]->y = hexagonos[14][12]->y;
+    unidades_vermelhas[5]->y = hexagonos[14][12]->y;*/
 
-    BlitImage(screen,unidades_vermelhas[6]->nome,hexagonos[6][14]->x,hexagonos[6][14]->y);
-    hexagonos[6][14]->unidade = unidades_vermelhas[6];
-    hexagonos[6][14]->contem_unidade = 1;
-    unidades_vermelhas[6]->x = hexagonos[6][14]->x;
-    unidades_vermelhas[6]->y = hexagonos[14][12]->y;
+    BlitImage(screen,unidades_vermelhas[5]->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
+    hexagonos[9][12]->unidade = unidades_vermelhas[5];
+    hexagonos[9][12]->contem_unidade = 1;
+    hexagonos[10][12]->unidade = unidades_vermelhas[5];
+    hexagonos[10][12]->contem_unidade = 1;
+    hexagonos[11][12]->unidade = unidades_vermelhas[5];
+    hexagonos[11][12]->contem_unidade = 1;
+    hexagonos[12][12]->unidade = unidades_vermelhas[5];
+    hexagonos[12][12]->contem_unidade = 1;
+    hexagonos[13][12]->unidade = unidades_vermelhas[5];
+    hexagonos[13][12]->contem_unidade = 1;
+
+    unidades_vermelhas[6]->x = hexagonos[10][12]->x;
+    unidades_vermelhas[6]->y = hexagonos[10][12]->y;
+
 
 
     SDL_Rect dst;

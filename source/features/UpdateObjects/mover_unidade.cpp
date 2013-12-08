@@ -30,7 +30,7 @@ void mover_soldado(SDL_Surface *screen, int x, int y, int totalElapsedTime, int 
     int tempo_delay;
 
     if(temp->tipo=="helicoptero"){
-        tempo_delay = 0;
+        tempo_delay = 10;
     }   else{
             tempo_delay = 50;
         }

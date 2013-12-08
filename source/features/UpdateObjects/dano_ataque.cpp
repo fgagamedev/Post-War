@@ -65,7 +65,7 @@ void dano_ataque(){
         hexagonos[hex_selecao->i][hex_selecao->j]->unidade = NULL;
         hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
         }
-            else{
+            else if (defensor->cor == "azul"){
                 hexagonos[5][1]->unidade = NULL;
                 hexagonos[5][1]->contem_unidade = 0;
                 hexagonos[6][1]->unidade = NULL;
@@ -81,6 +81,15 @@ void dano_ataque(){
                 hexagonos[9][1]->contem_unidade = 0;
                 hexagonos[9][1]->unidade = NULL;
             }
+                else{
+                    hexagonos[6][4]->unidade = NULL;
+                    hexagonos[6][4]->contem_unidade = 0;
+                    hexagonos[7][4]->unidade = NULL;
+                    hexagonos[7][4]->contem_unidade = 0;
+                    hexagonos[8][4]->unidade = NULL;
+                    hexagonos[8][4]->contem_unidade = 0;
+
+                }
         //free(hexagonos[hex_selecao->i][hex_selecao->j]->unidade);
     }
     else{
