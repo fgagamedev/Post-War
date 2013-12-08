@@ -7,7 +7,7 @@
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
-
+#include "../../../include/sound.h"
 
 using namespace std;
 
@@ -51,15 +51,15 @@ void creditos(SDL_Surface *screen){
 
     SDL_Flip(screen);
 
-
+	play_music(musica_creditos);
     RunImage(coisa, creditos, telapreta);
     RunImage(coisa, bryj, telapreta);
     RunImage(coisa, sdl, telapreta);
     RunImage(coisa, ubuntu, telapreta);
     RunImage(coisa, jogo_nome, telapreta);
 
-
-
+	descarregar();
+	Mix_HaltMusic();
     Mix_CloseAudio();
     load_menu(screen);
 

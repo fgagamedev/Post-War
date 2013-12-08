@@ -8,6 +8,8 @@
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
+#include "../../../include/sound.h"
+
 
 
 using namespace std;
@@ -22,6 +24,7 @@ void inicio(SDL_Surface *screen){
     SDL_Surface *escolher = load_Image(opcao, screen);
 
     Vetor_mouse *vetor = new Vetor_mouse;
+	play_music(musica_tela_de_opcoes);
 
     start = 0;
 
