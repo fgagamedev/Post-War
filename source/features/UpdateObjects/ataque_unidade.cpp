@@ -184,6 +184,7 @@ for(int i=0; i<5;i++){
                 tamanho_sprites = 64;
             }
         }
+
         //Acha soldado azul
         if(temp->cor == cor2 && temp->tipo == tipo2){
             cout << "Achei azul" << endl;
@@ -216,10 +217,13 @@ for(int i=0; i<5;i++){
 
 
         int tempo_delay = 50;
-
+        cout << "w:" << w << endl;
+        cout << "s:" << s << endl;
 
         while(cutBox.x <n_sprites*tamanho_sprites){
-            blit_tela(screen,1);
+            cout << "w:" << w << endl;
+            cout << "s:" << s << endl;
+            blit_tela_ataque(screen,1, w, s);
             int dt = SDL_GetTicks() - lastdt;
             lastdt = SDL_GetTicks();
 

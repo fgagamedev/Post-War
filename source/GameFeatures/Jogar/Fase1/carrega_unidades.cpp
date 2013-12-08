@@ -93,11 +93,12 @@ void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome,
     quartel->imagem_lateral = lateral;
 }
 
-void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome){
+void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, string cor){
     pais->ouro = ouro;
     pais->comida = comida;
     pais->minerio = minerio;
     pais->nome = nome;
+    pais->cor = cor;
 }
 
 void carrega_china(SDL_Surface *screen,string lado){

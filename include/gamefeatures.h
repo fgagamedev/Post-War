@@ -53,6 +53,7 @@ typedef struct _Pais{
 	int comida;
 	int minerio;
 	string nome;
+	string cor;
 }Pais;
 
 extern Hex_selecao *hex_selecao;
@@ -87,6 +88,7 @@ extern void carregar_fase1(SDL_Surface *screen,char pais_serv[], char pais_clien
 extern void carrega_china(SDL_Surface *screen,string lado);
 extern void carrega_eua(SDL_Surface *screen,string lado);
 extern void blit_tela(SDL_Surface *screen,int i);
+extern void blit_tela_ataque(SDL_Surface *screen,int tela, int x, int y);
 extern int verifica_hexagono(int x, int y);
 extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
 extern void ataque_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt);
@@ -101,12 +103,13 @@ extern void codifica_ataque(char codigo[]);
 extern void verifica_derrota(SDL_Surface *screen);
 extern void blit_lateral(Unidade *lateral,SDL_Surface *screen);
 extern void blit_cima(Pais *pais, SDL_Surface *screen);
-extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome);
+extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, string cor);
 extern string convertInt(int number);
 void desenha_pontos(int number, SDL_Surface *screen);
 extern void perdeu_jogo(SDL_Surface *screen);
 extern void venceu_jogo(SDL_Surface *screen);
 extern void blit_selecao(SDL_Surface *screen);
+extern void evolucao_soldado(Pais *pais);
 
 #endif
 
