@@ -28,7 +28,7 @@ void play_music(struct _Mix_Music *nome_da_musica);
 void play_effect(struct Mix_Chunk *nome_do_efeito);
 
 int start;
-const int FPS=100;
+int FPS=100;
 
 void load_menu(SDL_Surface *screen){
 
@@ -129,7 +129,7 @@ void load_menu(SDL_Surface *screen){
 
 
         //SDL_Delay(10);
-        if((SDL_GetTicks() - start) < (1000/FPS)){
+        if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
             SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
         }
     }

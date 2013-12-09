@@ -29,6 +29,7 @@ int comida_azul = 10;
 
 void fase1(SDL_Surface *screen,string qual_maquina){
 
+    FPS = 150;
     Pais *china = new Pais();
     string nome = "China";
     string cor = "vermelho";

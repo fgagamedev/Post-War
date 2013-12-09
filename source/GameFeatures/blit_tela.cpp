@@ -107,7 +107,6 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y){
                     int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->y;
                     Unidade *temp;
                     temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
-                    cout<<"i: "<<i<<"j: "<<j<<endl;
                     //cout << "temp:" << temp->tipo << endl;
                     SDL_Surface *temp_s;
                     string cor = "vermelho";
