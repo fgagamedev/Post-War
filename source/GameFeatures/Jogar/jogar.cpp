@@ -23,6 +23,15 @@ void inicio(SDL_Surface *screen){
     string opcao = "source/GameFeatures/Jogar/images/conexao.png";
     SDL_Surface *escolher = load_Image(opcao, screen);
 
+    opcao = "source/GameFeatures/Jogar/images/criar_partida_selecionado.png";
+    SDL_Surface *criar_selecao = load_Image(opcao,screen);
+
+    opcao = "source/GameFeatures/Jogar/images/entrar-partida_selecionado.png";
+    SDL_Surface *conectar_selecao = load_Image(opcao,screen);
+
+
+    BlitImage(screen,escolher,0,0);
+    SDL_Flip(screen);
     Vetor_mouse *vetor = new Vetor_mouse;
 	play_music(musica_tela_de_opcoes);
 
@@ -31,19 +40,23 @@ void inicio(SDL_Surface *screen){
     while(1){
         start = SDL_GetTicks();
         vetor = get_Input();
-        BlitImage(screen, escolher, 0, 0);
-        SDL_Flip(screen);
 
-        if(compara_selecao(560, 740, vetor->x, 111, 181, vetor->y)){
-
+        if(compara_selecao(498, 710, vetor->x, 361, 383, vetor->y)){
+            BlitImage(screen,escolher,0,0);
+            BlitImage(screen, criar_selecao, 498, 361);
+            SDL_Flip(screen);
             if(vetor->click == 1){
                 cout<<"cliquei em servidor"<<endl;
                 criar_servidor();
                 fase1(screen,"servidor");
             }
+
         }
 
-            else if(compara_selecao(565, 710, vetor->x, 211, 281, vetor->y)){
+            else if(compara_selecao(461, 750, vetor->x, 415, 435, vetor->y)){
+                BlitImage(screen,escolher,0,0);
+                BlitImage(screen, conectar_selecao, 461, 415);
+                SDL_Flip(screen);
                 if(vetor->click == 1){
                     cout << "cliquei em conectar" << endl;
                     //digitarnome(vetor, screen);
@@ -57,7 +70,7 @@ void inicio(SDL_Surface *screen){
                 else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
                     if(vetor->click == 1){
                         Mix_CloseAudio();
-                        load_menu(screen);
+                        //load_menu(screen);
                     }
 
                 }
