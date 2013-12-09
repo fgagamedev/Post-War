@@ -101,7 +101,6 @@ void dano_ataque(SDL_Surface *screen){
         }
 
             else if (defensor->cor == "azul"){
-				play_effect(efeito_explosao);
                 hexagonos[7][13]->unidade = NULL;
                 hexagonos[7][13]->contem_unidade= 0;
                 hexagonos[7][14]->unidade = NULL;
@@ -117,7 +116,6 @@ void dano_ataque(SDL_Surface *screen){
 
             }
                 else{
-					play_effect(efeito_explosao);
                     /*hexagonos[6][4]->unidade = NULL;
                     hexagonos[6][4]->contem_unidade = 0;
                     hexagonos[7][4]->unidade = NULL;
