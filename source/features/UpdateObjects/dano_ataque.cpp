@@ -8,8 +8,12 @@
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
 
+
+int lastdt = SDL_GetTicks();
+int totalElapsedTime = 0;
+int delay = 200;
 string derrotado = "branca";
-void dano_ataque(){
+void dano_ataque(SDL_Surface *screen){
     string tipoquartel = "quartel";
     //inicializa o random
     srand (time(NULL));
@@ -63,6 +67,7 @@ void dano_ataque(){
     if(defensor->hp <= 0){
         if(defensor->tipo.compare("quartel") != 0){
             if(defensor->tipo.compare("metralhadora") != 0){
+                explode_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x, hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                 hexagonos[hex_selecao->i][hex_selecao->j]->unidade = NULL;
                 hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
             }
@@ -122,4 +127,39 @@ void dano_ataque(){
         hexagonos[hex_selecao->i][hex_selecao->j]->unidade->hp = defensor->hp;
     }
     //cout << "passei do segundo else" << endl;
+}
+
+void explode_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt){
+    string caminho = "source/GameFeatures/Jogar/Fase1/images/explosao_unidades.png";
+    SDL_Surface *explosao = load_Image(caminho, screen);
+    int n_sprites = 8;
+    int tamanho_sprites = 32;
+    int tempo_delay = 50;
+    for(int i=0;i<=3;i++){
+        SDL_Rect cutBox = {0, 0, 32, 32};
+
+        while(cutBox.x < n_sprites*tamanho_sprites){
+
+            int dt = SDL_GetTicks() - lastdt;
+            lastdt = SDL_GetTicks();
+
+            totalElapsedTime += dt;
+
+            if(totalElapsedTime >= delay) {
+                totalElapsedTime -= delay;
+                //cout << "cutbotx:  " << cutBox.x << endl;
+                cutBox.x +=tamanho_sprites;
+            }
+
+            SDL_Rect dest = {(Sint16)x, (Sint16)y, 0, 0};
+
+            SDL_BlitSurface(explosao, &cutBox, screen, &dest);
+
+            SDL_Delay(tempo_delay);
+
+            SDL_Flip(screen);
+        }
+    }
+
+
 }

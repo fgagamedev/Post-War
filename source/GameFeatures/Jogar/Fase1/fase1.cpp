@@ -20,6 +20,11 @@ int azulganha = 0;
 string cor2 = "azul";
 string cor1 = "vermelho";
 int minerio_vermelho = 10;
+int minerio_azul = 10;
+int ouro_vermelho = 10;
+int ouro_azul = 10;
+int comida_vermelha = 10;
+int comida_azul = 10;
 
 
 void fase1(SDL_Surface *screen,string qual_maquina){
@@ -100,13 +105,12 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         break;
                                     }
                                     if(alcance_ataque_soldado()){
-                                        dano_ataque();
+                                        ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                        dano_ataque(screen);
                                         codifica_ataque(codigo_s);
                                         //cout << "passei codifica" << endl;
                                         enviar_msg(Sclient,codigo_s);
                                         //cout << "enviei" << endl;
-                                        ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                        cout<<"opa!! cheguei aqui"<<endl;
                                         //cout << "animei ataque" << endl;
                                         if(derrotado.compare(cor1) == 0){
                                             vermelhoperde = 1;
@@ -298,12 +302,12 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
-                                                dano_ataque();
+                                                ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                                dano_ataque(screen);
                                                 codifica_ataque(codigo_s);
                                                 //cout << "passei codifica" << endl;
                                                 enviar_msg(Cserver,codigo_s);
                                                 cout << "enviei" << endl;
-                                                ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 //cout << "animei ataque" << endl;
                                                 if(derrotado.compare(cor1) == 0){
                                                     vermelhoperde = 1;
@@ -409,7 +413,7 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
                 hex_selecao->j_antes = code_recv[3] - 48;
                 hex_selecao->i = code_recv[4] - 48;
                 hex_selecao->j = code_recv[5] - 48;
-                dano_ataque();
+                dano_ataque(screen);
                 cout<<"opa!! sou o cliente e  cheguei aqui"<<endl;
                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
 
