@@ -416,8 +416,9 @@ for(int i=0; i<5;i++){
 
             //cout << "w:" << w << endl;
             //cout << "s:" << s << endl;
-            blit_tela_ataque(screen,1, temp->id, x, y);
             blit_tela_ataque(screen,1, temp_defensor->id, w, s);
+            blit_tela_ataque(screen,1, temp->id, x, y);
+
 
             int dt = SDL_GetTicks() - lastdt;
             lastdt = SDL_GetTicks();

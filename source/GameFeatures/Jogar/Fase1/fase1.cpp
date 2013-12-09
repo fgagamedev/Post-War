@@ -66,12 +66,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             start = SDL_GetTicks();
             //memset (codigo_s,'0',100);
             if(minha_vez){
-                if(vermelhoperde == 1){
-                    perdeu_jogo(screen);
-                }
-                if(azulganha == 1){
-                    venceu_jogo(screen);
-                }
 
                 blit_cima(china,screen); //verifica_hexagono.cpp
                 desenha_pontos(pontos_jogador1, screen); //fase1.cpp
@@ -120,15 +114,31 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         //cout << "animei ataque" << endl;
                                         if(derrotado.compare(cor1) == 0){
                                             vermelhoperde = 1;
+                                            vermelhoganha = 0;
                                             azulganha = 1;
+                                            azulperde = 0;
                                         }
-                                        if(azulperde == 1){
+                                        if(derrotado.compare(cor2) == 0){
+                                            azulperde = 1;
+                                            azulganha = 0;
                                             vermelhoganha = 1;
+                                            vermelhoperde = 0;
                                         }
+                                        cout << "vermelho ganha:" << vermelhoganha << endl;
+                                        cout << "vermelho perde:" << vermelhoperde << endl;
+                                        cout << "Azul ganha:" << azulganha << endl;
+                                        cout << "Azul perde:" << azulperde << endl;
+
                                         pontos_jogador1 -= 6;
                                         if(pontos_jogador1<3){
                                             minha_vez = 0;
                                             pontos_jogador1 = 20;
+                                        }
+                                        if(vermelhoperde == 1 && azulganha == 1){
+                                            perdeu_jogo(screen);
+                                        }
+                                        if(azulganha == 1 && vermelhoganha == 1){
+                                            venceu_jogo(screen);
                                         }
                                         break;
                                     }
@@ -139,9 +149,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
                                         codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
                                         codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
-                                        cout<<"Enviando msg..."<<endl;
+                                        //cout<<"Enviando msg..."<<endl;
                                         enviar_msg(Sclient,codigo_s);
-                                        cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
+                                        //cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
                                         mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                         pontos_jogador1 -= 3;
                                         if(pontos_jogador1<3){
@@ -170,6 +180,30 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
 
                 }
+                if(derrotado.compare(cor1) == 0){
+                    vermelhoperde = 1;
+                    vermelhoganha = 0;
+                    azulganha = 1;
+                    azulperde = 0;
+                }
+                if(derrotado.compare(cor2) == 0){
+                    azulperde = 1;
+                    azulganha = 0;
+                    vermelhoganha = 1;
+                    vermelhoperde = 0;
+                }
+                cout << "vermelho ganha:" << vermelhoganha << endl;
+                cout << "vermelho perde:" << vermelhoperde << endl;
+                cout << "Azul ganha:" << azulganha << endl;
+                cout << "Azul perde:" << azulperde << endl;
+
+                cout << "Cheguei na funcao de perder ou ganhar 3" << endl;
+                if(azulganha == 1 && vermelhoperde == 1){
+                    perdeu_jogo(screen);
+                }
+                if(vermelhoganha == 1 && azulperde == 1){
+                    venceu_jogo(screen);
+                }
             if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
                 SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
             }
@@ -177,12 +211,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             }
 
                 else{
-                    if(vermelhoperde == 1){
-                        perdeu_jogo(screen);
-                    }
-                    if(azulganha == 1){
-                        venceu_jogo(screen);
-                    }
 
                     blit_cima(china,screen);
                     string palavra = "Vez do outro jogador.";
@@ -194,24 +222,40 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     SDL_Flip(screen);
                     char code_recv[100];
                     receber_msg(Sclient,code_recv);
-                    cout<<"Recebi a msg: "<<code_recv<<endl;
+                    //cout<<"Recebi a msg: "<<code_recv<<endl;
                     amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
                     if(code_recv[0] == '0' && code_recv[1] == '0'){
                         pontos_jogador2 -=3;
                     }
                     if(code_recv[0] == '0' && code_recv[1] == '1'){
                         pontos_jogador2 -=6;
-                        if(derrotado.compare(cor1) == 0){
-                            vermelhoperde = 1;
-                            azulganha = 1;
-                        }
-                        if(azulperde == 1){
-                            vermelhoganha = 1;
-                        }
                     }
+                    if(derrotado.compare(cor1) == 0){
+                        vermelhoperde = 1;
+                        vermelhoganha = 0;
+                        azulganha = 1;
+                        azulperde = 0;
+                    }
+                    if(derrotado.compare(cor2) == 0){
+                        azulperde = 1;
+                        azulganha = 0;
+                        vermelhoganha = 1;
+                        vermelhoperde = 0;
+                    }
+                    cout << "vermelho ganha:" << vermelhoganha << endl;
+                    cout << "vermelho perde:" << vermelhoperde << endl;
+                    cout << "Azul ganha:" << azulganha << endl;
+                    cout << "Azul perde:" << azulperde << endl;
+
                     if(pontos_jogador2<3){
                         minha_vez = 1;
                         pontos_jogador2 = 20;
+                    }
+                    if(vermelhoperde == 1 && azulganha == 1){
+                        perdeu_jogo(screen);
+                    }
+                    if(azulganha == 1 && vermelhoperde == 1){
+                        venceu_jogo(screen);
                     }
                 }
         }
@@ -229,12 +273,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
         while(1){
             start1 = SDL_GetTicks();
             if(minha_vez == 0){
-                if(azulganha == 1){
-                    perdeu_jogo(screen);
-                }
-                if(vermelhoperde == 1){
-                    venceu_jogo(screen);
-                }
 
                 blit_cima(eua,screen);
                 string palavra = "Vez do outro jogador.";
@@ -244,39 +282,50 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
                 }
                 SDL_Flip(screen);
-                cout<<"Sou cliente"<<endl;
+                //cout<<"Sou cliente"<<endl;
                 vetor = get_Input();
                 char code_recv[100];
                 receber_msg(Cserver,code_recv);
-                cout<<"Recebi a msg: "<<code_recv<<endl;
+                //cout<<"Recebi a msg: "<<code_recv<<endl;
                 amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
-                cout<<"opa!! cheguei aqui"<<endl;
+                //cout<<"opa!! cheguei aqui"<<endl;
                 if(code_recv[0] == '0' && code_recv[1] == '0'){
                         pontos_jogador1 -=3;
                 }
                 if(code_recv[0] == '0' && code_recv[1] == '1'){
                     pontos_jogador1 -=6;
-                    if(derrotado.compare(cor1) == 0){
-                        vermelhoperde = 1;
-                        azulganha = 1;
-                    }
-                    if(azulperde == 1){
-                        vermelhoganha = 1;
-                    }
                 }
+                if(derrotado.compare(cor1) == 0){
+                    vermelhoperde = 1;
+                    vermelhoganha = 0;
+                    azulganha = 1;
+                    azulperde = 0;
+                }
+                if(derrotado.compare(cor2) == 0){
+                    vermelhoganha = 1;
+                    vermelhoperde = 0;
+                    azulperde = 1;
+                    azulganha = 0;
+                }
+                cout << "vermelho ganha:" << vermelhoganha << endl;
+                cout << "vermelho perde:" << vermelhoperde << endl;
+                cout << "Azul ganha:" << azulganha << endl;
+                cout << "Azul perde:" << azulperde << endl;
+
                 if(pontos_jogador1<3){
                     minha_vez = 1;
                     pontos_jogador1 = 20;
                 }
+                cout << "Cheguei na funcao perder ou ganhar 2" << endl;
+                if(azulperde == 1 && vermelhoganha == 1){
+                    perdeu_jogo(screen);
+                }
+                if(vermelhoperde == 1 && azulganha == 1){
+                    venceu_jogo(screen);
+                }
 
             }
             else{
-                if(azulganha == 1){
-                    venceu_jogo(screen);
-                }
-                if(vermelhoperde == 1){
-                    perdeu_jogo(screen);
-                }
 
                 blit_cima(eua,screen);
                 desenha_pontos(pontos_jogador2, screen);
@@ -312,17 +361,26 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 codifica_ataque(codigo_s);
                                                 //cout << "passei codifica" << endl;
                                                 enviar_msg(Cserver,codigo_s);
-                                                cout << "enviei" << endl;
+                                                //cout << "enviei" << endl;
                                                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 dano_ataque(screen);
                                                 //cout << "animei ataque" << endl;
                                                 if(derrotado.compare(cor1) == 0){
                                                     vermelhoperde = 1;
+                                                    vermelhoganha = 0;
                                                     azulganha = 1;
+                                                    azulperde = 0;
                                                 }
-                                                if(azulperde == 1){
+                                                if(derrotado.compare(cor2) == 1){
                                                     vermelhoganha = 1;
+                                                    vermelhoperde = 0;
+                                                    azulperde = 1;
+                                                    azulganha = 0;
                                                 }
+                                                cout << "vermelho ganha:" << vermelhoganha << endl;
+                                                cout << "vermelho perde:" << vermelhoperde << endl;
+                                                cout << "Azul ganha:" << azulganha << endl;
+                                                cout << "Azul perde:" << azulperde << endl;
                                                 pontos_jogador2 -= 6;
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;
@@ -340,15 +398,21 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
                                                 codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
                                                 codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
-                                                cout<<"Enviando msg..."<<endl;
+                                                //cout<<"Enviando msg..."<<endl;
                                                 enviar_msg(Cserver,codigo_s);
-                                                cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
+                                                //cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
 
                                                 mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                                 pontos_jogador2 -= 3;
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;
                                                     pontos_jogador2 = 20;
+                                                }
+                                                if((azulganha == 1) && (vermelhoperde == 1)){
+                                                    venceu_jogo(screen);
+                                                }
+                                                if((vermelhoperde == 1) && (azulganha == 1)){
+                                                    perdeu_jogo(screen);
                                                 }
                                                 break;
                                             }
@@ -370,6 +434,13 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
                     }
 
+                }
+                cout << "Cheguei na funcao de ganhar ou perder 1" << endl;
+                if((azulganha == 1) && (vermelhoperde == 1)){
+                    venceu_jogo(screen);
+                }
+                if((vermelhoperde == 1) && (azulganha == 1)){
+                    perdeu_jogo(screen);
                 }
                 //blit_tela(screen);
                 //BlitImage(screen,mouse,vetor->x-13,vetor->y-13 );
@@ -422,8 +493,21 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
                 hex_selecao->j = code_recv[5] - 48;
                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                 dano_ataque(screen);
-                blit_tela(screen,0);
+                if(derrotado.compare(cor1) == 0){
+                    vermelhoperde = 1;
+                    vermelhoganha = 0;
+                    azulganha = 1;
+                    azulperde = 0;
+                }
+                if(derrotado.compare(cor2) == 1){
+                    vermelhoganha = 1;
+                    vermelhoperde = 0;
+                    azulperde = 1;
+                    azulganha = 0;
+                }
             }
+                blit_tela(screen,0);
+
 }
 
 void desenha_pontos(int number, SDL_Surface *screen){

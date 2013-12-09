@@ -74,30 +74,22 @@ void dano_ataque(SDL_Surface *screen){
                 hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
             }
                 else if (defensor->cor == "azul"){
-                    explode_unidade(screen, hexagonos[9][12]->x, hexagonos[9][12]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[9][12]->unidade = NULL;
                     hexagonos[9][12]->contem_unidade = 0;
-                    explode_unidade(screen, hexagonos[10][12]->x, hexagonos[10][12]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[10][12]->unidade = NULL;
                     hexagonos[10][12]->contem_unidade = 0;
-                    explode_unidade(screen, hexagonos[11][12]->x, hexagonos[11][12]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[11][12]->unidade = NULL;
                     hexagonos[11][12]->contem_unidade = 0;
-                    explode_unidade(screen, hexagonos[12][12]->x, hexagonos[12][12]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[12][12]->unidade = NULL;
                     hexagonos[12][12]->contem_unidade = 0;
-                    explode_unidade(screen, hexagonos[13][12]->x, hexagonos[13][12]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[13][12]->unidade = NULL;
                     hexagonos[13][12]->contem_unidade = 0;
                 }
                     else{
-                        explode_unidade(screen, hexagonos[6][4]->x, hexagonos[6][4]->y, totalElapsedTime, delay, lastdt);
                         hexagonos[6][4]->unidade = NULL;
                         hexagonos[6][4]->contem_unidade = 0;
-                        explode_unidade(screen, hexagonos[7][4]->x, hexagonos[7][4]->y, totalElapsedTime, delay, lastdt);
                         hexagonos[7][4]->unidade = NULL;
                         hexagonos[7][4]->contem_unidade = 0;
-                        explode_unidade(screen, hexagonos[8][4]->x, hexagonos[8][4]->y, totalElapsedTime, delay, lastdt);
                         hexagonos[8][4]->unidade = NULL;
                         hexagonos[8][4]->contem_unidade = 0;
 
@@ -106,38 +98,41 @@ void dano_ataque(SDL_Surface *screen){
         }
 
             else if (defensor->cor == "azul"){
-                explode_unidade(screen, hexagonos[5][1]->x, hexagonos[5][1]->y, totalElapsedTime, delay, lastdt);
-                hexagonos[5][1]->unidade = NULL;
-                hexagonos[5][1]->contem_unidade = 0;
-                explode_unidade(screen, hexagonos[6][1]->x, hexagonos[6][1]->y, totalElapsedTime, delay, lastdt);
-                hexagonos[6][1]->unidade = NULL;
-                hexagonos[6][1]->contem_unidade = 0;
-                explode_unidade(screen, hexagonos[6][2]->x, hexagonos[6][2]->y, totalElapsedTime, delay, lastdt);
-                hexagonos[6][2]->contem_unidade = 0;
-                hexagonos[6][2]->unidade = NULL;
-                explode_unidade(screen, hexagonos[7][1]->x, hexagonos[7][1]->y, totalElapsedTime, delay, lastdt);
-                hexagonos[7][1]->contem_unidade = 0;
-                hexagonos[7][1]->unidade = NULL;
-                explode_unidade(screen, hexagonos[8][1]->x, hexagonos[8][1]->y, totalElapsedTime, delay, lastdt);
-                hexagonos[8][1]->contem_unidade = 0;
-                hexagonos[8][1]->unidade = NULL;
-                explode_unidade(screen, hexagonos[8][2]->x, hexagonos[8][2]->y, totalElapsedTime, delay, lastdt);
-                hexagonos[8][2]->contem_unidade = 0;
-                hexagonos[8][2]->unidade = NULL;
-                explode_unidade(screen, hexagonos[9][1]->x, hexagonos[9][1]->y, totalElapsedTime, delay, lastdt);
-                hexagonos[9][1]->contem_unidade = 0;
-                hexagonos[9][1]->unidade = NULL;
+                hexagonos[7][13]->unidade = NULL;
+                hexagonos[7][13]->contem_unidade= 0;
+                hexagonos[7][14]->unidade = NULL;
+                hexagonos[7][14]->contem_unidade= 0;
+                hexagonos[8][14]->unidade = NULL;
+                hexagonos[8][14]->contem_unidade= 0;
+                hexagonos[9][13]->unidade = NULL;
+                hexagonos[9][13]->contem_unidade= 0;
+                hexagonos[9][14]->unidade = NULL;
+                hexagonos[9][14]->contem_unidade= 0;
+                hexagonos[10][14]->unidade = NULL;
+                hexagonos[10][14]->contem_unidade= 0;
+
             }
                 else{
-                    explode_unidade(screen, hexagonos[6][4]->x, hexagonos[6][4]->y, totalElapsedTime, delay, lastdt);
-                    hexagonos[6][4]->unidade = NULL;
+                    /*hexagonos[6][4]->unidade = NULL;
                     hexagonos[6][4]->contem_unidade = 0;
-                    explode_unidade(screen, hexagonos[7][4]->x, hexagonos[7][4]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[7][4]->unidade = NULL;
                     hexagonos[7][4]->contem_unidade = 0;
-                    explode_unidade(screen, hexagonos[8][4]->x, hexagonos[8][4]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[8][4]->unidade = NULL;
-                    hexagonos[8][4]->contem_unidade = 0;
+                    hexagonos[8][4]->contem_unidade = 0;*/
+                    hexagonos[5][1]->unidade = NULL;
+                    hexagonos[5][1]->contem_unidade = 0;
+                    hexagonos[6][1]->unidade = NULL;
+                    hexagonos[6][1]->contem_unidade = 0;
+                    hexagonos[6][2]->contem_unidade = 0;
+                    hexagonos[6][2]->unidade = NULL;
+                    hexagonos[7][1]->contem_unidade = 0;
+                    hexagonos[7][1]->unidade = NULL;
+                    hexagonos[8][1]->contem_unidade = 0;
+                    hexagonos[8][1]->unidade = NULL;
+                    hexagonos[8][2]->contem_unidade = 0;
+                    hexagonos[8][2]->unidade = NULL;
+                    hexagonos[9][1]->contem_unidade = 0;
+                    hexagonos[9][1]->unidade = NULL;
 
                 }
 

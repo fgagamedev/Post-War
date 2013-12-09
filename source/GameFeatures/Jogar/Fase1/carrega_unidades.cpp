@@ -140,7 +140,13 @@ void carrega_china(SDL_Surface *screen,string lado){
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
 
-
+        if(i==0){
+            hexagonos[7][12]->unidade = soldado;
+            hexagonos[7][12]->contem_unidade = 1;
+            dst.x = hexagonos[7][12]->x;
+            dst.y = hexagonos[7][12]->y;
+            SDL_BlitSurface(soldado->nome, &cutBox, screen, &dst);
+        }
         caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_vermelha.png";
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
         Unidade *quartel_a = new Unidade();
