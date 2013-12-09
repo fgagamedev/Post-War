@@ -62,9 +62,34 @@ void dano_ataque(){
     //cout << "passei do primeiro else" << endl;
     if(defensor->hp <= 0){
         if(defensor->tipo.compare("quartel") != 0){
-        hexagonos[hex_selecao->i][hex_selecao->j]->unidade = NULL;
-        hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
+            if(defensor->tipo.compare("metralhadora") != 0){
+                hexagonos[hex_selecao->i][hex_selecao->j]->unidade = NULL;
+                hexagonos[hex_selecao->i][hex_selecao->j]->contem_unidade = 0;
+            }
+                else if (defensor->cor == "azul"){
+                    hexagonos[9][12]->unidade = NULL;
+                    hexagonos[9][12]->contem_unidade = 0;
+                    hexagonos[10][12]->unidade = NULL;
+                    hexagonos[10][12]->contem_unidade = 0;
+                    hexagonos[11][12]->unidade = NULL;
+                    hexagonos[11][12]->contem_unidade = 0;
+                    hexagonos[12][12]->unidade = NULL;
+                    hexagonos[12][12]->contem_unidade = 0;
+                    hexagonos[13][12]->unidade = NULL;
+                    hexagonos[13][12]->contem_unidade = 0;
+                }
+                    else{
+                        hexagonos[6][4]->unidade = NULL;
+                        hexagonos[6][4]->contem_unidade = 0;
+                        hexagonos[7][4]->unidade = NULL;
+                        hexagonos[7][4]->contem_unidade = 0;
+                        hexagonos[8][4]->unidade = NULL;
+                        hexagonos[8][4]->contem_unidade = 0;
+
+                    }
+
         }
+
             else if (defensor->cor == "azul"){
                 hexagonos[5][1]->unidade = NULL;
                 hexagonos[5][1]->contem_unidade = 0;
@@ -90,6 +115,7 @@ void dano_ataque(){
                     hexagonos[8][4]->contem_unidade = 0;
 
                 }
+
         //free(hexagonos[hex_selecao->i][hex_selecao->j]->unidade);
     }
     else{

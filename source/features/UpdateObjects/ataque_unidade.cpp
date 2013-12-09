@@ -20,6 +20,7 @@ for(int i=0; i<5;i++){
         int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x;
         int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y;
 
+
         if(hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade == 0){
             break;
         }
@@ -35,11 +36,12 @@ for(int i=0; i<5;i++){
         string tipo2 = "soldado";
         string tipo3 = "helicoptero";
         string tipo4 = "tanque";
-        cout << "cor da unidade atual:" << temp->cor << endl;
-        cout << "Tipo unidade atual:" << temp->tipo << endl;
+        //cout << "cor da unidade atual:" << temp->cor << endl;
+        //cout << "Tipo unidade atual:" << temp->tipo << endl;
 
         SDL_Rect cutBox = {0,0,32,32};
         //Acha tanque azul
+
         if(temp->tipo == tipo4 && temp->cor == cor2){
             n_sprites = 4;
             if(s<y && w==x){
@@ -217,13 +219,15 @@ for(int i=0; i<5;i++){
 
 
         int tempo_delay = 50;
-        cout << "w:" << w << endl;
-        cout << "s:" << s << endl;
+        //cout << "w:" << w << endl;
+        //cout << "s:" << s << endl;
 
         while(cutBox.x <n_sprites*tamanho_sprites){
-            cout << "w:" << w << endl;
-            cout << "s:" << s << endl;
+
+            //cout << "w:" << w << endl;
+            //cout << "s:" << s << endl;
             blit_tela_ataque(screen,1, temp->id, x, y);
+
             int dt = SDL_GetTicks() - lastdt;
             lastdt = SDL_GetTicks();
 
@@ -240,9 +244,11 @@ for(int i=0; i<5;i++){
                     SDL_BlitSurface(temp_s, &cutBox, screen, &dest);
 
                     SDL_Delay(tempo_delay);
+
                     SDL_Flip(screen);
 
 
         }
+
     }
 }

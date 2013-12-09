@@ -40,7 +40,6 @@ void blit_tela(SDL_Surface *screen, int tela){
     for(unsigned int i=0;i<hexagonos.size();i++){
         for(unsigned int j=0;j<hexagonos[i].size();j++){
             if(hexagonos[i][j]->contem_unidade==1){
-                //cout<<"foi, i: "<<i<<"j: "<<j<<endl;
                 if(hexagonos[i][j]->unidade->tipo == "soldado" || hexagonos[i][j]->unidade->tipo == "helicoptero" || hexagonos[i][j]->unidade->tipo == "tanque"){
                     SDL_Rect cutBox = {32,0,32,32};
                     SDL_Rect dst;
@@ -48,7 +47,6 @@ void blit_tela(SDL_Surface *screen, int tela){
                     dst.y = hexagonos[i][j]->y;
                     dst.h = 0;
                     dst.w = 0;
-                    //cout << "fiz isso i " << i << endl;
                     SDL_BlitSurface(hexagonos[i][j]->unidade->nome, &cutBox,  screen, &dst);
                 }
                 else if(hexagonos[i][j]->unidade->tipo == "quartel" && hexagonos[i][j]->unidade->cor == "vermelho")
@@ -57,9 +55,11 @@ void blit_tela(SDL_Surface *screen, int tela){
                           BlitImage(screen,hexagonos[7][13]->unidade->nome,hexagonos[7][13]->x,hexagonos[7][13]->y);
                           }
                              else {
-                                BlitImage(screen,hexagonos[6][4]->unidade->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
+                                if(hexagonos[6][4]->contem_unidade)
+                                    BlitImage(screen,hexagonos[6][4]->unidade->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
                                 //BlitImage(screen,hexagonos[14][12]->unidade->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
-                                BlitImage(screen,hexagonos[10][12]->unidade->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
+                                if(hexagonos[10][12]->contem_unidade)
+                                    BlitImage(screen,hexagonos[10][12]->unidade->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
                             }
                     /*
                     ///Lógica mágica para dar blit na metralhadora (NÃO MECHE NISSO)
@@ -81,7 +81,7 @@ void blit_tela(SDL_Surface *screen, int tela){
 
 void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y){
     //cout << "ENTREI BLIT ATAQUE" << endl;
-    cout << "FUNCAO BLITE ATAQUE:" << endl;
+    //cout << "FUNCAO BLITE ATAQUE:" << endl;
     //cout << "x:" << x << endl;
     //cout << "y:" << y << endl;
     if( tela == 0)
@@ -94,19 +94,21 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y){
 
     for(unsigned int i=0;i<hexagonos.size();i++){
         for(unsigned int j=0;j<hexagonos[i].size();j++){
+
             if(hexagonos[i][j]->contem_unidade==1){
                 //cout<<"foi, i: "<<i<<"j: "<<j<<endl;
                 //cout << "cheguei aqui" << endl;
-                cout << "unidade ID:" << hexagonos[i][j]->unidade->id << endl;
+                //cout << "unidade ID:" << hexagonos[i][j]->unidade->id << endl;
                 //cout << "x e y aponta para:" << hexagonos[x][y]->unidade << endl;
                 //cout << "unidade tipo:" << hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo << endl;
                 if(hexagonos[i][j]->unidade->id == id){
-                    cout << "entrei if" << endl;
+                    //cout << "entrei if" << endl;
                     int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->x;
                     int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->y;
                     Unidade *temp;
                     temp = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade;
-                    cout << "temp:" << temp->tipo << endl;
+                    cout<<"i: "<<i<<"j: "<<j<<endl;
+                    //cout << "temp:" << temp->tipo << endl;
                     SDL_Surface *temp_s;
                     string cor = "vermelho";
                     string cor2 = "azul";
@@ -114,8 +116,8 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y){
                     string tipo2 = "soldado";
                     string tipo3 = "helicoptero";
                     string tipo4 = "tanque";
-                    cout << "cor da unidade atual:" << temp->cor << endl;
-                    cout << "Tipo unidade atual:" << temp->tipo << endl;
+                    //cout << "cor da unidade atual:" << temp->cor << endl;
+                    //cout << "Tipo unidade atual:" << temp->tipo << endl;
 
                     SDL_Rect cutBox = {0,0,32,32};
                     //Acha tanque azul
@@ -195,6 +197,7 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y){
                         }
                         SDL_Rect dst = {(Sint16)w, (Sint16)s, 0, 0};
                         SDL_BlitSurface(temp_s, &cutBox,  screen, &dst);
+
                     }
 
                 }
@@ -207,17 +210,22 @@ void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y){
                     dst.h = 0;
                     dst.w = 0;
                     //cout << "fiz isso i " << i << endl;
+
                     SDL_BlitSurface(hexagonos[i][j]->unidade->nome, &cutBox,  screen, &dst);
                 }
                 else if(hexagonos[i][j]->unidade->tipo == "quartel" && hexagonos[i][j]->unidade->cor == "vermelho")
                     BlitImage(screen,hexagonos[6][1]->unidade->nome,hexagonos[6][1]->x,hexagonos[6][1]->y);
                         else if (hexagonos[i][j]->unidade->tipo == "quartel" && hexagonos[i][j]->unidade->cor == "azul"){
-                          BlitImage(screen,hexagonos[7][13]->unidade->nome,hexagonos[7][13]->x,hexagonos[7][13]->y);
+
+                            if(hexagonos[7][13]->contem_unidade)
+                                BlitImage(screen,hexagonos[7][13]->unidade->nome,hexagonos[7][13]->x,hexagonos[7][13]->y);
                           }
                              else {
-                                BlitImage(screen,hexagonos[6][4]->unidade->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
+                                if(hexagonos[6][4]->contem_unidade)
+                                    BlitImage(screen,hexagonos[6][4]->unidade->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
                                 //BlitImage(screen,hexagonos[14][12]->unidade->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
-                                BlitImage(screen,hexagonos[10][12]->unidade->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
+                                if(hexagonos[10][12]->contem_unidade)
+                                    BlitImage(screen,hexagonos[10][12]->unidade->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
                             }
                 /*else if(hexagonos[i][j]->unidade->tipo == "quartel")
                     BlitImage(screen,hexagonos[6][1]->unidade->nome,hexagonos[6][1]->x,hexagonos[6][1]->y);

@@ -23,6 +23,7 @@ int minerio_vermelho = 10;
 
 
 void fase1(SDL_Surface *screen,string qual_maquina){
+
     Pais *china = new Pais();
     string nome = "China";
     string cor = "vermelho";
@@ -105,6 +106,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         enviar_msg(Sclient,codigo_s);
                                         //cout << "enviei" << endl;
                                         ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                        cout<<"opa!! cheguei aqui"<<endl;
                                         //cout << "animei ataque" << endl;
                                         if(derrotado.compare(cor1) == 0){
                                             vermelhoperde = 1;
@@ -238,6 +240,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 receber_msg(Cserver,code_recv);
                 cout<<"Recebi a msg: "<<code_recv<<endl;
                 amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
+                cout<<"opa!! cheguei aqui"<<endl;
                 if(code_recv[0] == '0' && code_recv[1] == '0'){
                         pontos_jogador1 -=3;
                 }
@@ -407,7 +410,9 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
                 hex_selecao->i = code_recv[4] - 48;
                 hex_selecao->j = code_recv[5] - 48;
                 dano_ataque();
+                cout<<"opa!! sou o cliente e  cheguei aqui"<<endl;
                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+
                 blit_tela(screen,0);
             }
 }
