@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o coleta_recursos.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -28,6 +28,7 @@ DANO_ATAQUE=source/features/UpdateObjects/dano_ataque.cpp
 VERIFICA_DERROTA=source/features/UpdateObjects/condicao_fim_do_jogo.cpp
 VENCEU_PERDEU=source/GameFeatures/Jogar/venceu_perdeu.cpp
 EVOLUCAO_SOLDADO=source/GameFeatures/Jogar/Fase1/evolucao.cpp
+COLETA=source/GameFeatures/Jogar/coleta_recursos.cpp
 BLIT_TELA=source/GameFeatures/blit_tela.cpp
 CFLAGS= -lSDL -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf -lSDL_mixer
 
@@ -92,6 +93,8 @@ venceu_perdeu.o: $(VENCEU_PERDEU)
 	g++ -c $(VENCEU_PERDEU) $(CFLAGS)
 evolucao.o:$(EVOLUCAO_SOLDADO)
 	g++ -c $(EVOLUCAO_SOLDADO) $(CFLAGS)
+coleta_recursos.o: $(COLETA)
+	g++ -c $(COLETA) $(CFLAGS)
 PostWar.o: $(POSTWAR)
 	g++ -c $(POSTWAR) $(CFLAGS)
 clean:

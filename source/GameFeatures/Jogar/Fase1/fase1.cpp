@@ -19,6 +19,7 @@ int vermelhoganha = 0;
 int azulganha = 0;
 string cor2 = "azul";
 string cor1 = "vermelho";
+int minerio_vermelho = 10;
 
 
 void fase1(SDL_Surface *screen,string qual_maquina){
@@ -33,6 +34,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
     char pais_serv[100] = "china";
     char pais_client[100] = "eua";
+
 
 
     carregar_fase1(screen,pais_serv,pais_client);
@@ -52,16 +54,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     int start1 =0;
     if(qual_maquina.compare("cliente")){
         minha_vez=1;
-        cout << "Setei vez 1" << endl;
-        cout<<"Sou servidor"<<endl;
+
         while(1){
             start = SDL_GetTicks();
             //memset (codigo_s,'0',100);
             if(minha_vez){
-                evolucao_soldado(china);
-                evolucao_quartel(china);
-                //cout << "veremelho perde:" << vermelhoperde << endl;
-                //cout << "azul perde:" << azulperde << endl;
                 if(vermelhoperde == 1){
                     perdeu_jogo(screen);
                 }
@@ -138,6 +135,8 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         if(pontos_jogador1<3){
                                             minha_vez = 0;
                                             pontos_jogador1 = 20;
+                                            coleta_minerio(china, minerio_vermelho);
+                                            minerio_vermelho += 5;
                                         }
                                         break;
                                     }

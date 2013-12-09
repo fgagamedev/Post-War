@@ -223,7 +223,7 @@ for(int i=0; i<5;i++){
         while(cutBox.x <n_sprites*tamanho_sprites){
             cout << "w:" << w << endl;
             cout << "s:" << s << endl;
-            blit_tela_ataque(screen,1, w, s);
+            blit_tela_ataque(screen,1, temp->id, x, y);
             int dt = SDL_GetTicks() - lastdt;
             lastdt = SDL_GetTicks();
 

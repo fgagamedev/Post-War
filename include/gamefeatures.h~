@@ -27,6 +27,7 @@ typedef struct _Unidade{
 	string tipo;
 	int x;
 	int y;
+	int id;
 } Unidade;
 
 typedef struct _Hexagonos{
@@ -78,6 +79,7 @@ extern int vermelhoganha;
 extern int azulganha;
 extern int start;
 extern const int FPS;
+extern int id;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
@@ -88,7 +90,7 @@ extern void carregar_fase1(SDL_Surface *screen,char pais_serv[], char pais_clien
 extern void carrega_china(SDL_Surface *screen,string lado);
 extern void carrega_eua(SDL_Surface *screen,string lado);
 extern void blit_tela(SDL_Surface *screen,int i);
-extern void blit_tela_ataque(SDL_Surface *screen,int tela, int x, int y);
+extern void blit_tela_ataque(SDL_Surface *screen,int tela, int id, int x, int y);
 extern int verifica_hexagono(int x, int y);
 extern void mover_soldado(SDL_Surface *screen, int i, int x, int y);
 extern void ataque_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt);
@@ -110,7 +112,11 @@ extern void perdeu_jogo(SDL_Surface *screen);
 extern void venceu_jogo(SDL_Surface *screen);
 extern void blit_selecao(SDL_Surface *screen);
 extern void evolucao_soldado(Pais *pais);
-void evolucao_quartel(Pais *pais);
+extern void evolucao_quartel(Pais *pais);
+extern void coleta_ouro(Pais *pais, int valor_coleta_ouro);
+extern void coleta_minerio(Pais *pais, int valor_coleta_minerio);
+extern void coleta_comida(Pais *pais, int valor_coleta_comida);
+
 
 #endif
 

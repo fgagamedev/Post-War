@@ -15,9 +15,10 @@ vector <Unidade *> unidades_azul;
 vector <Unidade *> unidades_vermelhas;
 vector< vector <Hexagono*> > hexagonos;
 SDL_Rect cutBox = { 32, 0, 32, 32};
+int id = 0;
 
 
-void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *soldado_lateral){
+void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *soldado_lateral, int id){
     soldado->hp = 200;
     soldado->atk = 100;
     soldado->def = 100;
@@ -30,10 +31,11 @@ void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, S
     soldado->ataque_cima = ataque_cima;
     soldado->tipo = tipo;
     soldado->imagem_lateral = soldado_lateral;
+    soldado->id = id;
 
 }
 
-void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima, SDL_Surface *helicoptero_lateral){
+void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima, SDL_Surface *helicoptero_lateral, int id){
     helicoptero->hp = 300;
     helicoptero->atk = 500;
     helicoptero->def = 200;
@@ -46,9 +48,10 @@ void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surfac
     helicoptero->ataque_cima = ataque_cima;
     helicoptero->tipo = tipo;
     helicoptero->imagem_lateral = helicoptero_lateral;
+    helicoptero->id = id;
 }
 
-void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral){
+void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral, int id){
     metralhadora->hp = 100;
     metralhadora->atk = 200;
     metralhadora->def = 300;
@@ -61,9 +64,10 @@ void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surfa
     metralhadora->ataque_cima = ataque;
     metralhadora->tipo = tipo;
     metralhadora->imagem_lateral = lateral;
+    metralhadora->id = id;
 }
 
-void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *tanque_lateral){
+void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *tanque_lateral, int id){
     tanque->hp = 350;
     tanque->atk = 400;
     tanque->def = 400;
@@ -76,9 +80,10 @@ void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, S
     tanque->ataque_cima = ataque_cima;
     tanque->tipo = tipo;
     tanque->imagem_lateral = tanque_lateral;
+    tanque->id = id;
 }
 
-void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral){
+void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral, int id){
     quartel->hp = 1;
     quartel->atk = 0;
     quartel->def = 400;
@@ -91,6 +96,7 @@ void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome,
     quartel->ataque_cima = ataque;
     quartel->tipo = tipo;
     quartel->imagem_lateral = lateral;
+    quartel->id = id;
 }
 
 void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, string cor){
@@ -121,7 +127,8 @@ void carrega_china(SDL_Surface *screen,string lado){
         Unidade *soldado = new Unidade();
 
         string unidadea1 = "soldado";
-        setar_soldado(soldado, cor, unidadea1, soldado1, ataque_soldado, ataque_baixo, ataque_cima,soldado_lateral_a);
+        setar_soldado(soldado, cor, unidadea1, soldado1, ataque_soldado, ataque_baixo, ataque_cima,soldado_lateral_a, id);
+        id++;
         unidades_azul.push_back(soldado);
         //if(i+2<=hexagonos.size()){
         SDL_Rect dst;
@@ -138,7 +145,8 @@ void carrega_china(SDL_Surface *screen,string lado){
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
         Unidade *quartel_a = new Unidade();
         string quarte = "quartel";
-        setar_quartel(quartel_a,cor,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana);
+        setar_quartel(quartel_a,cor,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
+        id++;
         BlitImage(screen,quartel_azul_cabana,hexagonos[6][1]->x,hexagonos[6][1]->y);
         hexagonos[5][1]->unidade = quartel_a;
         hexagonos[5][1]->contem_unidade = 1;
@@ -165,7 +173,8 @@ void carrega_china(SDL_Surface *screen,string lado){
     SDL_Surface *metralhadora_lateral = load_Image(caminho, screen);
     Unidade *metralhadora = new Unidade();
     string unidadea2 = "metralhadora";
-    setar_metralhadora(metralhadora, cor, unidadea2, metralhadora1, metralhadora_ataque, metralhadora_lateral);
+    setar_metralhadora(metralhadora, cor, unidadea2, metralhadora1, metralhadora_ataque, metralhadora_lateral, id);
+    id++;
     unidades_azul.push_back(metralhadora);
 
     BlitImage(screen,unidades_azul[10]->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
@@ -206,7 +215,8 @@ void carrega_eua(SDL_Surface *screen,string lado){
         SDL_Surface *soldado_lateral_v = load_Image(caminho, screen);
         Unidade *soldado = new Unidade();
         string unidade = "soldado";
-        setar_soldado(soldado, cor2, unidade, soldado1, soldado_ataque, soldado_ataque_baixo, soldado_ataque_cima,soldado_lateral_v);
+        setar_soldado(soldado, cor2, unidade, soldado1, soldado_ataque, soldado_ataque_baixo, soldado_ataque_cima,soldado_lateral_v, id);
+        id++;
         unidades_vermelhas.push_back(soldado);
 
         SDL_Rect dst;
@@ -238,7 +248,8 @@ void carrega_eua(SDL_Surface *screen,string lado){
         //SDL_Surface *helicoptero_ataque_baixo = load_Image(caminho, screen);
         Unidade *helicoptero = new Unidade();
         string unidade1 = "helicoptero";
-        setar_helicoptero(helicoptero, cor2, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral);
+        setar_helicoptero(helicoptero, cor2, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
+        id++;
         unidades_vermelhas.push_back(helicoptero);
 
         SDL_Rect dst;
@@ -263,7 +274,8 @@ void carrega_eua(SDL_Surface *screen,string lado){
         SDL_Surface *metrapalhadora_lateral = load_Image(caminho, screen);
         Unidade *metralhadora = new Unidade();
         string unidade2 = "metralhadora";
-        setar_metralhadora(metralhadora, cor2, unidade2, metrapalhadora1, metrapalhadora_ataque, metrapalhadora_lateral);
+        setar_metralhadora(metralhadora, cor2, unidade2, metrapalhadora1, metrapalhadora_ataque, metrapalhadora_lateral, id);
+        id++;
         unidades_vermelhas.push_back(metralhadora);
     }
 
@@ -279,7 +291,8 @@ void carrega_eua(SDL_Surface *screen,string lado){
     SDL_Surface *tanque_lateral = load_Image(caminho, screen);
     Unidade *tanque = new Unidade();
     string unidade3 = "tanque";
-    setar_tanque(tanque, cor2, unidade3, tanque1, tanque_ataque, tanque_ataque_baixo, tanque_ataque_cima, tanque_lateral);
+    setar_tanque(tanque, cor2, unidade3, tanque1, tanque_ataque, tanque_ataque_baixo, tanque_ataque_cima, tanque_lateral, id);
+    id++;
     unidades_vermelhas.push_back(tanque);
 
     ///Carregar os sprites do quartel azul
@@ -287,7 +300,8 @@ void carrega_eua(SDL_Surface *screen,string lado){
     SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
     Unidade *quartel_a = new Unidade();
     string quarte = "quartel";
-    setar_quartel(quartel_a,cor2,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana);
+    setar_quartel(quartel_a,cor2,quarte,quartel_azul_cabana, quartel_azul_cabana, quartel_azul_cabana, id);
+    id++;
     BlitImage(screen,quartel_azul_cabana,hexagonos[7][13]->x,hexagonos[7][13]->y);
     hexagonos[7][13]->unidade = quartel_a;
     hexagonos[7][13]->contem_unidade= 1;

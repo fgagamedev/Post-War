@@ -9,7 +9,7 @@
 
 
 using namespace std;
-void blit_tela(SDL_Surface *screen,int tela){
+void blit_tela(SDL_Surface *screen, int tela){
 
     if( tela == 0)
         BlitImage(screen, sem_malha, 0, 0);
@@ -79,11 +79,11 @@ void blit_tela(SDL_Surface *screen,int tela){
     }
 }
 
-void blit_tela_ataque(SDL_Surface *screen,int tela, int x, int y){
+void blit_tela_ataque(SDL_Surface *screen, int tela, int id, int x, int y){
     //cout << "ENTREI BLIT ATAQUE" << endl;
     cout << "FUNCAO BLITE ATAQUE:" << endl;
-    cout << "x:" << x << endl;
-    cout << "y:" << y << endl;
+    //cout << "x:" << x << endl;
+    //cout << "y:" << y << endl;
     if( tela == 0)
         BlitImage(screen, sem_malha, 0, 0);
         else
@@ -97,13 +97,10 @@ void blit_tela_ataque(SDL_Surface *screen,int tela, int x, int y){
             if(hexagonos[i][j]->contem_unidade==1){
                 //cout<<"foi, i: "<<i<<"j: "<<j<<endl;
                 //cout << "cheguei aqui" << endl;
-                cout << "x:" << x << endl;
-                cout << "y:" << y << endl;
-                cout << "unidade tipo x:" << hexagonos[i][j]->unidade->x << endl;
-                cout << "unidade tipo y:" << hexagonos[i][j]->unidade->y << endl;
+                cout << "unidade ID:" << hexagonos[i][j]->unidade->id << endl;
                 //cout << "x e y aponta para:" << hexagonos[x][y]->unidade << endl;
                 //cout << "unidade tipo:" << hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo << endl;
-                if(hexagonos[hex_selecao->i_antes][hex_selecao->j]->unidade->x == x && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->y == y){
+                if(hexagonos[i][j]->unidade->id == id){
                     cout << "entrei if" << endl;
                     int w = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->x;
                     int s = hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->y;
@@ -202,8 +199,7 @@ void blit_tela_ataque(SDL_Surface *screen,int tela, int x, int y){
 
                 }
 
-                else{
-                    //cout << "entrei else" << endl;
+                 if((hexagonos[i][j]->unidade->tipo == "soldado" || hexagonos[i][j]->unidade->tipo == "helicoptero" || hexagonos[i][j]->unidade->tipo == "tanque") && (hexagonos[i][j]->unidade->id != id)){
                     SDL_Rect cutBox = {32,0,32,32};
                     SDL_Rect dst;
                     dst.x = hexagonos[i][j]->x;
@@ -213,6 +209,16 @@ void blit_tela_ataque(SDL_Surface *screen,int tela, int x, int y){
                     //cout << "fiz isso i " << i << endl;
                     SDL_BlitSurface(hexagonos[i][j]->unidade->nome, &cutBox,  screen, &dst);
                 }
+                else if(hexagonos[i][j]->unidade->tipo == "quartel" && hexagonos[i][j]->unidade->cor == "vermelho")
+                    BlitImage(screen,hexagonos[6][1]->unidade->nome,hexagonos[6][1]->x,hexagonos[6][1]->y);
+                        else if (hexagonos[i][j]->unidade->tipo == "quartel" && hexagonos[i][j]->unidade->cor == "azul"){
+                          BlitImage(screen,hexagonos[7][13]->unidade->nome,hexagonos[7][13]->x,hexagonos[7][13]->y);
+                          }
+                             else {
+                                BlitImage(screen,hexagonos[6][4]->unidade->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
+                                //BlitImage(screen,hexagonos[14][12]->unidade->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
+                                BlitImage(screen,hexagonos[10][12]->unidade->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
+                            }
                 /*else if(hexagonos[i][j]->unidade->tipo == "quartel")
                     BlitImage(screen,hexagonos[6][1]->unidade->nome,hexagonos[6][1]->x,hexagonos[6][1]->y);
                 */

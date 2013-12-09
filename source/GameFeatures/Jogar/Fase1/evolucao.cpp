@@ -19,12 +19,24 @@ void evolucao_soldado(Pais *pais){
                 if(hexagonos[i][j]->unidade->cor == pais->cor){
                     if(hexagonos[i][j]->unidade->tipo == "soldado"){
                         hexagonos[i][j]->unidade->hp = 250;
-                        hexagonos[i][j]->unidade->atk =150;
+                        hexagonos[i][j]->unidade->atk = 150;
                         hexagonos[i][j]->unidade->def = 150;
                     }
                 }
             }
         }
+    }
+    pais->ouro -= 30;
+    if(pais->ouro < 0){
+        pais->ouro = 0;
+    }
+    pais->minerio -= 50;
+    if(pais->minerio < 0){
+        pais->minerio = 0;
+    }
+    pais->comida -= 20;
+    if(pais->comida <0){
+        pais->comida = 0;
     }
 }
 
@@ -35,13 +47,23 @@ void evolucao_quartel(Pais *pais){
                 if(hexagonos[i][j]->unidade->cor == pais->cor){
                     if(hexagonos[i][j]->unidade->tipo == "quartel"){
                         hexagonos[i][j]->unidade->hp = 1250;
-                        hexagonos[i][j]->unidade->atk =0;
+                        hexagonos[i][j]->unidade->atk = 0;
                         hexagonos[i][j]->unidade->def = 500;
                     }
                 }
             }
         }
     }
-
-
+    pais->ouro -= 50;
+    if(pais->ouro < 0){
+        pais->ouro = 0;
+    }
+    pais->minerio -= 50;
+    if(pais->minerio < 0){
+        pais->minerio = 0;
+    }
+    pais->comida -= 40;
+    if(pais->comida <0){
+        pais->comida = 0;
+    }
 }
