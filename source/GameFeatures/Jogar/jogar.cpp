@@ -48,7 +48,8 @@ void inicio(SDL_Surface *screen){
             if(vetor->click == 1){
                 cout<<"cliquei em servidor"<<endl;
                 criar_servidor();
-                fase1(screen,"servidor");
+                //fase1(screen,"servidor");
+                escolha_mapa(screen);
             }
 
         }
@@ -65,7 +66,6 @@ void inicio(SDL_Surface *screen){
                     conectar(local);
                     fase1(screen,"cliente");
                 }
-
             }
                 else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
                     if(vetor->click == 1){
@@ -83,6 +83,60 @@ void inicio(SDL_Surface *screen){
     }
 }
 
+void escolha_mapa(SDL_Surface *screen){
+
+    string opcao = "source/GameFeatures/Jogar/images/escolha_mapa.png";
+    SDL_Surface *maps = load_Image (opcao, screen);
+
+    opcao = "source/GameFeatures/Jogar/images/criar_partida_selecionado.png";
+    SDL_Surface *partida_selecionado = load_Image (opcao, screen);
+
+    opcao = "source/GameFeatures/Jogar/images/entrar-partida_selecionado.png";
+    SDL_Surface *entrar_selecionado = load_Image (opcao, screen);
+
+    BlitImage(screen,maps,0,0);
+    SDL_Flip(screen);
+    Vetor_mouse *vetor = new Vetor_mouse;
+
+    start = 0;
+
+    while(1){
+        start = SDL_GetTicks();
+        vetor = get_Input();
+        ///Fase1
+        if(compara_selecao(80, 710, vetor->x, 333, 499, vetor->y)){
+            if(vetor->click == 1){
+                fase1(screen,"servidor");
+            }
+        }   ///Fase2
+            else if(compara_selecao(253, 397, vetor->x, 333, 499, vetor->y)){
+            }
+                ///Fase3
+                else if(compara_selecao(438, 580, vetor->x, 333, 499, vetor->y)){
+                }
+                    ///Fase4
+                    else if(compara_selecao(673, 819, vetor->x, 333, 499, vetor->y)){
+                    }
+                        ///Fase5
+                        else if(compara_selecao(952, 1097, vetor->x, 333, 499, vetor->y)){
+                        }
+                        ///Voltar
+                            else if(compara_selecao(952, 1097, vetor->x, 333, 499, vetor->y)){
+                                BlitImage(screen,maps,0,0);
+                                BlitImage(screen,partida_selecionado,952,333);
+                                SDL_Flip(screen);
+                                if(vetor->click == 1){
+                                    break;
+                                }
+
+                            }
+                                ///Iniciar partida
+                                else if(compara_selecao(952, 1097, vetor->x, 333, 499, vetor->y)){
+                                }
+        frame_delay(start);
+    }
+
+}
 
 
 void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
