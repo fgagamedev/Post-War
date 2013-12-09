@@ -5,6 +5,7 @@
 #include "../../../../include/video.h"
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
+#include "../../../../include/soung.h"
 
 
 void mover_soldado(SDL_Surface *screen, int i, int x, int y){
