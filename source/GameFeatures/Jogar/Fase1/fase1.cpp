@@ -110,11 +110,12 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         break;
                                     }
                                     if(alcance_ataque_soldado()){
-                                        ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                        dano_ataque(screen);
+
                                         codifica_ataque(codigo_s);
                                         //cout << "passei codifica" << endl;
                                         enviar_msg(Sclient,codigo_s);
+                                        ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                        dano_ataque(screen);
                                         //cout << "enviei" << endl;
                                         //cout << "animei ataque" << endl;
                                         if(derrotado.compare(cor1) == 0){
@@ -307,12 +308,13 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
-                                                ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                                                dano_ataque(screen);
+
                                                 codifica_ataque(codigo_s);
                                                 //cout << "passei codifica" << endl;
                                                 enviar_msg(Cserver,codigo_s);
                                                 cout << "enviei" << endl;
+                                                ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
+                                                dano_ataque(screen);
                                                 //cout << "animei ataque" << endl;
                                                 if(derrotado.compare(cor1) == 0){
                                                     vermelhoperde = 1;
