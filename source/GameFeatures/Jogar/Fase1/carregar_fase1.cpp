@@ -95,6 +95,7 @@ SDL_Surface *hud;
 SDL_Surface *hud2;
 SDL_Surface *menu_meio;
 SDL_Surface *menu_jogo;
+SDL_Surface *menu_menor;
 int x_painel = 977;
 int y_painel = 236;
 void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
@@ -116,6 +117,10 @@ void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
     caminho = "source/GameFeatures/Jogar/Fase1/images/menu_meio_jogo.png";
     menu_meio = load_Image(caminho,screen);
     BlitImage(screen,menu_meio,568,78);
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/fundo_menuPartida.png";
+    menu_menor = load_Image(caminho,screen);
+
 
     caminho = "source/GameFeatures/Jogar/Fase1/images/malha.png";
     com_malha = load_Image(caminho, screen);

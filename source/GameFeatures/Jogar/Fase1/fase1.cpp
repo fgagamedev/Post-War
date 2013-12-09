@@ -53,7 +53,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     int minha_vez;
 
     Vetor_mouse *vetor = new Vetor_mouse;
-
+    blit_tela(screen,0);
     SDL_Flip(screen);
 
     //string opcao = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_mouse.png";
@@ -83,6 +83,10 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 desenha_texto(palavra,screen,200, 200, 60);
 
                 if(vetor->click == 1){
+
+                    if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
+                        clica_menu_menor(screen);
+                    }
 
                     if(verifica_hexagono(vetor->x,vetor->y)){
 
