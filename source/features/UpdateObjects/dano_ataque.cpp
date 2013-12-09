@@ -86,7 +86,7 @@ void dano_ataque(SDL_Surface *screen){
                     explode_unidade(screen, hexagonos[12][12]->x, hexagonos[12][12]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[12][12]->unidade = NULL;
                     hexagonos[12][12]->contem_unidade = 0;
-                    explode_unidade(screen, hexagonos[12][12]->x, hexagonos[12][12]->y, totalElapsedTime, delay, lastdt);
+                    explode_unidade(screen, hexagonos[13][12]->x, hexagonos[13][12]->y, totalElapsedTime, delay, lastdt);
                     hexagonos[13][12]->unidade = NULL;
                     hexagonos[13][12]->contem_unidade = 0;
                 }
@@ -109,7 +109,7 @@ void dano_ataque(SDL_Surface *screen){
                 explode_unidade(screen, hexagonos[5][1]->x, hexagonos[5][1]->y, totalElapsedTime, delay, lastdt);
                 hexagonos[5][1]->unidade = NULL;
                 hexagonos[5][1]->contem_unidade = 0;
-                explode_unidade(screen, hexagonos[5][1]->x, hexagonos[6][1]->y, totalElapsedTime, delay, lastdt);
+                explode_unidade(screen, hexagonos[6][1]->x, hexagonos[6][1]->y, totalElapsedTime, delay, lastdt);
                 hexagonos[6][1]->unidade = NULL;
                 hexagonos[6][1]->contem_unidade = 0;
                 explode_unidade(screen, hexagonos[6][2]->x, hexagonos[6][2]->y, totalElapsedTime, delay, lastdt);
