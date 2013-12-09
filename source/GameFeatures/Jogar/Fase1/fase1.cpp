@@ -414,10 +414,8 @@ void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime
                 hex_selecao->j_antes = code_recv[3] - 48;
                 hex_selecao->i = code_recv[4] - 48;
                 hex_selecao->j = code_recv[5] - 48;
-                dano_ataque(screen);
-                cout<<"opa!! sou o cliente e  cheguei aqui"<<endl;
                 ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-
+                dano_ataque(screen);
                 blit_tela(screen,0);
             }
 }
