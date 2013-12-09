@@ -139,7 +139,7 @@ void explode_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, in
         SDL_Rect cutBox = {0, 0, 32, 32};
 
         while(cutBox.x < n_sprites*tamanho_sprites){
-
+            blit_tela(screen,1);
             int dt = SDL_GetTicks() - lastdt;
             lastdt = SDL_GetTicks();
 
@@ -152,11 +152,8 @@ void explode_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, in
             }
 
             SDL_Rect dest = {(Sint16)x, (Sint16)y, 0, 0};
-
             SDL_BlitSurface(explosao, &cutBox, screen, &dest);
-
             SDL_Delay(tempo_delay);
-
             SDL_Flip(screen);
         }
     }
