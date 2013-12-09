@@ -82,13 +82,11 @@ extern int FPS;
 extern int id;
 extern SDL_Surface *menu_meio;
 extern SDL_Surface *menu_menor;
-extern SDL_Surface *voltar_jogo_sel;
-extern SDL_Surface *opcoes_sel;
-extern SDL_Surface *sair_sel;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
+extern void opcoes(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
 extern void fase1(SDL_Surface *screen,string qual_maquina);
 extern void carregar_fase1(SDL_Surface *screen,char pais_serv[], char pais_client[]);
@@ -123,7 +121,6 @@ extern void coleta_minerio(Pais *pais, int valor_coleta_minerio);
 extern void coleta_comida(Pais *pais, int valor_coleta_comida);
 extern void explode_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt);
 extern void clica_menu_menor(SDL_Surface *screen);
-extern void frame_delay(int start);
 
 
 #endif

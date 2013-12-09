@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o coleta_recursos.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o coleta_recursos.o opcoes.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -17,6 +17,7 @@ LOAD_I=source/features/RenderWorld/load_image.cpp
 MENU=source/GameFeatures/Menu/menu.cpp
 JOGAR=source/GameFeatures/Jogar/jogar.cpp
 CRED=source/GameFeatures/Creditos/creditos.cpp
+OP=source/GameFeatures/Opcoes/opcoes.cpp
 FASE1=source/GameFeatures/Jogar/Fase1/fase1.cpp
 FONTES=source/features/MiscTasks/fontes.cpp
 CARREGA_FASE1=source/GameFeatures/Jogar/Fase1/carregar_fase1.cpp
@@ -93,6 +94,8 @@ venceu_perdeu.o: $(VENCEU_PERDEU)
 	g++ -c $(VENCEU_PERDEU) $(CFLAGS)
 evolucao.o:$(EVOLUCAO_SOLDADO)
 	g++ -c $(EVOLUCAO_SOLDADO) $(CFLAGS)
+opcoes.o:$(OP)
+	g++ -c $(OP) $(CFLAGS)
 coleta_recursos.o: $(COLETA)
 	g++ -c $(COLETA) $(CFLAGS)
 PostWar.o: $(POSTWAR)

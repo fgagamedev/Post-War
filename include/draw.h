@@ -17,6 +17,7 @@ extern void drawLine(SDL_Surface *screen, int x0, int y0, int x1, int y1,
 	SDL_Color color);
 extern SDL_Surface *render_World();
 extern void inicio(SDL_Surface *screen);
+extern void opcoes(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
 extern SDL_Surface *load_Image(string path,SDL_Surface *screen);
 extern void BlitImage(SDL_Surface *screen, SDL_Surface *image, int x, int y);

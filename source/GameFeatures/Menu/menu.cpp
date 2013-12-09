@@ -92,6 +92,9 @@ void load_menu(SDL_Surface *screen){
                 SDL_Flip(screen);
                 if(vetor->click == 1){
 					play_effect(efeito_click);
+					opcoes(screen);
+					BlitImage(screen, menu, 0, 0);
+					SDL_Flip(screen);
                 }
             }
                     else if(compara_selecao(355,798,vetor->x,417,475,vetor->y)){
@@ -144,55 +147,5 @@ void load_menu(SDL_Surface *screen){
 void clica_menu_menor(SDL_Surface *screen){
         BlitImage(screen,menu_menor,488,200);
         SDL_Flip(screen);
-        int start = 0;
-        Vetor_mouse *vetor = new Vetor_mouse();
-        while(1){
-            vetor = get_Input();
-            start = SDL_GetTicks();
-            if(compara_selecao(500,771,vetor->x,225,271,vetor->y)){
-                BlitImage(screen,menu_menor,488,200);
-                BlitImage(screen,voltar_jogo_sel,500,225);
-                SDL_Flip(screen);
-                if(vetor->click == 1){
-                    blit_tela(screen,0);
-                    frame_delay(start);
-                    break;
-
-                }
-            }
-
-                else if(compara_selecao(553,642,vetor->x,283,310,vetor->y)){
-                    BlitImage(screen,menu_menor,488,200);
-                    BlitImage(screen,opcoes_sel,553,280);
-                    SDL_Flip(screen);
-                    if(vetor->click == 1){
-
-                    }
-                }
-
-                    else if (compara_selecao(570,646,vetor->x,338,373,vetor->y)){
-                        BlitImage(screen,menu_menor,488,200);
-                        BlitImage(screen,sair_sel,570,338);
-                        SDL_Flip(screen);
-                        if(vetor->click == 1){
-                            SDL_Quit();
-                            exit(0);
-                        }
-                    }
-            frame_delay(start);
-        }
-
-
-            frame_delay(start);
-            SDL_Flip(screen);
-
+        SDL_Delay(2000);
     }
-
-void frame_delay(int start){
-    if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-        SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-    }
-
-}
-
-
