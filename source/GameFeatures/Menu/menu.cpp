@@ -135,4 +135,14 @@ void load_menu(SDL_Surface *screen){
     }
 
 
+
+
+
 }
+
+
+void clica_menu_menor(SDL_Surface *screen){
+        BlitImage(screen,menu_menor,488,200);
+        SDL_Flip(screen);
+        SDL_Delay(2000);
+    }
