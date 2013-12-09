@@ -17,6 +17,7 @@ void blit_tela(SDL_Surface *screen, int tela){
             BlitImage(screen, com_malha, 0, 0);
 
     BlitImage(screen, hud, 0, 0);
+    BlitImage(screen,menu_meio,568,78);
 
 /*
     string bora;

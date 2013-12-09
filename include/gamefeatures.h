@@ -80,6 +80,7 @@ extern int azulganha;
 extern int start;
 extern int FPS;
 extern int id;
+extern SDL_Surface *menu_meio;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
