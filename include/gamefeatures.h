@@ -57,6 +57,12 @@ typedef struct _Pais{
 	string cor;
 }Pais;
 
+typedef struct _Construcao{
+	SDL_Surface *nome;
+	string tipo;
+	int ganho;
+}Construcao;
+
 extern Hex_selecao *hex_selecao;
 extern vector< vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;

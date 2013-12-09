@@ -57,6 +57,12 @@ typedef struct _Pais{
 	string cor;
 }Pais;
 
+typedef struct _Construcao{
+	SDL_Surface *nome;
+	string tipo;
+	int ganho;
+}
+
 extern Hex_selecao *hex_selecao;
 extern vector< vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;
@@ -82,6 +88,9 @@ extern int FPS;
 extern int id;
 extern SDL_Surface *menu_meio;
 extern SDL_Surface *menu_menor;
+extern SDL_Surface *voltar_jogo_sel;
+extern SDL_Surface *opcoes_sel;
+extern SDL_Surface *sair_sel;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);

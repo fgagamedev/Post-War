@@ -106,6 +106,23 @@ void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, stri
     pais->nome = nome;
     pais->cor = cor;
 }
+void setar_construcao(Construcao *construcao, SDL_Surface *nome, string tipo, int ganho){
+    construcao->nome = nome;
+    construcao->tipo = tipo;
+    construcao->ganho = ganho;
+}
+
+void carrega_construcoes(SDL_Surface *screen){
+    Construcao *construcao = new Construcao();
+    string tipo = "mina";
+    int ganho = 20;
+    string caminho = "source/GameFeatures/Jogar/Fase1/images/mina_de_ouro.png";
+    SDL_Surface *mina = load_Image(caminho, screen);
+    setar_construcao(construcao, mina, tipo, ganho);
+
+
+
+}
 
 void carrega_china(SDL_Surface *screen,string lado){
 
