@@ -150,36 +150,49 @@ void clica_menu_menor(SDL_Surface *screen){
             vetor = get_Input();
             start = SDL_GetTicks();
             if(compara_selecao(500,771,vetor->x,225,271,vetor->y)){
-                cout<<"era pra eu sair"<<endl;
-                //BlitImage(screen,voltar_jogo_sel,570,700);
+                BlitImage(screen,menu_menor,488,200);
                 BlitImage(screen,voltar_jogo_sel,500,225);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
                     blit_tela(screen,0);
+                    frame_delay(start);
                     break;
 
                 }
             }
 
-                else if(compara_selecao(520,771,vetor->x,275,271,vetor->y)){
-                    cout<<"era pra eu sair"<<endl;
-                    //BlitImage(screen,voltar_jogo_sel,570,700);
-                    BlitImage(screen,opcoes_sel,520,275);
+                else if(compara_selecao(553,642,vetor->x,283,310,vetor->y)){
+                    BlitImage(screen,menu_menor,488,200);
+                    BlitImage(screen,opcoes_sel,553,280);
                     SDL_Flip(screen);
                     if(vetor->click == 1){
 
                     }
                 }
-            }
 
-            BlitImage(screen,menu_menor,488,200);
+                    else if (compara_selecao(570,646,vetor->x,338,373,vetor->y)){
+                        BlitImage(screen,menu_menor,488,200);
+                        BlitImage(screen,sair_sel,570,338);
+                        SDL_Flip(screen);
+                        if(vetor->click == 1){
+                            SDL_Quit();
+                            exit(0);
+                        }
+                    }
+            frame_delay(start);
+        }
 
-            if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-                SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-                //SDL_Flip(screen);
 
-            }
-
+            frame_delay(start);
             SDL_Flip(screen);
 
     }
+
+void frame_delay(int start){
+    if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
+        SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
+    }
+
+}
+
+
