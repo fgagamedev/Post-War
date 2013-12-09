@@ -96,6 +96,9 @@ SDL_Surface *hud2;
 SDL_Surface *menu_meio;
 SDL_Surface *menu_jogo;
 SDL_Surface *menu_menor;
+SDL_Surface *voltar_jogo_sel;
+SDL_Surface *sair_sel;
+SDL_Surface *opcoes_sel;
 int x_painel = 977;
 int y_painel = 236;
 void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
@@ -121,6 +124,15 @@ void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
     caminho = "source/GameFeatures/Jogar/Fase1/images/fundo_menuPartida.png";
     menu_menor = load_Image(caminho,screen);
 
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/voltar_jogo_selecionado.png";
+    voltar_jogo_sel = load_Image(caminho, screen);
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/opcoes_selecionado.png";
+    opcoes_sel = load_Image(caminho, screen);
+
+    caminho = "source/GameFeatures/Jogar/Fase1/images/sair_selecionado.png";
+    sair_sel = load_Image(caminho, screen);
 
     caminho = "source/GameFeatures/Jogar/Fase1/images/malha.png";
     com_malha = load_Image(caminho, screen);

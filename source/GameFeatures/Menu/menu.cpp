@@ -144,5 +144,42 @@ void load_menu(SDL_Surface *screen){
 void clica_menu_menor(SDL_Surface *screen){
         BlitImage(screen,menu_menor,488,200);
         SDL_Flip(screen);
-        //SDL_Delay(2000);
+        int start = 0;
+        Vetor_mouse *vetor = new Vetor_mouse();
+        while(1){
+            vetor = get_Input();
+            start = SDL_GetTicks();
+            if(compara_selecao(500,771,vetor->x,225,271,vetor->y)){
+                cout<<"era pra eu sair"<<endl;
+                //BlitImage(screen,voltar_jogo_sel,570,700);
+                BlitImage(screen,voltar_jogo_sel,500,225);
+                SDL_Flip(screen);
+                if(vetor->click == 1){
+                    blit_tela(screen,0);
+                    break;
+
+                }
+            }
+
+                else if(compara_selecao(520,771,vetor->x,275,271,vetor->y)){
+                    cout<<"era pra eu sair"<<endl;
+                    //BlitImage(screen,voltar_jogo_sel,570,700);
+                    BlitImage(screen,opcoes_sel,520,275);
+                    SDL_Flip(screen);
+                    if(vetor->click == 1){
+
+                    }
+                }
+            }
+
+            BlitImage(screen,menu_menor,488,200);
+
+            if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
+                SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
+                //SDL_Flip(screen);
+
+            }
+
+            SDL_Flip(screen);
+
     }

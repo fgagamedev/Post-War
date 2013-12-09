@@ -82,6 +82,8 @@ extern int FPS;
 extern int id;
 extern SDL_Surface *menu_meio;
 extern SDL_Surface *menu_menor;
+extern SDL_Surface *voltar_jogo_sel;
+extern SDL_Surface *opcoes_sel;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
