@@ -38,11 +38,13 @@ void mapeia_hexagono(){
             hexagon->y = ja;
             hexagon->indice = contador;
             hexagon->contem_unidade=0;
+            hexagon->obstaculo=0;
+            hexagon->obstaculo = 0;
             if(contador==132){
                 //string caminho = "source/GameFeatures/Jogar/Fase1/images/unidade_azul_direita1.png";
                 //SDL_Surface *soldado1 = load_Image(caminho, screen);
                // BlitImage(screen,soldado1,ie,je);
-             }
+            }
 
             hex_temp.push_back(hexagon);
             contador++;
@@ -58,10 +60,12 @@ void mapeia_hexagono(){
             Hexagono *hexagon = new Hexagono;
             hexagon->x = ia;
             hexagon->y = ja;
+            hexagon->obstaculo = 0;
             hexagon->centro_x = ie;
             hexagon->centro_y = je;
             hexagon->indice = contador;
             hexagon->raio = 20;
+            hexagon->obstaculo=0;
             hexagon->contem_unidade=0;
             hex_temp2.push_back(hexagon);
             contador++;

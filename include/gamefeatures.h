@@ -35,6 +35,7 @@ typedef struct _Hexagonos{
 	int y;
 	int indice;
 	bool contem_unidade : 1;
+	bool obstaculo : 1;
 	Unidade *unidade;
 	int centro_x;
 	int centro_y;
