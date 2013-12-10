@@ -9,8 +9,8 @@ using namespace std;
 Vetor_mouse *get_Input(){
     SDL_Event event;
     Vetor_mouse *vetor_mouse = new Vetor_mouse();
-    vetor_mouse->click = 0;
-
+    vetor_mouse->click = -1;
+    vetor_mouse->number = -1;
 
     if(SDL_PollEvent(&event)) {
 
@@ -32,8 +32,8 @@ Vetor_mouse *get_Input(){
                     vetor_mouse->click = event.button.button;
                     vetor_mouse->x = event.motion.x;
                     vetor_mouse->y = event.motion.y;
-                    //cout<<"X do mouse: "<<vetor_mouse->x<<endl;
-                    //cout<<"Y do mouse: "<<vetor_mouse->y<<endl;
+                    cout<<"X do mouse: "<<vetor_mouse->x<<endl;
+                    cout<<"Y do mouse: "<<vetor_mouse->y<<endl;
                     return vetor_mouse;
                     /*printf("Mouse button pressed. ");
                     printf("Button %i at (%i,%i)\n",
@@ -49,6 +49,11 @@ Vetor_mouse *get_Input(){
                     printf("Adeus.\n");
                     exit(0);
                  case SDL_KEYDOWN:
+                    if(event.key.keysym.sym == SDLK_0){
+                        vetor_mouse->number = 0;
+                        return vetor_mouse;
+                    }
+
                     if(event.key.keysym.sym == SDLK_1){
                         vetor_mouse->number = 1;
                         return vetor_mouse;

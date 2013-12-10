@@ -66,7 +66,7 @@ void inicio(SDL_Surface *screen){
                 if(vetor->click == 1){
                     cout << "cliquei em conectar" << endl;
                     //digitarnome(vetor, screen);
-                    //digitarip(vetor, screen);
+                    digitarip(vetor, screen);
                     char local[] = "localhost";
                     conectar(local);
                     fase1(screen,"cliente");
@@ -151,16 +151,41 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
     string opcao = "source/GameFeatures/Jogar/images/digitarip.png";
     SDL_Surface *maps = load_Image (opcao, screen);
     BlitImage(screen,maps,0,0);
+
+    opcao = "source/GameFeatures/Jogar/images/estou_pronto_selecionado.png";
+    SDL_Surface *pronto_selecionado = load_Image (opcao, screen);
+
     SDL_Flip(screen);
 
+    string texto_ip;
+
     while(1){
+
         start = SDL_GetTicks();
         vetor = get_Input();
         string texto;
-        cout<<"vetor->number: "<<vetor->number<<endl;
 
+        if(compara_selecao(815, 1040, vetor->x, 599, 620, vetor->y)){
+        cout<<"entrei aqui"<<endl;
+            BlitImage(screen,maps,0,0);
+            BlitImage(screen,pronto_selecionado,815,599);
+            SDL_Flip(screen);
+            if(vetor->click == 1){
+            const char *local = texto_ip.c_str();
+            char *vai = (char *) local;
+            conectar(vai);
+            fase1(screen,"cliente");
+            }
+        }
 
             switch(vetor->number){
+
+                case 0:
+                    texto = "0";
+                    desenha_texto(texto, screen, xinicial, yinicial, 40);
+                    xinicial = xinicial + 30;
+                    SDL_Flip(screen);
+                    break;
                 case 1:
                     //cout << "entrei em digitar ip " << vetor->number << endl;
                     texto = "1";
@@ -231,7 +256,13 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                 default:
                     break;
         }
+
         frame_delay(start);
+        texto_ip.append(texto);
+
+        //cout<<"texto: "<<texto<<endl;
+        texto.clear();
+        //cout<<"texto_novo: "<<texto_ip<<endl;
     }
 }
 
