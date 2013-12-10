@@ -11,10 +11,8 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
-char codigo_s[100];
 
-
-void fase1(SDL_Surface *screen,string qual_maquina){
+void fase2(SDL_Surface *screen,string qual_maquina){
 
     FPS = 150;
     Pais *china = new Pais();
@@ -29,10 +27,13 @@ void fase1(SDL_Surface *screen,string qual_maquina){
     char pais_serv[100] = "china";
     char pais_client[100] = "eua";
 
+
+
     carregar_fase1(screen,pais_serv,pais_client);
     int lastdt = SDL_GetTicks();
     int totalElapsedTime = 0;
     int delay = 200;
+
     int minha_vez;
 
     Vetor_mouse *vetor = new Vetor_mouse;
@@ -451,81 +452,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
 }
 
-
-
-void codifica_ataque(char codigo_s[]){
-
-    strcpy(codigo_s,"01");
-    codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
-    codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
-    codigo_s[4] = (char)(((int)'0')+hex_selecao->i);
-    codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
-    /*codigo_s[6] = hp1/1000;
-    codigo_s[7] = ((hp1%1000) - (hp1%100))/100;
-    codigo_s[8] = ((hp1%100) - (hp1%10))/10;
-    codigo_s[9] = hp1%10;
-    codigo_s[10] = hp2/1000;
-    codigo_s[11] = ((hp2%1000) - (hp2%100))/100;
-    codigo_s[12] = ((hp2%100) - (hp2%10))/10;
-    codigo_s[13] = hp2%10;*/
-}
-
-
-void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt){
-
-            if(code_recv[0] == '0' && code_recv[1] == '0'){
-                hex_selecao->i_antes = code_recv[2] - 48;
-                hex_selecao->j_antes = code_recv[3] - 48;
-                hex_selecao->i = code_recv[4] - 48;
-                hex_selecao->j = code_recv[5] - 48;
-                mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                blit_tela(screen,0);
-            }
-
-            else if(code_recv[0] == '0' && code_recv[1] == '1'){
-                hex_selecao->i_antes = code_recv[2] - 48;
-                hex_selecao->j_antes = code_recv[3] - 48;
-                hex_selecao->i = code_recv[4] - 48;
-                hex_selecao->j = code_recv[5] - 48;
-                ataque_unidade(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
-                dano_ataque(screen);
-                if(derrotado.compare(cor1) == 0){
-                    vermelhoperde = 1;
-                    vermelhoganha = 0;
-                    azulganha = 1;
-                    azulperde = 0;
-                }
-                if(derrotado.compare(cor2) == 0){
-                    vermelhoganha = 1;
-                    vermelhoperde = 0;
-                    azulperde = 1;
-                    azulganha = 0;
-                }
-            }
-                blit_tela(screen,0);
-
-}
-
-void desenha_pontos(int number, SDL_Surface *screen){
-    string points;
-    points = convertInt(number);
-
-    desenha_texto(points,screen, 1000, 20, 30);
-}
-
-void blit_selecao(SDL_Surface *screen){
-
-    if(hexagonos[hex_selecao->i][hex_selecao->j]->unidade->tipo.compare("quartel")!=0 ){
-        if(hexagonos[hex_selecao->i][hex_selecao->j]->unidade->tipo.compare("metralhadora")!=0 ){
-            string caminho = "source/GameFeatures/Jogar/Fase1/images/alcance_fundoVerde.png";
-            SDL_Surface *selecao = load_Image(caminho, screen);
-            if(hex_selecao->i%2==1)
-                BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-45,hexagonos[hex_selecao->i][hex_selecao->j]->y-47);
-                else
-                    BlitImage(screen,selecao,hexagonos[hex_selecao->i][hex_selecao->j]->x-49,hexagonos[hex_selecao->i][hex_selecao->j]->y-49);
-        }
-    }
-}
 
 
 

@@ -9,9 +9,8 @@
 
 using namespace std;
 
-Hex_selecao *hex_selecao;
-char codigo[100];
-SDL_Surface *mapa1;
+
+
 void mapeia_hexagono(){
 
  SDL_Color blue;
@@ -93,18 +92,6 @@ void mapeia_hexagono(){
 
 }
 
-SDL_Surface *sem_malha;
-SDL_Surface *com_malha;
-SDL_Surface *hud;
-SDL_Surface *hud2;
-SDL_Surface *menu_meio;
-SDL_Surface *menu_jogo;
-SDL_Surface *menu_menor;
-SDL_Surface *voltar_jogo_sel;
-SDL_Surface *sair_sel;
-SDL_Surface *opcoes_sel;
-int x_painel = 977;
-int y_painel = 236;
 void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
 
 

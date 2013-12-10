@@ -14,6 +14,43 @@
 
 using namespace std;
 
+Hex_selecao *hex_selecao;
+char codigo[100];
+SDL_Surface *mapa1;
+
+vector <Unidade *> unidades_azul;
+vector <Unidade *> unidades_vermelhas;
+vector< vector <Hexagono*> > hexagonos;
+int id;
+
+int pontos_jogador1 = 20;
+int pontos_jogador2 = 20;
+int vermelhoperde = 0;
+int azulperde = 0;
+int vermelhoganha = 0;
+int azulganha = 0;
+string cor2 = "azul";
+string cor1 = "vermelho";
+int minerio_vermelho = 10;
+int minerio_azul = 10;
+int ouro_vermelho = 10;
+int ouro_azul = 10;
+int comida_vermelha = 10;
+int comida_azul = 10;
+
+SDL_Surface *sem_malha;
+SDL_Surface *com_malha;
+SDL_Surface *hud;
+SDL_Surface *hud2;
+SDL_Surface *menu_meio;
+SDL_Surface *menu_jogo;
+SDL_Surface *menu_menor;
+SDL_Surface *voltar_jogo_sel;
+SDL_Surface *sair_sel;
+SDL_Surface *opcoes_sel;
+int x_painel;
+int y_painel;
+
 void digitarip(Vetor_mouse *vetor, SDL_Surface *screen);
 void digitarnome(Vetor_mouse *vetor, SDL_Surface *screen);
 

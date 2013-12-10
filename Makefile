@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o coleta_recursos.o opcoes.o
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o coleta_recursos.o opcoes.o carregar_fase2.o carrega_unidades2.o fase2.o
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -18,17 +18,20 @@ MENU=source/GameFeatures/Menu/menu.cpp
 JOGAR=source/GameFeatures/Jogar/jogar.cpp
 CRED=source/GameFeatures/Creditos/creditos.cpp
 OP=source/GameFeatures/Opcoes/opcoes.cpp
-FASE1=source/GameFeatures/Jogar/Fase1/fase1.cpp
 FONTES=source/features/MiscTasks/fontes.cpp
 CARREGA_FASE1=source/GameFeatures/Jogar/Fase1/carregar_fase1.cpp
 CARREGA_UNIDADE=source/GameFeatures/Jogar/Fase1/carrega_unidades.cpp
-VERIFICA_HEXAGONO=source/GameFeatures/Jogar/Fase1/verifica_hexagono.cpp
+EVOLUCAO_SOLDADO=source/GameFeatures/Jogar/Fase1/evolucao.cpp
+FASE1=source/GameFeatures/Jogar/Fase1/fase1.cpp
 MOVER_UNIDADE=source/features/UpdateObjects/mover_unidade.cpp
+VERIFICA_HEXAGONO=source/GameFeatures/Jogar/Fase1/verifica_hexagono.cpp
+CARREGAR_FASE2=source/GameFeatures/Jogar/Fase2/carregar_fase2.cpp
+CARREGA_UNIDADE2=source/GameFeatures/Jogar/Fase2/carrega_unidades2.cpp
+FASE2=source/GameFeatures/Jogar/Fase2/fase2.cpp
 ATAQUE_UNIDADE=source/features/UpdateObjects/ataque_unidade.cpp
 DANO_ATAQUE=source/features/UpdateObjects/dano_ataque.cpp
 VERIFICA_DERROTA=source/features/UpdateObjects/condicao_fim_do_jogo.cpp
 VENCEU_PERDEU=source/GameFeatures/Jogar/venceu_perdeu.cpp
-EVOLUCAO_SOLDADO=source/GameFeatures/Jogar/Fase1/evolucao.cpp
 COLETA=source/GameFeatures/Jogar/coleta_recursos.cpp
 BLIT_TELA=source/GameFeatures/blit_tela.cpp
 CFLAGS= -lSDL -Wall -W -pedantic -ansi -lm -I. -lSDL_image -lSDL_net -lSDL_ttf -lSDL_mixer
@@ -68,14 +71,20 @@ server.o: $(SERVER)
 	g++ -c $(SERVER) $(CFLAGS)
 fase1.o: $(FASE1)
 	g++ -c $(FASE1) $(CFLAGS)
+fase2.o:$(FASE2)
+	g++ -c $(FASE2) $(CFLAGS)
 carregar_fase1.o: $(CARREGA_FASE1)
 	g++ -c $(CARREGA_FASE1) $(CFLAGS)
+carregar_fase2.o: $(CARREGAR_FASE2)
+	g++ -c $(CARREGAR_FASE2) $(CFLAGS)
 jogar.o: $(JOGAR)
 	g++ -c $(JOGAR) $(CFLAGS)
 fontes.o: $(FONTES)
 	g++ -c $(FONTES) $(CFLAGS)
 carrega_unidades.o: $(CARREGA_UNIDADE)
 	g++ -c $(CARREGA_UNIDADE) $(CFLAGS)
+carrega_unidades2.o: $(CARREGA_UNIDADE2)
+	g++ -c $(CARREGA_UNIDADE2) $(CFLAGS)
 mover_unidade.o: $(MOVER_UNIDADE)
 	g++ -c $(MOVER_UNIDADE) $(CFLAGS)
 dano_ataque.o: $(DANO_ATAQUE)

@@ -30,11 +30,18 @@ typedef struct _Unidade{
 	int id;
 } Unidade;
 
+typedef struct _Construcao{
+	SDL_Surface *nome;
+	string tipo;
+	int ganho;
+}Construcao;
+
 typedef struct _Hexagonos{
 	int x;
 	int y;
 	int indice;
 	bool contem_unidade : 1;
+	bool obstaculo : 1;
 	Unidade *unidade;
 	int centro_x;
 	int centro_y;
@@ -57,12 +64,8 @@ typedef struct _Pais{
 	string cor;
 }Pais;
 
-typedef struct _Construcao{
-	SDL_Surface *nome;
-	string tipo;
-	int ganho;
-}Construcao;
-
+extern char codigo_s[100];
+extern SDL_Rect cutBox;
 extern Hex_selecao *hex_selecao;
 extern vector< vector <Hexagono *> > hexagonos;
 extern vector<Unidade *> unidades_azul;
@@ -83,6 +86,16 @@ extern int vermelhoperde;
 extern int azulperde;
 extern int vermelhoganha;
 extern int azulganha;
+extern string cor2;
+extern string cor1;
+extern int minerio_vermelho;
+extern int minerio_azul;
+extern int ouro_vermelho;
+extern int ouro_azul;
+extern int comida_vermelha;
+extern int comida_azul;
+extern int pontos_jogador1;
+extern int pontos_jogador2;
 extern int start;
 extern int FPS;
 extern int id;
@@ -98,8 +111,10 @@ extern void inicio(SDL_Surface *screen);
 extern void opcoes(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
 extern void fase1(SDL_Surface *screen,string qual_maquina);
+extern void fase2(SDL_Surface *screen,string qual_maquina);
 extern void carregar_fase1(SDL_Surface *screen,char pais_serv[], char pais_client[]);
 extern void carrega_china(SDL_Surface *screen,string lado);
+extern void carrega_franca(SDL_Surface *screen,string lado);
 extern void carrega_eua(SDL_Surface *screen,string lado);
 extern void blit_tela(SDL_Surface *screen,int i);
 extern void blit_tela_ataque(SDL_Surface *screen,int tela, int id, int x, int y);
@@ -118,8 +133,22 @@ extern void verifica_derrota(SDL_Surface *screen);
 extern void blit_lateral(Unidade *lateral,SDL_Surface *screen);
 extern void blit_cima(Pais *pais, SDL_Surface *screen);
 extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, string cor);
+extern void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *soldado_lateral, int id);
+extern void setar_helicoptero(Unidade *helicoptero, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima, SDL_Surface *helicoptero_lateral, int id);
+extern void setar_metralhadora(Unidade *metralhadora, string cor, string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral, int id);
+extern void setar_tanque(Unidade *tanque, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *tanque_lateral, int id);
+extern void setar_quartel(Unidade *quartel, string cor, string tipo, SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *lateral, int id);
+extern void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, string cor);
+extern void setar_construcao(Construcao *construcao, SDL_Surface *nome, string tipo, int ganho);
+extern void carrega_eua(SDL_Surface *screen,string lado);
 extern string convertInt(int number);
-void desenha_pontos(int number, SDL_Surface *screen);
+extern void blit_lateral(Unidade *unidade,SDL_Surface *screen);
+extern void blit_cima(Pais *pais, SDL_Surface *screen);
+extern void carregar_fase2(SDL_Surface *screen, char pais_serv[],char pais_client[]);
+extern void mapeia_hexagono();
+extern void carrega_construcoes(SDL_Surface *screen);
+extern string convertInt(int number);
+extern void desenha_pontos(int number, SDL_Surface *screen);
 extern void perdeu_jogo(SDL_Surface *screen);
 extern void venceu_jogo(SDL_Surface *screen);
 extern void blit_selecao(SDL_Surface *screen);
@@ -132,7 +161,10 @@ extern void explode_unidade(SDL_Surface *screen, int x, int y, int totalElapsedT
 extern void clica_menu_menor(SDL_Surface *screen);
 extern void frame_delay(int start);
 extern void escolha_mapa(SDL_Surface *screen);
-
+extern void blit_selecao(SDL_Surface *screen);
+extern void desenha_pontos(int number, SDL_Surface *screen);
+extern void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
+extern void codifica_ataque(char codigo_s[]);
 
 #endif
 

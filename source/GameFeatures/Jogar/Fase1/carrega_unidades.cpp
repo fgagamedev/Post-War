@@ -10,13 +10,7 @@
 #include "../../../../include/gamefeatures.h"
 
 using namespace std;
-
-vector <Unidade *> unidades_azul;
-vector <Unidade *> unidades_vermelhas;
-vector< vector <Hexagono*> > hexagonos;
-SDL_Rect cutBox = { 32, 0, 32, 32};
-int id = 0;
-
+SDL_Rect cutBox;
 
 void setar_soldado(Unidade *soldado, string cor,string tipo,SDL_Surface *nome, SDL_Surface *ataque, SDL_Surface *ataque_baixo, SDL_Surface *ataque_cima,SDL_Surface *soldado_lateral, int id){
     soldado->hp = 200;
