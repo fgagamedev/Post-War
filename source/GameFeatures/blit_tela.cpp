@@ -10,7 +10,6 @@
 
 using namespace std;
 void blit_tela(SDL_Surface *screen, int tela){
-
     if( tela == 0)
         BlitImage(screen, sem_malha, 0, 0);
         else
@@ -18,7 +17,6 @@ void blit_tela(SDL_Surface *screen, int tela){
 
     BlitImage(screen, hud, 0, 0);
     BlitImage(screen,menu_meio,568,78);
-
 /*
     string bora;
     string bora1;

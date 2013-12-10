@@ -164,7 +164,7 @@ void escolha_mapa(SDL_Surface *screen){
                 BlitImage(screen,pais_selecionado,250,378);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
-                    //fase1(screen,"servidor");
+                    fase2(screen,"servidor");
                 }
             }
 

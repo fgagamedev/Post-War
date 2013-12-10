@@ -24,19 +24,18 @@ void fase2(SDL_Surface *screen,string qual_maquina){
     cor = "azul";
     setar_pais(eua, 100, 50, 50, nome, cor);
 
-    char pais_serv[100] = "china";
+    char pais_serv[100] = "franca";
     char pais_client[100] = "eua";
 
 
-
-    carregar_fase1(screen,pais_serv,pais_client);
+    carregar_fase2(screen,pais_serv,pais_client);
     int lastdt = SDL_GetTicks();
     int totalElapsedTime = 0;
     int delay = 200;
 
     int minha_vez;
 
-    Vetor_mouse *vetor = new Vetor_mouse;
+    Vetor_mouse *vetor = new Vetor_mouse();
     blit_tela(screen,0);
     SDL_Flip(screen);
 
