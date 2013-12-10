@@ -28,7 +28,7 @@ void play_music(struct _Mix_Music *nome_da_musica);
 void play_effect(struct Mix_Chunk *nome_do_efeito);
 
 int start;
-int FPS=100;
+int FPS=150;
 
 void load_menu(SDL_Surface *screen){
 
@@ -89,6 +89,7 @@ void load_menu(SDL_Surface *screen){
 
             else if(compara_selecao(450,798,vetor->x,311,375,vetor->y)){
                 BlitImage(screen, opcoes_selecionado, 450.0, 311);
+                frame_delay(start);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
 					play_effect(efeito_click);
@@ -99,6 +100,7 @@ void load_menu(SDL_Surface *screen){
             }
                     else if(compara_selecao(355,798,vetor->x,417,475,vetor->y)){
                             BlitImage(screen, estatisticas_selecionado, 355.0, 411);
+                            frame_delay(start);
                             SDL_Flip(screen);
 
                             if(vetor->click == 1){
@@ -108,6 +110,7 @@ void load_menu(SDL_Surface *screen){
 
                         else if(compara_selecao(425,798,vetor->x,511,575,vetor->y)){
                             BlitImage(screen, creditos_selecionado, 425.0, 511);
+                            frame_delay(start);
                             SDL_Flip(screen);
 
                             if(vetor->click == 1){
@@ -118,6 +121,7 @@ void load_menu(SDL_Surface *screen){
 
                                 else if(compara_selecao(350,798,vetor->x,611,675,vetor->y)){
                                     BlitImage(screen, sair_selecionado, 350.0, 611);
+                                    frame_delay(start);
                                     SDL_Flip(screen);
 
                                     if(vetor->click == 1){

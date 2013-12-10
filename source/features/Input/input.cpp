@@ -8,12 +8,13 @@ using namespace std;
 
 Vetor_mouse *get_Input(){
     SDL_Event event;
-    Vetor_mouse *vetor_mouse = new Vetor_mouse;
+    Vetor_mouse *vetor_mouse = new Vetor_mouse();
     vetor_mouse->click = 0;
 
 
     if(SDL_PollEvent(&event)) {
 
+            vetor_mouse->number = -1;
             switch (event.type) {
                 /* The next two event types deal
                 with mouse activity. */
