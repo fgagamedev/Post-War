@@ -173,7 +173,7 @@ void clica_menu_menor(SDL_Surface *screen){
                     BlitImage(screen,opcoes_sel,553,280);
                     SDL_Flip(screen);
                     if(vetor->click == 1){
-
+                        opcoes(screen);
                     }
                 }
 

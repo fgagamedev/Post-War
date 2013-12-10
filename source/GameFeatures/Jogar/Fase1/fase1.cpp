@@ -11,7 +11,7 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
-char codigo_s[100];
+
 
 
 void fase1(SDL_Surface *screen,string qual_maquina){

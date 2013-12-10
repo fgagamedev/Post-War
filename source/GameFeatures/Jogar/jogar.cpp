@@ -14,6 +14,8 @@
 
 using namespace std;
 
+char codigo_s[100];
+
 Hex_selecao *hex_selecao;
 char codigo[100];
 SDL_Surface *mapa1;
@@ -104,9 +106,6 @@ void inicio(SDL_Surface *screen){
                     cout << "cliquei em conectar" << endl;
                     //digitarnome(vetor, screen);
                     digitarip(vetor, screen);
-                    char local[] = "localhost";
-                    conectar(local);
-                    fase1(screen,"cliente");
                 }
             }
                 else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
@@ -156,6 +155,9 @@ void escolha_mapa(SDL_Surface *screen){
             BlitImage(screen,pais_selecionado,77,378);
             SDL_Flip(screen);
             if(vetor->click == 1){
+
+                strcpy(codigo_s,"1");
+                enviar_msg(Sclient,codigo_s);
                 fase1(screen,"servidor");
             }
         }   ///Fase2
@@ -164,6 +166,8 @@ void escolha_mapa(SDL_Surface *screen){
                 BlitImage(screen,pais_selecionado,250,378);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
+                    strcpy(codigo_s,"2");
+                    enviar_msg(Sclient,codigo_s);
                     fase2(screen,"servidor");
                 }
             }
@@ -174,6 +178,8 @@ void escolha_mapa(SDL_Surface *screen){
                     BlitImage(screen,pais_selecionado,433,378);
                     SDL_Flip(screen);
                     if(vetor->click == 1){
+                        strcpy(codigo_s,"3");
+                        enviar_msg(Sclient,codigo_s);
                         //fase1(screen,"servidor");
                     }
                 }
@@ -183,6 +189,8 @@ void escolha_mapa(SDL_Surface *screen){
                         BlitImage(screen,pais_selecionado,673,378);
                         SDL_Flip(screen);
                         if(vetor->click == 1){
+                            strcpy(codigo_s,"4");
+                            enviar_msg(Sclient,codigo_s);
                             //fase1(screen,"servidor");
                         }
                     }
@@ -192,6 +200,8 @@ void escolha_mapa(SDL_Surface *screen){
                             BlitImage(screen,pais_selecionado,952,378);
                             SDL_Flip(screen);
                             if(vetor->click == 1){
+                                strcpy(codigo_s,"5");
+                                enviar_msg(Sclient,codigo_s);
                                 //fase1(screen,"servidor");
                             }
                         }
@@ -228,6 +238,9 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
     opcao = "source/GameFeatures/Jogar/images/voltar_selecionado.png";
     SDL_Surface *voltar_selecionado = load_Image (opcao, screen);
 
+    opcao = "source/GameFeatures/Jogar/images/aguardando_servidor.png";
+    SDL_Surface *aguardando_servidor = load_Image (opcao, screen);
+
     SDL_Flip(screen);
 
     string texto_ip;
@@ -239,22 +252,31 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
         string texto;
 
         if(compara_selecao(815, 1040, vetor->x, 599, 620, vetor->y)){
-        cout<<"entrei aqui"<<endl;
             BlitImage(screen,maps,0,0);
             BlitImage(screen,pronto_selecionado,813,597);
             SDL_Flip(screen);
             if(vetor->click == 1){
             const char *local = texto_ip.c_str();
             char *vai = (char *) local;
+            cout<<"o ip é: "<<vai<<endl;
             conectar(vai);
-
-            fase1(screen,"cliente");
+            char code_recv[100];
+            BlitImage(screen,aguardando_servidor,0,0);
+            SDL_Flip(screen);
+            receber_msg(Cserver,code_recv);
+            if(strcmp(code_recv,"1")==0)
+                fase1(screen,"cliente");
+                else if (strcmp(code_recv,"2")==0){
+                    fase2(screen,"cliente");
+                }
             }
         }
             else if(compara_selecao(640, 757, vetor->x, 600, 6222, vetor->y)){
                 BlitImage(screen,maps,0,0);
                 BlitImage(screen,voltar_selecionado,638,596);
                 SDL_Flip(screen);
+                if(vetor->click == 1)
+                    break;
             }
             switch(vetor->number){
 

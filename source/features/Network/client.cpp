@@ -11,8 +11,11 @@ TCPsocket Cserver;
 int conectar(char ip_text[]){
 
 	IPaddress ip;
+
 	SDLNet_ResolveHost(&ip,"localhost",1234);
 
 	Cserver = SDLNet_TCP_Open(&ip);
+    cout<<"pra mim"<<endl;
+
     return 0;
 }
