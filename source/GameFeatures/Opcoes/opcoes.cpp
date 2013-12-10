@@ -70,7 +70,7 @@ void opcoes(SDL_Surface *screen){
 						play_effect(efeito_click); 
                         // set the music volume to 1/2 maximum, and then check it
                         //printf("volume was    : %d\n", Mix_VolumeMusic(Mix_VolumeMusic(-1)+5));
-                        //printf("volume is now : %d\n", Mix_VolumeMusic(-1));
+                        printf("volume is now : %d\n", Mix_VolumeMusic(-1));
 
                     	volume_menos = volume_menos - 5;
 						volume--;
