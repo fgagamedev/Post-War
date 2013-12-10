@@ -118,15 +118,15 @@ for (int i=8;i<9;i++){
         unidades_azul.push_back(helicoptero);
 
         SDL_Rect dst;
-        dst.x = hexagonos[i*2][12]->x;
-        dst.y = hexagonos[i*2][12]->y;
+        dst.x = hexagonos[i*2][3]->x;
+        dst.y = hexagonos[i*2][3]->y;
         dst.h = 0;
         dst.w = 0;
         SDL_BlitSurface(unidades_azul[i]->nome, &cutBox,  screen, &dst);
-        hexagonos[i*2][12]->unidade = unidades_azul[i];
-        hexagonos[i*2][12]->contem_unidade = 1;
-        unidades_azul[0]->x = hexagonos[i*2][12]->x;
-        unidades_azul[0]->y = hexagonos[i*2][12]->y;
+        hexagonos[i*2][3]->unidade = unidades_azul[i];
+        hexagonos[i*2][3]->contem_unidade = 1;
+        unidades_azul[0]->x = hexagonos[i*2][3]->x;
+        unidades_azul[0]->y = hexagonos[i*2][3]->y;
     }
 
 

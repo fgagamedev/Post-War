@@ -115,7 +115,34 @@ for(int i=0; i<5;i++){
         //Acha helicoptero vermelho
         if(temp_defensor->tipo == tipo3 && temp_defensor->cor == cor){
             efeito_ataque = 'h';
-        //Por enquanto nunca vai achar, hu3
+            if(s_def<s && w_def==w){
+                temp_s2 = temp_defensor->ataque_baixo;
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
+                tamanho_sprites = 32;
+                n_sprites = 4;
+            }
+            else if(s_def>s && w_def==w){
+                temp_s2 = temp_defensor->ataque_cima;
+                cutBox.x = 0;
+                cutBox.y = 32;
+                cutBox.w = 32;
+                cutBox.h = 32;
+                tamanho_sprites = 32;
+                n_sprites = 4;
+            }
+            else{
+                temp_s2 = temp_defensor->ataque;
+                cutBox.x = 0;
+                cutBox.y = 0;
+                cutBox.w = 32;
+                cutBox.h = 32;
+                tamanho_sprites = 64;
+                n_sprites = 7;
+            }
+
         }
         //Acha helicoptero azul
         if(temp_defensor->tipo == tipo3 && temp_defensor->cor == cor2){
@@ -300,6 +327,33 @@ for(int i=0; i<5;i++){
         //Acha helicoptero vermelho
         if(temp->tipo == tipo3 && temp->cor == cor){
             efeito_ataque = 'h';
+            if(s<y && w==x){
+                temp_s = temp->ataque_baixo;
+                cutBox2.x = 0;
+                cutBox2.y = 0;
+                cutBox2.w = 32;
+                cutBox2.h = 32;
+                tamanho_sprites2 = 32;
+                n_sprites2 = 4;
+            }
+            else if(s>y && w==x){
+                temp_s = temp->ataque_cima;
+                cutBox2.x = 0;
+                cutBox2.y = 32;
+                cutBox2.w = 32;
+                cutBox2.h = 32;
+                tamanho_sprites2 = 32;
+                n_sprites2 = 4;
+            }
+            else{
+                temp_s = temp->ataque;
+                cutBox2.x = 0;
+                cutBox2.y = 0;
+                cutBox2.w = 32;
+                cutBox2.h = 32;
+                tamanho_sprites2 = 64;
+                n_sprites2 = 7;
+            }
         //Por enquanto nunca vai achar, hu3
         }
         //Acha helicoptero azul
