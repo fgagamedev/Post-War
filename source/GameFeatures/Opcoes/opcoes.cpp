@@ -17,21 +17,30 @@ void opcoes(SDL_Surface *screen){
 
     string tela = "source/GameFeatures/Opcoes/Images/fundo_opcoesMenu.png";
     SDL_Surface *telafundo = load_Image(tela, screen);
+	string barra_volume = "source/GameFeatures/Opcoes/Images/barra_arte.png";
+    SDL_Surface *imagemBarra = load_Image(barra_volume, screen);
 
 
     BlitImage(screen, telafundo, 0, 0);
-    SDL_Flip(screen);
     Vetor_mouse *vetor = new Vetor_mouse;
 
     start=0;
     float volume_menos = 1.1;
     float volume_mais = 1.1;
+	int blit=0;
 
     while(1){
 
         start = SDL_GetTicks();
         vetor = get_Input();
-        BlitImage(screen, telafundo, 0, 0);
+		
+		if(volume_menos){
+		BlitImage(screen, imagemBarra, 750-(volume_menos*10), 343);
+		}
+			else if (volume_mais){
+			BlitImage(screen, imagemBarra, 750+volume_menos, 343);
+		}   
+		//BlitImage(screen, telafundo, 0, 0);
 
         //Botao X da tela
         if(compara_selecao(792, 822, vetor->x, 296, 324, vetor->y)){
@@ -42,13 +51,17 @@ void opcoes(SDL_Surface *screen){
         }
             //Botao - do volume
             else if (compara_selecao(486, 506, vetor->x, 356, 378, vetor->y)){
+				
+                
                 if(vetor->click == 1){
                     // set the music volume to 1/2 maximum, and then check it
-                    printf("volume was    : %d\n", Mix_VolumeMusic(MIX_MAX_VOLUME/volume_menos));
+                    printf("volume was    : %d\n", Mix_VolumeMusic(128/volume_menos));
                     printf("volume is now : %d\n", Mix_VolumeMusic(-1));
 
-                    volume_menos = volume_menos + 0.1;
-                }
+                    volume_menos = volume_menos + 0.9;
+					BlitImage(screen, telafundo, 0, 0);
+					
+				}
             }
                 //Botao + do volume
                 else if (compara_selecao(801, 821, vetor->x, 356, 378, vetor->y)){
@@ -58,11 +71,12 @@ void opcoes(SDL_Surface *screen){
                         printf("volume is now : %d\n", Mix_VolumeMusic(-1));
 
                         volume_mais = volume_mais + 0.1;
+						BlitImage(screen, telafundo, 0, 0);
                     }
                 }
 
-        //frame_delay(start);
-
+        frame_delay(start);
+		SDL_Flip(screen);
     }
 
 }
