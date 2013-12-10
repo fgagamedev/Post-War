@@ -59,6 +59,8 @@ void blit_tela(SDL_Surface *screen, int tela){
                                 //BlitImage(screen,hexagonos[14][12]->unidade->nome,hexagonos[14][12]->x,hexagonos[14][12]->y);
                                 if(hexagonos[10][12]->contem_unidade)
                                     BlitImage(screen,hexagonos[10][12]->unidade->nome,hexagonos[10][12]->x,hexagonos[10][12]->y);
+                                if(hexagonos[2][13]->contem_unidade)
+                                    BlitImage(screen,hexagonos[2][13]->unidade->nome,hexagonos[2][13]->x,hexagonos[2][13]->y);
                             }
                     /*
                     ///Lógica mágica para dar blit na metralhadora (NÃO MECHE NISSO)

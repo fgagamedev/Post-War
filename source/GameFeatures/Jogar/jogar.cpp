@@ -191,7 +191,7 @@ void escolha_mapa(SDL_Surface *screen){
                         if(vetor->click == 1){
                             strcpy(codigo_s,"4");
                             enviar_msg(Sclient,codigo_s);
-                            //fase1(screen,"servidor");
+                            fase4(screen,"servidor");
                         }
                     }
                         ///Fase5
@@ -271,6 +271,9 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                 }
                     else if (strcmp(code_recv, "3")==0){
                         fase3(screen,"cliente");
+                    }
+                        else if (strcmp(code_recv, "4")==0){
+                        fase4(screen,"cliente");
                     }
             }
         }
