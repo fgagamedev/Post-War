@@ -60,10 +60,8 @@ void carregar_fase2(SDL_Surface *screen, char pais_serv[],char pais_client[]){
         cout << "depois frança" << endl;
 
 
-    if(strcmp("eua",pais_client)==0){
-        string escolha = "cliente";
-        carrega_eua(screen,escolha);
-    }
+        escolha = "cliente";
+        carrega_uk(screen,escolha);
 /*
     for(int i=0; i<hexagonos.size();i++){
         for(int j=0; j<hexagonos[i].size();j++){
