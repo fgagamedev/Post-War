@@ -105,7 +105,7 @@ for(int i=0; i<5;i++){
             }
             else{
                 temp_s2 = temp_defensor->ataque;
-                cutBox.x = 32;
+                cutBox.x = 0;
                 cutBox.y = 0;
                 cutBox.w = 32;
                 cutBox.h = 32;
@@ -317,7 +317,7 @@ for(int i=0; i<5;i++){
             }
             else{
                 temp_s = temp->ataque;
-                cutBox2.x = 32;
+                cutBox2.x = 0;
                 cutBox2.y = 0;
                 cutBox2.w = 32;
                 cutBox2.h = 32;
@@ -354,7 +354,6 @@ for(int i=0; i<5;i++){
                 tamanho_sprites2 = 64;
                 n_sprites2 = 7;
             }
-        //Por enquanto nunca vai achar, hu3
         }
         //Acha helicoptero azul
         if(temp->tipo == tipo3 && temp->cor == cor2){
