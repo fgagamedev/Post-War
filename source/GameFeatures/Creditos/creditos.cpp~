@@ -49,6 +49,11 @@ void creditos(SDL_Surface *screen){
     string creditos_path2 = "source/GameFeatures/Creditos/Images/nome_creditos2.png";
     SDL_Surface *creditos2= load_Image(creditos_path2, coisa);
 
+
+    //const char* musica_creditos = "creditos.ogg";
+
+    //SDL_Thread *audio = SDL_CreateThread(testeaudio, (void*)musica_creditos);
+
     SDL_Flip(screen);
 
 	play_music(musica_creditos);

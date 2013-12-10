@@ -82,7 +82,6 @@ void load_menu(SDL_Surface *screen){
 
             if(vetor->click == 1){
 				play_effect(efeito_click);
-				Mix_HaltMusic();
                 inicio(screen);
             }
         }
@@ -115,6 +114,7 @@ void load_menu(SDL_Surface *screen){
 
                             if(vetor->click == 1){
                                 play_effect(efeito_click);
+								Mix_HaltMusic();
                                 creditos(screen);
                             }
                         }
