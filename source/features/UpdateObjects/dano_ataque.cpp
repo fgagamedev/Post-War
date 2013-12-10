@@ -59,6 +59,7 @@ void dano_ataque(SDL_Surface *screen){
 
 
     if(atacante->hp <= 0){
+        explode_unidade(screen, hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->x, hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->y, totalElapsedTime, delay, lastdt);
         hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade = NULL;
         hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->contem_unidade = 0;
         //free(hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade);
