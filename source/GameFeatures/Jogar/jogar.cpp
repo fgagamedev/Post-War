@@ -143,6 +143,10 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
     int xinicial = 20;
     int yinicial = 20;
 
+    string opcao = "source/GameFeatures/Jogar/images/escolha_mapa.png";
+    SDL_Surface *maps = load_Image (opcao, screen);
+
+
     while(1){
         vetor = get_Input();
         string texto;

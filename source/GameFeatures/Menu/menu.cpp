@@ -9,7 +9,7 @@
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
 #include "../../../include/sound.h"
-#include "../../../source/GameFeatures/audio.cpp"
+
 
 
 Mix_Music *musica_tela_de_abertura;
@@ -19,8 +19,8 @@ Mix_Chunk *efeito_click;
 Mix_Chunk *efeito_selecao_cancelar;
 
 
-void init();
-void carregar();
+//void init();
+//void carregar();
 Mix_Chunk *carregarSom(const char *nome);
 Mix_Music *carregarMus(const char *nome);
 void descarregar();

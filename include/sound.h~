@@ -23,7 +23,7 @@ extern Mix_Music *musica_fase_3;
 extern Mix_Music *musica_fase_4;
 extern Mix_Music *musica_fase_5;
 extern Mix_Music *musica_creditos;
-extern Mix_Chunk *efeito_morte;
+
 extern Mix_Chunk *efeito_click;
 extern Mix_Chunk *efeito_tiro_soldado;
 extern Mix_Chunk *efeito_explosao;

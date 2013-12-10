@@ -289,6 +289,11 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 SDL_Flip(screen);
                 //cout<<"Sou cliente"<<endl;
                 vetor = get_Input();
+
+                if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
+                        clica_menu_menor(screen);
+                }
+
                 char code_recv[100];
                 receber_msg(Cserver,code_recv);
                 //cout<<"Recebi a msg: "<<code_recv<<endl;

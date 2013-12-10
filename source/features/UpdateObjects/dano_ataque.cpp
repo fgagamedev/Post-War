@@ -9,6 +9,7 @@
 #include "../../../include/gamefeatures.h"
 #include "../../../include/sound.h"
 
+Mix_Chunk *efeito_explosao;
 int lastdt = SDL_GetTicks();
 int totalElapsedTime = 0;
 int delay = 200;
