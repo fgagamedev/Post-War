@@ -6,8 +6,13 @@
 #include "../../../include/video.h"
 #include "../../../include/loop.h"
 #include "../../../include/gamefeatures.h"
+#include "../../../include/sound.h"
 
 using namespace std;
+char efeito_ataque;
+Mix_Chunk *efeito_tiro_tanque;
+Mix_Chunk *efeito_tiro_helicoptero;
+
 void ataque_unidade(SDL_Surface *screen, int x, int y, int totalElapsedTime, int delay, int lastdt){
 
 for(int i=0; i<5;i++){
@@ -49,6 +54,7 @@ for(int i=0; i<5;i++){
 
         SDL_Rect cutBox = {0,0,32,32};
          if(temp_defensor->tipo == tipo4 && temp_defensor->cor == cor2){
+            efeito_ataque = 't';
             n_sprites = 4;
             if(s_def<s && w_def==w){
                 temp_s2 = temp_defensor->ataque_baixo;
@@ -79,6 +85,7 @@ for(int i=0; i<5;i++){
         }
         //Acha tanque vermelho
         if(temp_defensor->tipo == tipo4 && temp_defensor->cor == cor){
+            efeito_ataque = 't';
             n_sprites = 4;
             if(s_def<s && w_def==w){
                 temp_s2 = temp_defensor->ataque_baixo;
@@ -107,10 +114,12 @@ for(int i=0; i<5;i++){
         }
         //Acha helicoptero vermelho
         if(temp_defensor->tipo == tipo3 && temp_defensor->cor == cor){
+            efeito_ataque = 'h';
         //Por enquanto nunca vai achar, hu3
         }
         //Acha helicoptero azul
         if(temp_defensor->tipo == tipo3 && temp_defensor->cor == cor2){
+            efeito_ataque = 'h';
             cout << "Achei helicoptero azul" << endl;
             if(s_def<s && w_def==w){
                 temp_s2 = temp_defensor->ataque_baixo;
@@ -143,6 +152,7 @@ for(int i=0; i<5;i++){
         }
         //Acha metralhadora azul
         if(temp_defensor->tipo == tipo && temp_defensor->cor == cor2){
+            efeito_ataque = 'm';
             temp_s2 = temp_defensor->ataque;
             cout << "Achei metralhadora" << endl;;
                 cutBox.x = 64;
@@ -165,6 +175,7 @@ for(int i=0; i<5;i++){
         }
         //Acha soldado vermelho
         if(temp_defensor->cor == cor && temp_defensor->tipo == tipo2){
+            efeito_ataque = 's';
             cout << "Achei vermelho" << endl;
             n_sprites = 5;
             if(s_def<s && w_def==w){
@@ -195,6 +206,7 @@ for(int i=0; i<5;i++){
 
         //Acha soldado azul
         if(temp_defensor->cor == cor2 && temp_defensor->tipo == tipo2){
+            efeito_ataque = 's';
             cout << "Achei azul" << endl;
             n_sprites = 5;
             if(s_def<s && w_def==w){
@@ -223,17 +235,11 @@ for(int i=0; i<5;i++){
             }
         }
 
-
-
-
-
-
-
-
         SDL_Rect cutBox2 = {0,0,32,32};
 
         //Acha tanque azul
         if(temp->tipo == tipo4 && temp->cor == cor2){
+            efeito_ataque = 't';
             n_sprites2 = 4;
             if(s<y && w==x){
                 temp_s = temp->ataque_baixo;
@@ -264,6 +270,7 @@ for(int i=0; i<5;i++){
         }
         //Acha tanque vermelho
         if(temp->tipo == tipo4 && temp->cor == cor){
+            efeito_ataque = 't';
             n_sprites2 = 4;
             if(s<y && w==x){
                 temp_s = temp->ataque_baixo;
@@ -292,6 +299,7 @@ for(int i=0; i<5;i++){
         }
         //Acha helicoptero vermelho
         if(temp->tipo == tipo3 && temp->cor == cor){
+            efeito_ataque = 'h';
         //Por enquanto nunca vai achar, hu3
         }
         //Acha helicoptero azul
@@ -328,6 +336,7 @@ for(int i=0; i<5;i++){
         }
         //Acha metralhadora azul
         if(temp->tipo == tipo && temp->cor == cor2){
+            efeito_ataque = 'm';
             temp_s = temp->ataque;
             cutBox2.x = 64;
             cutBox2.y = 0;
@@ -338,6 +347,7 @@ for(int i=0; i<5;i++){
         }
         //Acha metralhadora vermelha
         if(temp->tipo == tipo && temp->cor == cor){
+            efeito_ataque = 'm';
             cout << "Achei metralhadora" << endl;
             temp_s = temp->ataque;
             cutBox2.x = 0;
@@ -349,6 +359,7 @@ for(int i=0; i<5;i++){
         }
         //Acha soldado vermelho
         if(temp->cor == cor && temp->tipo == tipo2){
+            efeito_ataque = 's';
             cout << "Achei vermelho" << endl;
             n_sprites2 = 5;
             if(s<y && w==x){
@@ -379,6 +390,7 @@ for(int i=0; i<5;i++){
 
         //Acha soldado azul
         if(temp->cor == cor2 && temp->tipo == tipo2){
+            efeito_ataque = 's';
             cout << "Achei azul" << endl;
             n_sprites2 = 5;
             if(s<y && w==x){
@@ -430,6 +442,21 @@ for(int i=0; i<5;i++){
                         //cout << "cutbotx:  " << cutBox.x << endl;
                         cutBox.x +=tamanho_sprites;
                         cutBox2.x += tamanho_sprites2;
+                    }
+
+                    switch(efeito_ataque){
+                        case 's':
+                            play_effect(efeito_tiro_soldado);
+                            break;
+                        case 'm':
+                            play_effect(efeito_metralhadora);
+                            break;
+                        case 't':
+                            play_effect(efeito_tiro_tanque);
+                            break;
+                        case 'h':
+                            play_effect(efeito_tiro_helicoptero);
+                            break;
                     }
 
                     SDL_Rect dest = {(Sint16)w, (Sint16)s, 0, 0};
