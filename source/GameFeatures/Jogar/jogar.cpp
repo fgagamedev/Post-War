@@ -44,9 +44,9 @@ void inicio(SDL_Surface *screen){
         start = SDL_GetTicks();
         vetor = get_Input();
 
-        if(compara_selecao(498, 710, vetor->x, 361, 383, vetor->y)){
+        if(compara_selecao(496, 710, vetor->x, 358, 383, vetor->y)){
             BlitImage(screen,escolher,0,0);
-            BlitImage(screen, criar_selecao, 498, 361);
+            BlitImage(screen, criar_selecao, 496, 358);
             SDL_Flip(screen);
             if(vetor->click == 1){
                 cout<<"cliquei em servidor"<<endl;
@@ -59,9 +59,9 @@ void inicio(SDL_Surface *screen){
 
         }
 
-            else if(compara_selecao(461, 750, vetor->x, 415, 435, vetor->y)){
+            else if(compara_selecao(458, 750, vetor->x, 413, 435, vetor->y)){
                 BlitImage(screen,escolher,0,0);
-                BlitImage(screen, conectar_selecao, 461, 415);
+                BlitImage(screen, conectar_selecao, 458, 413);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
                     cout << "cliquei em conectar" << endl;
@@ -99,6 +99,11 @@ void escolha_mapa(SDL_Surface *screen){
     opcao = "source/GameFeatures/Jogar/images/entrar-partida_selecionado.png";
     SDL_Surface *entrar_selecionado = load_Image (opcao, screen);
 
+    opcao = "source/GameFeatures/Jogar/images/pais_selecionado.png";
+    SDL_Surface *pais_selecionado = load_Image (opcao, screen);
+
+
+
     BlitImage(screen,maps,0,0);
     SDL_Flip(screen);
     Vetor_mouse *vetor = new Vetor_mouse;
@@ -109,21 +114,49 @@ void escolha_mapa(SDL_Surface *screen){
         start = SDL_GetTicks();
         vetor = get_Input();
         ///Fase1
-        if(compara_selecao(80, 710, vetor->x, 333, 499, vetor->y)){
+        if(compara_selecao(77, 223, vetor->x, 333, 499, vetor->y)){
+            BlitImage(screen,maps,0,0);
+            BlitImage(screen,pais_selecionado,77,378);
+            SDL_Flip(screen);
             if(vetor->click == 1){
                 fase1(screen,"servidor");
             }
         }   ///Fase2
             else if(compara_selecao(253, 397, vetor->x, 333, 499, vetor->y)){
+                BlitImage(screen,maps,0,0);
+                BlitImage(screen,pais_selecionado,250,378);
+                SDL_Flip(screen);
+                if(vetor->click == 1){
+                    //fase1(screen,"servidor");
+                }
             }
+
                 ///Fase3
                 else if(compara_selecao(438, 580, vetor->x, 333, 499, vetor->y)){
+                    BlitImage(screen,maps,0,0);
+                    BlitImage(screen,pais_selecionado,433,378);
+                    SDL_Flip(screen);
+                    if(vetor->click == 1){
+                        //fase1(screen,"servidor");
+                    }
                 }
                     ///Fase4
                     else if(compara_selecao(673, 819, vetor->x, 333, 499, vetor->y)){
+                        BlitImage(screen,maps,0,0);
+                        BlitImage(screen,pais_selecionado,673,378);
+                        SDL_Flip(screen);
+                        if(vetor->click == 1){
+                            //fase1(screen,"servidor");
+                        }
                     }
                         ///Fase5
                         else if(compara_selecao(952, 1097, vetor->x, 333, 499, vetor->y)){
+                            BlitImage(screen,maps,0,0);
+                            BlitImage(screen,pais_selecionado,952,378);
+                            SDL_Flip(screen);
+                            if(vetor->click == 1){
+                                //fase1(screen,"servidor");
+                            }
                         }
                         ///Voltar
                             else if(compara_selecao(952, 1097, vetor->x, 333, 499, vetor->y)){
@@ -155,6 +188,9 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
     opcao = "source/GameFeatures/Jogar/images/estou_pronto_selecionado.png";
     SDL_Surface *pronto_selecionado = load_Image (opcao, screen);
 
+    opcao = "source/GameFeatures/Jogar/images/voltar_selecionado.png";
+    SDL_Surface *voltar_selecionado = load_Image (opcao, screen);
+
     SDL_Flip(screen);
 
     string texto_ip;
@@ -168,16 +204,21 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
         if(compara_selecao(815, 1040, vetor->x, 599, 620, vetor->y)){
         cout<<"entrei aqui"<<endl;
             BlitImage(screen,maps,0,0);
-            BlitImage(screen,pronto_selecionado,815,599);
+            BlitImage(screen,pronto_selecionado,813,597);
             SDL_Flip(screen);
             if(vetor->click == 1){
             const char *local = texto_ip.c_str();
             char *vai = (char *) local;
             conectar(vai);
+
             fase1(screen,"cliente");
             }
         }
-
+            else if(compara_selecao(640, 757, vetor->x, 600, 6222, vetor->y)){
+                BlitImage(screen,maps,0,0);
+                BlitImage(screen,voltar_selecionado,638,596);
+                SDL_Flip(screen);
+            }
             switch(vetor->number){
 
                 case 0:
