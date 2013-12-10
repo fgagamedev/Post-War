@@ -269,6 +269,9 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                 else if (strcmp(code_recv,"2")==0){
                     fase2(screen,"cliente");
                 }
+                    else if (strcmp(code_recv, "3")==0){
+                        fase3(screen,"cliente");
+                    }
             }
         }
             else if(compara_selecao(640, 757, vetor->x, 600, 6222, vetor->y)){

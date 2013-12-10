@@ -15,7 +15,7 @@ void carregar_fase3(SDL_Surface *screen, char pais_serv[],char pais_client[]){
 
     hex_selecao = new Hex_selecao();
 
-    string caminho = "source/GameFeatures/Jogar/Fase2/images/Loading.png";
+    string caminho = "source/GameFeatures/Jogar/Fase3/images/Loading.png";
     SDL_Surface *loading = load_Image(caminho, screen);
     BlitImage(screen, loading, 0, 0);
     SDL_Flip(screen);

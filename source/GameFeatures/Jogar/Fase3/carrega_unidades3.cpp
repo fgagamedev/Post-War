@@ -113,7 +113,7 @@ for (int i=8;i<9;i++){
         //SDL_Surface *helicoptero_ataque_baixo = load_Image(caminho, screen);
         Unidade *helicoptero = new Unidade();
         string unidade1 = "helicoptero";
-        setar_helicoptero(helicoptero, cor2, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
+        setar_helicoptero(helicoptero, cor, unidade1, helicoptero1, helicoptero_ataque, helicoptero_ataque_baixo, helicoptero_ataque_cima,helicoptero_lateral, id);
         id++;
         unidades_azul.push_back(helicoptero);
 
