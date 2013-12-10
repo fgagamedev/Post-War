@@ -68,7 +68,6 @@ void carrega_franca(SDL_Surface *screen,string lado){
         hexagonos[9][1]->unidade = quartel_a;
 
     }
-    cout << "Passei for soldado" << endl;
 
     for(int i=6, j=1;i<8;i++,j+=30){
 
@@ -98,7 +97,6 @@ void carrega_franca(SDL_Surface *screen,string lado){
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
     }
-    cout << "Passei for tanque" << endl;
 
     string caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_esquerda1.png";
     SDL_Surface *metralhadora1 = load_Image(caminho, screen);
@@ -121,7 +119,6 @@ void carrega_franca(SDL_Surface *screen,string lado){
     hexagonos[8][4]->contem_unidade=1;
     hexagonos[8][4]->unidade = metralhadora;
 
-    cout << "Carreguei metralhadora" << endl;
 
 
     SDL_Color blue;
@@ -171,7 +168,7 @@ void carrega_uk(SDL_Surface *screen, string lado){
 
     }
 
-    for (int i=3;i<4;i++){
+    for (int i=6;i<8;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_azul_movimentacao_esqueda.png";
         SDL_Surface *helicoptero1 = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/helicoptero_ataque_azul.png";
@@ -203,43 +200,8 @@ void carrega_uk(SDL_Surface *screen, string lado){
         unidades_vermelhas[0]->y = hexagonos[i*2][12]->y;
     }
 
-    for (int i=4;i<6;i++){
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
-        SDL_Surface *metrapalhadora1 = load_Image(caminho, screen);
-        caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_azul_ataque.png";
-        SDL_Surface *metrapalhadora_ataque = load_Image(caminho, screen);
-        caminho = "source/GameFeatures/Jogar/Fase1/images/barraLateral_azul.png";
-        SDL_Surface *metrapalhadora_lateral = load_Image(caminho, screen);
-        Unidade *metralhadora = new Unidade();
-        string unidade2 = "metralhadora";
-        setar_metralhadora(metralhadora, cor2, unidade2, metrapalhadora1, metrapalhadora_ataque, metrapalhadora_lateral, id);
-        id++;
-        unidades_vermelhas.push_back(metralhadora);
 
-    hexagonos[6][4]->contem_unidade=1;
-    hexagonos[6][4]->unidade = metralhadora;
-    hexagonos[7][4]->contem_unidade=1;
-    hexagonos[7][4]->unidade = metralhadora;
-    hexagonos[8][4]->contem_unidade=1;
-    hexagonos[8][4]->unidade = metralhadora;
-
-
-    BlitImage(screen,unidades_azul[5]->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
-
-    hexagonos[6][4]->contem_unidade=1;
-    hexagonos[6][4]->unidade = metralhadora;
-    hexagonos[7][4]->contem_unidade=1;
-    hexagonos[7][4]->unidade = metralhadora;
-    hexagonos[8][4]->contem_unidade=1;
-    hexagonos[8][4]->unidade = metralhadora;
-
-    }
-    BlitImage(screen,unidades_azul[4]->nome,hexagonos[6][4]->x,hexagonos[6][4]->y);
-
-
-
-
-    for(int i=6;i<7;i++){
+    for(int i=8;i<9;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_azul_esquerda1.png";
         SDL_Surface *tanque1 = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_azul_ataque.png";

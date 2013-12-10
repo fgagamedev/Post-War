@@ -12,19 +12,19 @@
 #include "../../../../include/gamefeatures.h"
 
 
-void fase2(SDL_Surface *screen,string qual_maquina){
+void fase3(SDL_Surface *screen,string qual_maquina){
 
     FPS = 150;
-    Pais *franca = new Pais();
-    string nome = "França";
+    Pais *urss = new Pais();
+    string nome = "URSS";
     string cor = "vermelho";
-    setar_pais(franca, 50, 50, 100, nome, cor);
+    setar_pais(urss, 50, 100, 40, nome, cor);
     Pais *uk = new Pais();
     nome = "UK";
     cor = "azul";
     setar_pais(uk, 100, 40, 50, nome, cor);
 
-    char pais_serv[100] = "franca";
+    char pais_serv[100] = "urss";
     char pais_client[100] = "uk";
 
 
@@ -50,7 +50,7 @@ void fase2(SDL_Surface *screen,string qual_maquina){
             //memset (codigo_s,'0',100);
             if(minha_vez){
 
-                blit_cima(franca,screen); //verifica_hexagono.cpp
+                blit_cima(urss,screen); //verifica_hexagono.cpp
                 desenha_pontos(pontos_jogador1, screen); //fase1.cpp
                 vetor = get_Input();
                 string palavra = "Sua vez.";
@@ -74,7 +74,7 @@ void fase2(SDL_Surface *screen,string qual_maquina){
                             blit_tela(screen,1);
                             blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
-                            blit_cima(franca,screen);
+                            blit_cima(urss,screen);
                             while(1){
                                 start1 = SDL_GetTicks();
                                 vetor = get_Input();
@@ -137,14 +137,14 @@ void fase2(SDL_Surface *screen,string qual_maquina){
                                         if(pontos_jogador1<3){
                                             minha_vez = 0;
                                             pontos_jogador1 = 20;
-                                            coleta_minerio(franca, minerio_vermelho);
+                                            coleta_minerio(urss, minerio_vermelho);
                                             minerio_vermelho += 5;
                                         }
                                         break;
                                     }
                                         else{
                                             blit_tela(screen,0);
-                                            blit_cima(franca,screen);
+                                            blit_cima(urss,screen);
                                             break;
                                         }
                                 }
@@ -155,7 +155,7 @@ void fase2(SDL_Surface *screen,string qual_maquina){
                         }
                         //verifica_derrota(screen);
                         blit_tela(screen,0);
-                        blit_cima(franca,screen);
+                        blit_cima(urss,screen);
                     }
 
 
@@ -190,7 +190,7 @@ void fase2(SDL_Surface *screen,string qual_maquina){
 
                 else{
 
-                    blit_cima(franca,screen);
+                    blit_cima(urss,screen);
                     string palavra = "Vez do outro jogador.";
                     blit_tela(screen,0);
                     desenha_texto(palavra,screen,200, 200, 60);

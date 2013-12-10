@@ -180,7 +180,7 @@ void escolha_mapa(SDL_Surface *screen){
                     if(vetor->click == 1){
                         strcpy(codigo_s,"3");
                         enviar_msg(Sclient,codigo_s);
-                        //fase1(screen,"servidor");
+                        fase3(screen,"servidor");
                     }
                 }
                     ///Fase4
