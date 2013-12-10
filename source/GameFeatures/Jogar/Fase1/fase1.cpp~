@@ -58,6 +58,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 green = 255;
                 blue = 0;
                 desenha_texto(palavra,screen,850, 38, 35);
+				BlitImage(screen, imagemPais1, 700, 38);
 
                 if(vetor->click == 1){
 
@@ -510,7 +511,7 @@ void desenha_pontos(int number, SDL_Surface *screen){
     string points;
     points = convertInt(number);
 
-    desenha_texto(points,screen, 1135, 20, 30);
+    desenha_texto(points,screen, 1125, 20, 30);
 }
 
 void blit_selecao(SDL_Surface *screen){
