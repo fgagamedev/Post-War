@@ -282,7 +282,7 @@ void carrega_eua(SDL_Surface *screen,string lado){
         unidades_vermelhas[0]->y = hexagonos[i*2][12]->y;
     }
 
-    for (int i=0;i<2;i++){
+    for (int i=5;i<7;i++){
         string caminho = "source/GameFeatures/Jogar/Fase1/images/metralha_azul.png";
         SDL_Surface *metrapalhadora1 = load_Image(caminho, screen);
         caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_azul_ataque.png";
@@ -364,10 +364,10 @@ void carrega_eua(SDL_Surface *screen,string lado){
     dst.w = 0;
     SDL_BlitSurface(unidades_vermelhas[7]->nome, &cutBox,  screen, &dst);
     //BlitImage(screen,unidades _vermelhas[7]->nome,hexagonos[1][3]->x,hexagonos[1][3]->y);
-    hexagonos[1][3]->unidade = unidades_vermelhas[7];
-    hexagonos[1][3]->contem_unidade = 1;
-    unidades_vermelhas[1]->x = hexagonos[1][3]->x;
-    unidades_vermelhas[1]->y = hexagonos[1][3]->y;
+    hexagonos[14][12]->unidade = unidades_vermelhas[7];
+    hexagonos[14][12]->contem_unidade = 1;
+    unidades_vermelhas[7]->x = hexagonos[14][12]->x;
+    unidades_vermelhas[7]->y = hexagonos[14][12]->y;
 
            // cout<<"i: "<<i<<unidades_vermelhas[i]->tipo<<endl;
 

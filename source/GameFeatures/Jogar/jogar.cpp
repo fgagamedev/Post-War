@@ -202,7 +202,7 @@ void escolha_mapa(SDL_Surface *screen){
                             if(vetor->click == 1){
                                 strcpy(codigo_s,"5");
                                 enviar_msg(Sclient,codigo_s);
-                                //fase1(screen,"servidor");
+                                fase5(screen,"servidor");
                             }
                         }
                         ///Voltar
@@ -273,8 +273,11 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                         fase3(screen,"cliente");
                     }
                         else if (strcmp(code_recv, "4")==0){
-                        fase4(screen,"cliente");
-                    }
+                            fase4(screen,"cliente");
+                        }
+                            else if (strcmp(code_recv, "5")==0){
+                                fase5(screen,"cliente");
+                            }
             }
         }
             else if(compara_selecao(640, 757, vetor->x, 600, 6222, vetor->y)){
