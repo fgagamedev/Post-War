@@ -40,17 +40,12 @@ void opcoes(SDL_Surface *screen){
 			else if (volume_menos){
 			BlitImage(screen, imagemBarra, 750+(volume*10), 343);
 		}   
-		
-		//if((vetor->x) <= 500)
-			//return;
-		//else 
-			//BlitImage(screen, telafundo, 0, 0);
-		//BlitImage(screen, telafundo, 0, 0);
 
         //Botao X da tela
         if(compara_selecao(792, 822, vetor->x, 296, 324, vetor->y)){
             if(vetor->click == 1){
-                break;
+				play_effect(efeito_click);                
+				break;
             }
         }
             //Botao - do volume
@@ -58,8 +53,9 @@ void opcoes(SDL_Surface *screen){
 				
                 
                 if(vetor->click == 1){
+					play_effect(efeito_click); 
                     // set the music volume to 1/2 maximum, and then check it
-                    printf("volume was    : %d\n", Mix_VolumeMusic(128-5));
+                    printf("volume was    : %d\n", Mix_VolumeMusic(128-volume_menos));
                     printf("volume is now : %d\n", Mix_VolumeMusic(-1));
 
 					volume_menos = volume_menos + 5;
@@ -71,6 +67,7 @@ void opcoes(SDL_Surface *screen){
                 //Botao + do volume
                 else if (compara_selecao(801, 821, vetor->x, 356, 378, vetor->y)){
                     if(vetor->click == 1){
+						play_effect(efeito_click); 
                         // set the music volume to 1/2 maximum, and then check it
                         printf("volume was    : %d\n", Mix_VolumeMusic(Mix_VolumeMusic(-1)+5));
                         printf("volume is now : %d\n", Mix_VolumeMusic(-1));
