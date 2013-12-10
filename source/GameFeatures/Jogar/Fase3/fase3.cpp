@@ -260,9 +260,6 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                 //cout<<"Sou cliente"<<endl;
                 vetor = get_Input();
 
-                if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
-                        clica_menu_menor(screen);
-                }
 
                 char code_recv[100];
                 receber_msg(Cserver,code_recv);
@@ -310,6 +307,10 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                 desenha_texto(palavra,screen,200, 200, 60);
 
                 if(vetor->click == 1){
+
+                    if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
+                        clica_menu_menor(screen);
+                    }
 
                     if(verifica_hexagono(vetor->x,vetor->y)){
 

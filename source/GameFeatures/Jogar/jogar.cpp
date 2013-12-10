@@ -108,12 +108,15 @@ void inicio(SDL_Surface *screen){
                     cout << "cliquei em conectar" << endl;
                     //digitarnome(vetor, screen);
                     digitarip(vetor, screen);
+                    BlitImage(screen,escolher,0,0);
+                    SDL_Flip(screen);
+
                 }
             }
-                else if(compara_selecao(580, 630, vetor->x, 311, 381, vetor->y)){
+                else if(compara_selecao(794, 819, vetor->x, 296, 320, vetor->y)){
                     if(vetor->click == 1){
                         Mix_CloseAudio();
-                        //load_menu(screen);
+                        load_menu(screen);
                     }
 
                 }

@@ -257,25 +257,20 @@ void fase1(SDL_Surface *screen,string qual_maquina){
         red = 0;
         green = 200;
         blue = 200;
-
+        int start12;
         while(1){
-            start1 = SDL_GetTicks();
+            start12 = SDL_GetTicks();
             if(minha_vez == 0){
 
                 blit_cima(eua,screen);
                 string palavra = "Vez do outro jogador.";
                 blit_tela(screen,0);
                 desenha_texto(palavra,screen,845, 38, 25);
-                if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-                        SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-                }
                 SDL_Flip(screen);
                 //cout<<"Sou cliente"<<endl;
                 vetor = get_Input();
 
-                if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
-                        clica_menu_menor(screen);
-                }
+
 
                 char code_recv[100];
                 receber_msg(Cserver,code_recv);
@@ -328,7 +323,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 desenha_texto(palavra,screen,850, 38, 35);
 
                 if(vetor->click == 1){
-
+                    if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
+                        clica_menu_menor(screen);
+                    }
                     if(verifica_hexagono(vetor->x,vetor->y)){
 
 
@@ -445,6 +442,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                 }
                 SDL_Flip(screen);
             }
+            frame_delay(start12);
         }
     }
 

@@ -256,9 +256,6 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                 //cout<<"Sou cliente"<<endl;
                 vetor = get_Input();
 
-                if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
-                        clica_menu_menor(screen);
-                }
 
                 char code_recv[100];
                 receber_msg(Cserver,code_recv);
@@ -309,8 +306,10 @@ void fase4(SDL_Surface *screen,string qual_maquina){
 
                     if(verifica_hexagono(vetor->x,vetor->y)){
 
+                        if(compara_selecao(568,647,vetor->x,78,111,vetor->y)){
+                            clica_menu_menor(screen);
+                        }
 
-                    //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
                         hex_selecao->i_antes = hex_selecao->i;
                         hex_selecao->j_antes = hex_selecao->j;
                         if(possui_unidade("azul")){
