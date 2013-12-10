@@ -66,17 +66,17 @@ void load_menu(SDL_Surface *screen){
     BlitImage(screen, menu, 0, 0);
     SDL_Flip(screen);
     Vetor_mouse *vetor = new Vetor_mouse;
-    int cont=0;
     start = 0;
+    FPS = 150;
     while(1){
         start = SDL_GetTicks();
-        cont++;
         vetor = get_Input();
-        BlitImage(screen, menu, 0, 0);
+
         //cout <<"Posicao do mouse ("<<vetor->x<<","<<vetor->y<<")"<<endl;
         //cout<<"Click: "<<vetor->click<<endl;
 
         if(compara_selecao(478.5,731.5,vetor->x,211,275,vetor->y)){
+            BlitImage(screen, menu, 0, 0);
             BlitImage(screen, jogar_selecionado, 478.5, 211);
             SDL_Flip(screen);
 
@@ -87,6 +87,7 @@ void load_menu(SDL_Surface *screen){
         }
 
             else if(compara_selecao(450,798,vetor->x,311,375,vetor->y)){
+                BlitImage(screen, menu, 0, 0);
                 BlitImage(screen, opcoes_selecionado, 450.0, 311);
                 frame_delay(start);
                 SDL_Flip(screen);
@@ -98,6 +99,7 @@ void load_menu(SDL_Surface *screen){
                 }
             }
                     else if(compara_selecao(355,798,vetor->x,417,475,vetor->y)){
+                            BlitImage(screen, menu, 0, 0);
                             BlitImage(screen, estatisticas_selecionado, 355.0, 411);
                             frame_delay(start);
                             SDL_Flip(screen);
@@ -108,6 +110,7 @@ void load_menu(SDL_Surface *screen){
                     }
 
                         else if(compara_selecao(425,798,vetor->x,511,575,vetor->y)){
+                            BlitImage(screen, menu, 0, 0);
                             BlitImage(screen, creditos_selecionado, 425.0, 511);
                             frame_delay(start);
                             SDL_Flip(screen);
@@ -120,6 +123,7 @@ void load_menu(SDL_Surface *screen){
                         }
 
                                 else if(compara_selecao(350,798,vetor->x,611,675,vetor->y)){
+                                    BlitImage(screen, menu, 0, 0);
                                     BlitImage(screen, sair_selecionado, 350.0, 611);
                                     frame_delay(start);
                                     SDL_Flip(screen);
@@ -136,9 +140,7 @@ void load_menu(SDL_Surface *screen){
 
 
         //SDL_Delay(10);
-        if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-            SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-        }
+        frame_delay(start);
     }
 
 
@@ -183,13 +185,13 @@ void clica_menu_menor(SDL_Surface *screen){
                         SDL_Flip(screen);
                         if(vetor->click == 1){
                             load_menu(screen);
+                            //saiu_jogo=1;
                         }
                     }
             frame_delay(start);
         }
 
 
-            frame_delay(start);
             SDL_Flip(screen);
 
     }

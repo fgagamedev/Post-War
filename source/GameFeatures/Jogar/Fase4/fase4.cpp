@@ -148,9 +148,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                             break;
                                         }
                                 }
-                                if((unsigned)(SDL_GetTicks() - start1) < (unsigned)(1000/FPS)){
-                                    SDL_Delay((1000/FPS) - (SDL_GetTicks() - start1));
-                                }
+                                frame_delay(start1);
                             }
                         }
                         //verifica_derrota(screen);
@@ -232,6 +230,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                         venceu_jogo(screen);
                     }
                 }
+            frame_delay(start);
         }
 
     }
@@ -252,9 +251,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                 string palavra = "Vez do outro jogador.";
                 blit_tela(screen,0);
                 desenha_texto(palavra,screen,200, 200, 60);
-                if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-                        SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-                }
+                frame_delay(start);
                 SDL_Flip(screen);
                 //cout<<"Sou cliente"<<endl;
                 vetor = get_Input();
@@ -322,7 +319,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                             blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
                                     while(1){
-                                        start1 = SDL_GetTicks();
+                                        int start2 = SDL_GetTicks();
                                         blit_cima(china,screen);
                                         vetor = get_Input();
                                         if(vetor->click == 1){
@@ -394,9 +391,7 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                                                 }
 
                                         }
-                                        if((unsigned)(SDL_GetTicks() - start1) < (unsigned)(1000/FPS)){
-                                            SDL_Delay((1000/FPS) - (SDL_GetTicks() - start1));
-                                        }
+                                        frame_delay(start2);
 
                                     }
                         }
@@ -415,11 +410,10 @@ void fase4(SDL_Surface *screen,string qual_maquina){
                 }
                 //blit_tela(screen);
                 //BlitImage(screen,mouse,vetor->x-13,vetor->y-13 );
-                if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-                        SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-                }
+                frame_delay(start);
                 SDL_Flip(screen);
             }
+            frame_delay(start1);
         }
     }
 

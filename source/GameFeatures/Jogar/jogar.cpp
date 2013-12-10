@@ -86,6 +86,7 @@ void inicio(SDL_Surface *screen){
         if(compara_selecao(496, 710, vetor->x, 358, 383, vetor->y)){
             BlitImage(screen,escolher,0,0);
             BlitImage(screen, criar_selecao, 496, 358);
+            frame_delay(start);
             SDL_Flip(screen);
             if(vetor->click == 1){
                 cout<<"cliquei em servidor"<<endl;
@@ -101,6 +102,7 @@ void inicio(SDL_Surface *screen){
             else if(compara_selecao(458, 750, vetor->x, 413, 435, vetor->y)){
                 BlitImage(screen,escolher,0,0);
                 BlitImage(screen, conectar_selecao, 458, 413);
+                frame_delay(start);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
                     cout << "cliquei em conectar" << endl;
@@ -115,11 +117,10 @@ void inicio(SDL_Surface *screen){
                     }
 
                 }
-                SDL_Flip(screen);
 
-        if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-            SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-        }
+
+        frame_delay(start);
+        //SDL_Flip(screen);
 
     }
 }

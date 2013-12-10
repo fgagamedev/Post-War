@@ -185,7 +185,10 @@ void fase2(SDL_Surface *screen,string qual_maquina){
             if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
                 SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
             }
+
+            frame_delay(start);
             SDL_Flip(screen);
+
             }
 
                 else{

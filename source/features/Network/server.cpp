@@ -9,19 +9,29 @@ using namespace std;
 
 TCPsocket Sclient;
 
+int serv_foi1 =0;
+int serv_foi =0;
+TCPsocket server;
 int criar_servidor(){
 
 	IPaddress ip;
 	SDLNet_ResolveHost(&ip,NULL,1234);
+    cout<<"1"<<endl;
 
-	TCPsocket server = SDLNet_TCP_Open(&ip);
+    if(serv_foi1==0)
+        server = SDLNet_TCP_Open(&ip);
 
+    cout<<"2"<<endl;
     while(1){
-    start = SDL_GetTicks();
-	Sclient = SDLNet_TCP_Accept(server);
+    //start = SDL_GetTicks();
+    //
+        Sclient = SDLNet_TCP_Accept(server);
+	cout<<"3"<<endl;
 
         if(Sclient){
+            cout<<"4"<<endl;
             cout<<"Conectou!!"<<endl;
+            serv_foi= 1;
             /*SDL_Delay(1);
             char muah[100];
             cin.getline(muah,100);

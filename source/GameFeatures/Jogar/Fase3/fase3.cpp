@@ -232,6 +232,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                         venceu_jogo(screen);
                     }
                 }
+            frame_delay(start);
         }
 
     }
@@ -394,9 +395,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                                 }
 
                                         }
-                                        if((unsigned)(SDL_GetTicks() - start1) < (unsigned)(1000/FPS)){
-                                            SDL_Delay((1000/FPS) - (SDL_GetTicks() - start1));
-                                        }
+                                        frame_delay(start1);
 
                                     }
                         }

@@ -17,11 +17,12 @@ void blit_tela(SDL_Surface *screen, int tela){
 
     BlitImage(screen, hud, 0, 0);
     BlitImage(screen,menu_meio,568,78);
-/*
+
     string bora;
     string bora1;
     for(int i=0; i<hexagonos.size();i++){
         for(int j=0; j<hexagonos[i].size();j++){
+            int start4 = SDL_GetTicks();
             bora[0]+=i;
             bora1[0] += j;
             cout<<"bora: "<<bora1<<endl;
@@ -29,8 +30,9 @@ void blit_tela(SDL_Surface *screen, int tela){
             desenha_texto(bora1,screen,hexagonos[i][j]->x+10,hexagonos[i][j]->y,20);
             bora="0";
             bora1="0";
+            frame_delay(start4);
         }
-    }*/
+    }
 
     /*int i_menor;
     int j_menor;*/
