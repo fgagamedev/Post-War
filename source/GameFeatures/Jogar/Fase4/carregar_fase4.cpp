@@ -95,6 +95,7 @@ void carregar_fase4(SDL_Surface *screen, char pais_serv[],char pais_client[]){
 
         escolha = "cliente";
         carrega_china_azul(screen,escolha);
+        carrega_construcoes(screen);
 /*
     for(int i=0; i<hexagonos.size();i++){
         for(int j=0; j<hexagonos[i].size();j++){

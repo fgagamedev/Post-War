@@ -98,6 +98,7 @@ void carrega_urss(SDL_Surface *screen,string lado){
         hexagonos[i*2][3]->contem_unidade = 1;
     }
 
+
 for (int i=8;i<9;i++){
         string caminho = "source/GameFeatures/Jogar/Fase3/images/helicoptero_vermelho_movimento.png";
         SDL_Surface *helicoptero1 = load_Image(caminho, screen);
