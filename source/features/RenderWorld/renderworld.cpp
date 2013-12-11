@@ -53,6 +53,13 @@ SDL_Surface *render_World(){
     SDL_Flip(screen);
     SDL_Delay(3000);
 
+    string cinco = "source/features/RenderWorld/images/TelaJogo.png";
+    SDL_Surface *end5 = load_Image(cinco, screen);
+    BlitImage(screen, preta, 0, 0);
+    BlitImage(screen, end5, 0, 0);
+    SDL_Flip(screen);
+    SDL_Delay(3000);
+
 
     return screen;
 }
