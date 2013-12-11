@@ -12,9 +12,15 @@ int conectar(char ip_text[]){
 
 	IPaddress ip;
 
-	SDLNet_ResolveHost(&ip,"localhost",1234);
+	if(SDLNet_ResolveHost(&ip,"localhost",1234) < 0){
+        return 1;
+	}
 
 	Cserver = SDLNet_TCP_Open(&ip);
+
+    if(!Cserver)
+        return 1;
+
     cout<<"pra mim"<<endl;
 
     return 0;

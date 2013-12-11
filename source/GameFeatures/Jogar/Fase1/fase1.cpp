@@ -202,7 +202,10 @@ void fase1(SDL_Surface *screen,string qual_maquina,Pais *pais_serv, Pais *pais_c
                     }
                     SDL_Flip(screen);
                     char code_recv[100];
+                    SDL_Thread *thread_mouse = SDL_CreateThread(eventos2,NULL);
                     receber_msg(Sclient,code_recv);
+                    SDL_KillThread(thread_mouse);
+
                     //cout<<"Recebi a msg: "<<code_recv<<endl;
                     amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
                     if(code_recv[0] == '0' && code_recv[1] == '0'){
@@ -262,7 +265,10 @@ void fase1(SDL_Surface *screen,string qual_maquina,Pais *pais_serv, Pais *pais_c
 
 
                 char code_recv[100];
+                screen1 = screen;
+                SDL_Thread *thread_mouse = SDL_CreateThread(eventos2,NULL);
                 receber_msg(Cserver,code_recv);
+                SDL_KillThread(thread_mouse);
                 //cout<<"Recebi a msg: "<<code_recv<<endl;
                 amigo_movimenta(code_recv,screen, totalElapsedTime,delay,lastdt);
                 //cout<<"opa!! cheguei aqui"<<endl;

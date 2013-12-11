@@ -107,6 +107,8 @@ extern SDL_Surface *menu_menor;
 extern SDL_Surface *voltar_jogo_sel;
 extern SDL_Surface *opcoes_sel;
 extern SDL_Surface *sair_sel;
+extern int valida;
+extern SDL_Surface *screen1;
 
 extern void desenha_texto(string texto, SDL_Surface* dst, int x, int y, int size);
 extern void load_menu(SDL_Surface *screen);
@@ -177,6 +179,8 @@ extern void blit_selecao(SDL_Surface *screen);
 extern void desenha_pontos(int number, SDL_Surface *screen);
 extern void amigo_movimenta(char code_recv[],SDL_Surface * screen, int totalElapsedTime, int delay, int lastdt);
 extern void codifica_ataque(char codigo_s[]);
+extern void eventos(void*);
+extern int eventos2(void *);
 
 #endif
 
