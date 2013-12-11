@@ -138,8 +138,8 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                                             minha_vez = 0;
                                             pontos_jogador1 = 20;
                                             coleta_minerio(franca, minerio_vermelho);
-                                            coleta_ouro(fraca, ouro_vermelho);
-                                            coleta_comida(franca, comida_vermelho);
+                                            coleta_ouro(franca, ouro_vermelho);
+                                            coleta_comida(franca, comida_vermelha);
                                         }
                                         break;
                                     }
