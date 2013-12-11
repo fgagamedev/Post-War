@@ -205,7 +205,9 @@ void escolha_mapa(SDL_Surface *screen){
                 nome = "EUA";
                 cor = "azul";
                 setar_pais(eua, 100, 50, 50, nome, cor);
+                Mix_HaltMusic();
                 carregar_fase1(screen);
+                play_music(musica_fase_1);
                 fase1(screen,"servidor",china,eua);
             }
         }   ///Fase2
@@ -224,7 +226,9 @@ void escolha_mapa(SDL_Surface *screen){
                     nome = "UK";
                     cor = "azul";
                     setar_pais(uk, 100, 40, 50, nome, cor);
-                    carregar_fase2(screen );
+                    Mix_HaltMusic();
+                    carregar_fase2(screen);
+                    play_music(musica_fase_2);
                     fase1(screen,"servidor",franca,uk);
                 }
             }
@@ -245,7 +249,9 @@ void escolha_mapa(SDL_Surface *screen){
                         nome = "UK";
                         cor = "azul";
                         setar_pais(uk, 100, 40, 50, nome, cor);
-                        carregar_fase3(screen );
+                        Mix_HaltMusic();
+                        carregar_fase3(screen);
+                        play_music(musica_fase_3);
                         fase1(screen,"servidor",urss,uk);
                     }
                 }
@@ -265,7 +271,9 @@ void escolha_mapa(SDL_Surface *screen){
                             nome = "China";
                             cor = "azul";
                             setar_pais(china, 50, 100, 50, nome, cor);
-                            carregar_fase4(screen );
+                            Mix_HaltMusic();
+                            carregar_fase4(screen);
+                            play_music(musica_fase_4);
                             fase1(screen,"servidor",urss,china);
                         }
                     }
@@ -285,7 +293,9 @@ void escolha_mapa(SDL_Surface *screen){
                                 nome = "EUA";
                                 cor = "azul";
                                 setar_pais(eua, 100, 50, 50, nome, cor);
-                                carregar_fase5(screen );
+                                Mix_HaltMusic();
+                                carregar_fase5(screen);
+                                play_music(musica_fase_5);
                                 fase1(screen,"servidor",franca,eua);
                             }
                         }
