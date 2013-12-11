@@ -46,7 +46,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
         minha_vez=1;
 
         while(1){
-            start = SDL_GetTicks();
+            int start12 = SDL_GetTicks();
             //memset (codigo_s,'0',100);
             if(minha_vez){
 
@@ -82,7 +82,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                     //cout<<"What?"<<endl;
                                     verifica_hexagono(vetor->x,vetor->y);
 
-                                    if(possui_unidade("vermelho")){
+                                    if(possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
                                         //cout<<"VÉSH"<<endl;
                                         break;
                                     }
@@ -149,9 +149,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                             break;
                                         }
                                 }
-                                if((unsigned)(SDL_GetTicks() - start1) < (unsigned)(1000/FPS)){
-                                    SDL_Delay((1000/FPS) - (SDL_GetTicks() - start1));
-                                }
+                                frame_delay(start1);
                             }
                         }
                         //verifica_derrota(screen);
@@ -183,9 +181,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                 if(vermelhoganha == 1 && azulperde == 1){
                     venceu_jogo(screen);
                 }
-            if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
-                SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
-            }
+            frame_delay(start12);
             SDL_Flip(screen);
             }
 
@@ -233,7 +229,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                         venceu_jogo(screen);
                     }
                 }
-            frame_delay(start);
+            frame_delay(start12);
         }
 
     }
@@ -330,7 +326,7 @@ void fase3(SDL_Surface *screen,string qual_maquina){
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
-                                            if(possui_unidade("azul")){
+                                            if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){

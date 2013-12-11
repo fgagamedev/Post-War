@@ -83,7 +83,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     //cout<<"What?"<<endl;
                                     verifica_hexagono(vetor->x,vetor->y);
 
-                                    if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
+                                    if(possui_unidade("vermelho") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
                                         //cout<<"VÉSH"<<endl;
                                         break;
                                     }
