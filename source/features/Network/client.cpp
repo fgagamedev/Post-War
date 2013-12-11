@@ -12,7 +12,7 @@ int conectar(char ip_text[]){
 
 	IPaddress ip;
 
-	if(SDLNet_ResolveHost(&ip,"localhost",1234) < 0){
+	if(SDLNet_ResolveHost(&ip,ip_text,1234) < 0){
         return 1;
 	}
 
