@@ -14,22 +14,11 @@
 
 
 
-void fase1(SDL_Surface *screen,string qual_maquina){
+void fase1(SDL_Surface *screen,string qual_maquina,Pais *pais_serv, Pais *pais_client){
 
     FPS = 150;
-    Pais *china = new Pais();
-    string nome = "China";
-    string cor = "vermelho";
-    setar_pais(china, 50, 100, 50, nome, cor);
-    Pais *eua = new Pais();
-    nome = "EUA";
-    cor = "azul";
-    setar_pais(eua, 100, 50, 50, nome, cor);
 
-    char pais_serv[100] = "china";
-    char pais_client[100] = "eua";
-
-    carregar_fase1(screen,pais_serv,pais_client);
+    //carregar_fase1(screen,pais_serv,pais_client);
     int lastdt = SDL_GetTicks();
     int totalElapsedTime = 0;
     int delay = 200;
@@ -50,7 +39,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             //memset (codigo_s,'0',100);
             if(minha_vez){
 
-                blit_cima(china,screen); //verifica_hexagono.cpp
+                blit_cima(pais_serv,screen); //verifica_hexagono.cpp
                 desenha_pontos(pontos_jogador1, screen); //fase1.cpp
                 vetor = get_Input();
                 string palavra = "Sua vez.";
@@ -75,7 +64,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                             blit_tela(screen,1);
                             blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
-                            blit_cima(china,screen);
+                            blit_cima(pais_serv,screen);
                             while(1){
                                 start1 = SDL_GetTicks();
                                 vetor = get_Input();
@@ -87,6 +76,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         //cout<<"VÉSH"<<endl;
                                         break;
                                     }
+
                                     if(alcance_ataque_soldado()){
 
                                         codifica_ataque(codigo_s);
@@ -126,12 +116,12 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     }
 
                                     if(alcance_movimento_soldado()){
-                                        cout << "aqui:" << hexagonos[7][9]->construcao->tipo << endl;
-                                        if(hexagonos[7][9]->construcao->tipo == "mina" && hexagonos[7][9]->construcao->conquistado == 0){
+
+                                        /*if(hexagonos[7][9]->construcao->tipo == "mina" && hexagonos[7][9]->construcao->conquistado == 0){
                                             hexagonos[7][9]->construcao->conquistado = 1;
                                             minerio_vermelho += 20;
                                             break;
-                                        }
+                                        }*/
                                         strcpy (codigo_s,"00");
                                         codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
                                         codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
@@ -147,15 +137,15 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         if(pontos_jogador1<3){
                                             minha_vez = 0;
                                             pontos_jogador1 = 20;
-                                            coleta_minerio(china, minerio_vermelho);
-                                            coleta_ouro(china, ouro_vermelho);
-                                            coleta_comida(china, comida_vermelha);
+                                            coleta_minerio(pais_serv, minerio_vermelho);
+                                            coleta_ouro(pais_serv, ouro_vermelho);
+                                            coleta_comida(pais_serv, comida_vermelha);
                                         }
                                         break;
                                     }
                                         else{
                                             blit_tela(screen,0);
-                                            blit_cima(china,screen);
+                                            blit_cima(pais_serv,screen);
                                             break;
                                         }
                                 }
@@ -166,7 +156,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         }
                         //verifica_derrota(screen);
                         blit_tela(screen,0);
-                        blit_cima(china,screen);
+                        blit_cima(pais_serv,screen);
                     }
 
 
@@ -200,7 +190,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
                 else{
 
-                    blit_cima(china,screen);
+                    blit_cima(pais_serv,screen);
                     string palavra = "Vez do outro jogador.";
                     blit_tela(screen,0);
                     desenha_texto(palavra,screen,845, 38, 25);
@@ -248,7 +238,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
 
 
     else{
-        blit_cima(eua,screen);
+        blit_cima(pais_client,screen);
         minha_vez = 0;
         red = 0;
         green = 200;
@@ -258,7 +248,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             start12 = SDL_GetTicks();
             if(minha_vez == 0){
 
-                blit_cima(eua,screen);
+                blit_cima(pais_client,screen);
                 string palavra = "Vez do outro jogador.";
                 blit_tela(screen,0);
                 desenha_texto(palavra,screen,845, 38, 25);
@@ -306,7 +296,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
             }
             else{
 
-                blit_cima(eua,screen);
+                blit_cima(pais_client,screen);
                 desenha_pontos(pontos_jogador2, screen);
                 //cout<<"eu cliente, fui até aqui"<<endl;
                 vetor = get_Input();
@@ -324,13 +314,13 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         hex_selecao->i_antes = hex_selecao->i;
                         hex_selecao->j_antes = hex_selecao->j;
                         if(possui_unidade("azul")){
-                            blit_cima(eua,screen);
+                            blit_cima(pais_client,screen);
                             blit_tela(screen,1);
                             blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
                                     while(1){
                                         start1 = SDL_GetTicks();
-                                        blit_cima(eua,screen);
+                                        blit_cima(pais_client,screen);
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
@@ -391,9 +381,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;
                                                     pontos_jogador2 = 20;
-                                                    coleta_minerio(eua, minerio_vermelho);
-                                                    coleta_ouro(eua, ouro_vermelho);
-                                                    coleta_comida(eua, comida_vermelha);
+                                                    coleta_minerio(pais_client, minerio_vermelho);
+                                                    coleta_ouro(pais_client, ouro_vermelho);
+                                                    coleta_comida(pais_client, comida_vermelha);
                                                 }
                                                 if((azulganha == 1) && (vermelhoperde == 1)){
                                                     venceu_jogo(screen);
@@ -405,7 +395,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                             }
                                                 else{
                                                         blit_tela(screen,0);
-                                                        blit_cima(eua,screen);
+                                                        blit_cima(pais_client,screen);
                                                         break;
                                                 }
 
@@ -417,7 +407,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     }
                         }
                         blit_tela(screen,0);
-                        blit_cima(eua,screen);
+                        blit_cima(pais_client,screen);
 
                     }
 

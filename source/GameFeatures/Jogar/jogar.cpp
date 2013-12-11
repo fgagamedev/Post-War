@@ -150,6 +150,9 @@ void escolha_mapa(SDL_Surface *screen){
 
     start = 0;
 
+    char pais_serv[100] = "china";
+    char pais_client[100] = "eua";
+
     while(1){
         start = SDL_GetTicks();
         vetor = get_Input();
@@ -162,7 +165,16 @@ void escolha_mapa(SDL_Surface *screen){
 
                 strcpy(codigo_s,"1");
                 enviar_msg(Sclient,codigo_s);
-                fase1(screen,"servidor");
+                Pais *china = new Pais();
+                string nome = "China";
+                string cor = "vermelho";
+                setar_pais(china, 50, 100, 50, nome, cor);
+                Pais *eua = new Pais();
+                nome = "EUA";
+                cor = "azul";
+                setar_pais(eua, 100, 50, 50, nome, cor);
+                carregar_fase1(screen,pais_serv,pais_client);
+                fase1(screen,"servidor",china,eua);
             }
         }   ///Fase2
             else if(compara_selecao(253, 397, vetor->x, 333, 499, vetor->y)){
@@ -172,7 +184,16 @@ void escolha_mapa(SDL_Surface *screen){
                 if(vetor->click == 1){
                     strcpy(codigo_s,"2");
                     enviar_msg(Sclient,codigo_s);
-                    fase2(screen,"servidor");
+                    Pais *franca = new Pais();
+                    string nome = "França";
+                    string cor = "vermelho";
+                    setar_pais(franca, 50, 50, 100, nome, cor);
+                    Pais *uk = new Pais();
+                    nome = "UK";
+                    cor = "azul";
+                    setar_pais(uk, 100, 40, 50, nome, cor);
+                    carregar_fase2(screen,pais_serv,pais_client);
+                    fase1(screen,"servidor",franca,uk);
                 }
             }
 
@@ -184,7 +205,16 @@ void escolha_mapa(SDL_Surface *screen){
                     if(vetor->click == 1){
                         strcpy(codigo_s,"3");
                         enviar_msg(Sclient,codigo_s);
-                        fase3(screen,"servidor");
+                        Pais *urss = new Pais();
+                        string nome = "URSS";
+                        string cor = "vermelho";
+                        setar_pais(urss, 50, 100, 40, nome, cor);
+                        Pais *uk = new Pais();
+                        nome = "UK";
+                        cor = "azul";
+                        setar_pais(uk, 100, 40, 50, nome, cor);
+                        carregar_fase3(screen,pais_serv,pais_client);
+                        fase1(screen,"servidor",urss,uk);
                     }
                 }
                     ///Fase4
@@ -195,7 +225,16 @@ void escolha_mapa(SDL_Surface *screen){
                         if(vetor->click == 1){
                             strcpy(codigo_s,"4");
                             enviar_msg(Sclient,codigo_s);
-                            fase4(screen,"servidor");
+                            Pais *urss = new Pais();
+                            string nome = "URSS";
+                            string cor = "vermelho";
+                            setar_pais(urss, 50, 100, 40, nome, cor);
+                            Pais *china = new Pais();
+                            nome = "China";
+                            cor = "azul";
+                            setar_pais(china, 50, 100, 50, nome, cor);
+                            carregar_fase4(screen,pais_serv,pais_client);
+                            fase1(screen,"servidor",urss,china);
                         }
                     }
                         ///Fase5
@@ -206,7 +245,16 @@ void escolha_mapa(SDL_Surface *screen){
                             if(vetor->click == 1){
                                 strcpy(codigo_s,"5");
                                 enviar_msg(Sclient,codigo_s);
-                                fase5(screen,"servidor");
+                                Pais *franca = new Pais();
+                                string nome = "França";
+                                string cor = "vermelho";
+                                setar_pais(franca, 50, 50, 100, nome, cor);
+                                Pais *eua = new Pais();
+                                nome = "EUA";
+                                cor = "azul";
+                                setar_pais(eua, 100, 50, 50, nome, cor);
+                                carregar_fase5(screen,pais_serv,pais_client);
+                                fase1(screen,"servidor",franca,eua);
                             }
                         }
                         ///Voltar
@@ -268,19 +316,69 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
             BlitImage(screen,aguardando_servidor,0,0);
             SDL_Flip(screen);
             receber_msg(Cserver,code_recv);
-            if(strcmp(code_recv,"1")==0)
-                fase1(screen,"cliente");
+            char pais_serv[100] = "china";
+            char pais_client[100] = "eua";
+
+            carregar_fase1(screen,pais_serv,pais_client);
+            if(strcmp(code_recv,"1")==0){
+                Pais *china = new Pais();
+                string nome = "China";
+                string cor = "vermelho";
+                setar_pais(china, 50, 100, 50, nome, cor);
+                Pais *eua = new Pais();
+                nome = "EUA";
+                cor = "azul";
+                setar_pais(eua, 100, 50, 50, nome, cor);
+                carregar_fase1(screen,pais_serv,pais_client);
+                fase1(screen,"cliente",china,eua);
+            }
                 else if (strcmp(code_recv,"2")==0){
-                    fase2(screen,"cliente");
+                    Pais *franca = new Pais();
+                    string nome = "França";
+                    string cor = "vermelho";
+                    setar_pais(franca, 50, 50, 100, nome, cor);
+                    Pais *uk = new Pais();
+                    nome = "UK";
+                    cor = "azul";
+                    setar_pais(uk, 100, 40, 50, nome, cor);
+                    carregar_fase2(screen,pais_serv,pais_client);
+                    fase1(screen,"cliente",franca,uk);
                 }
                     else if (strcmp(code_recv, "3")==0){
-                        fase3(screen,"cliente");
+                        Pais *urss = new Pais();
+                        string nome = "URSS";
+                        string cor = "vermelho";
+                        setar_pais(urss, 50, 100, 40, nome, cor);
+                        Pais *uk = new Pais();
+                        nome = "UK";
+                        cor = "azul";
+                        setar_pais(uk, 100, 40, 50, nome, cor);
+                        carregar_fase3(screen,pais_serv,pais_client);
+                        fase1(screen,"cliente",urss,uk);
                     }
                         else if (strcmp(code_recv, "4")==0){
-                            fase4(screen,"cliente");
+                            Pais *urss = new Pais();
+                            string nome = "URSS";
+                            string cor = "vermelho";
+                            setar_pais(urss, 50, 100, 40, nome, cor);
+                            Pais *china = new Pais();
+                            nome = "China";
+                            cor = "azul";
+                            setar_pais(china, 50, 100, 50, nome, cor);
+                            carregar_fase4(screen,pais_serv,pais_client);
+                            fase1(screen,"cliente",urss,china);
                         }
                             else if (strcmp(code_recv, "5")==0){
-                                fase5(screen,"cliente");
+                                Pais *franca = new Pais();
+                                string nome = "França";
+                                string cor = "vermelho";
+                                setar_pais(franca, 50, 50, 100, nome, cor);
+                                Pais *eua = new Pais();
+                                nome = "EUA";
+                                cor = "azul";
+                                setar_pais(eua, 100, 50, 50, nome, cor);
+                                carregar_fase5(screen,pais_serv,pais_client);
+                                fase1(screen,"cliente",franca,eua);
                             }
             }
         }

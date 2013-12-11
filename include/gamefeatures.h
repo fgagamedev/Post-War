@@ -112,7 +112,7 @@ extern void load_menu(SDL_Surface *screen);
 extern void inicio(SDL_Surface *screen);
 extern void opcoes(SDL_Surface *screen);
 extern void creditos(SDL_Surface *screen);
-extern void fase1(SDL_Surface *screen,string qual_maquina);
+extern void fase1(SDL_Surface *screen,string zuera,Pais *pais,Pais *pais1);
 extern void fase2(SDL_Surface *screen,string qual_maquina);
 extern void fase3(SDL_Surface *screen,string qual_maquina);
 extern void fase4(SDL_Surface *screen,string qual_maquina);
