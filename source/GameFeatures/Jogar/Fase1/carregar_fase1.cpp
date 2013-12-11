@@ -88,7 +88,13 @@ void mapeia_hexagono(){
         }
     }*/
 
-
+    hexagonos[1][12]->obstaculo =1;
+    hexagonos[1][3]->obstaculo =1;
+    hexagonos[10][6]->obstaculo =1;
+    hexagonos[11][10]->obstaculo =1;
+    hexagonos[12][11]->obstaculo =1;
+    hexagonos[12][0]->obstaculo =1;
+    hexagonos[13][0]->obstaculo =1;
 
 }
 

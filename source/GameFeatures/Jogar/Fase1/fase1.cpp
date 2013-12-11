@@ -70,7 +70,8 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
                         hex_selecao->i_antes = hex_selecao->i;
                         hex_selecao->j_antes = hex_selecao->j;
-                        if(possui_unidade("vermelho") && !hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo){
+
+                        if(possui_unidade("vermelho") ){
                             blit_tela(screen,1);
                             blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);
@@ -82,7 +83,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     //cout<<"What?"<<endl;
                                     verifica_hexagono(vetor->x,vetor->y);
 
-                                    if(possui_unidade("vermelho")){
+                                    if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
                                         //cout<<"VÉSH"<<endl;
                                         break;
                                     }
@@ -343,7 +344,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         vetor = get_Input();
                                         if(vetor->click == 1){
                                             verifica_hexagono(vetor->x,vetor->y);
-                                            if(possui_unidade("azul")){
+                                            if(possui_unidade("azul") || (hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo && hexagonos[hex_selecao->i_antes][hex_selecao->j_antes]->unidade->tipo != "helicoptero")){
                                                 break;
                                             }
                                             if(alcance_ataque_soldado()){
