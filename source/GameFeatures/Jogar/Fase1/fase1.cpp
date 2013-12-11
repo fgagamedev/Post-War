@@ -109,11 +109,7 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                             vermelhoganha = 1;
                                             vermelhoperde = 0;
                                         }
-                                        cout << "cout 1" << endl;
-                                        cout << "Vermelho perde:" << vermelhoperde << endl;
-                                        cout << "Vermelho ganha:" << vermelhoganha << endl;
-                                        cout << "Azul perde:" << azulperde << endl;
-                                        cout << "Azul ganha:" << azulganha << endl;
+
 
                                         pontos_jogador1 -= 6;
                                         if(pontos_jogador1<3){
@@ -144,7 +140,8 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                             minha_vez = 0;
                                             pontos_jogador1 = 20;
                                             coleta_minerio(china, minerio_vermelho);
-                                            minerio_vermelho += 5;
+                                            coleta_ouro(china, ouro_vermelho);
+                                            coleta_comida(china, comida_vermelha);
                                         }
                                         break;
                                     }
@@ -180,11 +177,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     vermelhoganha = 1;
                     vermelhoperde = 0;
                 }
-                cout << "cout 2" << endl;
-                cout << "Vermelho perde:" << vermelhoperde << endl;
-                cout << "Vermelho ganha:" << vermelhoganha << endl;
-                cout << "Azul perde:" << azulperde << endl;
-                cout << "Azul ganha:" << azulganha << endl;
 
                 if(azulganha == 1 && vermelhoperde == 1){
                     perdeu_jogo(screen);
@@ -230,11 +222,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                         vermelhoganha = 1;
                         vermelhoperde = 0;
                     }
-                    cout << "cout 3" << endl;
-                    cout << "Vermelho perde:" << vermelhoperde << endl;
-                    cout << "Vermelho ganha:" << vermelhoganha << endl;
-                    cout << "Azul perde:" << azulperde << endl;
-                    cout << "Azul ganha:" << azulganha << endl;
 
                     if(pontos_jogador2<3){
                         minha_vez = 1;
@@ -296,11 +283,6 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                     azulperde = 1;
                     azulganha = 0;
                 }
-                cout << "cout 4" << endl;
-                cout << "Vermelho perde:" << vermelhoperde << endl;
-                cout << "Vermelho ganha:" << vermelhoganha << endl;
-                cout << "Azul perde:" << azulperde << endl;
-                cout << "Azul ganha:" << azulganha << endl;
 
                 if(pontos_jogador1<3){
                     minha_vez = 1;
@@ -401,6 +383,9 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;
                                                     pontos_jogador2 = 20;
+                                                    coleta_minerio(eua, minerio_vermelho);
+                                                    coleta_ouro(eua, ouro_vermelho);
+                                                    coleta_comida(eua, comida_vermelha);
                                                 }
                                                 if((azulganha == 1) && (vermelhoperde == 1)){
                                                     venceu_jogo(screen);

@@ -57,7 +57,7 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                 red = 255;
                 green = 0;
                 blue = 0;
-                desenha_texto(palavra,screen,200, 200, 60);
+                desenha_texto(palavra,screen,850, 38, 35);
 
                 if(vetor->click == 1){
 
@@ -194,7 +194,7 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                     blit_cima(franca,screen);
                     string palavra = "Vez do outro jogador.";
                     blit_tela(screen,0);
-                    desenha_texto(palavra,screen,200, 200, 60);
+                    desenha_texto(palavra,screen,845, 38, 25);
                     if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
                         SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
                     }
@@ -252,7 +252,7 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                 blit_cima(eua,screen);
                 string palavra = "Vez do outro jogador.";
                 blit_tela(screen,0);
-                desenha_texto(palavra,screen,200, 200, 60);
+                desenha_texto(palavra,screen,845, 38, 25);
                 if((unsigned)(SDL_GetTicks() - start) < (unsigned)(1000/FPS)){
                         SDL_Delay((1000/FPS) - (SDL_GetTicks() - start));
                 }
@@ -303,7 +303,7 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                 //cout<<"eu cliente, fui até aqui"<<endl;
                 vetor = get_Input();
                 string palavra = "Sua vez.";
-                desenha_texto(palavra,screen,200, 200, 60);
+                desenha_texto(palavra,screen,850, 38, 35);
 
                 if(vetor->click == 1){
 
