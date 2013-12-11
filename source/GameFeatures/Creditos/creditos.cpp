@@ -63,6 +63,10 @@ void creditos(SDL_Surface *screen){
     SDL_Surface *creditos1= load_Image(creditos_path1, screen);
     string creditos_path2 = "source/GameFeatures/Creditos/Images/nome_creditos2.png";
     SDL_Surface *creditos2= load_Image(creditos_path2, screen);
+    string creditos_path3 = "source/GameFeatures/Creditos/Images/nome_creditos3.png";
+    SDL_Surface *creditos3= load_Image(creditos_path3, screen);
+    string creditos_path4 = "source/GameFeatures/Creditos/Images/nome_creditos4.png";
+    SDL_Surface *creditos4= load_Image(creditos_path4, screen);
     string credito = "source/GameFeatures/Creditos/Images/botaoDeSair.png";
     botao_sair =  load_Image(credito, screen);
 
@@ -75,6 +79,8 @@ void creditos(SDL_Surface *screen){
     RunImage(screen, creditos, telapreta);
     RunImage(screen, creditos1, telapreta);
     RunImage(screen, creditos2, telapreta);
+	RunImage(screen, creditos3, telapreta);
+	RunImage(screen, creditos4, telapreta);	
     RunImage(screen, bryj, telapreta);
     RunImage(screen, sdl, telapreta);
     RunImage(screen, ubuntu, telapreta);
