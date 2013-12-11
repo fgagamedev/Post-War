@@ -70,7 +70,7 @@ void fase2(SDL_Surface *screen,string qual_maquina){
                     //if(compara_selecao(unidades_vermelhas[0]->x, unidades_vermelhas[0]->x+32, vetor->x, unidades_vermelhas[0]->y, unidades_vermelhas[0]->y+32, vetor->y)){
                         hex_selecao->i_antes = hex_selecao->i;
                         hex_selecao->j_antes = hex_selecao->j;
-                        if(possui_unidade("vermelho") && !hexagonos[hex_selecao->i][hex_selecao->j]->obstaculo){
+                        if(possui_unidade("vermelho") ){
                             blit_tela(screen,1);
                             blit_selecao(screen);
                             blit_lateral(hexagonos[hex_selecao->i][hex_selecao->j]->unidade,screen);

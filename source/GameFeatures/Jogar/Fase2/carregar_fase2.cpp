@@ -65,6 +65,11 @@ void carregar_fase2(SDL_Surface *screen, char pais_serv[],char pais_client[]){
     hexagonos[19][10]->obstaculo =1;
     hexagonos[8][11]->obstaculo =1;
     hexagonos[9][10]->obstaculo =1;
+    hexagonos[18][9]->obstaculo =1;
+    hexagonos[2][10]->obstaculo =1;
+    hexagonos[14][4]->obstaculo =1;
+    hexagonos[10][11]->obstaculo =1;
+
 
         string escolha = "servidor";
         carrega_franca(screen,escolha);
