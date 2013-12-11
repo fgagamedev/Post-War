@@ -117,11 +117,14 @@ void fase1(SDL_Surface *screen,string qual_maquina,Pais *pais_serv, Pais *pais_c
 
                                     if(alcance_movimento_soldado()){
 
-                                        /*if(hexagonos[7][9]->construcao->tipo == "mina" && hexagonos[7][9]->construcao->conquistado == 0){
-                                            hexagonos[7][9]->construcao->conquistado = 1;
+                                        if(hexagonos[hex_selecao->i][hex_selecao->j]->mina == 1){
+                                            if(hexagonos[2][8]->construcao->conquistado == 1){
+                                                break;
+                                            }
                                             minerio_vermelho += 20;
+                                            ouro_vermelho += 20;
                                             break;
-                                        }*/
+                                        }
                                         strcpy (codigo_s,"00");
                                         codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
                                         codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
@@ -349,12 +352,6 @@ void fase1(SDL_Surface *screen,string qual_maquina,Pais *pais_serv, Pais *pais_c
                                                     azulganha = 0;
                                                 }
 
-                                                cout << "cout 5" << endl;
-                                                cout << "Vermelho perde:" << vermelhoperde << endl;
-                                                cout << "Vermelho ganha:" << vermelhoganha << endl;
-                                                cout << "Azul perde:" << azulperde << endl;
-                                                cout << "Azul ganha:" << azulganha << endl;
-
                                                 pontos_jogador2 -= 6;
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;
@@ -366,6 +363,15 @@ void fase1(SDL_Surface *screen,string qual_maquina,Pais *pais_serv, Pais *pais_c
 
 
                                             if(alcance_movimento_soldado()){
+
+                                                if(hexagonos[hex_selecao->i][hex_selecao->j]->mina == 1){
+                                                    if(hexagonos[2][8]->construcao->conquistado == 1){
+                                                        break;
+                                                    }
+                                                    minerio_vermelho += 20;
+                                                    ouro_vermelho += 20;
+                                                    break;
+                                                }
 
                                                 strcpy (codigo_s,"00");
                                                 codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);

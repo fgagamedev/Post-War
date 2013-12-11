@@ -43,6 +43,7 @@ typedef struct _Hexagonos{
 	int indice;
 	bool contem_unidade : 1;
 	bool obstaculo : 1;
+	int mina;
 	Unidade *unidade;
 	Construcao *construcao;
 	int centro_x;

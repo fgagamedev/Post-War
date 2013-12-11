@@ -65,7 +65,7 @@ void blit_tela(SDL_Surface *screen, int tela){
                                     BlitImage(screen,hexagonos[2][13]->unidade->nome,hexagonos[2][13]->x,hexagonos[2][13]->y);
                             }
                 }
-                //BlitImage(screen, hexagonos[7][9]->construcao->nome, hexagonos[7][9]->x, hexagonos[7][9]->y);
+                BlitImage(screen, hexagonos[2][8]->construcao->nome, hexagonos[2][8]->x, hexagonos[2][8]->y);
             }
     }
 }

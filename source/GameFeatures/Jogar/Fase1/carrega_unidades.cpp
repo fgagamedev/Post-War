@@ -116,14 +116,10 @@ void carrega_construcoes(SDL_Surface *screen){
     SDL_Surface *mina = load_Image(caminho, screen);
     setar_construcao(construcao, mina, tipo, ganho, conquistado);
 
-    SDL_Rect dst;
-    dst.x = hexagonos[7][9]->x;
-    dst.y = hexagonos[7][9]->y;
-    dst.h = 0;
-    dst.w = 0;
     //SDL_BlitSurface(mina, &cutBox,  screen, &dst);
-    BlitImage(screen,mina,hexagonos[7][9]->x,hexagonos[7][9]->y);
-    hexagonos[7][9]->construcao = construcao;
+    BlitImage(screen,mina,hexagonos[2][8]->x,hexagonos[2][8]->y);
+    hexagonos[2][8]->construcao = construcao;
+    hexagonos[2][8]->mina = 1;
 
 }
 

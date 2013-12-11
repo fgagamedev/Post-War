@@ -16,6 +16,18 @@ SDL_Surface *nome1;
 
 
 void evolucao_soldado(Pais *pais){
+    pais->ouro -= 30;
+    if(pais->ouro < 0){
+        return;
+    }
+    pais->minerio -= 50;
+    if(pais->minerio < 0){
+        return;
+    }
+    pais->comida -= 20;
+    if(pais->comida <0){
+        return;
+    }
     for(unsigned int i=0;i<hexagonos.size();i++){
         for(unsigned int j=0;j<hexagonos[i].size();j++){
             if(hexagonos[i][j]->contem_unidade==1){
@@ -29,21 +41,21 @@ void evolucao_soldado(Pais *pais){
             }
         }
     }
-    pais->ouro -= 30;
-    if(pais->ouro < 0){
-        pais->ouro = 0;
-    }
-    pais->minerio -= 50;
-    if(pais->minerio < 0){
-        pais->minerio = 0;
-    }
-    pais->comida -= 20;
-    if(pais->comida <0){
-        pais->comida = 0;
-    }
 }
 
 void evolucao_quartel(Pais *pais){
+    pais->ouro -= 50;
+    if(pais->ouro < 0){
+        return;
+    }
+    pais->minerio -= 50;
+    if(pais->minerio < 0){
+        return;
+    }
+    pais->comida -= 40;
+    if(pais->comida <0){
+        return;
+    }
     for(unsigned int i=0;i<hexagonos.size();i++){
         for(unsigned int j=0;j<hexagonos[i].size();j++){
             if(hexagonos[i][j]->contem_unidade==1){
@@ -66,17 +78,5 @@ void evolucao_quartel(Pais *pais){
                 }
             }
         }
-    }
-    pais->ouro -= 50;
-    if(pais->ouro < 0){
-        pais->ouro = 0;
-    }
-    pais->minerio -= 50;
-    if(pais->minerio < 0){
-        pais->minerio = 0;
-    }
-    pais->comida -= 40;
-    if(pais->comida <0){
-        pais->comida = 0;
     }
 }
