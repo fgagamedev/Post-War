@@ -319,7 +319,6 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
             char pais_serv[100] = "china";
             char pais_client[100] = "eua";
 
-            carregar_fase1(screen,pais_serv,pais_client);
             if(strcmp(code_recv,"1")==0){
                 Pais *china = new Pais();
                 string nome = "China";
