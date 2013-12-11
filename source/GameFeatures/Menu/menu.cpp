@@ -18,15 +18,6 @@ Mix_Music *musica_creditos;
 Mix_Chunk *efeito_click;
 Mix_Chunk *efeito_selecao_cancelar;
 
-
-//void init();
-//void carregar();
-Mix_Chunk *carregarSom(const char *nome);
-Mix_Music *carregarMus(const char *nome);
-void descarregar();
-void play_music(struct _Mix_Music *nome_da_musica);
-void play_effect(struct Mix_Chunk *nome_do_efeito);
-
 int start;
 int FPS=150;
 
@@ -129,7 +120,9 @@ void load_menu(SDL_Surface *screen){
                                     SDL_Flip(screen);
 
                                     if(vetor->click == 1){
-										play_effect(efeito_click);
+										Mix_VolumeChunk(efeito_selecao_cancelar, 20);
+										play_effect(efeito_selecao_cancelar);
+										SDL_Delay(500);
 										descarregar();
                                         Mix_CloseAudio();
                                         SDL_Quit();
