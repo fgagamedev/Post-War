@@ -10,7 +10,7 @@
 using namespace std;
 
 
-void carregar_fase4(SDL_Surface *screen, char pais_serv[],char pais_client[]){
+void carregar_fase4(SDL_Surface *screen){
 
 
     hex_selecao = new Hex_selecao();
@@ -89,12 +89,10 @@ void carregar_fase4(SDL_Surface *screen, char pais_serv[],char pais_client[]){
     hexagonos[14][10]->obstaculo =1;
     hexagonos[16][10]->obstaculo =1;
     hexagonos[18][10]->obstaculo =1;
-        string escolha = "servidor";
-        carrega_urss(screen,escolha);
+        carrega_urss(screen);
 
 
-        escolha = "cliente";
-        carrega_china_azul(screen,escolha);
+        carrega_china_azul(screen);
         carrega_construcoes(screen);
 /*
     for(int i=0; i<hexagonos.size();i++){

@@ -108,6 +108,9 @@ void setar_construcao(Construcao *construcao, SDL_Surface *nome, string tipo, in
 }
 
 void carrega_construcoes(SDL_Surface *screen){
+
+    if(screen){
+    }
     /*Construcao *construcao = new Construcao();
     string tipo = "mina";
     int ganho = 20;
@@ -123,7 +126,7 @@ void carrega_construcoes(SDL_Surface *screen){
 
 }
 
-void carrega_china(SDL_Surface *screen,string lado){
+void carrega_china(SDL_Surface *screen){
 
     string lado1("servidor");
     string cor = "vermelho";
@@ -213,7 +216,7 @@ void carrega_china(SDL_Surface *screen,string lado){
 	//drawCircle(screen, 20, 78, 157, blue);
 }
 
-void carrega_eua(SDL_Surface *screen,string lado){
+void carrega_eua(SDL_Surface *screen){
 
     string lado2("cliente");
     string cor2 = "azul";

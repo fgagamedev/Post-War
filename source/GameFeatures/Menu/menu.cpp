@@ -17,7 +17,7 @@ Mix_Music *musica_tela_de_opcoes;
 Mix_Music *musica_creditos;
 Mix_Chunk *efeito_click;
 Mix_Chunk *efeito_selecao_cancelar;
-
+int secreto =0;
 int start;
 int FPS=150;
 
@@ -47,6 +47,12 @@ void load_menu(SDL_Surface *screen){
 
     string path = "source/GameFeatures/Menu/Images/menu.png";
     SDL_Surface *menu = load_Image(path, screen);
+
+    string path_easter = "source/GameFeatures/Menu/Images/easter.png";
+    SDL_Surface *easter = load_Image(path_easter, screen);
+
+    string breve = "source/GameFeatures/Menu/Images/embreve.png";
+    SDL_Surface *embreve = load_Image(breve, screen);
 
 	//Tocando a musica
 	init();
@@ -97,6 +103,20 @@ void load_menu(SDL_Surface *screen){
 
                             if(vetor->click == 1){
 								play_effect(efeito_click);
+								secreto++;
+
+								if(secreto == 1){
+                                    BlitImage(screen,embreve,478,211);
+                                    SDL_Flip(screen);
+                                    SDL_Delay(1000);
+								}
+
+								if(secreto == 10){
+                                    BlitImage(screen,easter,478,211);
+                                    SDL_Flip(screen);
+                                    SDL_Delay(2000);
+                                    secreto =0;
+								}
                             }
                     }
 

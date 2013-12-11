@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void carrega_urss(SDL_Surface *screen,string lado){
+void carrega_urss(SDL_Surface *screen){
 
     string lado1("servidor");
     string cor = "vermelho";

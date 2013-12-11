@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void carrega_franca(SDL_Surface *screen,string lado){
+void carrega_franca(SDL_Surface *screen){
 
     string lado1("servidor");
     string cor = "vermelho";
@@ -131,7 +131,7 @@ void carrega_franca(SDL_Surface *screen,string lado){
 	//drawCircle(screen, 20, 78, 157, blue);
 }
 
-void carrega_uk(SDL_Surface *screen, string lado){
+void carrega_uk(SDL_Surface *screen){
 
 
     string lado2("cliente");

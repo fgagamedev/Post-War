@@ -1,4 +1,4 @@
-OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o coleta_recursos.o opcoes.o carregar_fase2.o carrega_unidades2.o fase2.o carregar_fase3.o carrega_unidades3.o fase3.o carregar_fase4.o carrega_unidades4.o fase4.o carregar_fase5.o fase5.o 
+OBJ=collision.o input.o misktasks.o network.o simulated.o updateobjects.o update_time.o renderworld.o PostWar.o draw.o video.o load_image.o menu.o jogar.o creditos.o client.o server.o fase1.o carregar_fase1.o fontes.o carrega_unidades.o mover_unidade.o blit_tela.o audio.o condicao_fim_do_jogo.o verifica_hexagono.o ataque_unidade.o dano_ataque.o venceu_perdeu.o evolucao.o coleta_recursos.o opcoes.o carregar_fase2.o carrega_unidades2.o carregar_fase3.o carrega_unidades3.o carregar_fase4.o carrega_unidades4.o  carregar_fase5.o 
 COLL=source/features/Collision/collision.cpp
 INP=source/features/Input/input.cpp
 MISC=source/features/MiscTasks/misktasks.cpp
@@ -79,14 +79,6 @@ server.o: $(SERVER)
 	g++ -c $(SERVER) $(CFLAGS)
 fase1.o: $(FASE1)
 	g++ -c $(FASE1) $(CFLAGS)
-fase2.o:$(FASE2)
-	g++ -c $(FASE2) $(CFLAGS)
-fase3.o:$(FASE3)
-	g++ -c $(FASE3) $(CFLAGS)
-fase4.o:$(FASE4)
-	g++ -c $(FASE4) $(CFLAGS)
-fase5.o:$(FASE5)
-	g++ -c $(FASE5) $(CFLAGS)
 carregar_fase1.o: $(CARREGA_FASE1)
 	g++ -c $(CARREGA_FASE1) $(CFLAGS)
 carregar_fase2.o: $(CARREGAR_FASE2)

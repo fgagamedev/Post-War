@@ -91,7 +91,7 @@ void mapeia_hexagono(){
 
 }
 
-void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
+void carregar_fase1(SDL_Surface *screen){
 
 
 
@@ -148,15 +148,11 @@ void carregar_fase1(SDL_Surface *screen, char pais_serv[],char pais_client[]){
     hexagonos[13][0]->obstaculo =1;
 
 
-    if(strcmp("china",pais_serv) == 0){
-        string escolha = "servidor";
-        carrega_china(screen,escolha);
-    }
 
-    if(strcmp("eua",pais_client)==0){
-        string escolha = "cliente";
-        carrega_eua(screen,escolha);
-    }
+        carrega_china(screen);
+        carrega_eua(screen);
+
+
     carrega_construcoes(screen);
 /*
     for(int i=0; i<hexagonos.size();i++){

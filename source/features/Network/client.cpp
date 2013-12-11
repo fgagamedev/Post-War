@@ -21,7 +21,5 @@ int conectar(char ip_text[]){
     if(!Cserver)
         return 1;
 
-    cout<<"pra mim"<<endl;
-
     return 0;
 }

@@ -122,12 +122,13 @@ void inicio(SDL_Surface *screen){
             frame_delay(start);
             SDL_Flip(screen);
             if(vetor->click == 1){
-                cout<<"cliquei em servidor"<<endl;
                 BlitImage(screen,aguarda_cliente,0,0);
                 SDL_Flip(screen);
-                SDL_Thread *thread_mouse = SDL_CreateThread(eventos1,NULL);
+                //SDL_Thread *thread_mouse = SDL_CreateThread(eventos1,NULL);
                 int valida = criar_servidor();
-                SDL_KillThread(thread_mouse);
+                if(valida == 1)
+                    break;
+                //SDL_KillThread(thread_mouse);
                 //fase1(screen,"servidor");
                 escolha_mapa(screen);
             }
@@ -140,7 +141,6 @@ void inicio(SDL_Surface *screen){
                 frame_delay(start);
                 SDL_Flip(screen);
                 if(vetor->click == 1){
-                    cout << "cliquei em conectar" << endl;
                     //digitarnome(vetor, screen);
                     digitarip(vetor, screen);
                     BlitImage(screen,escolher,0,0);
@@ -172,7 +172,7 @@ void escolha_mapa(SDL_Surface *screen){
     SDL_Surface *partida_selecionado = load_Image (opcao, screen);
 
     opcao = "source/GameFeatures/Jogar/images/entrar-partida_selecionado.png";
-    SDL_Surface *entrar_selecionado = load_Image (opcao, screen);
+    //SDL_Surface *entrar_selecionado = load_Image (opcao, screen);
 
     opcao = "source/GameFeatures/Jogar/images/pais_selecionado.png";
     SDL_Surface *pais_selecionado = load_Image (opcao, screen);
@@ -184,9 +184,6 @@ void escolha_mapa(SDL_Surface *screen){
     Vetor_mouse *vetor = new Vetor_mouse;
 
     start = 0;
-
-    char pais_serv[100] = "china";
-    char pais_client[100] = "eua";
 
     while(1){
         start = SDL_GetTicks();
@@ -208,7 +205,7 @@ void escolha_mapa(SDL_Surface *screen){
                 nome = "EUA";
                 cor = "azul";
                 setar_pais(eua, 100, 50, 50, nome, cor);
-                carregar_fase1(screen,pais_serv,pais_client);
+                carregar_fase1(screen);
                 fase1(screen,"servidor",china,eua);
             }
         }   ///Fase2
@@ -227,7 +224,7 @@ void escolha_mapa(SDL_Surface *screen){
                     nome = "UK";
                     cor = "azul";
                     setar_pais(uk, 100, 40, 50, nome, cor);
-                    carregar_fase2(screen,pais_serv,pais_client);
+                    carregar_fase2(screen );
                     fase1(screen,"servidor",franca,uk);
                 }
             }
@@ -248,7 +245,7 @@ void escolha_mapa(SDL_Surface *screen){
                         nome = "UK";
                         cor = "azul";
                         setar_pais(uk, 100, 40, 50, nome, cor);
-                        carregar_fase3(screen,pais_serv,pais_client);
+                        carregar_fase3(screen );
                         fase1(screen,"servidor",urss,uk);
                     }
                 }
@@ -268,7 +265,7 @@ void escolha_mapa(SDL_Surface *screen){
                             nome = "China";
                             cor = "azul";
                             setar_pais(china, 50, 100, 50, nome, cor);
-                            carregar_fase4(screen,pais_serv,pais_client);
+                            carregar_fase4(screen );
                             fase1(screen,"servidor",urss,china);
                         }
                     }
@@ -288,7 +285,7 @@ void escolha_mapa(SDL_Surface *screen){
                                 nome = "EUA";
                                 cor = "azul";
                                 setar_pais(eua, 100, 50, 50, nome, cor);
-                                carregar_fase5(screen,pais_serv,pais_client);
+                                carregar_fase5(screen );
                                 fase1(screen,"servidor",franca,eua);
                             }
                         }
@@ -354,8 +351,6 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
             BlitImage(screen,aguardando_servidor,0,0);
             SDL_Flip(screen);
             receber_msg(Cserver,code_recv);
-            char pais_serv[100] = "china";
-            char pais_client[100] = "eua";
 
             if(strcmp(code_recv,"1")==0){
                 Pais *china = new Pais();
@@ -366,7 +361,7 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                 nome = "EUA";
                 cor = "azul";
                 setar_pais(eua, 100, 50, 50, nome, cor);
-                carregar_fase1(screen,pais_serv,pais_client);
+                carregar_fase1(screen );
                 fase1(screen,"cliente",china,eua);
             }
                 else if (strcmp(code_recv,"2")==0){
@@ -378,7 +373,7 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                     nome = "UK";
                     cor = "azul";
                     setar_pais(uk, 100, 40, 50, nome, cor);
-                    carregar_fase2(screen,pais_serv,pais_client);
+                    carregar_fase2(screen );
                     fase1(screen,"cliente",franca,uk);
                 }
                     else if (strcmp(code_recv, "3")==0){
@@ -390,7 +385,7 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                         nome = "UK";
                         cor = "azul";
                         setar_pais(uk, 100, 40, 50, nome, cor);
-                        carregar_fase3(screen,pais_serv,pais_client);
+                        carregar_fase3(screen );
                         fase1(screen,"cliente",urss,uk);
                     }
                         else if (strcmp(code_recv, "4")==0){
@@ -402,7 +397,7 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                             nome = "China";
                             cor = "azul";
                             setar_pais(china, 50, 100, 50, nome, cor);
-                            carregar_fase4(screen,pais_serv,pais_client);
+                            carregar_fase4(screen );
                             fase1(screen,"cliente",urss,china);
                         }
                             else if (strcmp(code_recv, "5")==0){
@@ -414,7 +409,7 @@ void digitarip(Vetor_mouse *vetor, SDL_Surface *screen){
                                 nome = "EUA";
                                 cor = "azul";
                                 setar_pais(eua, 100, 50, 50, nome, cor);
-                                carregar_fase5(screen,pais_serv,pais_client);
+                                carregar_fase5(screen );
                                 fase1(screen,"cliente",franca,eua);
                             }
             }

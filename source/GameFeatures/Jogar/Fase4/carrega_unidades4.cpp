@@ -11,7 +11,7 @@
 
 using namespace std;
 
-void carrega_china_azul(SDL_Surface *screen,string lado){
+void carrega_china_azul(SDL_Surface *screen){
 
     string lado2("cliente");
     string cor2 = "azul";

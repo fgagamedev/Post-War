@@ -18,9 +18,7 @@ void enviar_msg(TCPsocket maquina, char text[]){
 
 void receber_msg(TCPsocket maquina, char *text){
 
-    cout<<"Esperando servidor..."<<endl;
     SDLNet_TCP_Recv(maquina,text,100);
-    cout<<"ja esperei demais"<<endl;
 /*
     cout<<"ok let's go"<<endl;
     if(SDLNet_TCP_Recv(maquina, text, 300) > 0){
