@@ -138,7 +138,8 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                                             minha_vez = 0;
                                             pontos_jogador1 = 20;
                                             coleta_minerio(franca, minerio_vermelho);
-                                            minerio_vermelho += 5;
+                                            coleta_ouro(fraca, ouro_vermelho);
+                                            coleta_comida(franca, comida_vermelho);
                                         }
                                         break;
                                     }
@@ -379,6 +380,9 @@ void fase5(SDL_Surface *screen,string qual_maquina){
                                                 if(pontos_jogador2<3){
                                                     minha_vez = 0;
                                                     pontos_jogador2 = 20;
+                                                    coleta_minerio(eua, minerio_azul);
+                                                    coleta_ouro(eua, ouro_azul);
+                                                    coleta_comida(eua, comida_azul);
                                                 }
                                                 if((azulganha == 1) && (vermelhoperde == 1)){
                                                     venceu_jogo(screen);
