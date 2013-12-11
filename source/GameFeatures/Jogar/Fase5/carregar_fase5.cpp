@@ -54,6 +54,10 @@ void carregar_fase5(SDL_Surface *screen, char pais_serv[],char pais_client[]){
     hud2 = load_Image(caminho, screen);
     //BlitImage(screen, hud2, 977, 236);
     mapeia_hexagono();
+    hexagonos[19][1]->obstaculo =1;
+    hexagonos[19][6]->obstaculo =1;
+    hexagonos[3][9]->obstaculo =1;
+    hexagonos[6][11]->obstaculo =1;
 
         string escolha = "servidor";
         carrega_franca(screen,escolha);
