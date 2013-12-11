@@ -108,7 +108,7 @@ void setar_construcao(Construcao *construcao, SDL_Surface *nome, string tipo, in
 }
 
 void carrega_construcoes(SDL_Surface *screen){
-    Construcao *construcao = new Construcao();
+    /*Construcao *construcao = new Construcao();
     string tipo = "mina";
     int ganho = 20;
     int conquistado = 0;
@@ -119,7 +119,7 @@ void carrega_construcoes(SDL_Surface *screen){
     //SDL_BlitSurface(mina, &cutBox,  screen, &dst);
     BlitImage(screen,mina,hexagonos[2][8]->x,hexagonos[2][8]->y);
     hexagonos[2][8]->construcao = construcao;
-    hexagonos[2][8]->mina = 1;
+    hexagonos[2][8]->mina = 1;*/
 
 }
 
@@ -156,13 +156,7 @@ void carrega_china(SDL_Surface *screen,string lado){
         hexagonos[i*2][3]->unidade = unidades_azul[i];
         hexagonos[i*2][3]->contem_unidade = 1;
 
-        if(i==0){
-            hexagonos[7][12]->unidade = soldado;
-            hexagonos[7][12]->contem_unidade = 1;
-            dst.x = hexagonos[7][12]->x;
-            dst.y = hexagonos[7][12]->y;
-            SDL_BlitSurface(soldado->nome, &cutBox, screen, &dst);
-        }
+
         caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_cabana_vermelha.png";
         SDL_Surface *quartel_azul_cabana = load_Image(caminho, screen);
         Unidade *quartel_a = new Unidade();
