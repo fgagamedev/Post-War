@@ -100,21 +100,30 @@ void setar_pais(Pais *pais, int ouro, int comida, int minerio, string nome, stri
     pais->nome = nome;
     pais->cor = cor;
 }
-void setar_construcao(Construcao *construcao, SDL_Surface *nome, string tipo, int ganho){
+void setar_construcao(Construcao *construcao, SDL_Surface *nome, string tipo, int ganho, int conquistado){
     construcao->nome = nome;
     construcao->tipo = tipo;
     construcao->ganho = ganho;
+    construcao->conquistado = conquistado;
 }
 
 void carrega_construcoes(SDL_Surface *screen){
     Construcao *construcao = new Construcao();
     string tipo = "mina";
     int ganho = 20;
+    int conquistado = 0;
     string caminho = "source/GameFeatures/Jogar/Fase1/images/mina_de_ouro.png";
     SDL_Surface *mina = load_Image(caminho, screen);
-    setar_construcao(construcao, mina, tipo, ganho);
+    setar_construcao(construcao, mina, tipo, ganho, conquistado);
 
-
+    SDL_Rect dst;
+    dst.x = hexagonos[7][9]->x;
+    dst.y = hexagonos[7][9]->y;
+    dst.h = 0;
+    dst.w = 0;
+    //SDL_BlitSurface(mina, &cutBox,  screen, &dst);
+    BlitImage(screen,mina,hexagonos[7][9]->x,hexagonos[7][9]->y);
+    hexagonos[7][9]->construcao = construcao;
 
 }
 

@@ -11,6 +11,9 @@
 #include "../../../../include/loop.h"
 #include "../../../../include/gamefeatures.h"
 
+SDL_Surface *screen;
+SDL_Surface *nome1;
+
 
 void evolucao_soldado(Pais *pais){
     for(unsigned int i=0;i<hexagonos.size();i++){
@@ -46,9 +49,19 @@ void evolucao_quartel(Pais *pais){
             if(hexagonos[i][j]->contem_unidade==1){
                 if(hexagonos[i][j]->unidade->cor == pais->cor){
                     if(hexagonos[i][j]->unidade->tipo == "quartel"){
+                        if(hexagonos[i][j]->unidade->cor == "azul"){
+                            string caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_quartel_azul.png";
+                            nome1 = load_Image(caminho, screen);
+                        }
+                        else{
+                            string caminho = "source/GameFeatures/Jogar/Fase1/images/bryjstudios_quartel_vermelho.png";
+                            nome1 = load_Image(caminho, screen);
+                        }
                         hexagonos[i][j]->unidade->hp = 1250;
                         hexagonos[i][j]->unidade->atk = 0;
                         hexagonos[i][j]->unidade->def = 500;
+                        hexagonos[i][j]->unidade->nome = nome1;
+
                     }
                 }
             }

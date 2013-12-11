@@ -64,21 +64,9 @@ void blit_tela(SDL_Surface *screen, int tela){
                                 if(hexagonos[2][13]->contem_unidade)
                                     BlitImage(screen,hexagonos[2][13]->unidade->nome,hexagonos[2][13]->x,hexagonos[2][13]->y);
                             }
-                    /*
-                    ///Lógica mágica para dar blit na metralhadora (NÃO MECHE NISSO)
-                    else{
-
-                        if(aux==0){
-                            aux=1;
-                            //unit = hexagonos[i][j]->unidade;
-                            //i_menor=i;
-                            //j_menor=j;
-                            BlitImage(screen,hexagonos[i][j]->unidade->nome,hexagonos[i][j]->x,hexagonos[i][j]->y);
-                        }
-
-                    }*/
+                }
+                BlitImage(screen, hexagonos[7][9]->construcao->nome, hexagonos[7][9]->x, hexagonos[7][9]->y);
             }
-        }
     }
 }
 

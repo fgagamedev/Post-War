@@ -71,15 +71,15 @@ void carrega_franca(SDL_Surface *screen,string lado){
 
     for(int i=6, j=1;i<8;i++,j+=30){
 
-        string caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_vermelho.png";
+        string caminho = "source/GameFeatures/Jogar/Fase2/images/tanque_vermelho.png";
         SDL_Surface *tanque = load_Image(caminho, screen);
-        caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_vermelho.png";
+        caminho = "source/GameFeatures/Jogar/Fase2/images/tanque_vermelho.png";
         SDL_Surface *ataque_tanque = load_Image(caminho, screen);
-        caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_ataqueParaBaixo(vermelho).png";
+        caminho = "source/GameFeatures/Jogar/Fase2/images/tanque_ataqueParaBaixo(vermelho).png";
         SDL_Surface *ataque_baixo = load_Image(caminho, screen);
-        caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_ataqueParaCima(vermelho).png";
+        caminho = "source/GameFeatures/Jogar/Fase2/images/tanque_ataqueParaCima(vermelho).png";
         SDL_Surface *ataque_cima = load_Image(caminho, screen);
-        caminho = "source/GameFeatures/Jogar/Fase1/images/tanque_lateral_vermelho.png";
+        caminho = "source/GameFeatures/Jogar/Fase2/images/tanque_lateral_vermelho.png";
         SDL_Surface *tanque_lateral= load_Image(caminho, screen);
         Unidade *tanque1 = new Unidade();
 
@@ -98,11 +98,11 @@ void carrega_franca(SDL_Surface *screen,string lado){
         hexagonos[i*2][3]->contem_unidade = 1;
     }
 
-    string caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_esquerda1.png";
+    string caminho = "source/GameFeatures/Jogar/Fase2/images/metralhadora_vermelha_esquerda1.png";
     SDL_Surface *metralhadora1 = load_Image(caminho, screen);
-    caminho = "source/GameFeatures/Jogar/Fase1/images/metralhadora_vermelha_ataque.png";
+    caminho = "source/GameFeatures/Jogar/Fase2/images/metralhadora_vermelha_ataque.png";
     SDL_Surface *metralhadora_ataque = load_Image(caminho, screen);
-    caminho = "source/GameFeatures/Jogar/Fase1/images/barraLateral_vermelho.png";
+    caminho = "source/GameFeatures/Jogar/Fase2/images/barraLateral_vermelho.png";
     SDL_Surface *metralhadora_lateral = load_Image(caminho, screen);
     Unidade *metralhadora = new Unidade();
     string unidadea2 = "metralhadora";

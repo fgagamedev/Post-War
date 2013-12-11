@@ -126,6 +126,12 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                     }
 
                                     if(alcance_movimento_soldado()){
+                                        cout << "aqui:" << hexagonos[7][9]->construcao->tipo << endl;
+                                        if(hexagonos[7][9]->construcao->tipo == "mina" && hexagonos[7][9]->construcao->conquistado == 0){
+                                            hexagonos[7][9]->construcao->conquistado = 1;
+                                            minerio_vermelho += 20;
+                                            break;
+                                        }
                                         strcpy (codigo_s,"00");
                                         codigo_s[2] = (char)(((int)'0')+hex_selecao->i_antes);
                                         codigo_s[3] = (char)(((int)'0')+hex_selecao->j_antes);
@@ -133,6 +139,8 @@ void fase1(SDL_Surface *screen,string qual_maquina){
                                         codigo_s[5] = (char)(((int)'0')+hex_selecao->j);
                                         //cout<<"Enviando msg..."<<endl;
                                         enviar_msg(Sclient,codigo_s);
+
+
                                         //cout<<"A mensagem enviada foi: "<<codigo_s  <<endl;
                                         mover_soldado(screen, hexagonos[hex_selecao->i][hex_selecao->j]->x,hexagonos[hex_selecao->i][hex_selecao->j]->y, totalElapsedTime, delay, lastdt);
                                         pontos_jogador1 -= 3;

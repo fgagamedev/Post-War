@@ -34,6 +34,7 @@ typedef struct _Construcao{
 	SDL_Surface *nome;
 	string tipo;
 	int ganho;
+	int conquistado;
 }Construcao;
 
 typedef struct _Hexagonos{
@@ -43,6 +44,7 @@ typedef struct _Hexagonos{
 	bool contem_unidade : 1;
 	bool obstaculo : 1;
 	Unidade *unidade;
+	Construcao *construcao;
 	int centro_x;
 	int centro_y;
 	int raio;
