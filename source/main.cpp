@@ -1,36 +1,36 @@
-#include<iostream>
+#include <iostream>
+#include "../include/draw.h"
+#include "../include/video.h"
+#include "../include/gamefeatures.h"
+#include <SDL/SDL.h>
+#include <SDL/SDL_image.h>
 
 using namespace std;
 
 extern void update_time();
-extern int get_Input();
+extern void get_Input();
 extern void get_Network_Messages();
 extern void simulated_World();
 extern void collision_Step();
 extern void update_Objects();
-extern void render_World(int op);
+extern SDL_Surface *render_World();
 extern void misc_Tasks();
 
 int main(){
-
-    int retorno_input;
-
+    SDL_Surface *screen = render_World();
+    load_menu(screen);
+    /*
     while (1) {
         update_time();
-        retorno_input = get_Input();
+        get_Input();
         get_Network_Messages();
         simulated_World();
         collision_Step();
         update_Objects();
-        render_World(retorno_input);
+        render_World();
         misc_Tasks();
-        //return 0;
+        menu(screen);
+        return 0;
     }
-
-
-
-
-
-
-
+    */
 }

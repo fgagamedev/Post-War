@@ -26,7 +26,7 @@ void init(){
 	//Initialize SDL_mixer
 	if( Mix_OpenAudio(22050, audio_format, 2, 4096) < 0){
 		printf("Mix_OpenAudio> %s\n", Mix_GetError());
-		exit(1);
+		// exit(1);
 	}
 	atexit(Mix_CloseAudio);
 }
